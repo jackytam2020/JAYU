@@ -12,19 +12,18 @@ function BottomHalf(){
 
         <View style={bottomHalf.boxRow}>
             <View style={bottomHalf.box}>
-                <Text style={bottomHalf.boxText}>Today's Tasks</Text>
-            </View>
-            <View style={bottomHalf.box}>
-                <Text style={bottomHalf.boxText}>Community</Text>
+                <Text style={bottomHalf.boxText}> View Today's Tasks</Text>
             </View>
         </View>
+            
+            <View style={bottomHalf.box}>
+                <Text style={bottomHalf.boxText2}>Community</Text>
+            </View>
+        
 
         <View style={bottomHalf.boxRow2}>
             <View style={bottomHalf.box}>
-                <Text style={bottomHalf.boxText}>View Marks</Text>
-            </View>
-            <View style={bottomHalf.box}>
-                <Text style={bottomHalf.boxText}>Settings</Text>
+                <Text style={bottomHalf.boxText2}>View Marks</Text>
             </View>
         </View>
 

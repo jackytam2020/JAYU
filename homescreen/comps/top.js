@@ -11,7 +11,7 @@ function TopHalf(){
     <View style={styles.top}>
         {/* Greeting */}
         <View>
-            <Text style={topHalf.greetingText}>Good Morning Name</Text>
+            <Text style={topHalf.greetingText}>Good Morning User</Text>
             <Text style={topHalf.progressSpan}>so far, you're doing great!</Text>
         </View>
 
