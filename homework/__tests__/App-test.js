@@ -1,10 +1,14 @@
+/**
+ * @format
+ */
+
 import 'react-native';
 import React from 'react';
-import Calendar from '../comps/calendar';
+import App from '../App';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  renderer.create(<Page />);
+  renderer.create(<App />);
 });
