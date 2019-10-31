@@ -1,0 +1,80 @@
+import {StyleSheet} from 'react-native'
+
+const markStyles = StyleSheet.create({
+    navBar:{
+        flex:0.1,
+        flexDirection:"row",
+        alignItems:'center',
+        marginTop:30
+    },
+    subjectBar:{
+        flex:.1,
+        flexDirection:'row',
+        justifyContent:"center"
+    },
+    subject:{
+        flex:0.8,
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    progressBar:{
+        flex:0.15,
+        marginTop:35,
+        flexDirection:'row',
+        justifyContent:'center'
+    },
+    progressBG:{
+        flex:0.8,
+        backgroundColor:"rgba(255,255,255,0.4)",
+        borderRadius:20,
+        flexDirection:'row',
+        justifyContent:'center'
+    },
+    progress:{
+        flex:0.8,
+        flexDirection:'row'
+    },
+    editBar:{
+        flex:0.09,
+        flexDirection:'row',
+        justifyContent:'center',
+        marginTop:20,
+    },
+    edit:{
+        flex:0.8,
+        flexDirection:'row',
+    },
+    editboxes:{
+        flex:0.95,
+        backgroundColor:'white',
+        borderRadius:10,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    gradeBox:{
+        top:20,
+        flex:0.43,
+        backgroundColor:"rgba(255,255,255,0.4)",
+        flexDirection:'row',
+        justifyContent:'center'
+    },
+    inputs:{
+        flex:0.85,
+    },
+    inputRow:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        top:10,
+        marginBottom:30
+    },
+    inputTitle:{
+        fontSize:15,
+        color:'grey'
+    },
+    markName:{
+        fontSize:25,
+    }
+    
+})
+
+export default markStyles
