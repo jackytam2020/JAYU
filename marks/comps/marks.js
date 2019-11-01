@@ -1,6 +1,7 @@
 import React from 'react';
 import { View,Text,Button, ScrollView} from 'react-native';
-import markStyles from '../styles/markStyles'
+import markStyles from '../styles/markStyles';
+import FooterBar from '../comps/footerBar';
 
 function Marks(){
   return (
@@ -89,6 +90,9 @@ function Marks(){
                 </ScrollView>
             </View>
 
+        </View>
+        <View style={{flex:0.13, justifyContent:'flex-end'}}>
+            <FooterBar />
         </View>
     </View>
   );
