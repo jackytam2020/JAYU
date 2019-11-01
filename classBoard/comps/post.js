@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {View,Text, Button, TextInput, ImageBackground, ScrollView} from 'react-native';
 import postStyle from '../styles/postStyle';
+import FooterBar from '../comps/footerBar';
 
 function Post(){
     const [upvotes, setUpvotes] = useState(0);
@@ -43,10 +44,7 @@ function Post(){
 
         {/* Attachment area */}
         <View style={postStyle.attachmentBox}>
-            <ImageBackground 
-                source={{url:'https://www.petmd.com/sites/default/files/senior-golden-retriever-with-ball-picture-id488657289.jpg'}}
-                style={{width:'100%', height:'100%'}}
-            />
+            {/* there should be no child elements here if user does not have an attachment */}
         </View>
 
         {/* Response box */}
@@ -70,20 +68,60 @@ function Post(){
 
         {/* Replies section */}
         <View style={postStyle.repliesContainer}>
-            <View style={postStyle.repliesBox}>
-                <View style={postStyle.repliesTop}>
-                    <View style={postStyle.repliesName}>
-                        <Text>Mitch</Text>
-                        <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
+            <ScrollView>
+                <View style={postStyle.scrollBox}>
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text>Mitch</Text>
+                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                            </View>
+                        </View>
+                        <View style={postStyle.repliesBot}>
+                            <Text>{RepliesValue}</Text>
+                        </View>
                     </View>
-                    <View style={[postStyle.repliesVotes]}>
-                        <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text>Mitch</Text>
+                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                            </View>
+                        </View>
+                        <View style={postStyle.repliesBot}>
+                            <Text>{RepliesValue}</Text>
+                        </View>
+                    </View>
+
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text>Mitch</Text>
+                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                            </View>
+                        </View>
+                        <View style={postStyle.repliesBot}>
+                            <Text>{RepliesValue}</Text>
+                        </View>
                     </View>
                 </View>
-                <View style={postStyle.repliesBot}>
-                    <Text>{RepliesValue}</Text>
-                </View>
-            </View>
+            </ScrollView>
+
+        </View>
+
+        <View style={{height:'10%', width:"100%",position:'absolute', bottom:"-2%"}}>
+            <FooterBar
+              />
         </View>
        
       </View>

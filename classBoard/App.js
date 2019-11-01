@@ -7,7 +7,7 @@ import Post from './comps/post'
 
 function App(){
   return (
-      <View>
+      <View style={{flex:1}}>
         <Post />
       </View>
     )

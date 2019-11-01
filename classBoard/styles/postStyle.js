@@ -2,25 +2,20 @@ import {StyleSheet} from 'react-native'
 
 const postStyle = StyleSheet.create({
     container:{
-        display: "flex",
-        height:'100%',
-        width:'100%',
+        flex:1,
         backgroundColor:'#f2f2f2',
         position:'relative',
     },
     navBar:{
-        display:'flex',
         position:'relative',
-        height:'10%',
+        flex:0.15,
         width:'100%',
-        marginTop:30,
         flexDirection:'row',
         alignItems:"center",
     },
     post:{
-        display:'flex',
         position:'relative',
-        height:"5%",
+        flex:0.1,
         width:'100%',
         backgroundColor:'white',
         alignItems:'center'
@@ -66,8 +61,6 @@ const postStyle = StyleSheet.create({
         position:"relative",
         width:"100%",
         minHeight:0,
-        maxHeight:'40%',
-        height:"auto",
     },
     responseContainer:{
         position:'relative',
@@ -90,18 +83,22 @@ const postStyle = StyleSheet.create({
     repliesContainer:{
         position:'relative',
         width:'100%',
-        maxHeight:'55%',
-        alignItems:'center',
+        flex:1,
         top:30,
-        marginBottom:15
+        marginBottom:15,
+    },
+    scrollBox:{
+        flex:0.1,
+        alignItems:'center'
     },
     repliesBox:{
         position:'relative',
-        width:'90%',
         minHeight:'10%',
+        width:"90%",
         height:'auto',
         backgroundColor:'white',
         borderRadius:10,
+        marginBottom:10
     },
     repliesTop:{
         width:"100%",
