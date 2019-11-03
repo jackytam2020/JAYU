@@ -2,9 +2,9 @@ import {StyleSheet} from 'react-native';
 
 const classBoardStyles = StyleSheet.create({
     container:{
-            flex:1,
-            backgroundColor:'#f2f2f2',
-            alignItems:'center'
+        flex:1,
+        backgroundColor:'#f2f2f2',
+        alignItems:'center'
     },
     navBar:{
         display:'flex',

@@ -8,7 +8,6 @@ const scheduleStyle = StyleSheet.create({
     },
     calendar: {
         position:'relative',
-        opacity:0.1
     },
     topNav:{
         width:'100%',
@@ -19,8 +18,6 @@ const scheduleStyle = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
-        opacity:0.1
-        
     },
 })
 

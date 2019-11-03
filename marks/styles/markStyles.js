@@ -61,11 +61,28 @@ const markStyles = StyleSheet.create({
     inputs:{
         flex:0.85,
     },
+    inputTitleRow:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        top:10,
+        marginBottom:30,
+    },
+    cancel:{
+       
+    },
+    cancel1:{
+        height:20, 
+        width:20, 
+        backgroundColor:'red', 
+        borderRadius:40,
+        marginRight:10,
+        top:5
+    },
     inputRow:{
         flexDirection:'row',
         justifyContent:'space-between',
         top:10,
-        marginBottom:30
+        marginBottom:30,
     },
     inputTitle:{
         fontSize:15,

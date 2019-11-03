@@ -3,9 +3,12 @@ import {View, Text, Button} from 'react-native';
 import {Calendar, CalendarList} from 'react-native-calendars'
 import scheduleStyle from '../styling/scheduleStyle'
 import NewClass from '../comps/newClass'
+import EditClass from '../comps/editClass'
+import AdjustingClass from '../comps/adjustingClass';
 
 function Schedule(){
     const [link, setOpacity] = useState(0.1);
+    const [editSlide, setEditSlide] = useState(0);
     return(
         <View style={scheduleStyle.container}> 
             <View style={scheduleStyle.topNav}>
@@ -14,6 +17,9 @@ function Schedule(){
                 />
                 <Button 
                     title={'add'}
+                    onPress={()=>{
+                        setEditSlide('95%')
+                    }}
                 />
             </View>
             <Calendar
@@ -26,9 +32,11 @@ function Schedule(){
             }}
             hideArrows={false}
             />
-            <NewClass 
-            />
-            
+           
+            <View style={{height:editSlide, width:'100%', position:'absolute', bottom:0}}>
+                <AdjustingClass />
+            </View>   
+
         </View>
     )
 }

@@ -8,11 +8,12 @@
 
 import React from 'react';
 import {View, Text} from 'react-native';
-import Schedule from './comps/calendar'
+import Schedule from './comps/calendar';
+import AdjustingClass from './comps/adjustingClass';
 
 function App(){
   return(
-    <View>
+    <View style={{flex:1}}>
       <Schedule />
     </View>
   )
