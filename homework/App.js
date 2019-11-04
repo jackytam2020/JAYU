@@ -8,14 +8,15 @@
 
 import React from 'react';
 import {View, Text, Image, ImageBackground} from 'react-native';
+import Tophw from './comps/Top';
 
 function App(){
   return (
-    <View>
-      <Text>Hello There</Text>
+    <View style={{flex:1}}>
+      <Tophw />
     </View>
-  )
-}
+  );
+};
 
 export default App;
 
