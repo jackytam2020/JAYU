@@ -20,7 +20,9 @@ function SetUp(){
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={SetUpStyle.navi}>
+            <TouchableOpacity>
               <Text style={SetUpStyle.back}><Text style={SetUpStyle.backarrow}> 􀆉</Text> Back</Text>
+            </TouchableOpacity>
               <Text style={SetUpStyle.navTitle}>Set Up</Text>
           </View>
           {/* Questions 1 */}

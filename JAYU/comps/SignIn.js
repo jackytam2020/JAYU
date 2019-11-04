@@ -28,7 +28,11 @@ function SignIn(){
                 {/* sign in descriptions */}
                 <Text style={SignInStyle.Signinds}>Sign in with Apple helps keep your data consistent across all your devices</Text>
                 {/* Terms and conditions */}
-                <Text style={SignInStyle.Terms}>By signing in, you are agreed to the <Text style={SignInStyle.Termblue}>JAYU's Terms and Conditions 􀆊</Text></Text>
+                <Text style={SignInStyle.Terms}>By signing in, you are agreed to the</Text>
+                 <TouchableOpacity style={SignInStyle.TermOpacity}>
+                     <Text style={SignInStyle.Termblue}>JAYU's Terms and Conditions 􀆊</Text>
+                </TouchableOpacity>
+                
             </SafeAreaView>
             </ImageBackground>
         </View>

@@ -20,7 +20,9 @@ function Subject(){
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={SubjectStyle.navi}>
-              <Text style={SubjectStyle.back}><Text style={SubjectStyle.backarrow}> 􀆉</Text> Back</Text>
+              <TouchableOpacity>
+                <Text style={SubjectStyle.back}><Text style={SubjectStyle.backarrow}> 􀆉</Text> Back</Text>
+              </TouchableOpacity>
               <Text style={SubjectStyle.navTitle}>Subjects</Text>
           </View>
           {/* Questions 1 */}

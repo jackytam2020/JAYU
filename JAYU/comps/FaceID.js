@@ -15,7 +15,9 @@ function FaceID(){
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={FaceIDStyle.navi}>
-              <Text style={FaceIDStyle.back}><Text style={FaceIDStyle.backarrow}> 􀆉</Text> Back</Text>
+            <TouchableOpacity>
+                <Text style={FaceIDStyle.back}><Text style={FaceIDStyle.backarrow}> 􀆉</Text> Back</Text>
+              </TouchableOpacity>
               <Text style={FaceIDStyle.navTitle}>Face ID</Text>
           </View>
           {/* Questions 1 */}

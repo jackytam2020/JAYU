@@ -67,7 +67,21 @@ SignInStyle = StyleSheet.create({
         textAlign:"center",
      },
      Termblue:{
-         color:"#007AFF"
+         color:"#007AFF",
+         fontFamily:"SFCompactRounded-Regular",
+        fontSize:18,
+        paddingLeft:30,
+        paddingRight:30,
+        textAlign:"center"
+     },
+     TermOpacity:{
+         width: "100%",
+         height: 30,
+         display:"flex",
+         alignItems:"center",
+         //justifyContent:"center",
+         //backgroundColor:"#FAB",
+         marginTop: 1
      }
   });
 

@@ -13,7 +13,9 @@ function PasscodeInput(){
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={PasscodeInputStyle.navi}>
-              <Text style={PasscodeInputStyle.Cancel}> Cancel</Text>
+              <TouchableOpacity>
+                <Text style={PasscodeInputStyle.Cancel}> Cancel</Text>
+              </TouchableOpacity>
           </View>
           {/* Passcode input */}
           <View style={PasscodeInputStyle.passcodeform}>

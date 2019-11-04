@@ -21,7 +21,9 @@ function Term(){
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={TermStyle.navi}>
-              <Text style={TermStyle.back}>Done</Text>
+              <TouchableOpacity>
+                <Text style={TermStyle.back}>Done</Text>
+              </TouchableOpacity>
           </View>
           {/* Title */}
           <View style={TermStyle.TermTitleView}>

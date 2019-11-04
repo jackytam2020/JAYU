@@ -14,7 +14,9 @@ function Passcode(){
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={PasscodeStyle.navi}>
+            <TouchableOpacity>
               <Text style={PasscodeStyle.back}><Text style={PasscodeStyle.backarrow}> 􀆉</Text> Back</Text>
+            </TouchableOpacity>
               <Text style={PasscodeStyle.navTitle}>Passcode</Text>
           </View>
           {/* Questions 1 */}

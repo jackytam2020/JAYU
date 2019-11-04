@@ -30,13 +30,13 @@ function App() {
   return (
     <View>
       {/* <SignIn/> */}
-      <Term/>
+      {/* <Term/> */}
       {/* <SetUp/> */}
       {/* <Passcode/> */}
       {/* <PasscodeInput /> */}
       {/* <PasscodeReInput /> */}
       {/* <FaceID/> */}
-      {/* <Subject/> */}
+      <Subject/>
     </View>
   )
 };
