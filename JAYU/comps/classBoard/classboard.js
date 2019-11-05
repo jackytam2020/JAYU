@@ -108,9 +108,8 @@ function Classboard(){
 
           </View>
 
-          <View style={{flex:0.13, width:'100%', position:'relative', justifyContent:'flex-end'}}>
-            <FooterBar
-              />
+          <View style={{height:'10%', width:'100%', position:'absolute', bottom:0}}>
+            <FooterBar/>
           </View>
         
       </View>

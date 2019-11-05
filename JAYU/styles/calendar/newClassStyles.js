@@ -3,9 +3,9 @@ import {StyleSheet} from 'react-native';
 const newClassStyle = StyleSheet.create({
     container: {
         display: "flex",
-        height:'95%',
+        height:'100%',
         width:'100%',
-        backgroundColor:'#DAB',
+        backgroundColor:'white',
         position:'absolute',
         bottom:0,
         borderRadius:30

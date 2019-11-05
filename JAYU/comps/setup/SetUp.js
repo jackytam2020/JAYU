@@ -13,14 +13,20 @@ import {
   Divider,
   TextInput
 } from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-function SetUp(){
+function SetUp(props){
     return(
         <View style={SetUpStyle.app}>
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={SetUpStyle.navi}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={()=>{
+                props.navigation.goBack()
+                }}
+            >
               <Text style={SetUpStyle.back}><Text style={SetUpStyle.backarrow}> 􀆉</Text> Back</Text>
             </TouchableOpacity>
               <Text style={SetUpStyle.navTitle}>Set Up</Text>
@@ -79,7 +85,11 @@ function SetUp(){
           </View>
           {/* Next button */}
           <View style={SetUpStyle.NextButtonView}>
-            <TouchableOpacity style={SetUpStyle.NextButton}>
+            <TouchableOpacity style={SetUpStyle.NextButton}
+                onPress={()=>{
+                  props.navigation.navigate('Passcode')
+                }}
+            >
               <Text style={SetUpStyle.NextButtonText}>Next 􀆊</Text>
             </TouchableOpacity>
           </View>

@@ -14,13 +14,17 @@ import {
   TextInput
 } from 'react-native';
 
-function Subject(){
+function Subject(props){
     return(
         <View style={SubjectStyle.app}>
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={SubjectStyle.navi}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                  onPress={()=>{
+                      props.navigation.goBack()
+                   }}
+              >
                 <Text style={SubjectStyle.back}><Text style={SubjectStyle.backarrow}> 􀆉</Text> Back</Text>
               </TouchableOpacity>
               <Text style={SubjectStyle.navTitle}>Subjects</Text>
@@ -72,7 +76,11 @@ function Subject(){
           </View>
           {/* JAYU button */}
           <View style={SubjectStyle.NextButtonView}>
-            <TouchableOpacity style={SubjectStyle.NextButton}>
+            <TouchableOpacity style={SubjectStyle.NextButton}
+               onPress={()=>{
+                    props.navigation.navigate('HomeScreen')
+               }}
+            >
               <Text style={SubjectStyle.NextButtonText}>Start using JAYU 􀆊</Text>
             </TouchableOpacity>
           </View>

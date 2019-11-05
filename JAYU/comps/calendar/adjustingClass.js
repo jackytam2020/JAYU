@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { View,Text,Button, TextInput, TouchableOpacity,DatePickerIOS} from 'react-native';
 import CheckBox from 'react-native-check-box'
 import adjustClassStyles from '../../styles/calendar/adjustingStyles';
+import newClassStyle from '../../styles/calendar/newClassStyles';
 import BackDone from '../../comps/calendar/backDoneButtons';
 
 
@@ -144,9 +145,17 @@ function AdjustingClass(){
         </View>
 
         {/* Back and done buttons */}
-        <View style={{height:'10%', width:'100%',flexDirection:'row', justifyContent:'center', top:"85%", position:'absolute'}}>
-           <BackDone />
-        </View>                
+        <View style={newClassStyle.CancelNextContainer}>
+                <View style={newClassStyle.CancelNext
+                }> 
+                        <TouchableOpacity style={newClassStyle.cancel}>
+                            <Text style={{fontSize:20}}>Cancel</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={newClassStyle.done}>
+                            <Text style={{fontSize:20}}>Done</Text>
+                        </TouchableOpacity>
+                </View>
+        </View>             
     </View>
   );
 

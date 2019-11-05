@@ -11,7 +11,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-function SignIn(){
+function SignIn(props){
     return(
         <View style={SignInStyle.app}>
             <ImageBackground source={require('../../assets/BackgroundImages/SignInBackground.png')}style={SignInStyle.BackGround}>
@@ -23,7 +23,11 @@ function SignIn(){
                 {/* button */}
                 <TouchableOpacity style={SignInStyle.button}>
                     <Image source={require('../../assets/Images/Apple_Logo.png')} style={SignInStyle.applelogo}></Image>
-                    <Text style={SignInStyle.buttontext}>Sign in with Apple</Text>
+                    <Text style={SignInStyle.buttontext}
+                        onPress={()=>{
+                            props.navigation.navigate('Term')
+                        }}
+                    >Sign in with Apple</Text>
                 </TouchableOpacity>
                 {/* sign in descriptions */}
                 <Text style={SignInStyle.Signinds}>Sign in with Apple helps keep your data consistent across all your devices</Text>

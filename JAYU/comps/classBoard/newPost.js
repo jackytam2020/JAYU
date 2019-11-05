@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,Button} from 'react-native';
+import {View,Text,Button, TouchableOpacity} from 'react-native';
 import newPostStyle from '../../styles/classBoard/newPostStyles'
 
 function Newpost(){
@@ -97,12 +97,12 @@ function Newpost(){
           {/* Cancel and Done buttons */}
             <View style={newPostStyle.CancelNextContainer}>
                 <View style={newPostStyle.CancelNext}> 
-                    <View style={newPostStyle.cancel}>
+                    <TouchableOpacity style={newPostStyle.cancel}>
                         <Text style={{fontSize:20}}>Cancel</Text>
-                    </View>
-                    <View style={newPostStyle.next}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={newPostStyle.next}>
                         <Text style={{fontSize:20}}>Next</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View> 
 

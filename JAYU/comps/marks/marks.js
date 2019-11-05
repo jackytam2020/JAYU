@@ -4,8 +4,9 @@ import markStyles from '../../styles/marks/markStyles';
 import FooterBar from '../../comps/footerBar';
 import EditMark from '../../comps/marks/editMark';
 import NewMark from '../../comps/marks/newMark'
+import { tsPropertySignature } from '@babel/types';
 
-function Marks(){
+function Marks(props){
     const [cancel, setCancel] = useState(markStyles.cancel)
     const [editBut, setEditBut] = useState("Edit Mark")
     const [slideup, setSlideup] = useState(0)
@@ -16,6 +17,9 @@ function Marks(){
                 <View style={{width:"20%", position:'relative'}}>
                     <Button 
                         title="Back"
+                        onPress={()=>{
+                            props.navigation.goBack()
+                        }}
                     />
                 </View>
                 <View style={{width:"100%", position:'absolute', alignItems:'center'}}>
@@ -130,9 +134,9 @@ function Marks(){
 
             </View>
             
-            <View style={{flex:0.13, width:'100%', position:'relative', justifyContent:'flex-end'}}>
+            <View style={{height:'10%', width:'100%', position:'absolute', bottom:0}}>
                 <FooterBar/>
-           </View>
+            </View>
 
             {/*Slide up pages */}
             <View style={{height:slideup, width:'100%', position:'absolute', bottom:0}}>

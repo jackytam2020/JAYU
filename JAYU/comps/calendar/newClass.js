@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, TouchableOpacity} from 'react-native';
 import newClassStyle from '../../styles/calendar/newClassStyles';
 
 function NewClass(){ 
@@ -68,12 +68,12 @@ function NewClass(){
             <View style={newClassStyle.CancelNextContainer}>
                 <View style={newClassStyle.CancelNext
                 }> 
-                        <View style={newClassStyle.cancel}>
+                        <TouchableOpacity style={newClassStyle.cancel}>
                             <Text style={{fontSize:20}}>Cancel</Text>
-                        </View>
-                        <View style={newClassStyle.done}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={newClassStyle.done}>
                             <Text style={{fontSize:20}}>Done</Text>
-                        </View>
+                        </TouchableOpacity>
                 </View>
             </View> 
         </View>

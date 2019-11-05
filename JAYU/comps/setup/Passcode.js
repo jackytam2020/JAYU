@@ -8,13 +8,17 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-function Passcode(){
+function Passcode(props){
     return(
         <View style={PasscodeStyle.app}>
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={PasscodeStyle.navi}>
-            <TouchableOpacity>
+            <TouchableOpacity
+                    onPress={()=>{
+                      props.navigation.goBack()
+                  }}
+            >
               <Text style={PasscodeStyle.back}><Text style={PasscodeStyle.backarrow}> 􀆉</Text> Back</Text>
             </TouchableOpacity>
               <Text style={PasscodeStyle.navTitle}>Passcode</Text>
@@ -29,7 +33,11 @@ function Passcode(){
           </View>
           {/* Next button */}
           <View style={PasscodeStyle.NextButtonView}>
-            <TouchableOpacity style={PasscodeStyle.NextButton}>
+            <TouchableOpacity style={PasscodeStyle.NextButton}
+                  onPress={()=>{
+                     props.navigation.navigate('PasscodeInput')
+                  }}
+            >
               <Text style={PasscodeStyle.NextButtonText}>Next 􀆊</Text>
             </TouchableOpacity>
           </View>

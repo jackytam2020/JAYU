@@ -7,13 +7,17 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-function PasscodeInput(){
+function PasscodeInput(props){
     return(
         <View style={PasscodeInputStyle.app}>
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={PasscodeInputStyle.navi}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                  onPress={()=>{
+                      props.navigation.navigate('Subject')
+                    }}
+              >
                 <Text style={PasscodeInputStyle.Cancel}> Cancel</Text>
               </TouchableOpacity>
           </View>

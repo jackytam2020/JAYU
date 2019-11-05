@@ -5,10 +5,12 @@ import scheduleStyle from '../../styles/calendar/scheduleStyle'
 import NewClass from '../../comps/calendar/newClass'
 import EditClass from '../../comps/calendar/editClass'
 import AdjustingClass from '../../comps/calendar/adjustingClass';
+import FooterBar from '../../comps/footerBar'
 
 function Schedule(){
     const [link, setOpacity] = useState(0.1);
     const [editSlide, setEditSlide] = useState(0);
+    const [footerDim, setFooterDim]= useState('flex')
     return(
         <View style={scheduleStyle.container}> 
             <View style={scheduleStyle.topNav}>
@@ -19,6 +21,7 @@ function Schedule(){
                     title={'add'}
                     onPress={()=>{
                         setEditSlide('95%')
+                        setFooterDim('none')
                     }}
                 />
             </View>
@@ -34,8 +37,13 @@ function Schedule(){
             />
            
             <View style={{height:editSlide, width:'100%', position:'absolute', bottom:0}}>
-                <AdjustingClass />
+                <NewClass />
             </View>   
+
+            <View style={{width:'100%', height:'10%', position:'absolute', bottom:0, display:footerDim}}>
+                <FooterBar />
+            </View>    
+            
 
         </View>
     )
