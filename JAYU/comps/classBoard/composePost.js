@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
-import {View,Text, Button,TextInput} from 'react-native';
+import {View,Text, Button,TextInput, TouchableOpacity} from 'react-native';
 import composeStyle from '../../styles/classBoard/compostPostStyles'
 
-function CompostPost(){
+function CompostPost(props){
     const [value, setValue] = useState("Write your discussion...")
 
   return (
       <View style={composeStyle.container}>
           <View style={composeStyle.navBar}>
-            <View style={{position:'relative', width:"20%"}}>
-                <Button title={"Back"}/>  
-            </View>
+                <TouchableOpacity
+                     onPress={()=>{
+                           props.navigation.goBack()
+                      }}>
+                    <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}} >back</Text>
+               </TouchableOpacity>
             <View style={{position:'absolute', width:"100%", alignItems:'center'}}> 
                 <Text style={{fontSize:20}}>New Post</Text>
             </View>
@@ -31,7 +34,11 @@ function CompostPost(){
                   
               </View>
               <View style={composeStyle.rightDetail}>
-                    <View style={{height:30,width:30, backgroundColor:"#007aff", borderRadius:40}}></View>
+                    <TouchableOpacity style={{height:30,width:30, backgroundColor:"#007aff", borderRadius:40}}
+                          onPress={()=>{
+                            props.navigation.navigate('Classboard')
+                         }}>
+                    </TouchableOpacity>
                     <Text style={{color:'#007aff'}}>Post</Text>
               </View>
           </View>

@@ -66,9 +66,13 @@ function HomeScreen(props){
                         <View style={styles.boxItems}>
                             <View style={styles.boxRow}>
                                 <View style={{flex:0.25}}></View>
-                                <View style={{flex:0.75}}>
+                                <TouchableOpacity style={{flex:0.75}}
+                                     onPress={()=>{
+                                        props.navigation.navigate('Schedule')
+                                     }}
+                                >
                                     <Text style={{fontSize:15}}>Calendar</Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>   
@@ -77,9 +81,13 @@ function HomeScreen(props){
                         <View style={styles.boxItems}>
                             <View style={styles.boxRow}>
                                 <View style={{flex:0.25}}></View>
-                                <View style={{flex:0.75}}>
+                                <TouchableOpacity style={{flex:0.75}}
+                                    onPress={()=>{
+                                        props.navigation.navigate('Homework')
+                                     }}
+                                >
                                     <Text style={{fontSize:15}}>Homework</Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
@@ -88,9 +96,13 @@ function HomeScreen(props){
                         <View style={styles.boxItems}>
                             <View style={styles.boxRow}>
                                 <View style={{flex:0.25}}></View>
-                                <View style={{flex:0.75}}>
+                                <TouchableOpacity style={{flex:0.75}}
+                                     onPress={()=>{
+                                        props.navigation.navigate('Classboard')
+                                    }}
+                                >
                                     <Text style={{fontSize:15}}>ClassBoard</Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>  

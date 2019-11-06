@@ -2,17 +2,11 @@ import {StyleSheet} from 'react-native';
 
 const composeStyle = StyleSheet.create({
     container:{
-        display: "flex",
-        height:'100%',
-        width:'100%',
-        backgroundColor:'#f2f2f2',
-        position:'relative',
+        flex: 1,
+        backgroundColor:'#f2f2f2'
     },
     navBar:{
-        display:'flex',
-        position:'relative',
-        height:'10%',
-        width:'100%',
+        flex:0.15,
         marginTop:30,
         flexDirection:'row',
         alignItems:"center"

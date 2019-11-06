@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button,TouchableOpacity} from 'react-native';
 import {Calendar, CalendarList} from 'react-native-calendars'
 import scheduleStyle from '../../styles/calendar/scheduleStyle'
 import NewClass from '../../comps/calendar/newClass'
@@ -7,23 +7,27 @@ import EditClass from '../../comps/calendar/editClass'
 import AdjustingClass from '../../comps/calendar/adjustingClass';
 import FooterBar from '../../comps/footerBar'
 
-function Schedule(){
+function Schedule(props){
     const [link, setOpacity] = useState(0.1);
     const [editSlide, setEditSlide] = useState(0);
     const [footerDim, setFooterDim]= useState('flex')
     return(
         <View style={scheduleStyle.container}> 
             <View style={scheduleStyle.topNav}>
-                <Button 
-                    title={'back'}
-                />
-                <Button 
-                    title={'add'}
+                <TouchableOpacity
+                        onPress={()=>{
+                                props.navigation.goBack()
+                        }}
+                    >
+                            <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                </TouchableOpacity>
+                 <TouchableOpacity
                     onPress={()=>{
                         setEditSlide('95%')
                         setFooterDim('none')
-                    }}
-                />
+                    }}>
+                         <Text style={{fontSize:20, marginRight:20, color:'#007AFF'}}>back</Text>
+                 </TouchableOpacity>
             </View>
             <Calendar
             style={scheduleStyle.calendar}
@@ -37,7 +41,7 @@ function Schedule(){
             />
            
             <View style={{height:editSlide, width:'100%', position:'absolute', bottom:0}}>
-                <NewClass />
+                <AdjustingClass />
             </View>   
 
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0, display:footerDim}}>

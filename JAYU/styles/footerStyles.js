@@ -7,7 +7,8 @@ const footerStyles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         borderWidth:0.18,
-        borderColor:'black'
+        borderColor:'black',
+        justifyContent:'space-between'
     }
 })
 export default footerStyles;

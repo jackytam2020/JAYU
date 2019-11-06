@@ -1,11 +1,20 @@
 import React from 'react';
-import {View, Text, Button, ScrollView} from 'react-native';
+import {View, Text, Button, ScrollView, TouchableOpacity} from 'react-native';
 import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
-function Tophw(){
+function Tophw(props){
 
     return(
         <View style={TopStyles.container}>
+             <View style={TopStyles.navBar}>
+                <TouchableOpacity
+                       onPress={()=>{
+                            props.navigation.goBack()
+                       }}>
+                        <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                </TouchableOpacity>
+            </View>
+
             <View style={{flex: 0.25, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:20 }}></View>
             <View style={TopStyles.iconCont}>
                 <Text style={TopStyles.icon}>􀙭</Text>

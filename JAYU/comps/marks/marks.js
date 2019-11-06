@@ -4,7 +4,6 @@ import markStyles from '../../styles/marks/markStyles';
 import FooterBar from '../../comps/footerBar';
 import EditMark from '../../comps/marks/editMark';
 import NewMark from '../../comps/marks/newMark'
-import { tsPropertySignature } from '@babel/types';
 
 function Marks(props){
     const [cancel, setCancel] = useState(markStyles.cancel)
@@ -14,14 +13,12 @@ function Marks(props){
   return (
     <View style={{flex:1,backgroundColor:'#fff5d7'}}>
             <View style={markStyles.navBar}>
-                <View style={{width:"20%", position:'relative'}}>
-                    <Button 
-                        title="Back"
-                        onPress={()=>{
+                <TouchableOpacity
+                       onPress={()=>{
                             props.navigation.goBack()
-                        }}
-                    />
-                </View>
+                       }}>
+                        <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>Done</Text>
+                </TouchableOpacity>
                 <View style={{width:"100%", position:'absolute', alignItems:'center'}}>
                     <Text style={{fontSize:25}}>Marks</Text>
                 </View>

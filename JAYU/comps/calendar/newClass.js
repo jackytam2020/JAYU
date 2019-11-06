@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {View, Text, Button, TouchableOpacity} from 'react-native';
 import newClassStyle from '../../styles/calendar/newClassStyles';
 
-function NewClass(){ 
+function NewClass(props){ 
     return(   
         <View style={newClassStyle.container}>  
             <View style={newClassStyle.title}>
@@ -71,7 +71,11 @@ function NewClass(){
                         <TouchableOpacity style={newClassStyle.cancel}>
                             <Text style={{fontSize:20}}>Cancel</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={newClassStyle.done}>
+                        <TouchableOpacity style={newClassStyle.done}
+                             onPress={()=>{
+                                props.navigation.navigate('AdjustingClass')
+                            }}
+                        >
                             <Text style={{fontSize:20}}>Done</Text>
                         </TouchableOpacity>
                 </View>

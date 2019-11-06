@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
-import {View,Text, Button, TextInput, ImageBackground, ScrollView} from 'react-native';
+import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity} from 'react-native';
 import postStyle from '../../styles/classBoard/postStyle';
 import FooterBar from '../../comps/footerBar';
 
-function Post(){
+function Post(props){
     const [upvotes, setUpvotes] = useState(0);
     const [replieUpVotes, setReplieUpVotes] = useState(0);
     const [value, setValue] = useState("Type your answer");
@@ -12,9 +12,12 @@ function Post(){
       <View style={postStyle.container}>
         
         <View style={postStyle.navBar}>
-            <View style={{position:'relative', width:"20%"}}>
-                <Button title={"Back"}/>  
-            </View>
+            <TouchableOpacity style={{position:'relative', width:"20%"}}
+                onPress={()=>{
+                    props.navigation.goBack()
+             }}>
+                <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+            </TouchableOpacity>
         </View>
 
         {/* The Post */}

@@ -1,19 +1,25 @@
 import React from 'react';
-import {View,Text,Button, ScrollView} from 'react-native';
+import {View,Text,Button, ScrollView, TouchableOpacity} from 'react-native';
 import classBoardStyles from '../../styles/classBoard/classBoardStyles'
 import FooterBar from '../../comps/footerBar'
 
-function Classboard(){
+function Classboard(props){
   return (
       <View style={classBoardStyles.container}>
           <View style={classBoardStyles.navBar}>
-            <Button 
-              title={"Back"}
-            />
+              <TouchableOpacity
+                onPress={()=>{
+                    props.navigation.goBack()
+                 }}>
+                    <Text style={{fontSize:20, color:'#007AFF'}}>back</Text>
+               </TouchableOpacity>
             <Text style={{fontSize:20}}>ClassBoard</Text>
-            <Button 
-              title={"Post"}
-            />
+            <TouchableOpacity
+                onPress={()=>{
+                    props.navigation.navigate('NewPost')
+                 }}>
+                    <Text style={{fontSize:20, color:'#007AFF'}}>Post</Text>
+               </TouchableOpacity>
           </View>
 
           {/* Posts */}
@@ -21,13 +27,16 @@ function Classboard(){
               <View style={classBoardStyles.postBox}>
                 <ScrollView>
                   <View style={classBoardStyles.posts}>
-                      <View style={{flexDirection:"row", paddingLeft:10}}>
+                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
+                        onPress={()=>{
+                          props.navigation.navigate('Post')
+                      }}>
                             <View style={{height:20,width:20, backgroundColor:"blue", borderRadius:40}}></View>
                             <View style={{paddingLeft:10}}>  
                               <Text>Advanced Photoshop</Text>
                               <Text style={{fontSize:10}}>9:15pm by Doris</Text>
                             </View>  
-                      </View>
+                      </TouchableOpacity>
 
                       <View style={classBoardStyles.line}></View>  
 

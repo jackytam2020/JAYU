@@ -1,22 +1,34 @@
 import React from 'react';
-import { View,Text,Button} from 'react-native';
+import { View,Text,Button, TouchableOpacity} from 'react-native';
 import footerStyles from '../styles/footerStyles'
 
-function FooterBar(){
+function FooterBar(props){
   return (
     <View style={footerStyles.container}>
-        <Button 
-            title="Calendar"
-        />
-        <Button 
-            title="Homework"
-        />
-        <Button 
-            title="Classboard"
-        />
-        <Button 
-            title="Marks"
-        />
+       <TouchableOpacity
+            onPress={()=>{
+                props.navigation.navigate('Schedule')
+        }}>
+            <Text style={{fontSize:20, color:'#007AFF'}}>Calendar</Text>
+        </TouchableOpacity>                   
+        <TouchableOpacity
+            onPress={()=>{
+                props.navigation.navigate('Tophw')
+        }}>
+            <Text style={{fontSize:20, color:'#007AFF'}}>Homework</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+            onPress={()=>{
+                props.navigation.navigate('Classboard')
+        }}>
+            <Text style={{fontSize:20, color:'#007AFF'}}>Classboard</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+            onPress={()=>{
+                props.navigation.navigate('Marks')
+        }}>
+            <Text style={{fontSize:20, color:'#007AFF'}}>Marks</Text>
+        </TouchableOpacity>
     </View>
   );
 };

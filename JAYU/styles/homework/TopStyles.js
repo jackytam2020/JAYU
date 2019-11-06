@@ -5,8 +5,13 @@ const TopStyles = StyleSheet.create({
         flex:1,
         backgroundColor:"#F2F2F2",
     },
+    navBar:{
+        flex:0.1,
+        flexDirection:"row",
+        alignItems:'center',
+        marginTop:30
+    },
 
-    
     headerText:{
         fontFamily:'SFProDisplay-Regular',
         fontSize:25,

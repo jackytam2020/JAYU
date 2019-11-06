@@ -2,7 +2,7 @@ import React from 'react';
 import {View,Text,Button, TouchableOpacity} from 'react-native';
 import newPostStyle from '../../styles/classBoard/newPostStyles'
 
-function Newpost(){
+function Newpost(props){
   return (
       <View style={newPostStyle.container}>
           <View style={newPostStyle.navBar}>
@@ -97,10 +97,17 @@ function Newpost(){
           {/* Cancel and Done buttons */}
             <View style={newPostStyle.CancelNextContainer}>
                 <View style={newPostStyle.CancelNext}> 
-                    <TouchableOpacity style={newPostStyle.cancel}>
+                    <TouchableOpacity style={newPostStyle.cancel}
+                        onPress={()=>{
+                            props.navigation.goBack()
+                        }}>
                         <Text style={{fontSize:20}}>Cancel</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={newPostStyle.next}>
+                    <TouchableOpacity style={newPostStyle.next}
+                    onPress={()=>{
+                        props.navigation.navigate('ComposePost')
+                    }}
+                    >
                         <Text style={{fontSize:20}}>Next</Text>
                     </TouchableOpacity>
                 </View>
