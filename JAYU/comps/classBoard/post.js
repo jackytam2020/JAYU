@@ -119,10 +119,9 @@ function Post(){
 
         </View>
 
-        <View style={{height:'10%', width:"100%",position:'absolute', bottom:"-2%"}}>
-            <FooterBar
-              />
-        </View>
+        <View style={{height:'10%', width:'100%', position:'absolute', bottom:0}}>
+            <FooterBar/>
+          </View>
        
       </View>
     )

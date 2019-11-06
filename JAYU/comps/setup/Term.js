@@ -15,13 +15,17 @@ import {
   TextInput
 } from 'react-native';
 
-function Term(){
+function Term(props){
     return(
         <View style={TermStyle.app}>
         <SafeAreaView>
           {/* Nav Bar */}
           <View style={TermStyle.navi}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={()=>{
+                props.navigation.navigate('SetUp')
+        }}
+              >
                 <Text style={TermStyle.back}>Done</Text>
               </TouchableOpacity>
           </View>
