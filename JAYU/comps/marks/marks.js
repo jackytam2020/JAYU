@@ -4,12 +4,13 @@ import markStyles from '../../styles/marks/markStyles';
 import FooterBar from '../../comps/footerBar';
 import EditMark from '../../comps/marks/editMark';
 import NewMark from '../../comps/marks/newMark'
+import Modal from "react-native-modal"
 
 function Marks(props){
     const [cancel, setCancel] = useState(markStyles.cancel)
     const [editBut, setEditBut] = useState("Edit Mark")
-    const [slideup, setSlideup] = useState(0)
-    const [slideNewMark, setSlideNewMark] = useState(0)
+    const [slideup, setSlideup] = useState(false)
+    const [slideNewMark, setSlideNewMark] = useState(false)
   return (
     <View style={{flex:1,backgroundColor:'#fff5d7'}}>
             <View style={markStyles.navBar}>
@@ -53,7 +54,7 @@ function Marks(props){
                         >
                             <Text style={{fontSize:20}}
                             onPress={()=>{
-                                setSlideNewMark('93%')
+                                setSlideNewMark(true)
                             }}>Add Mark</Text>
                         </TouchableOpacity>
                     </View>
@@ -88,7 +89,7 @@ function Marks(props){
                                 <TouchableOpacity style={cancel}></TouchableOpacity>
                                 <Text style={markStyles.markName}
                                 onPress={()=>{
-                                    setSlideup('93%')
+                                    setSlideup(true)
                                 }}
                                 >First Project</Text>
                             </View>
@@ -136,12 +137,17 @@ function Marks(props){
             </View>
 
             {/*Slide up pages */}
-            <View style={{height:slideup, width:'100%', position:'absolute', bottom:0}}>
-                <EditMark />
-            </View> 
-            <View style={{height:slideNewMark, width:'100%', position:'absolute', bottom:0}}>
-                <NewMark />
-            </View>   
+            <Modal isVisible={slideup} swipeDirection={'down'} onSwipeComplete={()=>{setSlideup(false)}}>
+                <View style={{ flex:0.9 }}>
+                        <EditMark />
+                </View>
+            </Modal>
+
+            <Modal isVisible={slideNewMark} swipeDirection={'down'} onSwipeComplete={()=>{setSlideNewMark(false)}}>
+                <View style={{ flex:0.9 }}>
+                        <NewMark />
+                </View>
+            </Modal>
     </View>
   );
 };

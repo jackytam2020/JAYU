@@ -21,9 +21,13 @@ import Tophw from './comps/homework/Top'
 import ComposePost from './comps/classBoard/composePost'
 import FooterBar from './comps/footerBar'
 
+
 import {SafeAreaView,StyleSheet,ScrollView,View,Text,StatusBar,} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs'
+
+
 
 
 // App default Navigation stack
@@ -46,7 +50,7 @@ const AppNavigator = createStackNavigator({
   }, 
   {
       // Specifing Initial Screen
-      initalRoute: 'HomeScreen',
+      initalRoute: 'SignIn',
       headerMode: 'none',
   },
 
@@ -54,6 +58,17 @@ const AppNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(AppNavigator);
 
+//Footer Navigation
+
+const TabNavigator = createBottomTabNavigator({
+  HomeFooter: HomeScreen,
+  ScheduleFooter: Schedule,
+  HomeworkFooter: Tophw,
+  ClassboardFooter: Classboard,
+  MarksFooter: Marks
+});
+
+const FooterContainer = createAppContainer(TabNavigator);
 
 function App() {
   return (
