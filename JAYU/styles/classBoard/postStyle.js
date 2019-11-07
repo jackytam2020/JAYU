@@ -8,17 +8,18 @@ const postStyle = StyleSheet.create({
     },
     navBar:{
         position:'relative',
-        flex:0.15,
+        flex:0.10,
         width:'100%',
         flexDirection:'row',
         alignItems:"center",
+        marginTop:35
     },
     post:{
         position:'relative',
         flex:0.1,
         width:'100%',
         backgroundColor:'white',
-        alignItems:'center'
+        alignItems:'center',
     },
     subject:{
         width:'85%',

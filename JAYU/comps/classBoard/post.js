@@ -48,6 +48,9 @@ function Post(props){
         {/* Attachment area */}
         <View style={postStyle.attachmentBox}>
             {/* there should be no child elements here if user does not have an attachment */}
+            <ImageBackground
+            source={require('../../assets/BackgroundImages/original.png')} style={{width:'100%', height:200}}
+            />
         </View>
 
         {/* Response box */}
