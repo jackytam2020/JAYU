@@ -11,7 +11,8 @@ import Modal from "react-native-modal"
 function Schedule(props){
     const [link, setOpacity] = useState(0.1);
     const [editSlide, setEditSlide] = useState(false);
-    const [footerDim, setFooterDim]= useState('flex')
+    const [footerDim, setFooterDim]= useState('flex');
+    const [mode ,setMode] = useState(1);
     return(
         <View style={scheduleStyle.container}> 
             <View style={scheduleStyle.topNav}>
@@ -43,7 +44,8 @@ function Schedule(props){
            
            <Modal isVisible={editSlide} swipeDirection={'down'} onSwipeComplete={()=>{setEditSlide(false)}}>
                 <View style={{ flex:0.9 }}>
-                        <NewClass />
+                    {mode===1?<NewClass setEditSlide={setEditSlide} setMode={setMode} />:null}
+                    {mode===2?<AdjustingClass setEditSlide={setEditSlide} />:null}
                 </View>
             </Modal>
 

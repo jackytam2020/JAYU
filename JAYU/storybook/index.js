@@ -1,6 +1,9 @@
 import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure } from '@storybook/react-native';
 
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+
 //import './rn-addons';
 
 // import stories
@@ -16,5 +19,11 @@ const StorybookUIRoot = getStorybookUI({});
 // If you are using React Native vanilla write your app name here.
 // If you use Expo you can safely remove this line.
 //AppRegistry.registerComponent('%APP_NAME%', () => StorybookUIRoot);
+const AppNavigator = createStackNavigator({ 
+    HomeScreen: { screen: StorybookUIRoot },
+    }
+);
+  
+  const AppContainer = createAppContainer(AppNavigator);
 
-export default StorybookUIRoot;
+export default AppContainer;

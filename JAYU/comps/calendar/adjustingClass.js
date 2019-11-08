@@ -15,9 +15,6 @@ function AdjustingClass(){
     const [check, SetCheck] = useState(false)
     const [check1, SetCheck1] = useState(false)
 
-     /* if(check1 == true){
-        setShowPicker(adjustClassStyles.dateContainer)
-    } */
   return (
     <View style={adjustClassStyles.container}>
         
@@ -36,6 +33,7 @@ function AdjustingClass(){
                         checkedCheckBoxColor={"green"}
                         onClick={()=>{
                             SetCheck(true)
+                            setShowPicker(adjustClassStyles.dateContainer)
                             if(check1== true){
                                 SetCheck(false)
                             }
