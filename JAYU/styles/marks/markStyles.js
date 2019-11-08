@@ -2,7 +2,8 @@ import {StyleSheet} from 'react-native'
 
 const markStyles = StyleSheet.create({
     navBar:{
-        flex:0.1,
+       width:'100%',
+       height:"10%",
         flexDirection:"row",
         alignItems:'center',
         marginTop:30

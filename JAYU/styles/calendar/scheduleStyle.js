@@ -12,7 +12,6 @@ const scheduleStyle = StyleSheet.create({
     topNav:{
         width:'100%',
         height:'10%',
-        display:'flex',
         position:'relative',
         top:'5%',
         flexDirection:'row',

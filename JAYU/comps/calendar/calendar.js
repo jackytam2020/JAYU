@@ -6,10 +6,11 @@ import NewClass from '../../comps/calendar/newClass'
 import EditClass from '../../comps/calendar/editClass'
 import AdjustingClass from '../../comps/calendar/adjustingClass';
 import FooterBar from '../../comps/footerBar'
+import Modal from "react-native-modal"
 
 function Schedule(props){
     const [link, setOpacity] = useState(0.1);
-    const [editSlide, setEditSlide] = useState(0);
+    const [editSlide, setEditSlide] = useState(false);
     const [footerDim, setFooterDim]= useState('flex')
     return(
         <View style={scheduleStyle.container}> 
@@ -23,10 +24,10 @@ function Schedule(props){
                 </TouchableOpacity>
                  <TouchableOpacity
                     onPress={()=>{
-                        setEditSlide('95%')
+                        setEditSlide(true)
                         setFooterDim('none')
                     }}>
-                         <Text style={{fontSize:20, marginRight:20, color:'#007AFF'}}>back</Text>
+                         <Text style={{fontSize:20, marginRight:20, color:'#007AFF'}}>Add</Text>
                  </TouchableOpacity>
             </View>
             <Calendar
@@ -40,9 +41,11 @@ function Schedule(props){
             hideArrows={false}
             />
            
-            <View style={{height:editSlide, width:'100%', position:'absolute', bottom:0}}>
-                <AdjustingClass />
-            </View>   
+           <Modal isVisible={editSlide} swipeDirection={'down'} onSwipeComplete={()=>{setEditSlide(false)}}>
+                <View style={{ flex:0.9 }}>
+                        <NewClass />
+                </View>
+            </Modal>
 
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0, display:footerDim}}>
                 <FooterBar />

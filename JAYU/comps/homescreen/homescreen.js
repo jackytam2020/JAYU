@@ -62,67 +62,62 @@ function HomeScreen(props){
 
             <View style={styles.bottomContainer}>
                 <View style={styles.bottom}>
+                   
                     <View style={{flex:0.30}}>
-                        <View style={styles.boxItems}>
-                            <View style={styles.boxRow}>
-                                <View style={{flex:0.25}}></View>
-                                <TouchableOpacity style={{flex:0.75}}
-                                     onPress={()=>{
-                                        props.navigation.navigate('Schedule')
-                                     }}
-                                >
-                                    <Text style={{fontSize:15}}>Calendar</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
+                            <TouchableOpacity style={styles.boxItems}  
+                                onPress={()=>{
+                                    props.navigation.navigate('Schedule')
+                                }}>
+                                <View style={styles.boxRow}>
+                                    <View style={{flex:0.25}}></View>
+                                    <View style={{flex:0.75}}>
+                                        <Text style={{fontSize:15}}>Calendar</Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
                     </View>   
 
                     <View style={{flex:0.30}}>
-                        <View style={styles.boxItems}>
+                    <TouchableOpacity style={styles.boxItems}  
+                            onPress={()=>{
+                                props.navigation.navigate('Homework')
+                            }}>
                             <View style={styles.boxRow}>
                                 <View style={{flex:0.25}}></View>
-                                <TouchableOpacity style={{flex:0.75}}
-                                    onPress={()=>{
-                                        props.navigation.navigate('Homework')
-                                     }}
-                                >
+                                <View style={{flex:0.75}}>
                                     <Text style={{fontSize:15}}>Homework</Text>
-                                </TouchableOpacity>
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                      <View style={{flex:0.30}}>
-                        <View style={styles.boxItems}>
-                            <View style={styles.boxRow}>
-                                <View style={{flex:0.25}}></View>
-                                <TouchableOpacity style={{flex:0.75}}
-                                     onPress={()=>{
-                                        props.navigation.navigate('Classboard')
-                                    }}
-                                >
-                                    <Text style={{fontSize:15}}>ClassBoard</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
+                        <TouchableOpacity style={styles.boxItems}  
+                                onPress={()=>{
+                                    props.navigation.navigate('Classboard')
+                                }}>
+                                <View style={styles.boxRow}>
+                                    <View style={{flex:0.25}}></View>
+                                    <View style={{flex:0.75}}>
+                                        <Text style={{fontSize:15}}>Classboard</Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
                     </View>  
 
                     <View style={{flex:0.30}}>
-                        <View style={styles.boxItems}>
+                    <TouchableOpacity style={styles.boxItems}  
+                            onPress={()=>{
+                                props.navigation.navigate('Marks')
+                            }}>
                             <View style={styles.boxRow}>
                                 <View style={{flex:0.25}}></View>
-                                <TouchableOpacity style={{flex:0.75}}
-                                    onPress={()=>{
-                                        props.navigation.navigate('Marks')
-                                    }}
-                                >
+                                <View style={{flex:0.75}}>
                                     <Text style={{fontSize:15}}>View Marks</Text>
-                                </TouchableOpacity>
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>  
-
-  
 
                 </View>        
             </View>     
