@@ -9,7 +9,7 @@ function Tophw(props){
              <View style={TopStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
-                            props.navigation.goBack()
+                            props.navigation.navigate("HomeScreen")
                        }}>
                         <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
                 </TouchableOpacity>

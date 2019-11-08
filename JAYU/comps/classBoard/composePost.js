@@ -8,15 +8,14 @@ function CompostPost(props){
   return (
       <View style={composeStyle.container}>
           <View style={composeStyle.navBar}>
-                <TouchableOpacity
-                     onPress={()=>{
-                           props.navigation.goBack()
-                      }}>
-                    <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}} >back</Text>
-               </TouchableOpacity>
-            <View style={{position:'absolute', width:"100%", alignItems:'center'}}> 
-                <Text style={{fontSize:20}}>New Post</Text>
-            </View>
+            <TouchableOpacity
+                  onPress={()=>{
+                      props.navigation.goBack() }}>
+                    <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+              </TouchableOpacity>
+                  <View style={{position:'absolute', left:'35%'}}>
+                    <Text style={{fontSize:25}}>New Post</Text>
+                  </View>
           </View>
 
           {/* Post Details */}

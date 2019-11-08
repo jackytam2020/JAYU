@@ -3,13 +3,14 @@ import {View,Text,Button, ScrollView, TouchableOpacity} from 'react-native';
 import classBoardStyles from '../../styles/classBoard/classBoardStyles'
 import FooterBar from '../../comps/footerBar'
 
+
 function Classboard(props){
   return (
       <View style={classBoardStyles.container}>
           <View style={classBoardStyles.navBar}>
               <TouchableOpacity
                 onPress={()=>{
-                    props.navigation.goBack()
+                    props.navigation.navigate("HomeScreen")
                  }}>
                     <Text style={{fontSize:20, color:'#007AFF'}}>back</Text>
                </TouchableOpacity>

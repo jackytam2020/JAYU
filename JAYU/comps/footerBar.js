@@ -1,6 +1,7 @@
 import React from 'react';
 import { View,Text,Button, TouchableOpacity} from 'react-native';
 import footerStyles from '../styles/footerStyles'
+import { withNavigation } from 'react-navigation'
 
 function FooterBar(props){
   return (
@@ -13,7 +14,7 @@ function FooterBar(props){
         </TouchableOpacity>                   
         <TouchableOpacity
             onPress={()=>{
-                props.navigation.navigate('Tophw')
+                props.navigation.navigate('Homework')
         }}>
             <Text style={{fontSize:20, color:'#007AFF'}}>Homework</Text>
         </TouchableOpacity>
@@ -32,4 +33,4 @@ function FooterBar(props){
     </View>
   );
 };
-export default FooterBar;
+export default withNavigation(FooterBar);

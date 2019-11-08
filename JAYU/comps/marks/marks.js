@@ -16,11 +16,11 @@ function Marks(props){
             <View style={markStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
-                            props.navigation.goBack()
+                            props.navigation.navigate("HomeScreen")
                        }}>
                         <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>Done</Text>
                 </TouchableOpacity>
-                <View style={{width:"100%", position:'absolute', alignItems:'center'}}>
+                <View style={{position:'absolute', left:'40%'}}>
                     <Text style={{fontSize:25}}>Marks</Text>
                 </View>
             </View>

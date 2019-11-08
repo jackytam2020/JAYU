@@ -46,7 +46,6 @@ const AppNavigator = createStackNavigator({
   NewPost: {screen: NewPost},
   ComposePost: {screen: ComposePost},
   Post: {screen: Post},
-  Footer: {screen: FooterBar}
   }, 
   {
       // Specifing Initial Screen
@@ -68,7 +67,6 @@ const TabNavigator = createBottomTabNavigator({
   MarksFooter: Marks
 });
 
-const FooterContainer = createAppContainer(TabNavigator);
 
 function App() {
   return (

@@ -6,7 +6,7 @@ const markStyles = StyleSheet.create({
        height:"10%",
         flexDirection:"row",
         alignItems:'center',
-        marginTop:30
+        marginTop:30,
     },
     subjectBar:{
         flex:.1,
