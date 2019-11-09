@@ -7,7 +7,7 @@ import BackDone from '../../comps/calendar/backDoneButtons';
 
 
 
-function AdjustingClass(){
+function AdjustingClass({setEditSlide, setMode}){
     const [select, setSelect] = useState("grey")
     const [select1, setSelect1] = useState("grey")
     const [select2, setSelect2] = useState("grey")
@@ -33,7 +33,6 @@ function AdjustingClass(){
                         checkedCheckBoxColor={"green"}
                         onClick={()=>{
                             SetCheck(true)
-                            setShowPicker(adjustClassStyles.dateContainer)
                             if(check1== true){
                                 SetCheck(false)
                             }
@@ -47,8 +46,10 @@ function AdjustingClass(){
                         checkedCheckBoxColor={"green"}   
                         onClick={()=>{
                             SetCheck1(true)
+                            setShowPicker(adjustClassStyles.dateContainer)
                             if(check1 == true){
                                 SetCheck1(false)
+                                setShowPicker(adjustClassStyles.hideContainer)
                             }
                         }}
                         
@@ -146,10 +147,17 @@ function AdjustingClass(){
         <View style={newClassStyle.CancelNextContainer}>
                 <View style={newClassStyle.CancelNext
                 }> 
-                        <TouchableOpacity style={newClassStyle.cancel}>
-                            <Text style={{fontSize:20}}>Cancel</Text>
+                        <TouchableOpacity style={newClassStyle.cancel}
+                            onPress={()=>{
+                                setMode(1);
+                            }}
+                        >
+                            <Text style={{fontSize:20}}>Back</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={newClassStyle.done}>
+                        <TouchableOpacity style={newClassStyle.done}
+                            onPress={()=>{
+                                 setEditSlide(false);  
+                            }}>
                             <Text style={{fontSize:20}}>Done</Text>
                         </TouchableOpacity>
                 </View>

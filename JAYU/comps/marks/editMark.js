@@ -3,7 +3,7 @@ import { View,Text,Button, TextInput, TouchableOpacity} from 'react-native';
 import editMarkStyles from '../../styles/marks/editMarkStyles';
 import markStyles from '../../styles/marks/markStyles';
 
-function EditMark(){
+function EditMark({setSlideup}){
     const [select, setSelect] = useState("grey")
     const [select1, setSelect1] = useState("grey")
     const [select2, setSelect2] = useState("grey")
@@ -112,12 +112,18 @@ function EditMark(){
         <View style={editMarkStyles.actionButContainer}>
             <View style={editMarkStyles.actionButtons}>
                 <Text style={{fontSize:15}}
-                onPress={()=>{
-                }}
+                    onPress={()=>{
+                        setSlideup(false)
+                    }}
                 >Add</Text>
-                <Text style={{fontSize:15}}>Cancel</Text>
+                <Text style={{fontSize:15}}
+                    onPress={()=>{
+                        setSlideup(false)
+                    }}
+                >Cancel</Text>
             </View>
         </View>
+
     </View>
   );
 };

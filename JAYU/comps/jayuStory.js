@@ -20,7 +20,7 @@ import NewPost from './classBoard/newPost'
 import ComposePost from './classBoard/composePost'
 import NewMark from './marks/newMark'
 import EditMark from './marks/editMark'
-
+import ViewMark from  './marks/viewMarks'
 
 
 storiesOf("JayU", module)
@@ -72,6 +72,12 @@ storiesOf("JayU", module)
     .add("Marks", ()=>{
         return <Marks/>
     })  
+
+storiesOf("JayU", module)
+    .add("ViewMark", ()=>{
+        return <ViewMark/>
+    })
+
 
 storiesOf("JayU", module)
     .add("NewClass", ()=>{

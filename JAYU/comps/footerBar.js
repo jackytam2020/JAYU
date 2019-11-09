@@ -26,7 +26,7 @@ function FooterBar(props){
         </TouchableOpacity>
         <TouchableOpacity
             onPress={()=>{
-                props.navigation.navigate('Marks')
+                props.navigation.navigate('ViewMark')
         }}>
             <Text style={{fontSize:20, color:'#007AFF'}}>Marks</Text>
         </TouchableOpacity>

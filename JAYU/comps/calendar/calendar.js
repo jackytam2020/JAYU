@@ -45,11 +45,11 @@ function Schedule(props){
            <Modal isVisible={editSlide} swipeDirection={'down'} onSwipeComplete={()=>{setEditSlide(false)}}>
                 <View style={{ flex:0.9 }}>
                     {mode===1?<NewClass setEditSlide={setEditSlide} setMode={setMode} />:null}
-                    {mode===2?<AdjustingClass setEditSlide={setEditSlide} />:null}
+                    {mode===2?<AdjustingClass setEditSlide={setEditSlide} setMode={setMode}/>:null}
                 </View>
             </Modal>
 
-            <View style={{width:'100%', height:'10%', position:'absolute', bottom:0, display:footerDim}}>
+            <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
                 <FooterBar />
             </View>    
             

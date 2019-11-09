@@ -20,7 +20,7 @@ import Marks from './comps/marks/marks'
 import Tophw from './comps/homework/Top'
 import ComposePost from './comps/classBoard/composePost'
 import FooterBar from './comps/footerBar'
-
+import  ViewMark from './comps/marks/viewMarks';
 
 import {SafeAreaView,StyleSheet,ScrollView,View,Text,StatusBar,} from 'react-native';
 import {createAppContainer} from 'react-navigation';
@@ -28,16 +28,16 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 // App default Navigation stack
 const AppNavigator = createStackNavigator({
-  HomeScreen: { screen: HomeScreen },
   SignIn: { screen: SignIn },
   Term: { screen: Term },
   SetUp: { screen: SetUp },
   Passcode: { screen: Passcode },
   PasscodeInput: { screen: PasscodeInput },
   Subject: { screen: Subject },
-  
+  HomeScreen: { screen: HomeScreen },
   Schedule: {screen: Schedule},
   Homework: {screen: Tophw},
+  ViewMark: {screen: ViewMark},
   Marks: { screen: Marks },
   Classboard: {screen: Classboard},
   NewPost: {screen: NewPost},
@@ -62,10 +62,5 @@ function App() {
   )
 };
 
-<<<<<<< HEAD
 export default App;
 //export default from './storybook';
-=======
-//export default App;
-export default from './storybook';
->>>>>>> 708294578c919e5dba89e2b18abce7a1ee3b3d7c

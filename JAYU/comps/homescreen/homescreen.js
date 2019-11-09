@@ -108,7 +108,7 @@ function HomeScreen(props){
                     <View style={{flex:0.30}}>
                     <TouchableOpacity style={styles.boxItems}  
                             onPress={()=>{
-                                props.navigation.navigate('Marks')
+                                props.navigation.navigate('ViewMark')
                             }}>
                             <View style={styles.boxRow}>
                                 <View style={{flex:0.25}}></View>

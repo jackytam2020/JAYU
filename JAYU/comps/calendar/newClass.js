@@ -68,14 +68,14 @@ function NewClass({setEditSlide, setMode}){
             <View style={newClassStyle.CancelNextContainer}>
                 <View style={newClassStyle.CancelNext
                 }> 
-                        <TouchableOpacity style={newClassStyle.cancel} onPress={()=>{
-                            setEditSlide(false);  
-                        }}>
+                        <TouchableOpacity style={newClassStyle.cancel} 
+                            onPress={()=>{
+                                 setEditSlide(false);  
+                             }}>
                             <Text style={{fontSize:20}}>Cancel</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={newClassStyle.done}
                              onPress={()=>{
-                                //props.navigation.navigate('AdjustingClass')
                                 setMode(2);
                             }}
                         >

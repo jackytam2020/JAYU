@@ -16,7 +16,7 @@ function Marks(props){
             <View style={markStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
-                            props.navigation.navigate("HomeScreen")
+                            props.navigation.navigate("ViewMark")
                        }}>
                         <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>Done</Text>
                 </TouchableOpacity>
@@ -139,13 +139,13 @@ function Marks(props){
             {/*Slide up pages */}
             <Modal isVisible={slideup} swipeDirection={'down'} onSwipeComplete={()=>{setSlideup(false)}}>
                 <View style={{ flex:0.9 }}>
-                        <EditMark />
+                        <EditMark setSlideup={setSlideup}/>
                 </View>
             </Modal>
 
             <Modal isVisible={slideNewMark} swipeDirection={'down'} onSwipeComplete={()=>{setSlideNewMark(false)}}>
                 <View style={{ flex:0.9 }}>
-                        <NewMark />
+                        <NewMark setSlideNewMark={setSlideNewMark}/>
                 </View>
             </Modal>
     </View>
