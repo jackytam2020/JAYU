@@ -62,5 +62,10 @@ function App() {
   )
 };
 
+<<<<<<< HEAD
 export default App;
 //export default from './storybook';
+=======
+//export default App;
+export default from './storybook';
+>>>>>>> 708294578c919e5dba89e2b18abce7a1ee3b3d7c
