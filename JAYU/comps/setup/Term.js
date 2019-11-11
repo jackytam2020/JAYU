@@ -32,14 +32,14 @@ function Term(props){
           {/* Title */}
           <View style={TermStyle.TermTitleView}>
               <View style={TermStyle.titleView}>
-                  <Text style={TermStyle.Title}>JAYU and Your Privacy</Text>
+                  <Text style={TermStyle.Title}>JAYU and{"\n"}Your Privacy</Text>
               </View>
               <View style={TermStyle.shieldView}>
                   <Text style={TermStyle.shield}>􀞚</Text>
               </View>
           </View>
           {/* Terms */}
-          <ScrollView>
+          <ScrollView style={TermStyle.scrollview}>
               <Text style={TermStyle.ds}>JAYU use your account to keep all your datas up to date across all your devices. All your data (includes your Marks and Calendars) will be encripted, neither JAYU or Apple and read or use your data.</Text>
               
               <Text style={TermStyle.heading}>Location</Text>

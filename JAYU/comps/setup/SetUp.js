@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SetUpStyle from '../../styles/setup/SetUpStyle'
 import {
   SafeAreaView,
   View,
   Text,
+  ScrollView,
   NavigatorIOS,
   Image,
   ImageBackground,
@@ -17,6 +18,13 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 function SetUp(props){
+
+  const [changeTerm, setChangeTerm] = useState(false);
+
+  if(changeTerm === true){
+    alert("success")
+  }
+
     return(
         <View style={SetUpStyle.app}>
         <SafeAreaView>
@@ -31,11 +39,12 @@ function SetUp(props){
             </TouchableOpacity>
               <Text style={SetUpStyle.navTitle}>Set Up</Text>
           </View>
+          <ScrollView style={SetUpStyle.scrollview}>
           {/* Questions 1 */}
           <View style={SetUpStyle.question1}>
             <Text style={SetUpStyle.question}>What is your name?</Text>
             <Text style={SetUpStyle.questionDs}>your name will be display on ClassBoard</Text>
-            <TextInput title={"Username"} defaultValue={"tap to Edit"} style={SetUpStyle.NameForm}/>
+            <TextInput title={"Username"} defaultValue={"tap to add Name"} style={SetUpStyle.NameForm}/>
           </View>
           {/* Questions 2*/}
           <View style={SetUpStyle.question2}>
@@ -43,7 +52,10 @@ function SetUp(props){
             <Text style={SetUpStyle.questionDs}>if this is your first time in D3, select Term 1</Text>
             <View style={SetUpStyle.QuestionButtons}>
               <View style={SetUpStyle.FirstHalf}>
-                <TouchableOpacity style={SetUpStyle.optionbutton}>
+                <TouchableOpacity style={SetUpStyle.optionbutton}
+                onPress={()=>{
+                  setChangeTerm(true);
+                }}>
                   <Text style={SetUpStyle.option}>Term 1</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={SetUpStyle.optionbutton}>
@@ -93,6 +105,7 @@ function SetUp(props){
               <Text style={SetUpStyle.NextButtonText}>Next 􀆊</Text>
             </TouchableOpacity>
           </View>
+          </ScrollView>
           </SafeAreaView>
         </View>
     )
