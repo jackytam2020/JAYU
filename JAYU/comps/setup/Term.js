@@ -23,7 +23,7 @@ function Term(props){
           <View style={TermStyle.navi}>
               <TouchableOpacity
                 onPress={()=>{
-                props.navigation.navigate('SetUp')
+                props.navigation.navigate('SignIn')
         }}
               >
                 <Text style={TermStyle.back}>Done</Text>

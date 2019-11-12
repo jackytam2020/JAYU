@@ -27,7 +27,7 @@ function SignIn(props){
                 <Image source={require('../../assets/Images/f_logo.png')} style={SignInStyle.facebooklogo}></Image>
                     <Text style={SignInStyle.facebookbuttontext}
                         onPress={()=>{
-                            props.navigation.navigate('Term')
+                            props.navigation.navigate('SetUp')
                         }}
                     >Sign in with Facebook</Text>
                 </TouchableOpacity>
@@ -36,7 +36,7 @@ function SignIn(props){
                 <Image source={require('../../assets/Images/g-logo.png')} style={SignInStyle.googlelogo}></Image>
                     <Text style={SignInStyle.googlebuttontext}
                         onPress={()=>{
-                            props.navigation.navigate('Term')
+                            props.navigation.navigate('SetUp')
                         }}
                     >Sign in with Google</Text>
                 </TouchableOpacity>
@@ -45,7 +45,7 @@ function SignIn(props){
                     <Image source={require('../../assets/Images/Apple_Logo.png')} style={SignInStyle.applelogo}></Image>
                     <Text style={SignInStyle.applebuttontext}
                         onPress={()=>{
-                            props.navigation.navigate('Term')
+                            props.navigation.navigate('SetUp')
                         }}
                     >Sign in with Apple</Text>
                 </TouchableOpacity>
@@ -53,7 +53,10 @@ function SignIn(props){
                 {/* Terms and conditions */}
                 <Text style={SignInStyle.Terms}>By signing in, you are agreed to the</Text>
                  <TouchableOpacity style={SignInStyle.TermOpacity}>
-                     <Text style={SignInStyle.Termblue}>JAYU's Terms and Conditions 􀆊</Text>
+                     <Text style={SignInStyle.Termblue}
+                     onPress={()=>{
+                        props.navigation.navigate('Term')
+                    }}>JAYU's Terms and Conditions 􀆊</Text>
                 </TouchableOpacity>
                 </View>
             </SafeAreaView>

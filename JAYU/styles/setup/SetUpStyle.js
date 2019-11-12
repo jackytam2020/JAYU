@@ -106,10 +106,36 @@ SetUpStyle = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center"
     },
-    optionbutton:{
+    optionbuttonOff :{
         width: normalize (140),
         height: normalize (55),
         backgroundColor:"#F2F2F2",
+        borderRadius:10,
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 10,
+        marginRight: 10,
+    },
+    optionbuttonOnTerm:{
+        width: normalize (140),
+        height: normalize (55),
+        backgroundColor:"#FFE9CC",
+        borderRadius:10,
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 10,
+        marginRight: 10,
+    },
+    optionbuttonOnSet:{
+        width: normalize (140),
+        height: normalize (55),
+        backgroundColor:"#DBF7DF",
         borderRadius:10,
         display:"flex",
         alignItems:"center",
@@ -131,7 +157,16 @@ SetUpStyle = StyleSheet.create({
         height: normalize (100),
         marginBottom:normalize (55)
     },
-    NextButton:{
+    NextButtonOff:{
+        backgroundColor:"#F2F2F2",
+        height: 60,
+        width: 130,
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        borderRadius: 10
+    },
+    NextButtonOn:{
         backgroundColor:"#007AFF",
         height: 60,
         width: 130,

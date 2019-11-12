@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
 
 
 
 const styles = StyleSheet.create({ 
     home:{
-        flex:0.83,
+        flex:0.90,
     },
     greetingBox:{
         flex:0.13,
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
         flex:0.5,
         justifyContent:'center',
         flexDirection:'row',
-        top:30
+        top:normalize(55)
     },
     bottom:{
         flex:0.93,
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     boxItems:{
         flex:0.85,
         backgroundColor:'white',
-        borderRadius:25,
+        borderRadius:normalize(20),
     },
     boxRow:{
         flexDirection:"row", 
