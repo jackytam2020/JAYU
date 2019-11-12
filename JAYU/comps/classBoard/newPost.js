@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View,Text,Button, TouchableOpacity} from 'react-native';
-import newPostStyle from '../../styles/classBoard/newPostStyles'
+import newPostStyle from '../../styles/classBoard/newPostStyles';
+import Classboard from '../classBoard/classboard';
+import CompostPost from '../classBoard/composePost'
+
 
 function Newpost(props){
+    const [course, setCourse] =  useState(""); 
+    const [ color, setColor] = useState("black")
+
+    //when comp loads, course needs to be empty
+    useEffect(()=>{
+        setCourse("");
+    },[]);
+
   return (
       <View style={newPostStyle.container}>
           <View style={newPostStyle.navBar}>
@@ -17,6 +28,7 @@ function Newpost(props){
                 <View style={{flexDirection:'row'}}>
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>choose a subject for your post</Text>
+                    <Text>{course}</Text>
                 </View>  
                
               </View>
@@ -29,66 +41,99 @@ function Newpost(props){
            
             <View style={newPostStyle.subjectList}>
                 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                    onPress={()=> {
+                        setColor("red")
+                        setCourse("Accounting for the Manager");
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Accounting for the Manager</Text>
-                </View>  
+                    <Text style={{fontSize:15, color:color}}>Accounting for the Manager</Text>
+                </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                    onPress={()=> {
+                        setCourse("Advanced Photoshop")
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>Advanced Photoshop </Text>
-                </View>  
+                </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                     onPress={()=> {
+                        setCourse("Assets Design and Integration")
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>Assets Design and Integration </Text>
-                </View>  
+                </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                     onPress={()=> {
+                        setCourse("Business Communication")
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>Business Communication </Text>
-                </View>  
+                </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                     onPress={()=> {
+                        setCourse("Design 2")
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>Design 2</Text>
-                </View>  
+                </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                    onPress={()=> {
+                        setCourse("Professional Sales Skills")
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>Professional Sales Skills </Text>
-                </View>  
+                </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                    onPress={()=> {
+                        setCourse("Project 2")
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>Project 2 </Text>
-                </View>  
+                </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
+                <TouchableOpacity style={{flexDirection:'row'}}
+                     onPress={()=> {
+                        setCourse("Web Development 3")
+                    }}
+                >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>Web Development 3 </Text>
-                </View>  
+                </TouchableOpacity>  
         
             </View>
 
@@ -105,7 +150,8 @@ function Newpost(props){
                     </TouchableOpacity>
                     <TouchableOpacity style={newPostStyle.next}
                     onPress={()=>{
-                        props.navigation.navigate('ComposePost')
+                        props.navigation.navigate('ComposePost');
+                        <CompostPost  course={course}/>
                     }}
                     >
                         <Text style={{fontSize:20}}>Next</Text>
