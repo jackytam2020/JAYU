@@ -14,12 +14,20 @@ import {createStackNavigator} from 'react-navigation-stack';
 function SetUp(props){
 
   const [BlueLight, setBlueLight] = useState("off");
+  const [BlueLight1, setBlueLight1] = useState("off");
+  const [BlueLight2, setBlueLight2] = useState("off");
+  const [BlueLight3, setBlueLight3] = useState("off");
+  const [BlueLight4, setBlueLight4] = useState("off");
   const [colorTerm1, setColorTerm1] = useState(SetUpStyle.optionbuttonOff);
   const [colorTerm2, setColorTerm2] = useState(SetUpStyle.optionbuttonOff);
   const [colorTerm3, setColorTerm3] = useState(SetUpStyle.optionbuttonOff);
   const [colorTerm4, setColorTerm4] = useState(SetUpStyle.optionbuttonOff);
 
   const [GreenLight, setGreenLight] = useState("off");
+  const [GreenLightA, setGreenLightA] = useState("off");
+  const [GreenLightB, setGreenLightB] = useState("off");
+  const [GreenLightC, setGreenLightC] = useState("off");
+  const [GreenLightD, setGreenLightD] = useState("off");
   const [colorSetA, setColorSetA] = useState(SetUpStyle.optionbuttonOff);
   const [colorSetB, setColorSetB] = useState(SetUpStyle.optionbuttonOff);
   const [colorSetC, setColorSetC] = useState(SetUpStyle.optionbuttonOff);
@@ -46,7 +54,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
           <View style={SetUpStyle.question1}>
             <Text style={SetUpStyle.question}>What is your name?</Text>
             <Text style={SetUpStyle.questionDs}>your name will be display on ClassBoard</Text>
-            <TextInput title={"Username"} defaultValue={"tap to add Name"} style={SetUpStyle.NameForm}/>
+            <TextInput title={"Username"} placeholder={"tap to add Name"} style={SetUpStyle.NameForm}/>
           </View>
           {/* Questions 2*/}
           <View style={SetUpStyle.question2}>
@@ -56,32 +64,32 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.FirstHalf}>
                 <TouchableOpacity style={colorTerm1}
                 onPress={()=>{
-                  if(BlueLight == 'off'){
+                  if(BlueLight1 == 'off'){
                     setBlueLight('on')
+                    setBlueLight1('on')
+                    setBlueLight2('off')
+                    setBlueLight3('off')
+                    setBlueLight4('off')
                     setColorTerm1(SetUpStyle.optionbuttonOnTerm)
                     setColorTerm2(SetUpStyle.optionbuttonOff)
                     setColorTerm3(SetUpStyle.optionbuttonOff)
                     setColorTerm4(SetUpStyle.optionbuttonOff)
-                  }
-                  if(BlueLight == 'on'){
-                    setBlueLight('off')
-                    setColorTerm1(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 1</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={colorTerm2}
                 onPress={()=>{
-                  if(BlueLight == 'off'){
+                  if(BlueLight2 == 'off'){
                     setBlueLight('on')
+                    setBlueLight2('on')
+                    setBlueLight1('off')
+                    setBlueLight3('off')
+                    setBlueLight4('off')
                     setColorTerm2(SetUpStyle.optionbuttonOnTerm)
                     setColorTerm1(SetUpStyle.optionbuttonOff)
                     setColorTerm3(SetUpStyle.optionbuttonOff)
                     setColorTerm4(SetUpStyle.optionbuttonOff)
-                  }
-                  if(BlueLight == 'on'){
-                    setBlueLight('off')
-                    setColorTerm2(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 2</Text>
@@ -90,32 +98,32 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.SecondHalf}>
               <TouchableOpacity style={colorTerm3}
                 onPress={()=>{
-                  if(BlueLight == 'off'){
+                  if(BlueLight3 == 'off'){
                     setBlueLight('on')
+                    setBlueLight3('on')
+                    setBlueLight1('off')
+                    setBlueLight2('off')
+                    setBlueLight4('off')
                     setColorTerm3(SetUpStyle.optionbuttonOnTerm)
                     setColorTerm1(SetUpStyle.optionbuttonOff)
                     setColorTerm2(SetUpStyle.optionbuttonOff)
                     setColorTerm4(SetUpStyle.optionbuttonOff)
-                  }
-                  if(BlueLight == 'on'){
-                    setBlueLight('off')
-                    setColorTerm3(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 3</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={colorTerm4}
                 onPress={()=>{
-                  if(BlueLight == 'off'){
+                  if(BlueLight4 == 'off'){
                     setBlueLight('on')
+                    setBlueLight4('on')
+                    setBlueLight1('off')
+                    setBlueLight2('off')
+                    setBlueLight3('off')
                     setColorTerm4(SetUpStyle.optionbuttonOnTerm)
                     setColorTerm1(SetUpStyle.optionbuttonOff)
                     setColorTerm2(SetUpStyle.optionbuttonOff)
                     setColorTerm3(SetUpStyle.optionbuttonOff)
-                  }
-                  if(BlueLight == 'on'){
-                    setBlueLight('off')
-                    setColorTerm4(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 4</Text>
@@ -131,32 +139,32 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.FirstHalf}>
               <TouchableOpacity style={colorSetA}
                 onPress={()=>{
-                  if(GreenLight == 'off'){
+                  if(GreenLightA == 'off'){
                     setGreenLight('on')
+                    setGreenLightA('on')
+                    setGreenLightB('off')
+                    setGreenLightC('off')
+                    setGreenLightD('off')
                     setColorSetA(SetUpStyle.optionbuttonOnSet)
                     setColorSetB(SetUpStyle.optionbuttonOff)
                     setColorSetC(SetUpStyle.optionbuttonOff)
                     setColorSetD(SetUpStyle.optionbuttonOff)
-                  }
-                  if(GreenLight == 'on'){
-                    setGreenLight('off')
-                    setColorSetA(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Set A</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={colorSetB}
                 onPress={()=>{
-                  if(GreenLight == 'off'){
+                  if(GreenLightB == 'off'){
                     setGreenLight('on')
+                    setGreenLightB('on')
+                    setGreenLightA('off')
+                    setGreenLightC('off')
+                    setGreenLightD('off')
                     setColorSetB(SetUpStyle.optionbuttonOnSet)
                     setColorSetA(SetUpStyle.optionbuttonOff)
                     setColorSetC(SetUpStyle.optionbuttonOff)
                     setColorSetD(SetUpStyle.optionbuttonOff)
-                  }
-                  if(GreenLight == 'on'){
-                    setGreenLight('off')
-                    setColorSetB(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Set B</Text>
@@ -165,32 +173,32 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.SecondHalf}>
               <TouchableOpacity style={colorSetC}
                 onPress={()=>{
-                  if(GreenLight == 'off'){
+                  if(GreenLightC == 'off'){
                     setGreenLight('on')
+                    setGreenLightC('on')
+                    setGreenLightA('off')
+                    setGreenLightB('off')
+                    setGreenLightD('off')
                     setColorSetC(SetUpStyle.optionbuttonOnSet)
                     setColorSetB(SetUpStyle.optionbuttonOff)
                     setColorSetA(SetUpStyle.optionbuttonOff)
                     setColorSetD(SetUpStyle.optionbuttonOff)
-                  }
-                  if(GreenLight == 'on'){
-                    setGreenLight('off')
-                    setColorSetC(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Set C</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={colorSetD}
                 onPress={()=>{
-                  if(GreenLight == 'off'){
+                  if(GreenLightD == 'off'){
                     setGreenLight('on')
+                    setGreenLightD('on')
+                    setGreenLightA('off')
+                    setGreenLightB('off')
+                    setGreenLightC('off')
                     setColorSetD(SetUpStyle.optionbuttonOnSet)
                     setColorSetB(SetUpStyle.optionbuttonOff)
                     setColorSetC(SetUpStyle.optionbuttonOff)
                     setColorSetA(SetUpStyle.optionbuttonOff)
-                  }
-                  if(GreenLight == 'on'){
-                    setGreenLight('off')
-                    setColorSetD(SetUpStyle.optionbuttonOff)
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Set D</Text>
