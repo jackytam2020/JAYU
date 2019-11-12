@@ -13,6 +13,7 @@ const TopStyles = StyleSheet.create({
     },
 
     headerText:{
+        marginTop:10,
         fontFamily:'SFProDisplay-Regular',
         fontSize:25,
         marginLeft: 30,
@@ -34,6 +35,15 @@ const TopStyles = StyleSheet.create({
         
     },
 
+    body2:{
+        fontFamily:'SFProDisplay-Regular',
+        marginTop: 5,
+        fontSize:12,
+        marginLeft: 60,
+        color:"#007AFF",
+        flexDirection: "row"
+    },
+
     iconCont:{
         flex:0.050,
         flexDirection:'row',
@@ -41,6 +51,7 @@ const TopStyles = StyleSheet.create({
     },
 
     icon: {
+        fontSize:28,
         fontFamily:'SFProDisplay-Regular',
     }
 
