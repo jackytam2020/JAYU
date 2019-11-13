@@ -11,10 +11,12 @@ const TopStyles = StyleSheet.create({
         alignItems:'center',
         marginTop:30
     },
-
+    red:{
+        color:"red"
+    },
     headerText:{
-        marginTop:10,
-        fontFamily:'SFProDisplay-Regular',
+        marginTop:15,
+        fontFamily:'SFProDisplay-Medium',
         fontSize:25,
         marginLeft: 30,
         color: '#00AEEF',
@@ -51,8 +53,7 @@ const TopStyles = StyleSheet.create({
     },
 
     icon: {
-        fontSize:28,
-        fontFamily:'SFProDisplay-Regular',
+        fontFamily:'SFProDisplay-Medium',
     }
 
 
