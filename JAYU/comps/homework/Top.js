@@ -80,13 +80,14 @@ function Tophw(props){
                 <Text onPress={() =>setGrowth6(!Growth6)}style={[{color:"#FFCF00", fontSize:Iconfont6},       TopStyles.icon]}>􀏀</Text>
                 <Text onPress={() =>setGrowth7(!Growth7)}style={[{color:"#C69C6D",fontSize:Iconfont7},        TopStyles.icon]}>􀁛</Text>
                 <Text onPress={() =>setGrowth8(!Growth8)}style={[{color:"#007AFF", fontSize:Iconfont8},       TopStyles.icon]}>􀓤</Text>
+                <Text style={TopStyles.icon}>Add task􀅼</Text>
             </View>
                 <Text style={TopStyles.headerText}>Advanced Photoshop</Text>
                     <View style={TopStyles.asgContainer}>
                    
                     <View style={{flex: 0.25, borderBottomColor: '#BFBFBF', borderBottomWidth: 0.5, marginLeft: 50}}></View>
                         <TouchableOpacity onPress={() => SetDropdown1(!DropDown1)}>
-                            <Text style={TopStyles.body} >{assignmentsIcon}  Assigment 1</Text>
+                            <TextInput style={TopStyles.body} >{assignmentsIcon}  Assigment 1</TextInput>
                             {AddDueDate}
                          </TouchableOpacity>
 
