@@ -19,7 +19,6 @@ const TopStyles = StyleSheet.create({
         fontFamily:'SFProDisplay-Medium',
         fontSize:25,
         marginLeft: 30,
-        color: '#00AEEF',
         marginBottom: 10,
    
     },
