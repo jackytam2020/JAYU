@@ -7,7 +7,7 @@ function DatePick(){
     const [dueDate, setDueDate] = useState();
     
    var dd = JSON.stringify(dueDate);
-
+    var moment = require("moment");
   
 
     return(
@@ -17,7 +17,7 @@ function DatePick(){
                 mode = {'date'}
                
                 onDateChange = {(d)=>{
-                   setDueDate(months[d.getMonth()]+ " " +d.getDay()+ " " + d.getFullYear());
+                   setDueDate(moment(d).format("DD/MM/YYYY"));
     
                 }}
             
