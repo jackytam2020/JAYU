@@ -25,7 +25,7 @@ function Task(){
 
     
     var taskItem = ( <View style={{flexDirection:"row", marginLeft:90}}> 
-                    <CheckBox 
+                    {/*<CheckBox 
                         isChecked={check}
                         checkedCheckBoxColor={"green"}
                         onClick={()=>{
@@ -34,8 +34,8 @@ function Task(){
                                 SetCheck(false)
                             }
                         }}
-                    />
-                    <Text>hi</Text>
+                    />*/}
+                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:20}}>􀀀hi</TextInput>
                 </View>);
         
     
@@ -61,7 +61,9 @@ function Task(){
                     setDone("none")
                 }
             } } style={TopStyles.body}>{assignmentsIcon}</Text>
+            <ScrollView>
             <TextInput style={TopStyles.placeholder} placeholder="Assignment..."></TextInput>
+            </ScrollView>
         </View>
        <ScrollView>
         <View style={{display:done}}>
@@ -72,6 +74,7 @@ function Task(){
                     }}
                 >{duePickerDate}</Text>
                 <TouchableOpacity style={{marginLeft:150, display:done,marginTop:10}}><Text 
+                style={{color:'#00AEEF',}}
                 onPress={()=>{
                     setDuePickerDate(dd)
                     setShowPicker(TopStyles.hideContainer)
@@ -99,7 +102,7 @@ function Task(){
         {
              addButton.map((obj,i)=>{
                 return  <View style={{flexDirection:'row'}}>
-                                <Text style={{left:90}}
+                                <Text style={{left:90, fontFamily:'SFProDisplay-Medium'}}
                                     onPress={()=>{
                                         var arr1 = addTasks;
                                         arr1.push(1)
@@ -108,7 +111,7 @@ function Task(){
                                         })
                                         setAddTasks(arr1)
                                     }}
-                                >Add</Text>
+                                >􀅼 Add a Task</Text>
                                 <TextInput 
                                     style={{marginLeft:110}} placeholder="Add a Task">
                                 </TextInput>
