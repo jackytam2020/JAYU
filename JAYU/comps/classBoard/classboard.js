@@ -31,13 +31,22 @@ function Classboard(props){
           <View style={{flex:1, width:'100%', flexDirection:'row', justifyContent:'center'}}>
               <View style={classBoardStyles.postBox}>
                 <ScrollView>
-                    <PostBox />
-                    {
-                      posts.map((obj,i)=>{
-                        return <PostBox 
-                        />
-                      })
-                    }
+                <View style={classBoardStyles.posts}>
+                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
+                        onPress={()=>{
+                          props.navigation.navigate('Post')
+                      }}>
+                            <View style={{height:20,width:20, backgroundColor:"blue", borderRadius:40}}></View>
+                            <View style={{paddingLeft:10}}>  
+                              <Text>{props.course}</Text>
+                              <Text style={{fontSize:10}}>9:15pm by Doris</Text>
+                            </View>  
+                      </TouchableOpacity>
+
+                      <View style={classBoardStyles.line}></View>  
+
+                      <Text style={{paddingLeft:10}}>{props.textinput}</Text>
+            </View>
                 </ScrollView>  
               </View>
 

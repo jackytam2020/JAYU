@@ -21,7 +21,7 @@ import Tophw from './comps/homework/Top';
 import ComposePost from './comps/classBoard/composePost';
 import FooterBar from './comps/footerBar';
 import  ViewMark from './comps/marks/viewMarks';
-
+import PostBox from './comps/classBoard/postBox'
 import {SafeAreaView,StyleSheet,ScrollView,View,Text,StatusBar,} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
@@ -42,6 +42,7 @@ const AppNavigator = createStackNavigator({
   Marks: { screen: Marks },
   NewPost: {screen: NewPost},
   ComposePost: {screen: ComposePost},
+  PostBox:{screen: PostBox},
   Post: {screen: Post},
   }, 
   {
@@ -62,5 +63,5 @@ function App() {
   )
 };
 
-//export default App;
-export default from './storybook';
+export default App;
+//export default from './storybook';
