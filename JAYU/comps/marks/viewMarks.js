@@ -26,7 +26,12 @@ function ViewMark(props){
             <View style ={viewMarkStyles.classesCont}>
                 <TouchableOpacity style= {[{backgroundColor:"#FFEBD4"}, viewMarkStyles.classes]}
                     onPress={()=>{
-                        props.navigation.navigate('Marks')
+                        props.navigation.navigate('Marks', {
+                            name:"Accounting for the Manager",
+                            color:'#FF9500',
+                            
+
+                    })
                     }}>
                     <Text style={[{color:"#FF9500"},viewMarkStyles.circle]}>􀘝</Text>
                     <Text style = {viewMarkStyles.classText}>Accounting for the Manager</Text>
