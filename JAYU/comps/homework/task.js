@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import {View, Text, Button, ScrollView, TouchableOpacity, TextInput} from 'react-native';
-import DatePicker from 'react-native-datepicker'
+import {View, Text, Button, ScrollView, TouchableOpacity, TextInput,DatePickerIOS} from 'react-native';
 import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
 import normalize from 'react-native-normalize';
 import CheckBox from 'react-native-check-box';
+
+
 
 
 function Task(){
@@ -14,6 +15,14 @@ function Task(){
     const [date, setDueDate] = useState(TopStyles.dueDate1)
     const [done, setDone] = useState("none");
     const [check, SetCheck] = useState(false)
+    const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
+    const [duePickerDate, setDuePickerDate] = useState('Add due date');
+
+    var dd = JSON.stringify(duePickerDate);
+    var moment = require("moment");
+
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"]
+
     
     var taskItem = ( <View style={{flexDirection:"row", marginLeft:90}}> 
                     <CheckBox 
@@ -54,11 +63,30 @@ function Task(){
             } } style={TopStyles.body}>{assignmentsIcon}</Text>
             <TextInput style={TopStyles.placeholder} placeholder="Assignment..."></TextInput>
         </View>
-       
+       <ScrollView>
         <View style={{display:done}}>
             <View style={{flexDirection:"row"}}>
-                <Text style={date} >Add due date</Text>
-                <TouchableOpacity style={{marginLeft:150, top:5, display:done}}><Text>Done</Text></TouchableOpacity>
+                <Text style={date} 
+                    onPress={()=>{
+                        setShowPicker(TopStyles.dateContainer)
+                    }}
+                >{duePickerDate}</Text>
+                <TouchableOpacity style={{marginLeft:150, display:done,marginTop:10}}><Text 
+                onPress={()=>{
+                    setDuePickerDate(dd)
+                    setShowPicker(TopStyles.hideContainer)
+                }}>Done</Text></TouchableOpacity>
+            </View>
+            <View style={showPicker}>
+                <DatePickerIOS 
+                    date={new Date()}
+                    mode = {'date'}
+               
+                onDateChange = {(d)=>{
+                   setDuePickerDate(moment(d).format("MM/DD/YYYY"));
+    
+                }}
+                />
             </View>
             {
                 addTasks.map((obj,i)=>{
@@ -66,6 +94,7 @@ function Task(){
                 })
             }
        </View>
+       </ScrollView>
       
         {
              addButton.map((obj,i)=>{

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {View, Text, Button, ScrollView, TouchableOpacity, TextInput} from 'react-native';
 import DatePicker from 'react-native-datepicker'
@@ -71,7 +72,7 @@ function Tophw(props){
                 </TouchableOpacity>
             </View>
 
-            <View style={{flex: 0.25, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:20 }}></View>
+            <View style={{flex: 0.01, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:20 }}></View>
             <View style={TopStyles.iconCont}>
                 <Text onPress={() =>setGrowth(!Growth)} style={[{color:'#00AEEF', fontSize:Iconfont}, TopStyles.icon]}>􀀣</Text>
                 <Text onPress={() =>setGrowth2(!Growth2)} style={[{color:'#FF3B30', fontSize:Iconfont2},        TopStyles.icon]}>􀈌</Text>
@@ -90,7 +91,7 @@ function Tophw(props){
                     setTaskList(arr);
                 }}>Add task􀅼</Text>
             </View>
-            
+            <ScrollView>
                 <Text style={TopStyles.headerText}>Advanced Photoshop</Text>
                     <View style={TopStyles.asgContainer}>
                     <ScrollView>
@@ -103,39 +104,14 @@ function Tophw(props){
                        
                         </ScrollView>
                     </View>
-           
+            
+            </ScrollView>
+          
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
-                <FooterBar />
-            </View>    
-
-            
-            {/*Anything to do with the date picker goes here*/}
-            <DatePicker
-        style={{width: 200}}
-        mode="date"
-        placeholder="select date"
-        format="YYYY-MM-DD"
-        minDate="2000-01-01"
-        maxDate="3000-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-          // ... You can check the source to find the other keys.
-        }}
-        onDateChange={(date) => {this.setState({date: date})}}
-    />
-
-
-            
+               
+          
+            <FooterBar />
+            </View>   
         </View>
     )
 }
