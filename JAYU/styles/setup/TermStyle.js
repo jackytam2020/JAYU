@@ -1,4 +1,6 @@
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import React from 'react';
 
 TermStyle = StyleSheet.create({
@@ -25,7 +27,7 @@ TermStyle = StyleSheet.create({
         marginLeft:20
     },
     TermTitleView:{
-        height: 140,
+        height: "17%",
         //backgroundColor:"#FAB",
         display:"flex",
         flexDirection:"row",
@@ -37,24 +39,26 @@ TermStyle = StyleSheet.create({
     titleView:{
         flex:4,
         display:"flex",
-        alignItems:"center",
+        //alignItems:"center",
         //backgroundColor:"#DAD"
     },
     shieldView:{
         flex:2,
         display:"flex",
-        alignItems:"center",
+        //alignItems:"center",
         //backgroundColor:"#DAD"
     },
     Title:{
         fontFamily:"SFProDisplay-Semibold",
-        fontSize:40,
-        color:"#191919"
+        fontSize: RFPercentage(5.5),
+        color:"#191919",
+        paddingLeft:"7%"
     },
     shield:{
         fontFamily:"SFProDisplay-Semibold",
-        fontSize:80,
-        color:"#007AFF"
+        fontSize: RFPercentage(12),
+        color:"#007AFF",
+        paddingLeft:"7%"
     },
     ds:{
         fontFamily:"SFProText-Regular",
@@ -63,6 +67,12 @@ TermStyle = StyleSheet.create({
         marginLeft:20,
         marginRight:20,
         marginBottom:40,
+    },
+    scrollview:{
+        display:"flex",
+        height:"70%",
+        width:"100%",
+        //backgroundColor:"#FAB"
     },
     heading:{
         fontFamily:"SFProDisplay-Semibold",

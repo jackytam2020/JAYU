@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import SignIn from './comps/setup/SignIn'
+import SignIn from './comps/setup/SignIn';
 import SetUp from  './comps/setup/SetUp';
 import Term from  './comps/setup/Term';
 import Passcode from  './comps/setup/Passcode';
@@ -9,17 +9,17 @@ import PasscodeInput from  './comps/setup/PasscodeInput';
 import PasscodeReInput from  './comps/setup/PasscodeReInput';
 import FaceID from  './comps/setup/FaceID';
 import Subject from  './comps/setup/Subject';
-import HomeScreen from './comps/homescreen/homescreen'
+import HomeScreen from './comps/homescreen/homescreen';
 import Schedule from './comps/calendar/calendar';
-import NewClass from './comps/calendar/newClass'
-import AdjustingClass from './comps/calendar/adjustingClass'
-import Classboard from './comps/classBoard/classboard'
-import Post from './comps/classBoard/post'
-import NewPost from './comps/classBoard/newPost'
-import Marks from './comps/marks/marks'
-import Tophw from './comps/homework/Top'
-import ComposePost from './comps/classBoard/composePost'
-import FooterBar from './comps/footerBar'
+import NewClass from './comps/calendar/newClass';
+import AdjustingClass from './comps/calendar/adjustingClass';
+import Classboard from './comps/classBoard/classboard';
+import Post from './comps/classBoard/post';
+import NewPost from './comps/classBoard/newPost';
+import Marks from './comps/marks/marks';
+import Tophw from './comps/homework/Top';
+import ComposePost from './comps/classBoard/composePost';
+import FooterBar from './comps/footerBar';
 import  ViewMark from './comps/marks/viewMarks';
 
 import {SafeAreaView,StyleSheet,ScrollView,View,Text,StatusBar,} from 'react-native';
@@ -40,7 +40,6 @@ const AppNavigator = createStackNavigator({
   Homework: {screen: Tophw},
   ViewMark: {screen: ViewMark},
   Marks: { screen: Marks },
-  
   NewPost: {screen: NewPost},
   ComposePost: {screen: ComposePost},
   Post: {screen: Post},
@@ -48,7 +47,7 @@ const AppNavigator = createStackNavigator({
   {
       // Specifing Initial Screen
       initalRoute: 'SignIn',
-      headerMode: 'none',
+      headerMode: 'none'
   },
 
 );
@@ -63,5 +62,5 @@ function App() {
   )
 };
 
-export default App;
-//export default from './storybook';
+//export default App;
+export default from './storybook';
