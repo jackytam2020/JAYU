@@ -1,8 +1,21 @@
-import React from 'react';
-import {View, Text, Button, ScrollView, TouchableOpacity} from 'react-native';
+import React ,{useState} from 'react';
+import {View, Text, Button, ScrollView, TouchableOpacity, DatePickerIOS} from 'react-native';
 import TopStyles from '../../styles/homework/TopStyles';
-import FooterBar from '../../comps/footerBar'
+import FooterBar from '../../comps/footerBar';
+import DatePick from './datePicker';
+
 function Tophw(props){
+
+
+    const [showPick, setShowPick] = useState(false);
+    
+  if (showPick == true){
+     
+    return(<DatePick/>)
+
+  } else {
+      
+ 
 
     return(
         <View style={TopStyles.container}>
@@ -15,7 +28,13 @@ function Tophw(props){
                 </TouchableOpacity>
             </View>
 
+
             <View style={{flex: 0.25, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:20 }}></View>
+            
+           
+           
+           {showPick}
+           
             <View style={TopStyles.iconCont}>
                 <Text style={TopStyles.icon}>􀙭</Text>
                 <Text style={TopStyles.icon}>􀈌</Text>
@@ -29,7 +48,21 @@ function Tophw(props){
                 <Text style={TopStyles.headerText}>Advanced Photoshop</Text>
                     <View style={TopStyles.asgContainer}>
                     <View style={{flex: 0.25, borderBottomColor: '#BFBFBF', borderBottomWidth: 0.5, marginLeft: 50}}></View>
-                        <Text style={TopStyles.body}>􀆊  Assigment 1</Text>
+                        <Text style={TopStyles.body}>
+                            􀆊  Assigment 1</Text>
+                 
+                                        <TouchableOpacity
+                                        style={{backgroundColor:"red"}}
+                                        onPress={()=> 
+                                            {
+                                            setShowPick(!showPick);
+                                            }
+
+                                        }
+                                        >
+                                            <Text>ASDFA</Text>
+                                        </TouchableOpacity>
+                                
                         <View style={{flex: 0.25, borderBottomColor: '#BFBFBF', borderBottomWidth: 0.5, marginLeft: 50}}></View>
                         <Text style={TopStyles.body}>􀆊  Assigment 2</Text>
                         <View style={{flex: 0.25, borderBottomColor: '#BFBFBF', borderBottomWidth: 0.5, marginLeft: 50}}></View>
@@ -45,6 +78,7 @@ function Tophw(props){
             
         </View>
     )
+}
 }
 
 export default Tophw;
