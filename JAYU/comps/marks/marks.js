@@ -28,7 +28,7 @@ function Marks(props){
             <View style={markStyles.subjectBar}>
                 <View style={markStyles.subject}>
                     <View style={{height:40, width:40, backgroundColor:'yellow', borderRadius:40}}></View>
-                    <Text style={{fontSize:25, marginLeft:20}}>Assets Design and Integration</Text>
+                    <Text style={[{fontSize:25, marginLeft:20},{backgroundColor:props.navigation.getParam("color")}]}>Assets Design and Integration</Text>
                 </View>
             </View>
 
