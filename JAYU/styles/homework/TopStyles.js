@@ -46,7 +46,7 @@ const TopStyles = StyleSheet.create({
         fontFamily:'SFProDisplay-Regular',
         marginTop: 5,
         fontSize:12,
-        marginLeft: 60,
+        marginLeft: 90,
         color:"#007AFF",
         flexDirection: "row"
     },
