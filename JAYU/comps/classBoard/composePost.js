@@ -8,8 +8,11 @@ function CompostPost(props){
     const [value, setValue] = useState("Write your discussion...")
 
     useEffect(()=>{
-      console.log(props.course)
+      console.log(courseName)
   },[]);
+
+  var courseName = props.navigation.getParam("course");
+  
   return (
       <View style={composeStyle.container}>
           <View style={composeStyle.navBar}>
@@ -28,7 +31,7 @@ function CompostPost(props){
               <View style={composeStyle.leftDetail}>
                   <View style={{flexDirection:'row',alignItems:'center'}}>
                         <View style={{height:25,width:25, marginRight:20, marginLeft:25, backgroundColor:"grey", borderRadius:40}}></View>
-                        <Text style={{fontSize:15}}>{props.course}</Text>
+                        <Text style={{fontSize:15}}>{props.navigation.getParam("course")}</Text>
                   </View>
                   <View style={{flexDirection:'row', marginLeft:20}}>
                         <Button title={'Camera'}/>
@@ -40,8 +43,10 @@ function CompostPost(props){
               <View style={composeStyle.rightDetail}>
                     <TouchableOpacity style={{height:30,width:30, backgroundColor:"#007aff", borderRadius:40}}
                           onPress={()=>{
-                            props.navigation.navigate('Classboard');
-                            <PostBox textinput={value} />
+                            props.navigation.navigate('Classboard', 
+                            {course:courseName, 
+                              comments:value
+                            });
                          }}>
                     </TouchableOpacity>
                     <Text style={{color:'#007aff'}}>Post</Text>
@@ -53,7 +58,7 @@ function CompostPost(props){
           {/* Text Box*/}
           <View style={composeStyle.textBoxContainer}>
               <TextInput
-                value={value}
+                placeholder="Write Your Discussion"
                 onChangeText={text => setValue(text)}
                 style={{marginLeft:20}}
                 multiline={true}

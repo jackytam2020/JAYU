@@ -28,7 +28,6 @@ function Newpost(props){
                 <View style={{flexDirection:'row'}}>
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
                     <Text style={{fontSize:15}}>choose a subject for your post</Text>
-                    <Text>{course}</Text>
                 </View>  
                
               </View>
@@ -150,8 +149,8 @@ function Newpost(props){
                     </TouchableOpacity>
                     <TouchableOpacity style={newPostStyle.next}
                     onPress={()=>{
-                        props.navigation.navigate('ComposePost');
-                        <CompostPost  course={course}/>
+                        props.navigation.navigate('ComposePost', {course:course});
+            
                     }}
                     >
                         <Text style={{fontSize:20}}>Next</Text>
