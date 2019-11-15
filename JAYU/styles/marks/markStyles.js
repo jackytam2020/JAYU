@@ -54,7 +54,7 @@ const markStyles = StyleSheet.create({
     },
     gradeBox:{
         top:20,
-        flex:0.43,
+        flex:0.51,
         backgroundColor:"rgba(255,255,255,0.4)",
         flexDirection:'row',
         justifyContent:'center'
@@ -66,7 +66,7 @@ const markStyles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         top:10,
-        marginBottom:30,
+        marginBottom: 30,
     },
     cancel:{
        

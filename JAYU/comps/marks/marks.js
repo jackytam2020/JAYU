@@ -12,7 +12,7 @@ function Marks(props){
     const [slideup, setSlideup] = useState(false)
     const [slideNewMark, setSlideNewMark] = useState(false)
   return (
-    <View style={{flex:1,backgroundColor:'#fff5d7'}}>
+    <View style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}>
             <View style={markStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
@@ -27,12 +27,14 @@ function Marks(props){
 
             <View style={markStyles.subjectBar}>
                 <View style={markStyles.subject}>
-                    <View style={{height:40, width:40, backgroundColor:'yellow', borderRadius:40}}></View>
-                    <Text style={[{fontSize:25, marginLeft:20},{backgroundColor:props.navigation.getParam("color")}]}>Assets Design and Integration</Text>
+                   
+                            <Text style={[{fontSize: 25}, {color:props.navigation.getParam("color")}]}>{props.navigation.getParam("icon")}</Text>
+                        
+                    <Text style={[{fontSize:25, marginLeft:20}]}>{props.navigation.getParam("classname")}</Text>
                 </View>
             </View>
 
-            <View style={markStyles.progressBar}>
+            <View style={markStyles.progressBar}>   
                 <View style={markStyles.progressBG}>
                     <View style={markStyles.progress}>
                         <View style={{flex:0.7, justifyContent:"center"}}>
