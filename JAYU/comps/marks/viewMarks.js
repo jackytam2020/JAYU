@@ -29,8 +29,7 @@ function ViewMark(props){
                         props.navigation.navigate('Marks', {
                             name:"Accounting for the Manager",
                             color:'#FF9500',
-                            
-
+                
                     })
                     }}>
                     <Text style={[{color:"#FF9500"},viewMarkStyles.circle]}>􀘝</Text>

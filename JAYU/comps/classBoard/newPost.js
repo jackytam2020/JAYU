@@ -7,13 +7,23 @@ import CompostPost from '../classBoard/composePost'
 
 function Newpost(props){
     const [course, setCourse] =  useState(""); 
-    const [ color, setColor] = useState("black")
+    const [color, setColor] = useState("black");
+    const [color1, setColor1] = useState("black");
+    const [color2, setColor2] = useState("black");
+    const [color3, setColor3] = useState("black");
+    const [color4, setColor4] = useState("black");
+    const [color5, setColor5] = useState("black");
+    const [color6, setColor6] = useState("black");
+    const [color7, setColor7] = useState("black");
 
     //when comp loads, course needs to be empty
     useEffect(()=>{
         setCourse("");
     },[]);
 
+    var setPostBox = props.navigation.getParam("setPostBox");
+    var postBox = props.navigation.getParam("postBox");
+    var setEmptyPost = props.navigation.getParam("setEmptyPost");
   return (
       <View style={newPostStyle.container}>
           <View style={newPostStyle.navBar}>
@@ -42,8 +52,22 @@ function Newpost(props){
                 
                 <TouchableOpacity style={{flexDirection:'row'}}
                     onPress={()=> {
-                        setColor("red")
+                        setColor("#007AFF")
                         setCourse("Accounting for the Manager");
+
+                        if(color == "#007AFF"){
+                            setColor("black")
+                            setCourse("");
+                        }
+                        if(color7 || color1 || color2 || color3 || color4 || color5 || color6 == "#007AFF"){
+                            setColor7("black")
+                            setColor1("black")
+                            setColor2("black")
+                            setColor3("black")
+                            setColor4("black")
+                            setColor5("black")
+                            setColor6("black")
+                        }
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
@@ -55,11 +79,26 @@ function Newpost(props){
 
                 <TouchableOpacity style={{flexDirection:'row'}}
                     onPress={()=> {
-                        setCourse("Advanced Photoshop")
+                        setCourse("Advanced Photoshop");
+                        setColor1("#007AFF");
+
+                        if( color1 == "#007AFF"){
+                            setColor1("black");
+                            setCourse("");
+                        }
+                        if(color7 || color || color2 || color3 || color4 || color5 || color6 == "#007AFF"){
+                            setColor7("black")
+                            setColor("black")
+                            setColor2("black")
+                            setColor3("black")
+                            setColor4("black")
+                            setColor5("black")
+                            setColor6("black")
+                        }
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Advanced Photoshop </Text>
+                    <Text style={{fontSize:15, color:color1}}>Advanced Photoshop </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
@@ -68,10 +107,25 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
                         setCourse("Assets Design and Integration")
+                        setColor2("#007AFF");
+
+                        if( color2 == "#007AFF"){
+                            setColor2("black");
+                            setCourse("");
+                        }
+                        if(color7 || color1 || color || color3 || color4 || color5 || color6 == "#007AFF"){
+                            setColor7("black")
+                            setColor1("black")
+                            setColor("black")
+                            setColor3("black")
+                            setColor4("black")
+                            setColor5("black")
+                            setColor6("black")
+                        }
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Assets Design and Integration </Text>
+                    <Text style={{fontSize:15, color:color2}}>Assets Design and Integration </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
@@ -80,10 +134,25 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
                         setCourse("Business Communication")
+                        setColor3("#007AFF");
+
+                        if( color3 == "#007AFF"){
+                            setColor3("black");
+                            setCourse("");
+                        }
+                        if(color7 || color1 || color2 || color || color4 || color5 || color6 == "#007AFF"){
+                            setColor7("black")
+                            setColor1("black")
+                            setColor2("black")
+                            setColor("black")
+                            setColor4("black")
+                            setColor5("black")
+                            setColor6("black")
+                        }
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Business Communication </Text>
+                    <Text style={{fontSize:15, color:color3}}>Business Communication </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
@@ -91,11 +160,27 @@ function Newpost(props){
 
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
-                        setCourse("Design 2")
+                        setCourse("Design 2");
+                        setColor4("#007AFF");
+
+                        if( color4 == "#007AFF"){
+                            setColor4("black");
+                            setCourse("");
+                        }
+                        if(color7 || color1 || color2 || color3 || color || color5 || color6 == "#007AFF"){
+                            setColor7("black")
+                            setColor1("black")
+                            setColor2("black")
+                            setColor3("black")
+                            setColor("black")
+                            setColor5("black")
+                            setColor6("black")
+                        }
+                        
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Design 2</Text>
+                    <Text style={{fontSize:15, color:color4}}>Design 2</Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
@@ -103,11 +188,26 @@ function Newpost(props){
 
                 <TouchableOpacity style={{flexDirection:'row'}}
                     onPress={()=> {
-                        setCourse("Professional Sales Skills")
+                        setCourse("Professional Sales Skills");
+                        setColor5("#007AFF");
+
+                        if( color5 == "#007AFF"){
+                            setColor5("black");
+                            setCourse("");
+                        }
+                        if(color7 || color1 || color2 || color3 || color4 || color || color6 == "#007AFF"){
+                            setColor7("black")
+                            setColor1("black")
+                            setColor2("black")
+                            setColor3("black")
+                            setColor4("black")
+                            setColor("black")
+                            setColor6("black")
+                        }
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Professional Sales Skills </Text>
+                    <Text style={{fontSize:15, color:color5}}>Professional Sales Skills </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
@@ -116,10 +216,25 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                     onPress={()=> {
                         setCourse("Project 2")
+                        setColor6("#007AFF");
+
+                        if( color6 == "#007AFF"){
+                            setColor6("black");
+                            setCourse("");
+                        }
+                        if(color7 || color1 || color2 || color3 || color4 || color5 || color == "#007AFF"){
+                            setColor7("black")
+                            setColor1("black")
+                            setColor2("black")
+                            setColor3("black")
+                            setColor4("black")
+                            setColor5("black")
+                            setColor("black")
+                        }
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Project 2 </Text>
+                    <Text style={{fontSize:15, color:color6}}>Project 2 </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
                     <View style={newPostStyle.line}></View>
@@ -128,10 +243,25 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
                         setCourse("Web Development 3")
+                        setColor7("#007AFF");
+
+                        if( color7 == "#007AFF"){
+                            setColor7("black");
+                            setCourse("");
+                        }
+                        if(color || color1 || color2 || color3 || color4 || color5 || color6 == "#007AFF"){
+                            setColor("black")
+                            setColor1("black")
+                            setColor2("black")
+                            setColor3("black")
+                            setColor4("black")
+                            setColor5("black")
+                            setColor6("black")
+                        }
                     }}
                 >
                     <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Web Development 3 </Text>
+                    <Text style={{fontSize:15, color:color7}}>Web Development 3 </Text>
                 </TouchableOpacity>  
         
             </View>
@@ -149,7 +279,7 @@ function Newpost(props){
                     </TouchableOpacity>
                     <TouchableOpacity style={newPostStyle.next}
                     onPress={()=>{
-                        props.navigation.navigate('ComposePost', {course:course});
+                        props.navigation.navigate('ComposePost', {course:course, setPostBox:setPostBox, postBox:postBox, setEmptyPost:setEmptyPost});
             
                     }}
                     >

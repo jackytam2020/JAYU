@@ -17,10 +17,12 @@ import Classboard from './comps/classBoard/classboard';
 import Post from './comps/classBoard/post';
 import NewPost from './comps/classBoard/newPost';
 import Marks from './comps/marks/marks';
+import NewMark from './comps/marks/newMark';
 import Tophw from './comps/homework/Top';
 import ComposePost from './comps/classBoard/composePost';
 import FooterBar from './comps/footerBar';
-import  ViewMark from './comps/marks/viewMarks';
+import ViewMark from './comps/marks/viewMarks';
+import EditMark from './comps/marks/editMark'
 import PostBox from './comps/classBoard/postBox'
 import {SafeAreaView,StyleSheet,ScrollView,View,Text,StatusBar,} from 'react-native';
 import {createAppContainer} from 'react-navigation';
@@ -40,6 +42,8 @@ const AppNavigator = createStackNavigator({
   Homework: {screen: Tophw},
   ViewMark: {screen: ViewMark},
   Marks: { screen: Marks },
+  NewMark:{ screen: NewMark},
+  EditMark:{ screen: EditMark},
   NewPost: {screen: NewPost},
   ComposePost: {screen: ComposePost},
   PostBox:{screen: PostBox},
