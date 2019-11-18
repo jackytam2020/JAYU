@@ -28,13 +28,13 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 // App default Navigation stack
 const AppNavigator = createStackNavigator({
-  HomeScreen: { screen: HomeScreen },
   SignIn: { screen: SignIn },
   Term: { screen: Term },
   SetUp: { screen: SetUp },
   Passcode: { screen: Passcode },
   PasscodeInput: { screen: PasscodeInput },
   Subject: { screen: Subject },
+  HomeScreen: { screen: HomeScreen },
   Schedule: {screen: Schedule},
   Classboard: {screen: Classboard},
   Homework: {screen: Tophw},
@@ -63,5 +63,5 @@ function App() {
   )
 };
 
-export default App;
-//export default from './storybook';
+//export default App;
+export default from './storybook';
