@@ -10,7 +10,7 @@ function HomeScreen(props){
     const [barHeight, setBarHeight] = useState(0.08)
     const [showItems, setShowItems] = useState(styles.hideItems)
   return (
-        <ImageBackground source={require('../../assets/BackgroundImages/Homescreen_Yellow.png')} style={{flex:1, justifyContent:'flex-end', width:"100.5%"}}>
+        <ImageBackground source={require('../../assets/BackgroundImages/Homescreen_Purple.png')} style={{flex:1, justifyContent:'flex-end', width:"100.5%"}}>
             <View style={styles.home}>
                
                <View style={styles.greetingBox}>

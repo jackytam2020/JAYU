@@ -2,16 +2,21 @@ import React,{useState} from 'react';
 import { View,Text,Button, TextInput, TouchableOpacity} from 'react-native';
 import editMarkStyles from '../../styles/marks/editMarkStyles';
 import markStyles from '../../styles/marks/markStyles';
+import Marks from '../marks/marks';
+import MarksRow from '../marks/markRow';
 
-function NewMark({setSlideNewMark}){
+function NewMark(props){
     const [select, setSelect] = useState("grey")
     const [select1, setSelect1] = useState("grey")
     const [select2, setSelect2] = useState("grey")
     const [weight, setWeight] = useState("8%")
     const [score, setScore] = useState("93")
-    const [marks, setMarks] = useState("100")
+    const [outof, setOutof] = useState("100")
     const [slideDown, setSlideDown] = useState(0)
+    const [value, setValue] = useState('')
 
+    var setMark = props.navigation.getParam("setMark");
+    var mark = props.navigation.getParam("mark");
 
   return (
     <View style={editMarkStyles.container}>
@@ -60,7 +65,8 @@ function NewMark({setSlideNewMark}){
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
                         placeholder="Midterm Exam"
-                        style={{fontSize:25, marginRight:15}}>
+                        style={{fontSize:25, marginRight:15}}
+                        onChangeText={text => setValue(text)}>
                     </TextInput>
                     <Text style={{color:'grey', top:3}}>Tap to Edit</Text>
                 </View>
@@ -95,12 +101,14 @@ function NewMark({setSlideNewMark}){
                 <View style={{flexDirection:'row', width:'40%', alignItems:'center', justifyContent:'space-between'}}>
                     <TextInput
                         value={score}
-                        style={{fontSize:25}}>
+                        style={{fontSize:25}}
+                        onChangeText={text => setScore(text)}>
                     </TextInput>
                     <Text> of </Text>
                     <TextInput
-                        value={marks}
-                        style={{fontSize:25}}>
+                        value={outof}
+                        style={{fontSize:25}}
+                        onChangeText={text => setOutof(text)}>
                     </TextInput>
                 </View>
                 <View style={{flex:0.2, flexDirection:'row', top:5}}>
@@ -113,12 +121,18 @@ function NewMark({setSlideNewMark}){
             <View style={editMarkStyles.actionButtons}>
                 <Text style={{fontSize:15}}
                     onPress={()=>{
-                        setSlideNewMark(false)
+                        var arr = mark;
+                              arr.push(1);
+                              arr = arr.map((o)=>{
+                                  return o;
+                              })
+                              setMark(arr)
+                        props.navigation.navigate("Marks", {value:value, score:score, outof:outof})
                     }}
                 >Add</Text>
                 <Text style={{fontSize:15}}
                     onPress={()=>{
-                        setSlideNewMark(false)
+                        props.navigation.goBack()
                     }}
                 >Cancel</Text>
             </View>
