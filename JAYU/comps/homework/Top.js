@@ -8,7 +8,7 @@ import normalize from 'react-native-normalize';
 import Task from '../homework/task'
 function Tophw(props){
    const[DropDown1, SetDropdown1] = useState(false);
-   const[Growth,setGrowth]= useState(false);
+   const[Growth,setGrowth]= useState(true);
    const[Growth2,setGrowth2]= useState(false);
    const[Growth3,setGrowth3]= useState(false);
    const[Growth4,setGrowth4]= useState(false);
@@ -20,7 +20,15 @@ function Tophw(props){
    const[Head, setHead] = useState(false);
    
         var  assignmentsIcon = '􀆊 ';
-        var AddDueDate =null;
+        var AddDueDate =null;;
+        var op = 0.5
+        var op2 = 0.5
+        var op3= 0.5
+        var op4 = 0.5
+        var op5 = 0.5
+        var op6 = 0.5
+        var op7 = 0.5
+        var op8 = 0.5
         var color = "#00AEEF"
         var color2 = "#00AEEF"
         var color3 = "#00AEEF"
@@ -54,42 +62,51 @@ function Tophw(props){
         Iconfont = 30;
         header2="Advanced Photoshop"
         color = "#00AEEF"
+        op = 1
+
     } else
     if(Growth2 === true){
         Iconfont2 = 30;
         header2="Design 2"
         color='#FF3B30'
+        op2= 1
          
     }else
    if(Growth3 === true){
         Iconfont3 = 30;
         header2="Buisness  Communication"
         color="#4CD964"
+        op3 = 1
     }else
     if(Growth4 === true){
         Iconfont4= 30;
         header2="Professional Sales"
         color="#5856D6"
+        op4 = 1
     }else
     if(Growth5 === true){
         Iconfont5 = 30;
         header2="Accounting for the manager"
         color="#FF9500"
+        op5 = 1
     }else
     if(Growth6 === true){
         Iconfont6= 30;
         header2="Asset Design and Intergration"
         color="#FFCF00"
+        op6 = 1
     }else
     if(Growth7=== true){
         Iconfont7 = 30;
         header2="Web Development 3"
         color="#C69C6D"
+        op7 = 1
     } else
     if(Growth8=== true){
         Iconfont8 = 30;
         header2="Project 2"
         color="#007AFF"
+        op8= 1
     }
 
 
@@ -117,7 +134,7 @@ function Tophw(props){
                 setGrowth7(false)
                 setGrowth8(false)
             }}
-                 style={[{color:'#00AEEF', fontSize:Iconfont}, TopStyles.icon]}>􀀣</Text>
+                 style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
                 <Text onPress={() =>{
                 setGrowth2(!Growth2)
                 setGrowth(false) 
@@ -128,7 +145,7 @@ function Tophw(props){
                 setGrowth7(false)
                 setGrowth8(false)
                 }} 
-                    style={[{color:'#FF3B30', fontSize:Iconfont2},        TopStyles.icon]}>􀈌</Text>
+                    style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
                 <Text onPress={() =>{
                     setGrowth3(!Growth3)
                     setGrowth(false) 
@@ -139,7 +156,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                 }}
-                    style={[{color:"#4CD964",fontSize:Iconfont3},       TopStyles.icon]}>􀒡</Text>
+                    style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
                 <Text onPress={() =>{
                     setGrowth4(!Growth4)
                     setGrowth(false) 
@@ -150,7 +167,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     }}
-                    style={[{color:"#FF9500", fontSize:Iconfont4},       TopStyles.icon]}>􀖘</Text>
+                    style={[{color:"#FF9500", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
                 <Text onPress={() =>{
                     setGrowth5(!Growth5)
                     setGrowth(false) 
@@ -161,7 +178,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     }
-                    }style={[{color:"#FF9500", fontSize:Iconfont5},       TopStyles.icon]}>􀘝</Text>
+                    }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
                 <Text onPress={() =>{
                     setGrowth6(!Growth6)
                     setGrowth(false) 
@@ -172,7 +189,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     }}
-                    style={[{color:"#FFCF00", fontSize:Iconfont6},       TopStyles.icon]}>􀏀</Text>
+                    style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
                 <Text onPress={() =>{
                     setGrowth7(!Growth7)
                     setGrowth(false) 
@@ -183,7 +200,7 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth8(false)
                     }}
-                    style={[{color:"#C69C6D",fontSize:Iconfont7},        TopStyles.icon]}>􀁛</Text>
+                    style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
                 <Text onPress={() =>{
                     setGrowth8(!Growth8)
                     setGrowth(false) 
@@ -194,20 +211,17 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth7(false)
                     }}
-                    style={[{color:"#007AFF", fontSize:Iconfont8},       TopStyles.icon]}>􀓤</Text>
-                <Text style={TopStyles.icon} onPress={()=>{
-                    var arr = taskList;
-                    arr.push(1);
-                    arr = arr.map((o)=>{
-                        return o;
-                    })
-                    setTaskList(arr);
-                }}>Add task􀅼</Text>
+                    style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
             </View>
-            <ScrollView>
+        
+
+           
                 <Text style={[TopStyles.headerText,  {color:color}]}>{header2}</Text>
+                <View style={{flex: 0.001, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
+                <ScrollView>
                     <View onPress={()=>setHead(!header)} style={TopStyles.asgContainer}>
                     <ScrollView>
+                        
                         
                         {
                             taskList.map((obj,i)=>{
@@ -216,6 +230,14 @@ function Tophw(props){
                         }
                        
                         </ScrollView>
+                        < Text style={TopStyles.icon2} onPress={()=>{
+                             var arr = taskList;
+                              arr.push(1);
+                              arr = arr.map((o)=>{
+                             return o;
+                              })
+                    setTaskList(arr);
+                }}>􀁌 New Assigment</Text>
                     </View>
             
             </ScrollView>

@@ -15,7 +15,7 @@ const TopStyles = StyleSheet.create({
         color:"red"
     },
     headerText:{
-       
+        flex: 0.1,
         fontFamily:'SFProDisplay-Medium',
         fontSize:25,
         marginLeft: 30,
@@ -68,6 +68,13 @@ const TopStyles = StyleSheet.create({
 
     icon: {
         fontFamily:'SFProDisplay-Medium',
+    },
+
+    icon2: {
+        fontFamily:'SFProDisplay-Medium',
+        marginTop: 40,
+        marginLeft:30,
+        fontSize:18
     },
     hideContainer:{
         display:'none'
