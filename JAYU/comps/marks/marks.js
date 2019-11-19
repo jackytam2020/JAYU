@@ -22,7 +22,7 @@ function Marks(props){
     var score = props.navigation.getParam("score"); 
     var outof = props.navigation.getParam("outof"); 
   return (
-    <View style={{flex:1,backgroundColor:'#fff5d7'}}> 
+    <View style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}> 
             <View style={markStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
@@ -36,7 +36,7 @@ function Marks(props){
             <View style={markStyles.subjectBar}>
                 <View style={markStyles.subject}>
                     <View style={{height:normalize(67), width:normalize(67)}}>
-                        <Text style={markStyles.ADI}>{props.navigation.getParam("icon")}</Text>
+                        <Text style={[markStyles.ADI,{color:props.navigation.getParam("color")}]}>{props.navigation.getParam("icon")}</Text>
                     </View>
                     <View style={{width:normalize(250)}}>
                     <Text style={{fontSize:normalize(25), marginLeft:normalize(20), fontFamily:"SFProDisplay-Semibold"}}>{props.navigation.getParam("classname")}</Text>
