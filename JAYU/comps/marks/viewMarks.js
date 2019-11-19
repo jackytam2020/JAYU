@@ -4,26 +4,29 @@ import {
     SafeAreaView,
     Text, 
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    ScrollView,
 } from 'react-native';
-import viewMarkStyles from '../../styles/marks/viewMarkStyles'
-import FooterBar from '../footerBar'
+import viewMarkStyles from '../../styles/marks/viewMarkStyles';
+import FooterBar from '../footerBar';
+import normalize from 'react-native-normalize';
+
 
 function ViewMark(props){
 
     return(
-        <SafeAreaView style={{flex:1}}>
+        <SafeAreaView style={{width:"100%", height:"100%"}}>
+            <View style={{width:"100%", height:"100%"}}>
             <View style={viewMarkStyles.header}>
-                <Text style= {[{flex:0.5, textAlign: "center"},viewMarkStyles.title]}
+                <Text style= {viewMarkStyles.back}
                     onPress={()=>{
                         props.navigation.navigate("HomeScreen")
                 }}
-                > 􀆉 </Text>
-                <Text style= {[{flex:3, textAlign: "center", fontSize:25},viewMarkStyles.title]}>Marks</Text>
-                <Text style={{flex:0.5}}>   </Text>
+                > 􀆉 Back</Text>
+                <Text style= {viewMarkStyles.title}>Marks</Text>
             </View> 
         
-            <View style ={viewMarkStyles.classesCont}>
+            <ScrollView style ={viewMarkStyles.classesCont}>
                 <TouchableOpacity style= {[{backgroundColor:"#FFEBD4"}, viewMarkStyles.classes]}
                     onPress={()=>{
                         props.navigation.navigate('Marks')
@@ -69,12 +72,12 @@ function ViewMark(props){
                     <Text style={[{color:"#C69C6D"},viewMarkStyles.circle]}>􀁛</Text>
                     <Text style = {viewMarkStyles.classText}>Web Development 3</Text>
                 </TouchableOpacity>
+            </ScrollView>
             </View>
-            
+
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
                 <FooterBar />
             </View>    
-            
          </SafeAreaView>
 
     );
