@@ -5,12 +5,19 @@ import FooterBar from '../../comps/footerBar';
 import EditMark from '../../comps/marks/editMark';
 import NewMark from '../../comps/marks/newMark'
 import Modal from "react-native-modal"
+import MarkRow from '../marks/markRow';
 
 function Marks(props){
     const [cancel, setCancel] = useState(markStyles.cancel)
     const [editBut, setEditBut] = useState("Edit Mark")
     const [slideup, setSlideup] = useState(false)
-    const [slideNewMark, setSlideNewMark] = useState(false)
+    const [slideNewMark, setSlideNewMark] = useState(false);
+    const [mark, setMark] = useState([]);
+    const [grade, setGrade] = useState("")
+
+    var markName = props.navigation.getParam("value"); 
+    var score = props.navigation.getParam("score"); 
+    var outof = props.navigation.getParam("outof"); 
   return (
     <View style={{flex:1,backgroundColor:'#fff5d7'}}>
             <View style={markStyles.navBar}>
@@ -27,8 +34,8 @@ function Marks(props){
 
             <View style={markStyles.subjectBar}>
                 <View style={markStyles.subject}>
-                    <View style={{height:40, width:40, backgroundColor:'yellow', borderRadius:40}}></View>
-                    <Text style={{fontSize:25, marginLeft:20}}>Assets Design and Integration</Text>
+                    <Text style={[{fontSize: 25}, {color:props.navigation.getParam("color")}]}>{props.navigation.getParam("icon")}</Text>
+                    <Text style={{fontSize:25, marginLeft:20}}>{props.navigation.getParam("classname")}</Text>
                 </View>
             </View>
 
@@ -54,7 +61,8 @@ function Marks(props){
                         >
                             <Text style={{fontSize:20}}
                             onPress={()=>{
-                                setSlideNewMark(true)
+                                // setSlideNewMark(true)
+                                props.navigation.navigate("NewMark",{setMark:setMark, mark:mark})
                             }}>Add Mark</Text>
                         </TouchableOpacity>
                     </View>
@@ -78,55 +86,38 @@ function Marks(props){
             {/* Graded items */}
             <View style={markStyles.gradeBox}>
                 <View style={markStyles.inputs}>
-                    <ScrollView>
                         <View style={markStyles.inputTitleRow}>
                             <Text style={markStyles.inputTitle}>Elements</Text>
                             <Text style={markStyles.inputTitle}>Mark</Text>
                         </View>
+                    <ScrollView>
+                    {
+                        mark.map((obj,i)=>{
 
-                        <View style={markStyles.inputRow}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity style={cancel}></TouchableOpacity>
-                                <Text style={markStyles.markName}
-                                onPress={()=>{
-                                    setSlideup(true)
-                                }}
-                                >First Project</Text>
-                            </View>
-                            <Text style={markStyles.markName}>100/100</Text>
-                        </View>
-
-                        <View style={markStyles.inputRow}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity style={cancel}></TouchableOpacity>
-                                <Text style={markStyles.markName}>First Project</Text>
-                            </View>
-                            <Text style={markStyles.markName}>100/100</Text>
-                        </View>
-
-                        <View style={markStyles.inputRow}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity style={cancel}></TouchableOpacity>
-                                <Text style={markStyles.markName}>First Project</Text>
-                            </View>
-                            <Text style={markStyles.markName}>100/100</Text>
-                        </View>
-
-                        <View style={markStyles.inputRow}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity style={cancel}></TouchableOpacity>
-                                <Text style={markStyles.markName}>First Project</Text>
-                            </View>
-                            <Text style={markStyles.markName}>100/100</Text>
-                        </View>
-
-                        <View style={markStyles.inputRow}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity style={cancel}></TouchableOpacity>
-                                <Text style={markStyles.markName}>First Project</Text>
-                            </View>
-                            <Text style={markStyles.markName}>100/100</Text>
-                        </View>
+                            return <View style={markStyles.inputRow}>
+                                        <View style={{flexDirection:'row'}}>
+                                            <TouchableOpacity style={cancel} onPress={()=>{
+                                                 var arr = mark;
+                                                 arr.pop(1);
+                                                 arr = arr.map((o)=>{
+                                                     return o;
+                                                 })
+                                                 setMark(arr)}}></TouchableOpacity>
+                                            <Text style={markStyles.markName}
+                                            onPress={()=>{
+                                                // setSlideup(true)
+                                                props.navigation.navigate("EditMark", {markName:markName, score:score, outof:outof})
+                                            }}
+                                            >{markName}</Text>
+                                        </View>
+                                        <Text style={markStyles.markName}>{score}/{outof}</Text>
+                                    </View> 
+                            
+                                     
+                            //<MarkRow /> 
+                        })
+                        
+                    }    
                     </ScrollView>
                 </View>
 
@@ -136,18 +127,6 @@ function Marks(props){
                 <FooterBar/>
             </View>
 
-            {/*Slide up pages */}
-            <Modal isVisible={slideup} swipeDirection={'down'} onSwipeComplete={()=>{setSlideup(false)}}>
-                <View style={{ flex:0.9 }}>
-                        <EditMark setSlideup={setSlideup}/>
-                </View>
-            </Modal>
-
-            <Modal isVisible={slideNewMark} swipeDirection={'down'} onSwipeComplete={()=>{setSlideNewMark(false)}}>
-                <View style={{ flex:0.9 }}>
-                        <NewMark setSlideNewMark={setSlideNewMark}/>
-                </View>
-            </Modal>
     </View>
   );
 };

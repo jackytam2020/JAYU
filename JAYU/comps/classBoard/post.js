@@ -8,6 +8,32 @@ function Post(props){
     const [replieUpVotes, setReplieUpVotes] = useState(0);
     const [value, setValue] = useState("Type your answer");
     const [RepliesValue, setRepliesValue] = useState("");
+    const [replies, setReplies] = useState([]);
+
+    var date, dayState, hour, minutes, seconds, fullTime;
+
+    hour = new Date().getHours();
+    minutes = new Date().getMinutes(); //Current Minutes
+    
+    if(hour<= 11){
+        dayState= 'AM';
+    }
+    else {
+        dayState= 'PM'
+    }
+
+    //convert to 12 hour formate
+    if(hour > 12){
+        hour = hour -12;
+    }
+    if(hour == 0){
+        hour = 12;
+    }
+    if(minutes < 10){
+        minutes = '0' + minutes.toString();
+    }
+    var time = hour+":"+minutes+" "+dayState;
+
   return (
       <View style={postStyle.container}>
         
@@ -26,7 +52,7 @@ function Post(props){
                 <View style={postStyle.leftSubject}>
                     <View style={{height:20,width:20, backgroundColor:"red", borderRadius:40}}></View>
                     <View style={{paddingLeft:10}}>  
-                        <Text>Advanced Photoshop</Text>
+                        <Text>{props.navigation.getParam("course")}</Text>
                         <Text style={{fontSize:10, color:'grey'}}>9:15pm by Doris</Text>
                     </View>  
                 </View>
@@ -41,22 +67,24 @@ function Post(props){
 
         <View style={postStyle.questionBox}>
             <View style={postStyle.question}>
-                <Text>What does Primary Text Frame do in inDesign?</Text>
+                <Text>{props.navigation.getParam("question")}</Text>
             </View>
         </View>
 
         {/* Attachment area */}
         <View style={postStyle.attachmentBox}>
             {/* there should be no child elements here if user does not have an attachment */}
-            <ImageBackground
+            { /* <ImageBackground
             source={require('../../assets/BackgroundImages/original.png')} style={{width:'100%', height:200}}
             />
+            */}
         </View>
 
         {/* Response box */}
         <View style={postStyle.responseContainer}>
             <View style={postStyle.responseBox}>
                 <TextInput 
+                    clearTextOnFocus={true}
                     onChangeText={text => setValue(text)}
                     value={value}
                     multiline={true}
@@ -66,7 +94,13 @@ function Post(props){
                     title={'Send'}
                     onPress={()=>{
                         setRepliesValue(value)
-                        setValue("Type your answer")
+                        var arr = replies;
+                              arr.push(1);
+                              arr = arr.map((o)=>{
+                                  return o;
+                              })
+                              setValue('Type your answer')
+                    
                     }}
                 />
             </View>
@@ -75,52 +109,29 @@ function Post(props){
         {/* Replies section */}
         <View style={postStyle.repliesContainer}>
             <ScrollView>
-                <View style={postStyle.scrollBox}>
-                    <View style={postStyle.repliesBox}>
-                        <View style={postStyle.repliesTop}>
-                            <View style={postStyle.repliesName}>
-                                <Text>Mitch</Text>
-                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
-                            </View>
-                            <View style={[postStyle.repliesVotes]}>
-                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
-                            </View>
-                        </View>
-                        <View style={postStyle.repliesBot}>
-                            <Text>{RepliesValue}</Text>
-                        </View>
-                    </View>
+            {  
+                replies.map((obj,i)=>{
 
-                    <View style={postStyle.repliesBox}>
-                        <View style={postStyle.repliesTop}>
-                            <View style={postStyle.repliesName}>
-                                <Text>Mitch</Text>
-                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
+                return <View style={postStyle.scrollBox}>
+                        <View style={postStyle.repliesBox}>
+                            <View style={postStyle.repliesTop}>
+                                <View style={postStyle.repliesName}>
+                                    <Text>Mitch</Text>
+                                    <Text style={{fontSize:10, color:'grey'}}>{time}</Text>
+                                </View>
+                                <View style={[postStyle.repliesVotes]}>
+                                    <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                                </View>
                             </View>
-                            <View style={[postStyle.repliesVotes]}>
-                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                            <View style={postStyle.repliesBot}>
+                                <Text>{RepliesValue}</Text>
                             </View>
                         </View>
-                        <View style={postStyle.repliesBot}>
-                            <Text>{RepliesValue}</Text>
-                        </View>
-                    </View>
 
-                    <View style={postStyle.repliesBox}>
-                        <View style={postStyle.repliesTop}>
-                            <View style={postStyle.repliesName}>
-                                <Text>Mitch</Text>
-                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
-                            </View>
-                            <View style={[postStyle.repliesVotes]}>
-                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
-                            </View>
                         </View>
-                        <View style={postStyle.repliesBot}>
-                            <Text>{RepliesValue}</Text>
-                        </View>
-                    </View>
-                </View>
+                })
+                
+            }
             </ScrollView>
 
         </View>

@@ -3,15 +3,22 @@ import { View,Text,Button, TextInput, TouchableOpacity} from 'react-native';
 import editMarkStyles from '../../styles/marks/editMarkStyles';
 import markStyles from '../../styles/marks/markStyles';
 
-function EditMark({setSlideup}){
+function EditMark(props){
+
+    var markName = props.navigation.getParam("markName"); 
+    var editscore = props.navigation.getParam("score"); 
+    var editoutof = props.navigation.getParam("outof"); 
+
+    const [value, setValue]= useState(markName)
     const [select, setSelect] = useState("grey")
     const [select1, setSelect1] = useState("grey")
     const [select2, setSelect2] = useState("grey")
     const [weight, setWeight] = useState("30%")
-    const [score, setScore] = useState("87")
-    const [marks, setMarks] = useState("100")
+    const [score, setScore]= useState(editscore);
+    const [outof, setOutof]= useState(editoutof);
     const [slideDown, setSlideDown] = useState(0)
 
+    
 
   return (
     <View style={editMarkStyles.container}>
@@ -59,8 +66,10 @@ function EditMark({setSlideup}){
                 <Text>Element Name</Text>
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
-                        placeholder="Midterm Exam"
-                        style={{fontSize:25, marginRight:15}}>
+                        clearTextOnFocus={true}
+                        value={value}
+                        style={{fontSize:25, marginRight:15}}
+                        onChangeText={text => setValue(text)}>
                     </TextInput>
                     <Text style={{color:'grey', top:3}}>Tap to Edit</Text>
                 </View>
@@ -78,7 +87,8 @@ function EditMark({setSlideup}){
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
                         value={weight}
-                        style={{fontSize:25, marginRight:15}}>
+                        style={{fontSize:25, marginRight:15}}
+                        onChangeText={text => setScore(text)}>
                     </TextInput>
                 </View>
                 <View style={{flex:0.2, flexDirection:'row', top:5}}>
@@ -94,13 +104,17 @@ function EditMark({setSlideup}){
                 <Text>What mark did you get? </Text>
                 <View style={{flexDirection:'row', width:'40%', alignItems:'center', justifyContent:'space-between'}}>
                     <TextInput
+                        clearTextOnFocus={true}
                         value={score}
-                        style={{fontSize:25}}>
+                        style={{fontSize:25}}
+                        onChangeText={text => setScore(text)}>
                     </TextInput>
                     <Text> of </Text>
                     <TextInput
-                        value={marks}
-                        style={{fontSize:25}}>
+                        clearTextOnFocus={true}
+                        value={outof}
+                        style={{fontSize:25}}
+                        onChangeText={text => setOutof(text)}>
                     </TextInput>
                 </View>
                 <View style={{flex:0.2, flexDirection:'row', top:5}}>
@@ -113,12 +127,14 @@ function EditMark({setSlideup}){
             <View style={editMarkStyles.actionButtons}>
                 <Text style={{fontSize:15}}
                     onPress={()=>{
-                        setSlideup(false)
+                        //setSlideup(false)
+                        props.navigation.navigate("Marks",{value:value, score:score, outof:outof})
                     }}
                 >Add</Text>
                 <Text style={{fontSize:15}}
                     onPress={()=>{
-                        setSlideup(false)
+                        //setSlideup(false)
+                        props.navigation.goBack()
                     }}
                 >Cancel</Text>
             </View>

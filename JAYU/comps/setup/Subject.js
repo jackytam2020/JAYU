@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   View,
   Text,
+  ScrollView,
   NavigatorIOS,
   Image,
   ImageBackground,
@@ -29,6 +30,8 @@ function Subject(props){
               </TouchableOpacity>
               <Text style={SubjectStyle.navTitle}>Subjects</Text>
           </View>
+
+          <ScrollView style={SubjectStyle.scrollview}>
           {/* Questions 1 */}
           <View style={SubjectStyle.question1}>
             <Text style={SubjectStyle.question}>Get to know your subjects!</Text>
@@ -84,6 +87,7 @@ function Subject(props){
               <Text style={SubjectStyle.NextButtonText}>Start using JAYU 􀆊</Text>
             </TouchableOpacity>
           </View>
+          </ScrollView>
           </SafeAreaView>
         </View>
     )
