@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
-import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity} from 'react-native';
+import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import postStyle from '../../styles/classBoard/postStyle';
 import FooterBar from '../../comps/footerBar';
+import normalize from 'react-native-normalize'
 
 function Post(props){
     const [upvotes, setUpvotes] = useState(0);
     const [replieUpVotes, setReplieUpVotes] = useState(0);
-    const [value, setValue] = useState("Type your answer");
+    const [value, setValue] = useState("Write an answer...");
     const [RepliesValue, setRepliesValue] = useState("");
     const [replies, setReplies] = useState([]);
 
@@ -35,30 +36,39 @@ function Post(props){
     var time = hour+":"+minutes+" "+dayState;
 
   return (
+      <View style={postStyle.main}>
+          <SafeAreaView style={postStyle.safe}>
       <View style={postStyle.container}>
-        
         <View style={postStyle.navBar}>
-            <TouchableOpacity style={{position:'relative', width:"20%"}}
+            <TouchableOpacity style={{position:'relative', width:"25%"}}
                 onPress={()=>{
                     props.navigation.goBack()
              }}>
-                <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                <Text style={{fontSize:normalize(20), marginLeft:normalize(5), color:'#007AFF', fontFamily:"SFProDisplay-Medium"}}>􀆉 Back</Text>
             </TouchableOpacity>
         </View>
 
         {/* The Post */}
+        <ScrollView style={postStyle.scrollview}>
         <View style={postStyle.post}>
             <View style={postStyle.subject}>
                 <View style={postStyle.leftSubject}>
-                    <View style={{height:20,width:20, backgroundColor:"red", borderRadius:40}}></View>
+                    <View style={{height:normalize(35),width:normalize(35)}}>
+                        <Text style={postStyle.DS}>􀈌</Text>
+                    </View>
                     <View style={{paddingLeft:10}}>  
+<<<<<<< HEAD
                         <Text>{props.navigation.getParam("course")}</Text>
                         <Text style={{fontSize:10, color:'grey'}}>9:15pm by Doris</Text>
+=======
+                        <Text style={postStyle.subjectname}>Design 2</Text>
+                        <Text style={postStyle.timeandname}>9:15pm by Doris</Text>
+>>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
                     </View>  
                 </View>
                 <View style={postStyle.rightSubject}>
-                    <Text>{upvotes}</Text>
-                    <Text style={{fontSize:10, color:'grey'}}>upvotes</Text>
+                    <Text style={postStyle.votenumber}>{upvotes}</Text>
+                    <Text style={{fontSize:normalize(12), color:'grey', fontFamily:"SFCompactRounded-Regular"}}>reply</Text>
                 </View>
             </View>
         </View>
@@ -67,19 +77,29 @@ function Post(props){
 
         <View style={postStyle.questionBox}>
             <View style={postStyle.question}>
+<<<<<<< HEAD
                 <Text>{props.navigation.getParam("question")}</Text>
+=======
+                <Text style={postStyle.questionds}>What does Primary Text Frame do in inDesign? What does Primary Text Frame do in inDesign? What does Primary Text Frame do in inDesign?</Text>
+>>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
             </View>
         </View>
 
         {/* Attachment area */}
         <View style={postStyle.attachmentBox}>
             {/* there should be no child elements here if user does not have an attachment */}
+<<<<<<< HEAD
             { /* <ImageBackground
             source={require('../../assets/BackgroundImages/original.png')} style={{width:'100%', height:200}}
+=======
+            <ImageBackground
+            source={require('../../assets/BackgroundImages/original.png')} style={{width:'100%', height:normalize(300) ,resizeMode: 'contain'}}
+>>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
             />
             */}
         </View>
 
+<View style={postStyle.respondarea}>
         {/* Response box */}
         <View style={postStyle.responseContainer}>
             <View style={postStyle.responseBox}>
@@ -88,12 +108,13 @@ function Post(props){
                     onChangeText={text => setValue(text)}
                     value={value}
                     multiline={true}
-                    style={{width:'80%',left:10, color:'grey'}}
+                    style={{width:'80%',left:10, color:'grey', fontFamily:"SFCompactRounded-Regular", fontSize:normalize(17)}}
                 />
-                <Button 
-                    title={'Send'}
+                <TouchableOpacity 
+                style={postStyle.send}
                     onPress={()=>{
                         setRepliesValue(value)
+<<<<<<< HEAD
                         var arr = replies;
                               arr.push(1);
                               arr = arr.map((o)=>{
@@ -101,13 +122,19 @@ function Post(props){
                               })
                               setValue('Type your answer')
                     
+=======
+                        setValue("Write an answer...")
+>>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
                     }}
-                />
+                >
+                    <Text style={{fontFamily:"SFCompactRounded-Medium", fontSize:normalize(20)}}>􀈠</Text>
+                </TouchableOpacity>
             </View>
         </View>
 
         {/* Replies section */}
         <View style={postStyle.repliesContainer}>
+<<<<<<< HEAD
             <ScrollView>
             {  
                 replies.map((obj,i)=>{
@@ -125,21 +152,128 @@ function Post(props){
                             </View>
                             <View style={postStyle.repliesBot}>
                                 <Text>{RepliesValue}</Text>
+=======
+                <View style={postStyle.scrollBox}>
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text style={postStyle.personname}>Mitch</Text>
+                                <Text style={{fontSize:normalize(12), color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                            <TouchableOpacity style={postStyle.up}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
+                                </TouchableOpacity>
+                                <Text style={{fontSize:normalize(17)}}>{replieUpVotes}</Text>
+                                <TouchableOpacity style={postStyle.down}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={postStyle.repliesBot}>
+                            <Text>{RepliesValue}</Text>
+                        </View>
+                    </View>
+
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text style={postStyle.personname}>Sherman</Text>
+                                <Text style={{fontSize:normalize(12), color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                            <TouchableOpacity style={postStyle.up}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
+                                </TouchableOpacity>
+                                <Text style={{fontSize:normalize(17)}}>{replieUpVotes}</Text>
+                                <TouchableOpacity style={postStyle.down}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
+                                </TouchableOpacity>
+>>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
                             </View>
                         </View>
 
+<<<<<<< HEAD
                         </View>
                 })
                 
             }
             </ScrollView>
+=======
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text style={postStyle.personname}>Sherman</Text>
+                                <Text style={{fontSize:normalize(12), color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                            <TouchableOpacity style={postStyle.up}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
+                                </TouchableOpacity>
+                                <Text style={{fontSize:normalize(17)}}>{replieUpVotes}</Text>
+                                <TouchableOpacity style={postStyle.down}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={postStyle.repliesBot}>
+                            <Text>{RepliesValue}</Text>
+                        </View>
+                    </View>
+
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text style={postStyle.personname}>Sherman</Text>
+                                <Text style={{fontSize:normalize(12), color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                            <TouchableOpacity style={postStyle.up}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
+                                </TouchableOpacity>
+                                <Text style={{fontSize:normalize(17)}}>{replieUpVotes}</Text>
+                                <TouchableOpacity style={postStyle.down}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={postStyle.repliesBot}>
+                            <Text>{RepliesValue}</Text>
+                        </View>
+                    </View>
+
+                    <View style={postStyle.repliesBox}>
+                        <View style={postStyle.repliesTop}>
+                            <View style={postStyle.repliesName}>
+                                <Text style={postStyle.personname}>Adamson</Text>
+                                <Text style={{fontSize:normalize(12), color:'grey'}}>1:20 PM</Text>
+                            </View>
+                            <View style={[postStyle.repliesVotes]}>
+                                <TouchableOpacity style={postStyle.up}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
+                                </TouchableOpacity>
+                                <Text style={{fontSize:normalize(17)}}>{replieUpVotes}</Text>
+                                <TouchableOpacity style={postStyle.down}>
+                                    <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={postStyle.repliesBot}>
+                            <Text>{RepliesValue}</Text>
+                        </View>
+                    </View>
+                </View>
+>>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
 
         </View>
-
+        </View>
+        </ScrollView>
+        </View>
         <View style={{height:'10%', width:'100%', position:'absolute', bottom:0}}>
             <FooterBar/>
           </View>
-       
+      
+      </SafeAreaView>
       </View>
     )
   }
