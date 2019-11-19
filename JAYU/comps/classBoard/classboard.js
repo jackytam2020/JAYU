@@ -1,19 +1,12 @@
-<<<<<<< HEAD
-import React, {useState, useEffect} from 'react';
-import {View,Text,Button, ScrollView, TouchableOpacity} from 'react-native';
-import classBoardStyles from '../../styles/classBoard/classBoardStyles'
-import FooterBar from '../../comps/footerBar'
-import PostBox from './postBox';
-import CompostPost from './composePost';
-=======
-import React from 'react';
+
+import React, {useState} from 'react';
 import {View,Text,Button, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import classBoardStyles from '../../styles/classBoard/classBoardStyles'
 import FooterBar from '../../comps/footerBar';
 import normalize from 'react-native-normalize';
+import PostBox from './postBox';
+import CompostPost from './composePost';
 
-
->>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
 
 function Classboard(props){
   const [postBox, setPostBox] = useState([]);
@@ -44,12 +37,12 @@ function Classboard(props){
           {/* Posts */}
           <View style={{flex:1, width:'100%', flexDirection:'row', justifyContent:'center', backgroundColor:"#F2F2F2", paddingTop:normalize(10)}}>
               <View style={classBoardStyles.postBox}>
-<<<<<<< HEAD
-              <View style={{display:emptyPost, width:'100%', height:'30%', justifyContent:'center', alignItems:'center'}}>
-                <Text style={{color:'grey', fontSize:30, opacity:0.5}}>No Posts...</Text>
-              </View>
-                <ScrollView>
-                  { 
+
+                <View style={{display:emptyPost, width:'100%', height:'30%', justifyContent:'center', alignItems:'center'}}>
+                      <Text style={{color:'grey', fontSize:30, opacity:0.5}}>No Posts...</Text>
+                </View>
+                <ScrollView style={classBoardStyles.scrollview}>
+                { 
                     postBox.map((obj,i)=>{
                       return <View style={classBoardStyles.posts}>
                                   <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
@@ -69,165 +62,7 @@ function Classboard(props){
                               </View>
                     })
                             
-                    }    
-=======
-                <ScrollView style={classBoardStyles.scrollview}>
-
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.DS}>􀈌</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Design 2</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file</Text>
-                  </View>
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.AC}>􀖘</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Accounting for the Manager</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file For Assignment 3 do we name the file For Assignment 3 do we name the file</Text>
-                  </View>
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.ADI}>􀏀</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Assets Design and Intergration</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file</Text>
-                  </View>
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.BC}>􀒡</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Business Communication 2</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file For Assignment 3 do we name the file xz</Text>
-                  </View>
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.PS}>􀀣</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Advanced Photoshops</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file</Text>
-                  </View>
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.PJ}>􀉮</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Project 2</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file</Text>
-                  </View>
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.SA}>􀋤</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Professional Sale Skills</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file</Text>
-                  </View>
-
-                  <View style={classBoardStyles.posts}>
-                      <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                        onPress={()=>{
-                          props.navigation.navigate('Post')
-                      }}>
-                            <View style={classBoardStyles.subjecticonview}>
-                              <Text style={classBoardStyles.WD}>􀁛</Text>
-                            </View>
-                            <View style={{paddingLeft:normalize(10)}}>  
-                              <Text style={classBoardStyles.subjectname}>Web Development</Text>
-                              <Text style={classBoardStyles.personname}>9:15pm by Doris</Text>
-                            </View>  
-                      </TouchableOpacity>
-
-                      <View style={classBoardStyles.line}></View>  
-
-                      <Text style={classBoardStyles.thepost}>For Assignment 3 do we name the file</Text>
-                  </View>
-
-                  
->>>>>>> 0375c74d55cb11ee0362a10231404d60c51a2f4e
+                }    
                 </ScrollView>  
               </View>
 
