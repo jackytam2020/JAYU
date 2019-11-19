@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
-import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity} from 'react-native';
+import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import postStyle from '../../styles/classBoard/postStyle';
 import FooterBar from '../../comps/footerBar';
+import normalize from 'react-native-normalize'
 
 function Post(props){
     const [upvotes, setUpvotes] = useState(0);
     const [replieUpVotes, setReplieUpVotes] = useState(0);
-    const [value, setValue] = useState("Type your answer");
+    const [value, setValue] = useState("Write an answer...");
     const [RepliesValue, setRepliesValue] = useState("");
     const [replies, setReplies] = useState([]);
 
@@ -120,7 +121,13 @@ function Post(props){
                                     <Text style={{fontSize:10, color:'grey'}}>{time}</Text>
                                 </View>
                                 <View style={[postStyle.repliesVotes]}>
+                                    <TouchableOpacity style={postStyle.up}>
+                                        <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
+                                    </TouchableOpacity>
                                     <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                                    <TouchableOpacity style={postStyle.down}>
+                                        <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                             <View style={postStyle.repliesBot}>

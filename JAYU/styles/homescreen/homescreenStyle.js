@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         borderRadius:25
     },
     deadlineTitle:{
-        left:20,
+        left:normalize(20),
         marginTop:15,
         width:"90%",
         flexDirection:'row',
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     },
     itemContainer:{
         flex:0.8,
-        left:20,
-        marginTop:15,
+        left:normalize(20),
+        marginTop:normalize(15),
         width:'90%',
     },
     hideItems:{

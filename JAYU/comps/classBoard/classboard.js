@@ -1,9 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {View,Text,Button, ScrollView, TouchableOpacity} from 'react-native';
+
+import React, {useState} from 'react';
+import {View,Text,Button, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import classBoardStyles from '../../styles/classBoard/classBoardStyles'
-import FooterBar from '../../comps/footerBar'
+import FooterBar from '../../comps/footerBar';
+import normalize from 'react-native-normalize';
 import PostBox from './postBox';
 import CompostPost from './composePost';
+
 
 function Classboard(props){
   const [postBox, setPostBox] = useState([]);
@@ -14,30 +17,32 @@ function Classboard(props){
   var time =  props.navigation.getParam("time");
   return (
       <View style={classBoardStyles.container}>
+            <SafeAreaView style={classBoardStyles.safecontainer}>
           <View style={classBoardStyles.navBar}>
-              <TouchableOpacity
+              <TouchableOpacity style={classBoardStyles.backholder}
                 onPress={()=>{
                     props.navigation.navigate("HomeScreen")
                  }}>
-                    <Text style={{fontSize:20, color:'#007AFF'}}>back</Text>
+                    <Text style={{fontSize:normalize(20), color:'#007AFF', fontFamily:"SFProDisplay-Medium"}}>􀆉Back</Text>
                </TouchableOpacity>
-            <Text style={{fontSize:20}}>ClassBoard</Text>
+            <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(70)}}>ClassBoard</Text>
             <TouchableOpacity
                 onPress={()=>{
                     props.navigation.navigate('NewPost', {setPostBox:setPostBox, postBox:postBox, setEmptyPost:setEmptyPost})
                  }}>
-                    <Text style={{fontSize:20, color:'#007AFF'}}>Post</Text>
+                    <Text style={{fontSize:normalize(20), color:'#007AFF', fontFamily:"SFProDisplay-Medium", marginLeft:normalize(100)}}>􀈐</Text>
                </TouchableOpacity>
           </View>
 
           {/* Posts */}
-          <View style={{flex:1, width:'100%', flexDirection:'row', justifyContent:'center'}}>
+          <View style={{flex:1, width:'100%', flexDirection:'row', justifyContent:'center', backgroundColor:"#F2F2F2", paddingTop:normalize(10)}}>
               <View style={classBoardStyles.postBox}>
-              <View style={{display:emptyPost, width:'100%', height:'30%', justifyContent:'center', alignItems:'center'}}>
-                <Text style={{color:'grey', fontSize:30, opacity:0.5}}>No Posts...</Text>
-              </View>
-                <ScrollView>
-                  { 
+
+                <View style={{display:emptyPost, width:'100%', height:'30%', justifyContent:'center', alignItems:'center'}}>
+                      <Text style={{color:'grey', fontSize:30, opacity:0.5}}>No Posts...</Text>
+                </View>
+                <ScrollView style={classBoardStyles.scrollview}>
+                { 
                     postBox.map((obj,i)=>{
                       return <View style={classBoardStyles.posts}>
                                   <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
@@ -57,7 +62,7 @@ function Classboard(props){
                               </View>
                     })
                             
-                    }    
+                }    
                 </ScrollView>  
               </View>
 
@@ -66,8 +71,9 @@ function Classboard(props){
           <View style={{height:'10%', width:'100%', position:'absolute', bottom:0}}>
             <FooterBar/>
           </View>
-        
+          </SafeAreaView>
       </View>
+      
     )
   }
   export default Classboard;

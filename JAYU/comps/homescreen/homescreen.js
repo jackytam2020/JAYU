@@ -10,7 +10,7 @@ function HomeScreen(props){
     const [barHeight, setBarHeight] = useState(0.08)
     const [showItems, setShowItems] = useState(styles.hideItems)
   return (
-        <ImageBackground source={require('../../assets/BackgroundImages/Homescreen_Purple.png')} style={{flex:1, justifyContent:'flex-end', width:"100.5%"}}>
+        <ImageBackground source={require('../../assets/BackgroundImages/Homescreen_Purple.png')} style={{flex:1, justifyContent:'flex-end', width:"100.5%", marginLeft:"-0.25%"}}>
             <View style={styles.home}>
                
                <View style={styles.greetingBox}>
@@ -26,8 +26,8 @@ function HomeScreen(props){
                <View style={{ flex:barHeight ,flexDirection:'row',justifyContent:'center', top:normalize(40)}}>
                    <View style={styles.deadlineRow}>
                        <View style={styles.deadlineTitle}>
-                           <Text style={{fontSize:normalize(17), fontFamily:"SFProText-Medium"}}>coming up next</Text>
-                           <Text style={{fontSize:normalize(10), color:'grey'}}
+                           <Text style={{fontSize:normalize(17), fontFamily:"SFProText-Medium", color:"white"}}>Coming up next</Text>
+                           <Text style={{fontSize:normalize(15), color:'white'}}
                            onPress={()=>{
                                if(expand == 'expand'){
                                 setExpand('collapse')
