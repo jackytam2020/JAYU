@@ -16,8 +16,9 @@ function Tophw(props){
    const[Growth6,setGrowth6]= useState(false);
    const[Growth7,setGrowth7]= useState(false);
    const[Growth8,setGrowth8]= useState(false);
-   const [taskList, setTaskList]= useState([]);
-   const[Head, setHead] = useState(false);
+   const [Tasklist, setTasklist]= useState([]);
+   const [Head, setHead] = useState(false);
+   const [selected, setSelected] = useState();
    
         var  assignmentsIcon = '􀆊 ';
         var AddDueDate =null;;
@@ -110,7 +111,13 @@ function Tophw(props){
     }
 
 
+    const CreateAssignments = async()=>{
+        if(selected == "Photoshop")
+            Photoshop.map((obj,i)=>{
+                return <Task />
+            })
     
+    }
 
     return(
         <View style={TopStyles.container}>
@@ -222,21 +229,20 @@ function Tophw(props){
                     <View onPress={()=>setHead(!header)} style={TopStyles.asgContainer}>
                     <ScrollView>
                         
-                        
                         {
-                            taskList.map((obj,i)=>{
+                            Tasklist.map((obj,i)=>{
                                 return <Task />
                             })
                         }
                        
-                        </ScrollView>
+                    </ScrollView>
                         < Text style={TopStyles.icon2} onPress={()=>{
-                             var arr = taskList;
+                             var arr = Tasklist;
                               arr.push(1);
                               arr = arr.map((o)=>{
                              return o;
                               })
-                    setTaskList(arr);
+                    setTasklist(arr);
                 }}>􀁌 New Assigment</Text>
                     </View>
             

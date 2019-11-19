@@ -23,7 +23,6 @@ function Marks(props){
     var outof = props.navigation.getParam("outof"); 
   return (
     <View style={{flex:1,backgroundColor:'#fff5d7'}}> 
-        <SafeAreaView style={markStyles.safearea}>
             <View style={markStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
@@ -136,7 +135,7 @@ function Marks(props){
             </View>
 
 
-            </SafeAreaView>
+           
     </View>
   );
 };
