@@ -34,7 +34,7 @@ function Classboard(props){
           <View style={{flex:1, width:'100%', flexDirection:'row', justifyContent:'center'}}>
               <View style={classBoardStyles.postBox}>
               <View style={{display:emptyPost, width:'100%', height:'30%', justifyContent:'center', alignItems:'center'}}>
-                <Text style={{color:'grey', fontSize:30}}>Nothing Posted yet...</Text>
+                <Text style={{color:'grey', fontSize:30, opacity:0.5}}>No Posts...</Text>
               </View>
                 <ScrollView>
                   { 
