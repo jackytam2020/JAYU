@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import SetUpStyle from '../../styles/setup/SetUpStyle'
 import {
   SafeAreaView,
@@ -6,10 +6,14 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  AsyncStorage
 } from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import axios from 'axios';
+
+var username = "";
 
 function SetUp(props){
 
@@ -32,8 +36,29 @@ function SetUp(props){
   const [colorSetB, setColorSetB] = useState(SetUpStyle.optionbuttonOff);
   const [colorSetC, setColorSetC] = useState(SetUpStyle.optionbuttonOff);
   const [colorSetD, setColorSetD] = useState(SetUpStyle.optionbuttonOff);
+  const [users, setUsers] = useState([]);
+
+
 
 const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
+
+    const CreateUser = async()=>{
+      //fetch db to create users
+      console.log("username", username);
+      var obj = {
+          key :"users_create",
+          data:{
+            username:username
+          }
+      }
+      var r = await axios.post('http://localhost:3001/post', obj);
+      var dbusers = JSON.parse(r.data.body);
+      console.log(dbusers);
+      await AsyncStorage.setItem("user", JSON.stringify(dbusers.data[0]));
+      console.log("db users",dbusers);
+      //ReadUsers();
+    }
+
 
     return(
         <View style={SetUpStyle.app}>
@@ -54,7 +79,11 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
           <View style={SetUpStyle.question1}>
             <Text style={SetUpStyle.question}>What is your name?</Text>
             <Text style={SetUpStyle.questionDs}>your name will be display on ClassBoard</Text>
-            <TextInput title={"Username"} placeholder={"tap to add Name"} style={SetUpStyle.NameForm}/>
+            <TextInput title={"Username"} placeholder={"tap to add Name"} style={SetUpStyle.NameForm}
+            onChangeText={(t)=>{
+              username = t;
+            }}
+            />
           </View>
           {/* Questions 2*/}
           <View style={SetUpStyle.question2}>
@@ -209,9 +238,10 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
           {/* Next button */}
           <View style={SetUpStyle.NextButtonView}>
             <TouchableOpacity style={nextColor}
-                onPress={()=>{
-                  props.navigation.navigate('Passcode')
+                onPress={async ()=>{
 
+                  await CreateUser();
+                  props.navigation.navigate('Passcode');
                   if (GreenLight == 'on' && BlueLight == 'on'){
                     setNextColor(SetUpStyle.NextButtonOn)
                   }

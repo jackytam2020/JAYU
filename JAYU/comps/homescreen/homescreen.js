@@ -1,21 +1,35 @@
 
-import React, {useState} from 'react';
-import {View, Text, Image, ImageBackground, TouchableOpacity, ScrollView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, Image, ImageBackground, TouchableOpacity, ScrollView, AsyncStorage} from 'react-native';
 import normalize from 'react-native-normalize';
 import styles from '../../styles/homescreen/homescreenStyle';
-
+import axios from 'axios';
 
 function HomeScreen(props){
     const [expand, setExpand] = useState("expand")
     const [barHeight, setBarHeight] = useState(0.08)
     const [showItems, setShowItems] = useState(styles.hideItems)
+    const [user, setUser] = useState({});
+
+    const ReadUsers = async()=>{
+        var u = await AsyncStorage.getItem("user");
+        console.log(u);
+        u = JSON.parse(u);
+        setUser(u)
+    }
+    
+     // when comp loads, read users
+     useEffect(()=>{
+        ReadUsers();
+    },[]);
+
   return (
         <ImageBackground source={require('../../assets/BackgroundImages/Homescreen_Purple.png')} style={{flex:1, justifyContent:'flex-end', width:"100.5%", marginLeft:"-0.25%"}}>
             <View style={styles.home}>
                
                <View style={styles.greetingBox}>
                    <View style={styles.greetingRow}>
-                       <Text style={{fontSize:normalize(30), color:'white', fontFamily:"SFProDisplay-Semibold"}}>Good morning Irvin</Text>
+                       <Text style={{fontSize:normalize(30), color:'white', fontFamily:"SFProDisplay-Semibold"}}>Good morning {user.username || ""}</Text>
                        <Text style={{fontSize:normalize(20), color:'white', fontFamily:"SFProDisplay-Semibold", opacity: 0.7}}>so far, you're doing great!</Text>
                        <Text style={{fontSize:normalize(20), color:'white', fontFamily:"SFProDisplay-Semibold", opacity: 0.7}}>46% of today's progress</Text>
                        <Text style={{fontSize:normalize(20), color:'white', fontFamily:"SFProDisplay-Semibold", opacity: 0.7}}>20 tasks left</Text>
