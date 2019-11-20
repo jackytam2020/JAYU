@@ -1,12 +1,14 @@
 import React from 'react';
 import {View,Text,Button, TouchableOpacity} from 'react-native';
-import newPostStyle from '../../styles/classBoard/newPostStyles'
+import newPostStyle from '../../styles/classBoard/newPostStyles';
+import normalize from 'react-native-normalize';
+
 
 function Newpost(props){
   return (
       <View style={newPostStyle.container}>
           <View style={newPostStyle.navBar}>
-            <Text style={{fontSize:20}}>New Post</Text>
+            <Text style={{fontSize:normalize(25), fontFamily:"SFProDisplay-Semibold"}}>New Post</Text>
           </View>
 
         {/* choose a subject */}
@@ -14,9 +16,11 @@ function Newpost(props){
           <View style={{width:'100%', height:'5%', position: "relative", alignItems:'center'}}>  
               <View style={newPostStyle.chooseBar}> 
                 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>choose a subject for your post</Text>
+                <View style={{flexDirection:'row', display:"flex", alignItems:"center"}}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.EP}>􀕫</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Choose a subject for your post</Text>
                 </View>  
                
               </View>
@@ -29,65 +33,81 @@ function Newpost(props){
            
             <View style={newPostStyle.subjectList}>
                 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Accounting for the Manager</Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                        <Text style={newPostStyle.AC}>􀘝</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Accounting for the Manager</Text>
                 </View>  
-                <View style={{width:200, paddingTop:10, left:45}}>
+                <View style={newPostStyle.lineview}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Advanced Photoshop </Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.PS}>􀀣</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Advanced Photoshop </Text>
                 </View>  
-                <View style={{width:200, paddingTop:10, left:45}}>
+                <View style={newPostStyle.lineview}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Assets Design and Integration </Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.ADI}>􀏀</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Assets Design and Integration </Text>
                 </View>  
-                <View style={{width:200, paddingTop:10, left:45}}>
+                <View style={newPostStyle.lineview}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Business Communication </Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.BC}>􀒡</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Business Communication </Text>
                 </View>  
-                <View style={{width:200, paddingTop:10, left:45}}>
+                <View style={newPostStyle.lineview}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Design 2</Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.DS}>􀈌</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Design 2</Text>
                 </View>  
-                <View style={{width:200, paddingTop:10, left:45}}>
+                <View style={newPostStyle.lineview}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Professional Sales Skills </Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.SA}>􀋤</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Professional Sales Skills </Text>
                 </View>  
-                <View style={{width:200, paddingTop:10, left:45}}>
+                <View style={newPostStyle.lineview}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Project 2 </Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.PJ}>􀉮</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Project 2 </Text>
                 </View>  
-                <View style={{width:200, paddingTop:10, left:45}}>
+                <View style={newPostStyle.lineview}>
                     <View style={newPostStyle.line}></View>
                 </View>  
 
-                <View style={{flexDirection:'row'}}>
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
-                    <Text style={{fontSize:15}}>Web Development 3 </Text>
+                <View style={newPostStyle.each}>
+                    <View style={newPostStyle.iconview}>
+                    <Text style={newPostStyle.WD}>􀁛</Text>
+                    </View>
+                    <Text style={newPostStyle.subjectname}>Web Development 3 </Text>
                 </View>  
         
             </View>
