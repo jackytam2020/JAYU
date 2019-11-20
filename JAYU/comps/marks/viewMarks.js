@@ -15,8 +15,8 @@ import normalize from 'react-native-normalize';
 function ViewMark(props){
 
     return(
-        <SafeAreaView style={{width:"100%", height:"100%"}}>
-            <View style={{width:"100%", height:"100%"}}>
+        <SafeAreaView style={{flex: 1}}>
+            <View style={{flex: 1}}>
             <View style={viewMarkStyles.header}>
                 <Text style= {viewMarkStyles.back}
                     onPress={()=>{

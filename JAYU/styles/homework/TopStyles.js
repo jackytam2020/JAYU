@@ -6,7 +6,7 @@ const TopStyles = StyleSheet.create({
         backgroundColor:"#F2F2F2",
     },
     navBar:{
-        flex:0.7,
+        flex:0.5,
         flexDirection:"row",
         alignItems:'center',
         
@@ -15,7 +15,7 @@ const TopStyles = StyleSheet.create({
         color:"red"
     },
     headerText:{
-        flex: 0.1,
+    
         fontFamily:'SFProDisplay-Medium',
         fontSize:25,
         marginLeft: 30,
@@ -61,7 +61,7 @@ const TopStyles = StyleSheet.create({
     },
 
     iconCont:{
-        flex:0.3,
+        flex:0.2,
         flexDirection:'row',
         justifyContent: "space-evenly"
     },
@@ -72,7 +72,7 @@ const TopStyles = StyleSheet.create({
 
     icon2: {
         fontFamily:'SFProDisplay-Medium',
-        marginTop: 40,
+       
         marginLeft:30,
         fontSize:18
     },
