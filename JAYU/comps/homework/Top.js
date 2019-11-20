@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import {View, Text, Button, ScrollView, TouchableOpacity, TextInput} from 'react-native';
+import {View, Text, Button,SafeAreaView, ScrollView, TouchableOpacity, TextInput} from 'react-native';
 import DatePicker from 'react-native-datepicker'
 import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
@@ -120,8 +120,9 @@ function Tophw(props){
     }
 
     return(
-        <View style={TopStyles.container}>
-             <View style={TopStyles.navBar}>
+
+        <SafeAreaView style={TopStyles.container, {flex:1,backgroundColor:"green"}}>
+             <View style={TopStyles.navBar, {flex:0.2, backgroundColor:"red"}}>
                 <TouchableOpacity
                        onPress={()=>{
                             props.navigation.navigate("HomeScreen")
@@ -129,8 +130,8 @@ function Tophw(props){
                         <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
                 </TouchableOpacity>
             </View>
-
-            <View style={{flex: 0.01, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:20 }}></View>
+        <View style={{flex:0.6, backgroundColor:"blue"}}>
+            
             <View style={TopStyles.iconCont}>
                 <Text onPress={() =>{setGrowth(!Growth) 
                 setGrowth2(false) 
@@ -174,7 +175,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     }}
-                    style={[{color:"#FF9500", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
+                    style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
                 <Text onPress={() =>{
                     setGrowth5(!Growth5)
                     setGrowth(false) 
@@ -220,13 +221,15 @@ function Tophw(props){
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
             </View>
-        
-
-           
+    
                 <Text style={[TopStyles.headerText,  {color:color}]}>{header2}</Text>
                 <View style={{flex: 0.001, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
-                <ScrollView>
-                    <View onPress={()=>setHead(!header)} style={TopStyles.asgContainer}>
+            </View>
+
+
+      
+                <ScrollView style={{flex:2, backgroundColor:"purple"}}>
+                    <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
                         
                         {
@@ -243,17 +246,17 @@ function Tophw(props){
                              return o;
                               })
                     setTasklist(arr);
-                }}>􀁌 New Assigment</Text>
+                }}>􀁌 New Assignment</Text>
                     </View>
             
             </ScrollView>
-          
+            
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
                
           
             <FooterBar />
             </View>   
-        </View>
+        </SafeAreaView>
     )
 }
 

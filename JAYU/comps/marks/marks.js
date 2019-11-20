@@ -22,7 +22,9 @@ function Marks(props){
     var score = props.navigation.getParam("score"); 
     var outof = props.navigation.getParam("outof"); 
   return (
-    <View style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}> 
+          
+    <SafeAreaView style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}>
+       
             <View style={markStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
@@ -135,8 +137,8 @@ function Marks(props){
             </View>
 
 
-           
-    </View>
+    
+    </SafeAreaView>
   );
 };
 export default Marks;
