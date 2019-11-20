@@ -25,17 +25,17 @@ function Task(){
 
     
     var taskItem = ( <View style={{flexDirection:"row", marginLeft:90}}> 
-                    {/*<CheckBox 
+                    <CheckBox 
                         isChecked={check}
-                        checkedCheckBoxColor={"green"}
+                        checkedCheckBoxColor={"lightgreen"}
                         onClick={()=>{
                             SetCheck(true)
                             if(check== true){
                                 SetCheck(false)
                             }
                         }}
-                    />*/}
-                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:20}}>􀀀hi</TextInput>
+                    />
+                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:10, marginBottom:20}}placeholder="Add a task"></TextInput>
                 </View>);
         
     
@@ -61,6 +61,7 @@ function Task(){
                     setDone("none")
                 }
             } } style={TopStyles.body}>{assignmentsIcon}</Text>
+            
             <ScrollView>
             <TextInput style={TopStyles.placeholder} placeholder="Assignment..."></TextInput>
             </ScrollView>
@@ -68,13 +69,14 @@ function Task(){
        <ScrollView>
         <View style={{display:done}}>
             <View style={{flexDirection:"row"}}>
-                <Text style={date} 
+                <Text style={TopStyles.dueDate1} 
                     onPress={()=>{
                         setShowPicker(TopStyles.dateContainer)
                     }}
                 >{duePickerDate}</Text>
-                <TouchableOpacity style={{marginLeft:150, display:done,marginTop:10}}><Text 
-                style={{color:'#00AEEF',}}
+
+                <TouchableOpacity style={{marginLeft:100, display:done}}><Text 
+                style={{color:'white',height:20,width:37,backgroundColor:"#007AFF", borderRadius:70}}
                 onPress={()=>{
                     setDuePickerDate(dd)
                     setShowPicker(TopStyles.hideContainer)
@@ -112,9 +114,6 @@ function Task(){
                                         setAddTasks(arr1)
                                     }}
                                 >􀅼 Add a Task</Text>
-                                <TextInput 
-                                    style={{marginLeft:110}} placeholder="Add a Task">
-                                </TextInput>
                         </View>
             })
         }

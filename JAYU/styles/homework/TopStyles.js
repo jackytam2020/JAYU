@@ -2,11 +2,30 @@ import {StyleSheet} from 'react-native';
 
 const TopStyles = StyleSheet.create({
     container:{
-        flex:1,
-        backgroundColor:"#F2F2F2",
+       flex:1,
+         backgroundColor:"#F2F2F2",
     },
+
+    mHeader:{
+        marginLeft: 55,
+        fontFamily:'SFProDisplay-Medium',
+        fontSize:20,
+        justifyContent:'center',
+        alignItems:"center",
+        marginBottom:60
+
+    },
+
+    done:{
+        width: 40,
+        height: 20,
+        borderRadius: 30,
+        backgroundColor: 'red',
+        marginLeft:270
+    },
+
     navBar:{
-        flex:0.7,
+         flex:0.7,
         flexDirection:"row",
         alignItems:'center',
         
@@ -15,16 +34,16 @@ const TopStyles = StyleSheet.create({
         color:"red"
     },
     headerText:{
-        flex: 0.1,
+         flex: 0.1,
         fontFamily:'SFProDisplay-Medium',
         fontSize:25,
         marginLeft: 30,
-        marginBottom: 10,
+         marginBottom: 10,
    
     },
 
     asgContainer:{
-        flex:1,
+         flex:1,
 
     },
 
@@ -52,12 +71,12 @@ const TopStyles = StyleSheet.create({
     },
     dueDate1:{
         fontFamily:'SFProDisplay-Regular',
-        marginTop: 5,
+        marginTop: 15,
+        marginBottom: 15,
         fontSize:12,
-        marginLeft: 60,
+        marginLeft: 100,
         color:"#007AFF",
         flexDirection: "row",
-        display:"none"
     },
 
     iconCont:{

@@ -1,11 +1,13 @@
 
-import React, { useState } from 'react';
-import {View, Text, Button, ScrollView, TouchableOpacity, TextInput} from 'react-native';
+import React, { useState } from 'react'
+import {View, Text, Button, ScrollView, TouchableOpacity, TextInput,SafeAreaView} from 'react-native'
 import DatePicker from 'react-native-datepicker'
-import TopStyles from '../../styles/homework/TopStyles';
+import TopStyles from '../../styles/homework/TopStyles'
 import FooterBar from '../../comps/footerBar'
-import normalize from 'react-native-normalize';
-import Task from '../homework/task'
+import normalize from 'react-native-normalize'
+import Task from '../homework/task';
+/*import Schedule from '../homework/hCalendar'*/
+
 function Tophw(props){
    const[DropDown1, SetDropdown1] = useState(false);
    const[Growth,setGrowth]= useState(true);
@@ -59,69 +61,72 @@ function Tophw(props){
         assignmentsIcon = '􀆈'
    }
     if(Growth === true){
-        Iconfont = 30;
+        Iconfont = 35;
         header2="Advanced Photoshop"
         color = "#00AEEF"
         op = 1
 
     } else
     if(Growth2 === true){
-        Iconfont2 = 30;
+        Iconfont2 = 35;
         header2="Design 2"
         color='#FF3B30'
         op2= 1
          
     }else
    if(Growth3 === true){
-        Iconfont3 = 30;
+        Iconfont3 = 35;
         header2="Buisness  Communication"
         color="#4CD964"
         op3 = 1
     }else
     if(Growth4 === true){
-        Iconfont4= 30;
+        Iconfont4= 35;
         header2="Professional Sales"
         color="#5856D6"
         op4 = 1
     }else
     if(Growth5 === true){
-        Iconfont5 = 30;
+        Iconfont5 = 35;
         header2="Accounting for the manager"
         color="#FF9500"
         op5 = 1
     }else
     if(Growth6 === true){
-        Iconfont6= 30;
+        Iconfont6= 35;
         header2="Asset Design and Intergration"
         color="#FFCF00"
         op6 = 1
     }else
     if(Growth7=== true){
-        Iconfont7 = 30;
+        Iconfont7 = 35;
         header2="Web Development 3"
         color="#C69C6D"
         op7 = 1
     } else
     if(Growth8=== true){
-        Iconfont8 = 30;
+        Iconfont8 = 35;
         header2="Project 2"
         color="#007AFF"
         op8= 1
     }
-
-
     
-
     return(
-        <View style={TopStyles.container}>
+     
+     <View style={TopStyles.container}>
              <View style={TopStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
                             props.navigation.navigate("HomeScreen")
                        }}>
-                        <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                        <Text style={{fontFamily:'SFProDisplay-Medium', fontSize:20, marginLeft:20,marginBottom:60, color:'#007AFF'}}>􀆉 Back</Text>
                 </TouchableOpacity>
+                <Text style ={TopStyles.mHeader}>Homework</Text>
+                {/*<Schedule />*/}
             </View>
+            
+
+
 
             <View style={{flex: 0.01, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:20 }}></View>
             <View style={TopStyles.iconCont}>
@@ -167,7 +172,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     }}
-                    style={[{color:"#FF9500", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
+                    style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀋤</Text>
                 <Text onPress={() =>{
                     setGrowth5(!Growth5)
                     setGrowth(false) 
@@ -214,8 +219,7 @@ function Tophw(props){
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
             </View>
         
-
-           
+                    <View></View>
                 <Text style={[TopStyles.headerText,  {color:color}]}>{header2}</Text>
                 <View style={{flex: 0.001, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
                 <ScrollView>
@@ -239,7 +243,6 @@ function Tophw(props){
                     setTaskList(arr);
                 }}>􀁌 New Assigment</Text>
                     </View>
-            
             </ScrollView>
           
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>

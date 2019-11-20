@@ -17,7 +17,7 @@ function DatePick(){
                 mode = {'date'}
                
                 onDateChange = {(d)=>{
-                   setDueDate(moment(d).format("DD/MM/YYYY"));
+                   setDueDate(moment(d).format("MM/DD/YYYY"));
     
                 }}
             

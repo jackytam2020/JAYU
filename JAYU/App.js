@@ -30,7 +30,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 // App default Navigation stack
 const AppNavigator = createStackNavigator({
-  SignIn: { screen: SignIn },
+  HomeScreen: { screen: HomeScreen },
   Term: { screen: Term },
   SetUp: { screen: SetUp },
   Passcode: { screen: Passcode },
@@ -67,5 +67,5 @@ function App() {
   )
 };
 
-//export default App;
-export default from './storybook';
+export default App;
+//export default from './storybook';
