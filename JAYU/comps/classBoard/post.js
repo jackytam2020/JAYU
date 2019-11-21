@@ -10,6 +10,7 @@ function Post(props){
     const [value, setValue] = useState("Write an answer...");
     const [RepliesValue, setRepliesValue] = useState("");
     const [replies, setReplies] = useState([]);
+    const [likes,setLikes] = useState(0);
 
     var date, dayState, hour, minutes, seconds, fullTime;
 
@@ -36,7 +37,7 @@ function Post(props){
     var time = hour+":"+minutes+" "+dayState;
 
   return (
-      <View style={postStyle.container}>
+      <SafeAreaView style={postStyle.container}>
         
         <View style={postStyle.navBar}>
             <TouchableOpacity style={{position:'relative', width:"20%"}}
@@ -54,12 +55,12 @@ function Post(props){
                     <View style={{height:20,width:20, backgroundColor:"red", borderRadius:40}}></View>
                     <View style={{paddingLeft:10}}>  
                         <Text>{props.navigation.getParam("course")}</Text>
-                        <Text style={{fontSize:10, color:'grey'}}>9:15pm by Doris</Text>
+                        <Text style={{fontSize:10, color:'grey'}}>{time}</Text>
                     </View>  
                 </View>
                 <View style={postStyle.rightSubject}>
                     <Text>{upvotes}</Text>
-                    <Text style={{fontSize:10, color:'grey'}}>upvotes</Text>
+                    <Text style={{fontSize:8, color:'grey'}}>upvotes</Text>
                 </View>
             </View>
         </View>
@@ -121,11 +122,19 @@ function Post(props){
                                     <Text style={{fontSize:10, color:'grey'}}>{time}</Text>
                                 </View>
                                 <View style={[postStyle.repliesVotes]}>
-                                    <TouchableOpacity style={postStyle.up}>
+                                    <TouchableOpacity style={postStyle.down}
+                                        onPress={()=>{
+                                            setReplieUpVotes(replieUpVotes-1);
+                                        }}
+                                    >
                                         <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
                                     </TouchableOpacity>
                                     <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
-                                    <TouchableOpacity style={postStyle.down}>
+                                    <TouchableOpacity style={postStyle.up}
+                                     onPress={()=>{
+                                        setReplieUpVotes(replieUpVotes+1);
+                                    }}
+                                    >
                                         <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -147,7 +156,7 @@ function Post(props){
             <FooterBar/>
           </View>
        
-      </View>
+      </SafeAreaView>
     )
   }
 export default Post;

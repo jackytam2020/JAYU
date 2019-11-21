@@ -125,6 +125,7 @@ const postStyle = StyleSheet.create({
         paddingBottom:normalize(15),
         paddingTop:normalize(13),
         paddingLeft:normalize(5),
+        
     },
     repliesContainer:{
         position:'relative',
@@ -132,6 +133,7 @@ const postStyle = StyleSheet.create({
         flex:1,
         top:normalize(20),
         marginBottom:normalize(15),
+        
     },
     scrollBox:{
         flex:0.1,
@@ -148,7 +150,9 @@ const postStyle = StyleSheet.create({
         backgroundColor:'white',
         padding:normalize(5),
         borderRadius:normalize(15),
-        marginBottom:normalize(10)
+        marginBottom:normalize(10),
+        borderWidth: 0.5,
+        borderRadius:normalize(15),
     },
     repliesTop:{
         width:"100%",

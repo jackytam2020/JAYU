@@ -1,6 +1,7 @@
 
+
 import React, { useState, useEffect } from 'react';
-import {View, Text, Button,SafeAreaView, ScrollView, TouchableOpacity, TextInput} from 'react-native';
+import {View, Text, Button,SafeAreaView,KeyboardAvoidingView, ScrollView, TouchableOpacity, TextInput} from 'react-native';
 import DatePicker from 'react-native-datepicker'
 import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
@@ -20,7 +21,8 @@ function Tophw(props){
    const[Growth8,setGrowth8]= useState(false);
    const [Tasklist, setTasklist]= useState([]);
    const [Head, setHead] = useState(false);
-   
+   const [key, setKey] = useState("photoshop_create");
+   const [readKey, setReadKey] = useState("photoshop_read");
    
         var  assignmentsIcon = '􀆊 ';
         var AddDueDate =null;;
@@ -95,7 +97,7 @@ function Tophw(props){
     }else
     if(Growth6 === true){
         Iconfont6= 30;
-        header2="Asset Design and Intergration"
+        header2="Asset Design and Integration"
         color="#FFCF00"
         op6 = 1
     }else
@@ -120,7 +122,7 @@ function Tophw(props){
         //fetch db to create users
         console.log("email & password");
         var obj = {
-            key :"photoshop_create",
+            key :key,
             data:{
                 assignment_name:assignment_name,
                 completed:completed,
@@ -134,7 +136,7 @@ function Tophw(props){
     
     const ReadAssignments = async()=>{
         var obj = {
-            key:"photoshop_read",
+            key:readKey,
             data:{}
         }
 
@@ -153,8 +155,8 @@ function Tophw(props){
 
     return(
 
-        <SafeAreaView style={TopStyles.container, {flex:1,}}>
-             <View style={TopStyles.navBar, {flex:0.2,}}>
+        <SafeAreaView style={TopStyles.container, {flex:1}}>
+             <View style={TopStyles.navBar, {flex:0.1}}>
                 <TouchableOpacity
                        onPress={()=>{
                             props.navigation.navigate("HomeScreen")
@@ -162,7 +164,8 @@ function Tophw(props){
                         <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
                 </TouchableOpacity>
             </View>
-        <View style={{flex:0.6,}}>
+
+        <View style={{flex:0.2}}>
             
             <View style={TopStyles.iconCont}>
                 <Text onPress={() =>{setGrowth(!Growth) 
@@ -173,6 +176,8 @@ function Tophw(props){
                 setGrowth6(false)
                 setGrowth7(false)
                 setGrowth8(false)
+                setKey("photoshop_create")
+                setReadKey("photoshop_read")
             }}
                  style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
                 <Text onPress={() =>{
@@ -184,6 +189,8 @@ function Tophw(props){
                 setGrowth6(false)
                 setGrowth7(false)
                 setGrowth8(false)
+                setKey("design2_create")
+                setReadKey("design2_read")
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
                 <Text onPress={() =>{
@@ -195,6 +202,7 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth7(false)
                     setGrowth8(false)
+                    setKey("design2")
                 }}
                     style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
                 <Text onPress={() =>{
@@ -254,13 +262,14 @@ function Tophw(props){
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
             </View>
     
-                <Text style={[TopStyles.headerText,  {color:color}]}>{header2}</Text>
-                <View style={{flex: 0.001, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
+                <Text style={[TopStyles.headerText,{color:color}]}>{header2}</Text>
+                <View style={{borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
             </View>
 
 
       
                 <ScrollView style={{flex:2}}>
+                    
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
                         
@@ -272,6 +281,7 @@ function Tophw(props){
                                     assignment_name={obj.assignment_name}
                                     complete={obj.completed}
                                     deleted={obj.deleted}
+                                    ReadAssignments={ReadAssignments}
                                 />
                             })
                         }
@@ -291,10 +301,8 @@ function Tophw(props){
             </ScrollView>
             
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
-               
-          
             <FooterBar />
-            </View>   
+            </View>  
         </SafeAreaView>
     )
 }

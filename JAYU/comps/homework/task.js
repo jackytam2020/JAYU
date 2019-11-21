@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 
-function Task({id,assignment_name,completed,deleted}){
+function Task({id,assignment_name,completed,deleted, ReadAssignments}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
@@ -20,6 +20,8 @@ function Task({id,assignment_name,completed,deleted}){
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
     const [duePickerDate, setDuePickerDate] = useState('Add due date');
     const [taskText, setTaskText] = useState();
+    const [itemText, setItemText] = useState();
+
     const [new_assignment, setNewAssignment] = useState("");
 
     useEffect(()=>{
@@ -38,6 +40,8 @@ function Task({id,assignment_name,completed,deleted}){
         var r = await axios.post('http://localhost:3001/post', obj);
         console.log("assignment", r.data);
     }
+   //ReadAssignments();
+
 
     var dd = JSON.stringify(duePickerDate);
     var moment = require("moment");
@@ -46,17 +50,17 @@ function Task({id,assignment_name,completed,deleted}){
 
     
     var taskItem = ( <View style={{flexDirection:"row", marginLeft:90}}> 
-                    {/*<CheckBox 
+                    <CheckBox 
                         isChecked={check}
-                        checkedCheckBoxColor={"green"}
+                        checkedCheckBoxColor={"lightgreen"}
                         onClick={()=>{
                             SetCheck(true)
                             if(check== true){
                                 SetCheck(false)
                             }
                         }}
-                    />*/}
-                    <TextInput style={{fontFamily:'SFProDisplay-Medium', color:"lightgrey", marginLeft:20}} value ="Task Title..."> </TextInput>
+                    />
+                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:10, marginBottom:20}}placeholder="Add a task"></TextInput>
                 </View>);
     
      return(

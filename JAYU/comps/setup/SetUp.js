@@ -241,7 +241,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                 onPress={async ()=>{
 
                   await CreateUser();
-                  props.navigation.navigate('Passcode');
+                  props.navigation.navigate('Subject');
                   if (GreenLight == 'on' && BlueLight == 'on'){
                     setNextColor(SetUpStyle.NextButtonOn)
                   }

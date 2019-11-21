@@ -33,8 +33,6 @@ const AppNavigator = createStackNavigator({
   SignIn: { screen: SignIn },
   Term: { screen: Term },
   SetUp: { screen: SetUp },
-  Passcode: { screen: Passcode },
-  PasscodeInput: { screen: PasscodeInput },
   Subject: { screen: Subject },
   Schedule: {screen: Schedule},
   HomeScreen: { screen: HomeScreen },

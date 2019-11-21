@@ -17,5 +17,11 @@
     "cols":["id", "assignment_name", "completed", "deleted"],
     "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
     "order":["id"]
+  },
+  {
+    "model":"design2",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
   }
 ]
