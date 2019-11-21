@@ -36,6 +36,10 @@ const composeStyle = StyleSheet.create({
         borderColor:'black',
         position:'relative',
     },
+
+    icon:{
+
+    },
     textBoxContainer:{
         width:'100%',
         minHeight:'10%',

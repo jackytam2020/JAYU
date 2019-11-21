@@ -4,6 +4,7 @@ import composeStyle from '../../styles/classBoard/compostPostStyles'
 import PostBox from './postBox';
 import Classboard from './classboard';
 
+
 function CompostPost(props){
     const [value, setValue] = useState("Write your discussion...")
 
@@ -42,7 +43,7 @@ function CompostPost(props){
             <TouchableOpacity
                   onPress={()=>{
                       props.navigation.goBack() }}>
-                    <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                    <Text style={{fontSize:20, marginLeft:20, color:'#007AFF',  fontFamily:'SFProDisplay-Regular'}}>􀆉 Back</Text>
               </TouchableOpacity>
                   <View style={{position:'absolute', left:'35%'}}>
                     <Text style={{fontSize:25}}>New Post</Text>
@@ -53,16 +54,14 @@ function CompostPost(props){
           <View style={composeStyle.detailContainer}>
               <View style={composeStyle.leftDetail}>
                   <View style={{flexDirection:'row',alignItems:'center'}}>
-                        <View style={{height:25,width:25, marginRight:20, marginLeft:25, backgroundColor:"grey", borderRadius:40}}></View>
-                        <Text style={{fontSize:15}}>{props.navigation.getParam("course")}</Text>
+                        <View style={{height:25,width:25, marginRight:20, marginLeft:25, backgroundColor:props.navigation.getParam("colorPass"), borderRadius:40}}></View>
+                        <Text style={{fontSize:15,color:props.navigation.getParam("colorPass")}}>{props.navigation.getParam("course")}</Text>
                   </View>
-                  <View style={{flexDirection:'row', marginLeft:20}}>
-                        <Button title={'Camera'}
-                          onPress={()=>{
-                          }}
-                        />
-                        <Button title={'Gallery'}/>
-                        <Button title={'Attach'}/>
+                  <View style={{flexDirection:'row', marginLeft:40, marginTop:10, fontFamily:'SFProDisplay-Medium',}}>
+                    <Text style = {{ fontFamily:'SFProDisplay-Regular',fontSize:30, marginRight:20,}}>􀌞</Text>
+                    <Text style = {{ fontFamily:'SFProDisplay-Regular', fontSize:30,marginRight:20,}}>􀏅</Text>
+                    <Text style = {{ fontFamily:'SFProDisplay-Regular',fontSize:30}}>􀉢</Text>
+                
                   </View>
                   
               </View>

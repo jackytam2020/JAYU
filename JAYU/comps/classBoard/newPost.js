@@ -15,7 +15,7 @@ function Newpost(props){
     const [color5, setColor5] = useState("black");
     const [color6, setColor6] = useState("black");
     const [color7, setColor7] = useState("black");
-
+    const [colorPass, setColorPass] = useState ("");
     //when comp loads, course needs to be empty
     useEffect(()=>{
         setCourse("");
@@ -67,6 +67,7 @@ function Newpost(props){
                             setColor4("black")
                             setColor5("black")
                             setColor6("black")
+                            setColorPass("#FF9500")
                         }
                     }}
                 >
@@ -94,6 +95,7 @@ function Newpost(props){
                             setColor4("black")
                             setColor5("black")
                             setColor6("black")
+                            setColorPass("#00AEEF")
                         }
                     }}
                 >
@@ -121,6 +123,7 @@ function Newpost(props){
                             setColor4("black")
                             setColor5("black")
                             setColor6("black")
+                            setColorPass("#FFCF00")
                         }
                     }}
                 >
@@ -148,6 +151,7 @@ function Newpost(props){
                             setColor4("black")
                             setColor5("black")
                             setColor6("black")
+                            setColorPass("#4CD964")
                         }
                     }}
                 >
@@ -175,6 +179,7 @@ function Newpost(props){
                             setColor("black")
                             setColor5("black")
                             setColor6("black")
+                            setColorPass("#FF3B30")
                         }
                         
                     }}
@@ -203,6 +208,7 @@ function Newpost(props){
                             setColor4("black")
                             setColor("black")
                             setColor6("black")
+                            setColorPass("#5856D6")
                         }
                     }}
                 >
@@ -230,6 +236,7 @@ function Newpost(props){
                             setColor4("black")
                             setColor5("black")
                             setColor("black")
+                            setColorPass("#007AFF")
                         }
                     }}
                 >
@@ -257,6 +264,7 @@ function Newpost(props){
                             setColor4("black")
                             setColor5("black")
                             setColor6("black")
+                            setColorPass("#C69C6D")
                         }
                     }}
                 >
@@ -279,7 +287,7 @@ function Newpost(props){
                     </TouchableOpacity>
                     <TouchableOpacity style={newPostStyle.next}
                     onPress={()=>{
-                        props.navigation.navigate('ComposePost', {course:course, setPostBox:setPostBox, postBox:postBox, setEmptyPost:setEmptyPost});
+                        props.navigation.navigate('ComposePost', {course:course, setPostBox:setPostBox, postBox:postBox, setEmptyPost:setEmptyPost,colorPass:colorPass});
             
                     }}
                     >

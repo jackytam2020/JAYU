@@ -19,7 +19,7 @@ function Classboard(props){
                 onPress={()=>{
                     props.navigation.navigate("HomeScreen")
                  }}>
-                    <Text style={{fontSize:20, color:'#007AFF'}}>back</Text>
+                    <Text style={{fontSize:20, marginLeft:20, color:'#007AFF',  fontFamily:'SFProDisplay-Regular'}}>􀆉 Back</Text>
                </TouchableOpacity>
             <Text style={{fontSize:20}}>ClassBoard</Text>
             <TouchableOpacity
