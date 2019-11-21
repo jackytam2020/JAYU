@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {View, Text, Button, ScrollView, TouchableOpacity, TextInput,DatePickerIOS} from 'react-native';
 import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
 import normalize from 'react-native-normalize';
 import CheckBox from 'react-native-check-box';
+import axios from 'axios';
 
 
 
-
-function Task(){
+function Task({id,assignment_name,completed,deleted}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
@@ -20,7 +20,24 @@ function Task(){
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
     const [duePickerDate, setDuePickerDate] = useState('Add due date');
     const [taskText, setTaskText] = useState();
-    
+    const [new_assignment, setNewAssignment] = useState("");
+
+    useEffect(()=>{
+        setNewAssignment(assignment_name);
+    }, []);
+
+    const UpdateAssignmentName = async()=>{
+        var obj = {
+            key:"photoshop_update",
+            data: {
+                id:id,
+                assignment_name:new_assignment
+            }
+        };
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+        console.log("assignment", r.data);
+    }
 
     var dd = JSON.stringify(duePickerDate);
     var moment = require("moment");
@@ -39,11 +56,9 @@ function Task(){
                             }
                         }}
                     />*/}
-                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:20}} placeholder ="Task Title..."> </TextInput>
+                    <TextInput style={{fontFamily:'SFProDisplay-Medium', color:"lightgrey", marginLeft:20}} value ="Task Title..."> </TextInput>
                 </View>);
-        
     
-
      return(
     <View>
         <View style={{flexDirection:"row"}}>
@@ -74,23 +89,21 @@ function Task(){
            
             <ScrollView>
             <TextInput style={TopStyles.placeholder} placeholder="Assignment..."
-            onChangeText = {()=>{
+            onChangeText = {(t)=>{
                setDone("flex");
+               setNewAssignment(t);
             }}
             ></TextInput>
             </ScrollView>
 
             <TouchableOpacity style={{alignItems:"center",justifyContent:"center", flex: 0.5, display: done}}
             onPress={() =>{
-                
                 setDueDate(TopStyles.dueDate)
-                
-               
+                UpdateAssignmentName();
                 setAssignmentsIcon('􀆊 ');
-                
                 setDueDate(TopStyles.dueDate1)
                 setDone("none")
-               
+                
             } }
             >
                 <Text style={{color:"#00AEEF"}}>Done</Text>

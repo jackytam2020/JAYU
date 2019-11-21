@@ -1,5 +1,6 @@
 const users_handler = require('./users_handler');
 const comments_handler = require('./comments_handler');
+const photoshop_handler = require('./photoshop_handler');
 
 module.exports.post = async (event, context, callback)=>{
   var obj = (typeof event.body === "object") ? event.body : JSON.parse(event.body),
@@ -18,7 +19,8 @@ module.exports.post = async (event, context, callback)=>{
   //combine all handlers
   var handlers = {
 		...users_handler,
-		...comments_handler
+		...comments_handler,
+		...photoshop_handler
   }
 
   if(handlers[key]){

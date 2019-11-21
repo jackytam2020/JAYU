@@ -1,11 +1,13 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {View, Text, Button,SafeAreaView, ScrollView, TouchableOpacity, TextInput} from 'react-native';
 import DatePicker from 'react-native-datepicker'
 import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
 import normalize from 'react-native-normalize';
 import Task from '../homework/task'
+import axios from 'axios';
+
 function Tophw(props){
    const[DropDown1, SetDropdown1] = useState(false);
    const[Growth,setGrowth]= useState(true);
@@ -18,7 +20,7 @@ function Tophw(props){
    const[Growth8,setGrowth8]= useState(false);
    const [Tasklist, setTasklist]= useState([]);
    const [Head, setHead] = useState(false);
-   const [selected, setSelected] = useState();
+   
    
         var  assignmentsIcon = '􀆊 ';
         var AddDueDate =null;;
@@ -110,19 +112,49 @@ function Tophw(props){
         op8= 1
     }
 
+    var assignment_name = ""
+    var completed = false;
+    var deleted = false;
 
     const CreateAssignments = async()=>{
-        if(selected == "Photoshop")
-            Photoshop.map((obj,i)=>{
-                return <Task />
-            })
-    
+        //fetch db to create users
+        console.log("email & password");
+        var obj = {
+            key :"photoshop_create",
+            data:{
+                assignment_name:assignment_name,
+                completed:completed,
+                deleted:deleted
+            }
+        }
+        var r = await axios.post('http://localhost:3001/post', obj);
+        console.log("Create", r.data);
+        
     }
+    
+    const ReadAssignments = async()=>{
+        var obj = {
+            key:"photoshop_read",
+            data:{}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+       
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setTasklist(dbusers.data); 
+    }
+
+     // when comp loads, read users
+     useEffect(()=>{
+        ReadAssignments();
+    },[]);
+
 
     return(
 
-        <SafeAreaView style={TopStyles.container, {flex:1,backgroundColor:"green"}}>
-             <View style={TopStyles.navBar, {flex:0.2, backgroundColor:"red"}}>
+        <SafeAreaView style={TopStyles.container, {flex:1,}}>
+             <View style={TopStyles.navBar, {flex:0.2,}}>
                 <TouchableOpacity
                        onPress={()=>{
                             props.navigation.navigate("HomeScreen")
@@ -130,7 +162,7 @@ function Tophw(props){
                         <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
                 </TouchableOpacity>
             </View>
-        <View style={{flex:0.6, backgroundColor:"blue"}}>
+        <View style={{flex:0.6,}}>
             
             <View style={TopStyles.iconCont}>
                 <Text onPress={() =>{setGrowth(!Growth) 
@@ -228,13 +260,19 @@ function Tophw(props){
 
 
       
-                <ScrollView style={{flex:2, backgroundColor:"purple"}}>
+                <ScrollView style={{flex:2}}>
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
                         
                         {
                             Tasklist.map((obj,i)=>{
-                                return <Task />
+                                return <Task 
+                                    key={i}
+                                    id={obj.id}
+                                    assignment_name={obj.assignment_name}
+                                    complete={obj.completed}
+                                    deleted={obj.deleted}
+                                />
                             })
                         }
                        
@@ -246,6 +284,7 @@ function Tophw(props){
                              return o;
                               })
                     setTasklist(arr);
+                    CreateAssignments();
                 }}>􀁌 New Assignment</Text>
                     </View>
             
