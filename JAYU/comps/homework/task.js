@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 
-function Task({id,assignment_name,completed,deleted, ReadAssignments}){
+function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
@@ -30,7 +30,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments}){
 
     const UpdateAssignmentName = async()=>{
         var obj = {
-            key:"photoshop_update",
+            key:updateKey,
             data: {
                 id:id,
                 assignment_name:new_assignment
@@ -87,7 +87,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments}){
                     setDone1("none");
                     //setDoneBut(!doneBut);
                 }
-                
+                console.log(updateKey)
             
              } } style={TopStyles.body}>{assignmentsIcon}</Text>
            
@@ -102,8 +102,8 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments}){
 
             <TouchableOpacity style={{alignItems:"center",justifyContent:"center", flex: 0.5, display: done}}
             onPress={() =>{
-                setDueDate(TopStyles.dueDate)
                 UpdateAssignmentName();
+                setDueDate(TopStyles.dueDate)
                 setAssignmentsIcon('􀆊 ');
                 setDueDate(TopStyles.dueDate1)
                 setDone("none")

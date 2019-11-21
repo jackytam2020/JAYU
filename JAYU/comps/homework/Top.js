@@ -23,6 +23,7 @@ function Tophw(props){
    const [Head, setHead] = useState(false);
    const [key, setKey] = useState("photoshop_create");
    const [readKey, setReadKey] = useState("photoshop_read");
+   const [updateKey, setUpdateKey] = useState("photoshop_update");
    
         var  assignmentsIcon = '􀆊 ';
         var AddDueDate =null;;
@@ -168,32 +169,37 @@ function Tophw(props){
         <View style={{flex:0.2}}>
             
             <View style={TopStyles.iconCont}>
-                <Text onPress={() =>{setGrowth(!Growth) 
-                setGrowth2(false) 
-                setGrowth3(false)
-                setGrowth4(false)
-                setGrowth5(false)
-                setGrowth6(false)
-                setGrowth7(false)
-                setGrowth8(false)
-                setKey("photoshop_create")
-                setReadKey("photoshop_read")
+                <Text onPress={ async() =>{setGrowth(!Growth) 
+                setGrowth2(false);
+                setGrowth3(false);
+                setGrowth4(false);
+                setGrowth5(false);
+                setGrowth6(false);
+                setGrowth7(false);
+                setGrowth8(false);
+                setKey("photoshop_create");
+                setReadKey("photoshop_read");
+                setUpdateKey("photoshop_update")
+                ReadAssignments();
             }}
-                 style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
-                <Text onPress={() =>{
+                 style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣
+                 </Text>
+                <Text onPress={ async() =>{
                 setGrowth2(!Growth2)
-                setGrowth(false) 
-                setGrowth3(false)
-                setGrowth4(false)
-                setGrowth5(false)
-                setGrowth6(false)
-                setGrowth7(false)
-                setGrowth8(false)
+                setGrowth(false);
+                setGrowth3(false);
+                setGrowth4(false);
+                setGrowth5(false);
+                setGrowth6(false);
+                setGrowth7(false);
+                setGrowth8(false);
                 setKey("design2_create")
-                setReadKey("design2_read")
+                setReadKey("design2_read");
+                setUpdateKey("design2_update");
+                ReadAssignments();
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
-                <Text onPress={() =>{
+                <Text onPress={async() =>{
                     setGrowth3(!Growth3)
                     setGrowth(false) 
                     setGrowth2(false)
@@ -202,10 +208,13 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth7(false)
                     setGrowth8(false)
-                    setKey("design2")
+                    setKey("business_create")
+                    setReadKey("business_read");
+                    setUpdateKey("business_update");
+                    ReadAssignments();
                 }}
                     style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
-                <Text onPress={() =>{
+                <Text onPress={async() =>{
                     setGrowth4(!Growth4)
                     setGrowth(false) 
                     setGrowth2(false)
@@ -214,9 +223,13 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth7(false)
                     setGrowth8(false)
+                    setKey("sales_create")
+                    setReadKey("sales_read");
+                    setUpdateKey("sales_update");
+                    ReadAssignments();
                     }}
                     style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
-                <Text onPress={() =>{
+                <Text onPress={async() =>{
                     setGrowth5(!Growth5)
                     setGrowth(false) 
                     setGrowth2(false)
@@ -225,9 +238,12 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth7(false)
                     setGrowth8(false)
+                    setKey("accounting_create")
+                    setReadKey("accounting_read");
+                    ReadAssignments();
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
-                <Text onPress={() =>{
+                <Text onPress={async() =>{
                     setGrowth6(!Growth6)
                     setGrowth(false) 
                     setGrowth2(false)
@@ -236,9 +252,12 @@ function Tophw(props){
                     setGrowth5(false)
                     setGrowth7(false)
                     setGrowth8(false)
+                    setKey("assets_create")
+                    setReadKey("assets_read");
+                    ReadAssignments();
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
-                <Text onPress={() =>{
+                <Text onPress={async() =>{
                     setGrowth7(!Growth7)
                     setGrowth(false) 
                     setGrowth2(false)
@@ -247,9 +266,12 @@ function Tophw(props){
                     setGrowth5(false)
                     setGrowth6(false)
                     setGrowth8(false)
+                    setKey("webdev_create")
+                    setReadKey("webdev_read");
+                    ReadAssignments();
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
-                <Text onPress={() =>{
+                <Text onPress={async() =>{
                     setGrowth8(!Growth8)
                     setGrowth(false) 
                     setGrowth2(false)
@@ -258,6 +280,9 @@ function Tophw(props){
                     setGrowth5(false)
                     setGrowth6(false)
                     setGrowth7(false)
+                    setKey("project2_create")
+                    setReadKey("project2_read");
+                    ReadAssignments();
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
             </View>
@@ -269,10 +294,11 @@ function Tophw(props){
 
       
                 <ScrollView style={{flex:2}}>
-                    
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
-                        
+                        <Text onPress={()=>{
+                            console.log(updateKey);
+                        }}>hi</Text>
                         {
                             Tasklist.map((obj,i)=>{
                                 return <Task 
@@ -282,6 +308,7 @@ function Tophw(props){
                                     complete={obj.completed}
                                     deleted={obj.deleted}
                                     ReadAssignments={ReadAssignments}
+                                    updateKey={updateKey}
                                 />
                             })
                         }
