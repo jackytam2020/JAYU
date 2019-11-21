@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import {View, Text, Button,SafeAreaView, ScrollView, TouchableOpacity, TextInput} from 'react-native';
+import {View, Text, Button,SafeAreaView,KeyboardAvoidingView, ScrollView, TouchableOpacity, TextInput} from 'react-native';
 import DatePicker from 'react-native-datepicker'
 import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
@@ -93,7 +93,7 @@ function Tophw(props){
     }else
     if(Growth6 === true){
         Iconfont6= 30;
-        header2="Asset Design and Intergration"
+        header2="Asset Design and Integration"
         color="#FFCF00"
         op6 = 1
     }else
@@ -121,8 +121,8 @@ function Tophw(props){
 
     return(
 
-        <SafeAreaView style={TopStyles.container, {flex:1,backgroundColor:"green"}}>
-             <View style={TopStyles.navBar, {flex:0.2, backgroundColor:"red"}}>
+        <SafeAreaView style={TopStyles.container, {flex:1}}>
+             <View style={TopStyles.navBar, {flex:0.1}}>
                 <TouchableOpacity
                        onPress={()=>{
                             props.navigation.navigate("HomeScreen")
@@ -130,7 +130,7 @@ function Tophw(props){
                         <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
                 </TouchableOpacity>
             </View>
-        <View style={{flex:0.6, backgroundColor:"blue"}}>
+        <View style={{flex:0.2}}>
             
             <View style={TopStyles.iconCont}>
                 <Text onPress={() =>{setGrowth(!Growth) 
@@ -222,13 +222,14 @@ function Tophw(props){
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
             </View>
     
-                <Text style={[TopStyles.headerText,  {color:color}]}>{header2}</Text>
-                <View style={{flex: 0.001, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
+                <Text style={[TopStyles.headerText,{color:color}]}>{header2}</Text>
+                <View style={{borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
             </View>
 
 
       
-                <ScrollView style={{flex:2, backgroundColor:"purple"}}>
+                <ScrollView style={{flex:2}}>
+                    
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
                         
@@ -252,8 +253,6 @@ function Tophw(props){
             </ScrollView>
             
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
-               
-          
             <FooterBar />
             </View>   
         </SafeAreaView>

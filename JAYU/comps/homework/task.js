@@ -20,6 +20,7 @@ function Task(){
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
     const [duePickerDate, setDuePickerDate] = useState('Add due date');
     const [taskText, setTaskText] = useState();
+  
     
 
     var dd = JSON.stringify(duePickerDate);
@@ -39,7 +40,7 @@ function Task(){
                             }
                         }}
                     />*/}
-                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:20}} placeholder ="Task Title..."> </TextInput>
+                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:20, color:"lightgrey"}} value = "Task Title..."> </TextInput>
                 </View>);
         
     

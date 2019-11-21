@@ -61,7 +61,7 @@ const TopStyles = StyleSheet.create({
     },
 
     iconCont:{
-        flex:0.2,
+        flex:0.7,
         flexDirection:'row',
         justifyContent: "space-evenly"
     },
