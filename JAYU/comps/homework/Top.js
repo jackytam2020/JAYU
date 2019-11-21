@@ -168,29 +168,34 @@ function Tophw(props){
         <View style={{flex:0.2}}>
             
             <View style={TopStyles.iconCont}>
-                <Text onPress={() =>{setGrowth(!Growth) 
-                setGrowth2(false) 
-                setGrowth3(false)
-                setGrowth4(false)
-                setGrowth5(false)
-                setGrowth6(false)
-                setGrowth7(false)
-                setGrowth8(false)
+                <Text onPress={ async() =>{setGrowth(!Growth) 
+                setGrowth2(false);
+                setGrowth3(false);
+                setGrowth4(false);
+                setGrowth5(false);
+                setGrowth6(false);
+                setGrowth7(false);
+                setGrowth8(false);
                 setKey("photoshop_create")
                 setReadKey("photoshop_read")
+                ReadAssignments();
             }}
                  style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
-                <Text onPress={() =>{
+                <Text onPress={ async() =>{
                 setGrowth2(!Growth2)
-                setGrowth(false) 
-                setGrowth3(false)
-                setGrowth4(false)
-                setGrowth5(false)
-                setGrowth6(false)
-                setGrowth7(false)
-                setGrowth8(false)
+                setGrowth(false);
+                setGrowth3(false);
+                setGrowth4(false);
+                setGrowth5(false);
+                setGrowth6(false);
+                setGrowth7(false);
+                setGrowth8(false);
                 setKey("design2_create")
-                setReadKey("design2_read")
+                setReadKey("design2_read");
+                ReadAssignments();
+
+                
+                
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
                 <Text onPress={() =>{
@@ -269,7 +274,10 @@ function Tophw(props){
 
       
                 <ScrollView style={{flex:2}}>
-                    
+                    <Text onPress={()=>{
+                        console.log(readKey)
+                        ReadAssignments();
+                    }}>hi</Text>
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
                         
