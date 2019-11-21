@@ -52,7 +52,7 @@ function Newpost(props){
                 
                 <TouchableOpacity style={{flexDirection:'row'}}
                     onPress={()=> {
-                        setColor("#007AFF")
+                        setColor("#FF9500")
                         setCourse("Accounting for the Manager");
 
                         if(color == "#007AFF"){
@@ -70,7 +70,7 @@ function Newpost(props){
                         }
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                   <Text style={[{color:color}, newPostStyle.icon]} >􀘝</Text>
                     <Text style={{fontSize:15, color:color}}>Accounting for the Manager</Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
@@ -80,7 +80,7 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                     onPress={()=> {
                         setCourse("Advanced Photoshop");
-                        setColor1("#007AFF");
+                        setColor1("#00AEEF");
 
                         if( color1 == "#007AFF"){
                             setColor1("black");
@@ -97,7 +97,7 @@ function Newpost(props){
                         }
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                    <Text style={[{color:color1}, newPostStyle.icon]} >􀀣</Text>
                     <Text style={{fontSize:15, color:color1}}>Advanced Photoshop </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
@@ -107,7 +107,7 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
                         setCourse("Assets Design and Integration")
-                        setColor2("#007AFF");
+                        setColor2("#FFCF00");
 
                         if( color2 == "#007AFF"){
                             setColor2("black");
@@ -124,7 +124,7 @@ function Newpost(props){
                         }
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                    <Text style={[{color:color2}, newPostStyle.icon]} >􀏀</Text>
                     <Text style={{fontSize:15, color:color2}}>Assets Design and Integration </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
@@ -134,7 +134,7 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
                         setCourse("Business Communication")
-                        setColor3("#007AFF");
+                        setColor3("#4CD964");
 
                         if( color3 == "#007AFF"){
                             setColor3("black");
@@ -151,7 +151,7 @@ function Newpost(props){
                         }
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                  <Text style={[{color:color3}, newPostStyle.icon]} >􀒡</Text>
                     <Text style={{fontSize:15, color:color3}}>Business Communication </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
@@ -161,7 +161,7 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
                         setCourse("Design 2");
-                        setColor4("#007AFF");
+                        setColor4("#FF3B30");
 
                         if( color4 == "#007AFF"){
                             setColor4("black");
@@ -179,7 +179,7 @@ function Newpost(props){
                         
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                    <Text style={[{color:color4}, newPostStyle.icon]} >􀈌</Text>
                     <Text style={{fontSize:15, color:color4}}>Design 2</Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
@@ -189,7 +189,7 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                     onPress={()=> {
                         setCourse("Professional Sales Skills");
-                        setColor5("#007AFF");
+                        setColor5("#5856D6");
 
                         if( color5 == "#007AFF"){
                             setColor5("black");
@@ -206,7 +206,7 @@ function Newpost(props){
                         }
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                 <Text style={[{color:color5}, newPostStyle.icon]} >􀋤</Text>
                     <Text style={{fontSize:15, color:color5}}>Professional Sales Skills </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
@@ -233,7 +233,7 @@ function Newpost(props){
                         }
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                    <Text style={[{color:color6}, newPostStyle.icon]} >􀓤</Text>
                     <Text style={{fontSize:15, color:color6}}>Project 2 </Text>
                 </TouchableOpacity>  
                 <View style={{width:200, paddingTop:10, left:45}}>
@@ -243,7 +243,7 @@ function Newpost(props){
                 <TouchableOpacity style={{flexDirection:'row'}}
                      onPress={()=> {
                         setCourse("Web Development 3")
-                        setColor7("#007AFF");
+                        setColor7("#C69C6D");
 
                         if( color7 == "#007AFF"){
                             setColor7("black");
@@ -260,7 +260,7 @@ function Newpost(props){
                         }
                     }}
                 >
-                    <View style={{height:25,width:25, marginRight:20, backgroundColor:"grey", borderRadius:40}}></View>
+                        <Text style={[{color:color7}, newPostStyle.icon]} >􀁛</Text>
                     <Text style={{fontSize:15, color:color7}}>Web Development 3 </Text>
                 </TouchableOpacity>  
         

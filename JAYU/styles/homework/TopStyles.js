@@ -36,6 +36,7 @@ const TopStyles = StyleSheet.create({
     headerText:{
          flex: 0.1,
         fontFamily:'SFProDisplay-Medium',
+        
         fontSize:25,
         marginLeft: 30,
          marginBottom: 10,
@@ -43,7 +44,10 @@ const TopStyles = StyleSheet.create({
     },
 
     asgContainer:{
-         flex:1,
+         flex:0.5,
+     
+         position:"absolute",
+         width:"100%"
 
     },
 
@@ -80,7 +84,7 @@ const TopStyles = StyleSheet.create({
     },
 
     iconCont:{
-        flex:0.3,
+        flex:0.2,
         flexDirection:'row',
         justifyContent: "space-evenly"
     },
@@ -95,6 +99,14 @@ const TopStyles = StyleSheet.create({
         marginLeft:30,
         fontSize:18
     },
+
+    cont1:{
+        flex:0.5,
+
+
+
+    },
+
     hideContainer:{
         display:'none'
     },

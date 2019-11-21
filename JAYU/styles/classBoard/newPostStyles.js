@@ -17,6 +17,13 @@ const newPostStyle = StyleSheet.create({
         justifyContent:'center',
         marginTop:20
     },
+
+    icon:{
+        fontFamily:'SFProDisplay-Medium',
+        fontSize:22,
+        marginRight:20
+
+    },
     chooseBar:{
         width:'80%',
         height:'100%',

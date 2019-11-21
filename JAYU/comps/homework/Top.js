@@ -219,7 +219,7 @@ function Tophw(props){
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
             </View>
         
-                    <View></View>
+               
                 <Text style={[TopStyles.headerText,  {color:color}]}>{header2}</Text>
                 <View style={{flex: 0.001, borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
                 <ScrollView>
@@ -233,7 +233,7 @@ function Tophw(props){
                             })
                         }
                        
-                        </ScrollView>
+                        </ScrollView >
                         < Text style={TopStyles.icon2} onPress={()=>{
                              var arr = taskList;
                               arr.push(1);
