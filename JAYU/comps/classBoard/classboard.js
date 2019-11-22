@@ -1,20 +1,43 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View,Text,Button, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import classBoardStyles from '../../styles/classBoard/classBoardStyles'
 import FooterBar from '../../comps/footerBar';
 import normalize from 'react-native-normalize';
 import PostBox from './postBox';
 import CompostPost from './composePost';
+import axios from 'axios';
 
 
 function Classboard(props){
   const [postBox, setPostBox] = useState([]);
   const [emptyPost, setEmptyPost] = useState("flex");
 
-  var question = props.navigation.getParam("comments");
-  var course = props.navigation.getParam("course");
-  var time =  props.navigation.getParam("time");
+  var description = props.navigation.getParam("comments");
+  var course_name = props.navigation.getParam("course");
+  var am_pm =  props.navigation.getParam("am_pm");
+  var hour =  props.navigation.getParam("hour");
+  var minutes =  props.navigation.getParam("minutes");
+
+
+
+  const ReadPosts = async()=>{
+    var obj = {
+        key:"classboard_read",
+        data:{}
+    }
+
+    var r = await axios.post('http://localhost:3001/post', obj);
+  
+    var dbusers = JSON.parse(r.data.body);
+    console.log("Read", dbusers);
+    setPostBox(dbusers.data); 
+  }
+
+  useEffect(()=>{
+    ReadPosts();
+    },[]);
+
   return (
       <View style={classBoardStyles.container}>
             <SafeAreaView style={classBoardStyles.safecontainer}>
@@ -44,22 +67,15 @@ function Classboard(props){
                 <ScrollView style={classBoardStyles.scrollview}>
                 { 
                     postBox.map((obj,i)=>{
-                      return <View style={classBoardStyles.posts}>
-                                  <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
-                                    onPress={()=>{
-                                      props.navigation.navigate('Post', {question:question, course:course})
-                                    }}>
-                                      <View style={{height:20,width:20, backgroundColor:"blue", borderRadius:40}}></View>
-                                      <View style={{paddingLeft:10}}>  
-                                        <Text>{props.navigation.getParam("course")}</Text>
-                                        <Text style={{fontSize:10}}>{time}</Text>
-                                      </View>  
-                                  </TouchableOpacity>
-
-                                  <View style={classBoardStyles.line}></View>  
-
-                                  <Text style={{paddingLeft: 10}}>{props.navigation.getParam("comments")}</Text>
-                              </View>
+                      return <PostBox 
+                        key={i}
+                        id={obj.id}
+                        course_name={obj.course_name}
+                        description={obj.description}
+                        hour={obj.hour}
+                        minutes={obj.minutes}
+                        am_pm={obj.am_pm}
+                      />
                     })
                             
                 }    

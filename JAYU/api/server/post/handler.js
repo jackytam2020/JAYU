@@ -8,6 +8,7 @@ const accounting_handler = require('./accounting_handler');
 const assets_handler = require('./assets_handler');
 const webdev_handler = require('./webdev_handler');
 const project2_handler = require('./project2_handler');
+const classboard_handler = require('./classboard_handler');
 
 module.exports.post = async (event, context, callback)=>{
   var obj = (typeof event.body === "object") ? event.body : JSON.parse(event.body),
@@ -34,7 +35,8 @@ module.exports.post = async (event, context, callback)=>{
 		...accounting_handler,
 		...assets_handler,
 		...webdev_handler,
-		...project2_handler
+		...project2_handler,
+		...classboard_handler
   }
 
   if(handlers[key]){

@@ -59,5 +59,11 @@
     "cols":["id", "assignment_name", "completed", "deleted"],
     "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
     "order":["id"]
+  },
+  {
+    "model":"classboard",
+    "cols":["id", "course_name", "description", "hour", "minutes","am_pm"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT"],
+    "order":["id"]
   }
 ]

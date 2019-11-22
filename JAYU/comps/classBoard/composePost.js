@@ -3,26 +3,26 @@ import {View,Text, Button,TextInput, TouchableOpacity} from 'react-native';
 import composeStyle from '../../styles/classBoard/compostPostStyles'
 import PostBox from './postBox';
 import Classboard from './classboard';
+import axios from 'axios';
 
 function CompostPost(props){
     const [value, setValue] = useState("Write your discussion...")
 
 
-  var courseName = props.navigation.getParam("course");
   var setPostBox = props.navigation.getParam("setPostBox");
   var postBox = props.navigation.getParam("postBox");
   var setEmptyPost = props.navigation.getParam("setEmptyPost");
-
-  var date, dayState, hour, minutes, seconds, fullTime;
+  
+  var date, am_pm, hour, minutes, seconds, fullTime;
 
   hour = new Date().getHours();
   minutes = new Date().getMinutes(); //Current Minutes
   
   if(hour<= 11){
-    dayState= 'AM';
+    am_pm= 'AM';
   }
   else {
-    dayState= 'PM'
+    am_pm= 'PM'
   }
 
   //convert to 12 hour formate
@@ -35,7 +35,43 @@ function CompostPost(props){
   if(minutes < 10){
     minutes = '0' + minutes.toString();
   }
-  var time = hour+":"+minutes+" "+dayState;
+  var time = hour+":"+minutes+" "+am_pm;
+
+  //add to database
+
+  var course_name = props.navigation.getParam("course");
+  var description = "";
+
+  const CreatePosts = async()=>{
+    //fetch db to create users
+    console.log("Created Post");
+    var obj = {
+        key: "classboard_create",
+        data:{
+            course_name:course_name,
+            description:description,
+            hour:hour,
+            minutes:minutes,
+            am_pm:am_pm
+        }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj);
+    console.log("Create", r.data);    
+    ReadPosts();
+}
+
+const ReadPosts = async()=>{
+  var obj = {
+      key:"classboard_read",
+      data:{}
+  }
+
+  var r = await axios.post('http://localhost:3001/post', obj);
+
+  var dbusers = JSON.parse(r.data.body);
+  console.log("Read", dbusers);
+  setPostBox(dbusers.data); 
+}
   return (
       <View style={composeStyle.container}>
           <View style={composeStyle.navBar}>
@@ -69,17 +105,14 @@ function CompostPost(props){
               <View style={composeStyle.rightDetail}>
                     <TouchableOpacity style={{height:30,width:30, backgroundColor:"#007aff", borderRadius:40}}
                           onPress={()=>{
-                            var arr = postBox;
-                              arr.push(1);
-                              arr = arr.map((o)=>{
-                                  return o;
-                              })
-                              setPostBox(arr)
-                              setEmptyPost("none")
+                            CreatePosts();
+                            setEmptyPost("none")
                             props.navigation.navigate('Classboard', 
-                            {course:courseName, 
-                              comments:value,
-                              time:time
+                            {course:course_name, 
+                              comments:description,
+                              hour:hour,
+                              minutes:minutes,
+                              am_pm:am_pm
                             });
                          }}>
                     </TouchableOpacity>
@@ -93,7 +126,7 @@ function CompostPost(props){
           <View style={composeStyle.textBoxContainer}>
               <TextInput
                 placeholder="Write Your Discussion"
-                onChangeText={text => setValue(text)}
+                onChangeText={(text) => {description = text}}
                 style={{marginLeft:20}}
                 multiline={true}
               />

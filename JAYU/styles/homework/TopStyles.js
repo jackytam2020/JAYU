@@ -6,7 +6,7 @@ const TopStyles = StyleSheet.create({
         backgroundColor:"#F2F2F2",
     },
     navBar:{
-        flex:0.5,
+        flex:0.1,
         flexDirection:"row",
         alignItems:'center',
         

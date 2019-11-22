@@ -24,6 +24,7 @@ function Newpost(props){
     var setPostBox = props.navigation.getParam("setPostBox");
     var postBox = props.navigation.getParam("postBox");
     var setEmptyPost = props.navigation.getParam("setEmptyPost");
+    
   return (
       <View style={newPostStyle.container}>
           <View style={newPostStyle.navBar}>
