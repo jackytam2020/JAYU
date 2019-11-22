@@ -66,6 +66,19 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey}
      return(
     <View>
         <View style={{flexDirection:"row"}}>
+            <View style={{top:10}}>
+                <CheckBox 
+                    isChecked={check}
+                    checkedCheckBoxColor={"lightgreen"}
+                    onClick={()=>{
+                        SetCheck(true)
+                        if(check== true){
+                            SetCheck(false)
+                        }
+                    }}
+                    
+                />
+            </View>
             <Text onPress={() =>{
                 
                 setAssignmentsIcon('􀆈')
@@ -92,11 +105,14 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey}
              } } style={TopStyles.body}>{assignmentsIcon}</Text>
            
             <ScrollView>
-            <TextInput style={TopStyles.placeholder} placeholder="Assignment..."
+            <TextInput 
+            style={TopStyles.placeholder} 
+            placeholder="Assignment..."
             onChangeText = {(t)=>{
                setDone("flex");
                setNewAssignment(t);
             }}
+            defaultValue={assignment_name}
             ></TextInput>
             </ScrollView>
 

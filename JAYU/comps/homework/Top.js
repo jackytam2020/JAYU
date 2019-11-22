@@ -132,12 +132,14 @@ function Tophw(props){
         }
         var r = await axios.post('http://localhost:3001/post', obj);
         console.log("Create", r.data);
+        await ReadAssignments();
         
     }
     
-    const ReadAssignments = async()=>{
+    const ReadAssignments = async(key)=>{
+        var k = key || readKey;
         var obj = {
-            key:readKey,
+            key:k,
             data:{}
         }
 
@@ -169,7 +171,8 @@ function Tophw(props){
         <View style={{flex:0.2}}>
             
             <View style={TopStyles.iconCont}>
-                <Text onPress={ async() =>{setGrowth(!Growth) 
+                <Text onPress={ async() =>{
+                setGrowth(true) 
                 setGrowth2(false);
                 setGrowth3(false);
                 setGrowth4(false);
@@ -178,14 +181,13 @@ function Tophw(props){
                 setGrowth7(false);
                 setGrowth8(false);
                 setKey("photoshop_create");
-                setReadKey("photoshop_read");
-                setUpdateKey("photoshop_update")
-                ReadAssignments();
+                setUpdateKey("photoshop_update");
+                ReadAssignments("photoshop_read");
                 
             }}
                  style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
                 <Text onPress={ async() =>{
-                setGrowth2(!Growth2)
+                setGrowth2(true);
                 setGrowth(false);
                 setGrowth3(false);
                 setGrowth4(false);
@@ -194,9 +196,8 @@ function Tophw(props){
                 setGrowth7(false);
                 setGrowth8(false);
                 setKey("design2_create")
-                setReadKey("design2_read");
                 setUpdateKey("design2_update");
-                ReadAssignments();
+                ReadAssignments("design2_read");
 
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
@@ -241,6 +242,7 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("accounting_create")
                     setReadKey("accounting_read");
+                    setUpdateKey("accounting_update");           
                     ReadAssignments();
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
@@ -253,8 +255,9 @@ function Tophw(props){
                     setGrowth5(false)
                     setGrowth7(false)
                     setGrowth8(false)
-                    setKey("assets_create")
+                    setKey("assets_create");
                     setReadKey("assets_read");
+                    setUpdateKey("assets_update");              
                     ReadAssignments();
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
@@ -269,6 +272,7 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("webdev_create")
                     setReadKey("webdev_read");
+                    setUpdateKey("webdev_update");           
                     ReadAssignments();
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
@@ -283,6 +287,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setKey("project2_create")
                     setReadKey("project2_read");
+                    setUpdateKey("project2_update");
                     ReadAssignments();
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤
@@ -306,7 +311,6 @@ function Tophw(props){
                                     assignment_name={obj.assignment_name}
                                     complete={obj.completed}
                                     deleted={obj.deleted}
-                                    ReadAssignments={ReadAssignments}
                                     updateKey={updateKey}
                                 />
                             })
@@ -314,12 +318,6 @@ function Tophw(props){
                        
                     </ScrollView>
                         < Text style={TopStyles.icon2} onPress={()=>{
-                             var arr = Tasklist;
-                              arr.push(1);
-                              arr = arr.map((o)=>{
-                             return o;
-                              })
-                    setTasklist(arr);
                     CreateAssignments();
                 }}>􀁌 New Assignment</Text>
                     </View>
