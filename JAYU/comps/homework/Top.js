@@ -210,10 +210,9 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth7(false)
                     setGrowth8(false)
-                    setKey("business_create")
-                    setReadKey("business_read");
+                    setKey("business_create")                   
                     setUpdateKey("business_update");
-                    ReadAssignments();
+                    ReadAssignments("business_read");
                 }}
                     style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
                 <Text onPress={async() =>{
@@ -226,9 +225,8 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     setKey("sales_create")
-                    setReadKey("sales_read");
                     setUpdateKey("sales_update");
-                    ReadAssignments();
+                    ReadAssignments("sales_read");
                     }}
                     style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
                 <Text onPress={async() =>{
@@ -241,9 +239,8 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     setKey("accounting_create")
-                    setReadKey("accounting_read");
                     setUpdateKey("accounting_update");           
-                    ReadAssignments();
+                    ReadAssignments("accounting_read");
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
                 <Text onPress={async() =>{
@@ -256,9 +253,8 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     setKey("assets_create");
-                    setReadKey("assets_read");
                     setUpdateKey("assets_update");              
-                    ReadAssignments();
+                    ReadAssignments("assets_read");
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
                 <Text onPress={async() =>{
@@ -271,9 +267,8 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth8(false)
                     setKey("webdev_create")
-                    setReadKey("webdev_read");
                     setUpdateKey("webdev_update");           
-                    ReadAssignments();
+                    ReadAssignments("webdev_read");
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
                 <Text onPress={async() =>{
@@ -286,9 +281,8 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth7(false)
                     setKey("project2_create")
-                    setReadKey("project2_read");
                     setUpdateKey("project2_update");
-                    ReadAssignments();
+                    ReadAssignments("project2_read");
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤
                     </Text>
