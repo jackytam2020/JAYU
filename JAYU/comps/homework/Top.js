@@ -241,6 +241,7 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("accounting_create")
                     setReadKey("accounting_read");
+                    setUpdateKey("accounting_update");           
                     ReadAssignments();
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
@@ -253,8 +254,9 @@ function Tophw(props){
                     setGrowth5(false)
                     setGrowth7(false)
                     setGrowth8(false)
-                    setKey("assets_create")
+                    setKey("assets_create");
                     setReadKey("assets_read");
+                    setUpdateKey("assets_update");              
                     ReadAssignments();
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
@@ -269,6 +271,7 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("webdev_create")
                     setReadKey("webdev_read");
+                    setUpdateKey("webdev_update");           
                     ReadAssignments();
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
@@ -283,6 +286,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setKey("project2_create")
                     setReadKey("project2_read");
+                    setUpdateKey("project2_update");
                     ReadAssignments();
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤
