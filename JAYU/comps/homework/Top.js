@@ -181,9 +181,9 @@ function Tophw(props){
                 setReadKey("photoshop_read");
                 setUpdateKey("photoshop_update")
                 ReadAssignments();
+                
             }}
-                 style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣
-                 </Text>
+                 style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
                 <Text onPress={ async() =>{
                 setGrowth2(!Growth2)
                 setGrowth(false);
@@ -197,6 +197,7 @@ function Tophw(props){
                 setReadKey("design2_read");
                 setUpdateKey("design2_update");
                 ReadAssignments();
+
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
                 <Text onPress={async() =>{
@@ -284,9 +285,10 @@ function Tophw(props){
                     setReadKey("project2_read");
                     ReadAssignments();
                     }}
-                    style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤</Text>
+                    style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤
+                    </Text>
             </View>
-    
+
                 <Text style={[TopStyles.headerText,{color:color}]}>{header2}</Text>
                 <View style={{borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
             </View>
@@ -296,9 +298,6 @@ function Tophw(props){
                 <ScrollView style={{flex:2}}>
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
-                        <Text onPress={()=>{
-                            console.log(updateKey);
-                        }}>hi</Text>
                         {
                             Tasklist.map((obj,i)=>{
                                 return <Task 
