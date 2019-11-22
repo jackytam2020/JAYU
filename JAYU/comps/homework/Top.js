@@ -177,6 +177,7 @@ function Tophw(props){
                 setGrowth6(false);
                 setGrowth7(false);
                 setGrowth8(false);
+<<<<<<< HEAD
                 setKey("photoshop_create");
                 setReadKey("photoshop_read");
                 setUpdateKey("photoshop_update")
@@ -184,6 +185,13 @@ function Tophw(props){
             }}
                  style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣
                  </Text>
+=======
+                setKey("photoshop_create")
+                setReadKey("photoshop_read")
+                ReadAssignments();
+            }}
+                 style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
+>>>>>>> cf8e21f4a77438fcbbcae16697e7f34293d80680
                 <Text onPress={ async() =>{
                 setGrowth2(!Growth2)
                 setGrowth(false);
@@ -195,8 +203,15 @@ function Tophw(props){
                 setGrowth8(false);
                 setKey("design2_create")
                 setReadKey("design2_read");
+<<<<<<< HEAD
                 setUpdateKey("design2_update");
                 ReadAssignments();
+=======
+                ReadAssignments();
+
+                
+                
+>>>>>>> cf8e21f4a77438fcbbcae16697e7f34293d80680
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
                 <Text onPress={async() =>{
@@ -294,6 +309,13 @@ function Tophw(props){
 
       
                 <ScrollView style={{flex:2}}>
+<<<<<<< HEAD
+=======
+                    <Text onPress={()=>{
+                        console.log(readKey)
+                        ReadAssignments();
+                    }}>hi</Text>
+>>>>>>> cf8e21f4a77438fcbbcae16697e7f34293d80680
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
                     <ScrollView>
                         <Text onPress={()=>{
