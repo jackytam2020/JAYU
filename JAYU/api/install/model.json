@@ -77,5 +77,42 @@
     "cols":["id", "mark_name", "weight", "score", "outof"],
     "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
     "order":["id"]
+  },
+  {
+    "model":"marksassets",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksbusiness",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksdesign2",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"markssales",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksproject2",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"markswebdev",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
   }
+  
 ]
