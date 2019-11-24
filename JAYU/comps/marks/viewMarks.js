@@ -33,7 +33,9 @@ function ViewMark(props){
                             {classname: "Accounting for the Manager", 
                         bg: "#FFEBD4",
                         icon: '􀘝',
-                        color: "#FF9500"
+                        color: "#FF9500",
+                        courseKey: "marksaccounting_create",
+                        courseReadKey: "marksaccounting_read"
                     }) 
                     }}>
                     <Text style={[{color:"#FF9500"},viewMarkStyles.circle]}>􀘝</Text>
@@ -48,7 +50,9 @@ function ViewMark(props){
                     {classname: "Advanced Photoshop",
                     bg: "#D6F0FC",
                     icon: "􀀣",
-                    color: "#00AEEF"
+                    color: "#00AEEF",
+                    courseKey: "marksphotoshop_create",
+                    courseReadKey: "marksphotoshop_read"
                 }) 
                 }}>
                     <Text style={[{color:"#00AEEF"},viewMarkStyles.circle]}>􀀣</Text>

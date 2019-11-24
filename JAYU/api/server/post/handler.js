@@ -9,6 +9,8 @@ const assets_handler = require('./assets_handler');
 const webdev_handler = require('./webdev_handler');
 const project2_handler = require('./project2_handler');
 const classboard_handler = require('./classboard_handler');
+const marksaccounting_handler = require('./marksaccounting_handler');
+const marksphotoshop_handler = require('./marksphotoshop_handler');
 
 module.exports.post = async (event, context, callback)=>{
   var obj = (typeof event.body === "object") ? event.body : JSON.parse(event.body),
@@ -36,7 +38,9 @@ module.exports.post = async (event, context, callback)=>{
 		...assets_handler,
 		...webdev_handler,
 		...project2_handler,
-		...classboard_handler
+		...classboard_handler,
+		...marksaccounting_handler,
+		...marksphotoshop_handler
   }
 
   if(handlers[key]){

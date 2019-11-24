@@ -65,5 +65,17 @@
     "cols":["id", "course_name", "description", "hour", "minutes","am_pm"],
     "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT"],
     "order":["id"]
+  },
+  {
+    "model":"marksaccounting",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksphotoshop",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
   }
 ]

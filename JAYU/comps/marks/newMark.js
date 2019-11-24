@@ -4,25 +4,61 @@ import editMarkStyles from '../../styles/marks/editMarkStyles';
 import markStyles from '../../styles/marks/markStyles';
 import Marks from '../marks/marks';
 import MarksRow from '../marks/markRow';
+import axios from 'axios'
 
 function NewMark(props){
     const [select, setSelect] = useState("grey")
     const [select1, setSelect1] = useState("grey")
     const [select2, setSelect2] = useState("grey")
-    const [weight, setWeight] = useState("8%")
-    const [score, setScore] = useState("93")
-    const [outof, setOutof] = useState("100")
     const [slideDown, setSlideDown] = useState(0)
-    const [value, setValue] = useState('')
 
     var setMark = props.navigation.getParam("setMark");
     var mark = props.navigation.getParam("mark");
+    var courseKey = props.navigation.getParam("courseKey"); 
+    var courseReadKey = props.navigation.getParam("courseReadKey"); 
+
+    var mark_name = "";
+    var weight = 8;
+    var score = 93;
+    var outof = 100;
+
+    const CreateMarks = async()=>{
+        //fetch db to create marks
+        console.log("Created Post");
+        var obj = {
+            key: courseKey,
+            data:{
+                mark_name:mark_name,
+                weight:weight,
+                score:score,
+                outof:outof,
+            }
+        }
+        var r = await axios.post('http://localhost:3001/post', obj);
+        console.log("Create", r.data);    
+        ReadMarks();
+    }
+
+    const ReadMarks = async()=>{
+        var obj = {
+            key:courseReadKey,
+            data:{}
+        }
+    
+        var r = await axios.post('http://localhost:3001/post', obj);
+      
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setMark(dbusers.data); 
+      }
+    
 
   return (
     <View style={editMarkStyles.container}>
         <View style={editMarkStyles.titleBar}>
             <Text style={{fontSize:20}}>New Mark</Text>
             <Text style={{color:"grey"}}>Assets Design and Integation</Text>
+            <Text onPress={()=>{console.log(courseReadKey)}}>hi</Text>
         </View>
 
         {/* Chose Mark Type */}
@@ -66,7 +102,7 @@ function NewMark(props){
                     <TextInput
                         placeholder="Midterm Exam"
                         style={{fontSize:25, marginRight:15}}
-                        onChangeText={text => setValue(text)}>
+                        onChangeText={(t) => {mark_name = t}}>
                     </TextInput>
                     <Text style={{color:'grey', top:3}}>Tap to Edit</Text>
                 </View>
@@ -83,8 +119,9 @@ function NewMark(props){
                 <Text>How much is it Worth </Text>
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
-                        value={weight}
-                        style={{fontSize:25, marginRight:15}}>
+                        defaultValue={"8"}
+                        style={{fontSize:25, marginRight:15}}
+                        onChangeText={(t) => {weight = t}}>
                     </TextInput>
                 </View>
                 <View style={{flex:0.2, flexDirection:'row', top:5}}>
@@ -100,15 +137,15 @@ function NewMark(props){
                 <Text>What mark did you get? </Text>
                 <View style={{flexDirection:'row', width:'40%', alignItems:'center', justifyContent:'space-between'}}>
                     <TextInput
-                        value={score}
+                        defaultValue={"93"}
                         style={{fontSize:25}}
-                        onChangeText={text => setScore(text)}>
+                        onChangeText={(t) => {score = t}}>
                     </TextInput>
                     <Text> of </Text>
                     <TextInput
-                        value={outof}
+                        defaultValue={"100"}
                         style={{fontSize:25}}
-                        onChangeText={text => setOutof(text)}>
+                        onChangeText={(t) => {outof = t}}>
                     </TextInput>
                 </View>
                 <View style={{flex:0.2, flexDirection:'row', top:5}}>
@@ -121,13 +158,8 @@ function NewMark(props){
             <View style={editMarkStyles.actionButtons}>
                 <Text style={{fontSize:15}}
                     onPress={()=>{
-                        var arr = mark;
-                              arr.push(1);
-                              arr = arr.map((o)=>{
-                                  return o;
-                              })
-                              setMark(arr)
-                        props.navigation.navigate("Marks", {value:value, score:score, outof:outof})
+                        CreateMarks();
+                        props.navigation.navigate("Marks", {mark_name:mark_name, score:score, outof:outof, weight:weight})
                     }}
                 >Add</Text>
                 <Text style={{fontSize:15}}

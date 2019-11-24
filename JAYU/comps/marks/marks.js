@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import { View,Text,Button, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import normalize from 'react-native-normalize';
 import markStyles from '../../styles/marks/markStyles';
@@ -8,7 +8,7 @@ import NewMark from '../../comps/marks/newMark'
 import Modal from "react-native-modal"
 import MarkRow from '../marks/markRow';
 import postStyle from '../../styles/classBoard/postStyle';
-
+import axios from 'axios';
 
 function Marks(props){
     const [cancel, setCancel] = useState(markStyles.cancel)
@@ -18,9 +18,32 @@ function Marks(props){
     const [mark, setMark] = useState([]);
     const [grade, setGrade] = useState("")
 
-    var markName = props.navigation.getParam("value"); 
+    var mark_name = props.navigation.getParam("mark_name"); 
     var score = props.navigation.getParam("score"); 
     var outof = props.navigation.getParam("outof"); 
+    var weight = props.navigation.getParam("weight"); 
+
+    var courseKey = props.navigation.getParam("courseKey"); 
+    var courseReadKey = props.navigation.getParam("courseReadKey"); 
+
+
+  const ReadMarks = async()=>{
+    var obj = {
+        key:courseReadKey,
+        data:{}
+    }
+
+    var r = await axios.post('http://localhost:3001/post', obj);
+  
+    var dbusers = JSON.parse(r.data.body);
+    console.log("Read", dbusers);
+    setMark(dbusers.data); 
+  }
+
+  useEffect(()=>{
+    ReadMarks();
+    },[]);
+
   return (
           
     <SafeAreaView style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}>
@@ -71,7 +94,7 @@ function Marks(props){
                             <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Semibold"}}
                             onPress={()=>{
                                 // setSlideNewMark(true)
-                                props.navigation.navigate("NewMark",{setMark:setMark, mark:mark})
+                                props.navigation.navigate("NewMark",{setMark:setMark, mark:mark, courseKey:courseKey, courseReadKey:courseReadKey})
                             }}>Add Mark</Text>
                         </TouchableOpacity>
                     </View>
@@ -103,27 +126,16 @@ function Marks(props){
                     {
                         mark.map((obj,i)=>{
 
-                            return <View style={markStyles.inputRow}>
-                                        <View style={{flexDirection:'row'}}>
-                                            <TouchableOpacity style={cancel} onPress={()=>{
-                                                 var arr = mark;
-                                                 arr.pop(1);
-                                                 arr = arr.map((o)=>{
-                                                     return o;
-                                                 })
-                                                 setMark(arr)}}></TouchableOpacity>
-                                            <Text style={markStyles.markName}
-                                            onPress={()=>{
-                                                // setSlideup(true)
-                                                props.navigation.navigate("EditMark", {markName:markName, score:score, outof:outof})
-                                            }}
-                                            >{markName}</Text>
-                                        </View>
-                                        <Text style={markStyles.markName}>{score}/{outof}</Text>
-                                    </View> 
+                            return <MarkRow 
+                                key={i}
+                                id={obj.id}
+                                mark_name={obj.mark_name}
+                                score={obj.score}
+                                outof={obj.outof}
+                                cancel={cancel}
+                            /> 
                             
-                                     
-                            //<MarkRow /> 
+                        
                         })
                         
                     }    
