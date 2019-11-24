@@ -65,7 +65,9 @@ function ViewMark(props){
                     {classname: "Assets Design and Integration", 
                     bg: "#FFF5D7",
                     icon: "􀏀",
-                    color: "#FFCF00"
+                    color: "#FFCF00",
+                    courseKey: "marksassets_create",
+                    courseReadKey: "marksassets_read"
                 }) 
                 }}>
                     <Text style={[{color:"#FFCF00"},viewMarkStyles.circle]}>􀏀</Text>
@@ -78,7 +80,9 @@ function ViewMark(props){
                     {classname: "Business Communications", 
                     bg: "#DEF7E1",
                     icon: "􀒡",
-                    color: "#4CD964"
+                    color: "#4CD964",
+                    courseKey: "marksbusiness_create",
+                    courseReadKey: "marksbusiness_read"     
                 }) 
                 }}>
                     <Text style={[{color:"#4CD964"},viewMarkStyles.circle]}>􀒡</Text>
@@ -91,7 +95,9 @@ function ViewMark(props){
                     {classname: "Design 2", 
                     bg: "#FFDBD8",
                     icon: "􀈌",
-                    color: "#FF3B30"
+                    color: "#FF3B30",
+                    courseKey: "marksdesign2_create",
+                    courseReadKey: "marksdesign2_read"     
                 }) 
                 }}>
                     <Text style={[{color:"#FF3B30"},viewMarkStyles.circle]}>􀈌
@@ -105,7 +111,9 @@ function ViewMark(props){
                     {classname: "Professional Sales Skills", 
                     bg: "#DEDEF7",
                     icon: "􀋤",
-                    color: "#5856D6"
+                    color: "#5856D6",
+                    courseKey: "markssales_create",
+                    courseReadKey: "markssales_read"     
                 }) 
                 }}>
                     <Text style={[{color:"#5856D6"},viewMarkStyles.circle]}>􀋤</Text>
@@ -118,7 +126,9 @@ function ViewMark(props){
                     {classname: "Project 2", 
                     bg: "#D0E1FF",
                     icon: "􀉮",
-                    color: "#007AFF"
+                    color: "#007AFF",
+                    courseKey: "marksproject2_create",
+                    courseReadKey: "marksproject2_read"
                 }) 
                 }}>
                     <Text style={[{color:"#007AFF"},viewMarkStyles.circle]}>􀉮</Text>
@@ -131,7 +141,9 @@ function ViewMark(props){
                     {classname: "Web Development 3", 
                     bg: "#F5EBE2",
                     icon: "􀁛",
-                    color: "#C69C6D"
+                    color: "#C69C6D",
+                    courseKey: "markswebdev_create",
+                    courseReadKey: "markswebdev_read"     
                 }) 
                 }}>
                     <Text style={[{color:"#C69C6D"},viewMarkStyles.circle]}>􀁛</Text>
