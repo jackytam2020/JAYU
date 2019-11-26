@@ -49,13 +49,7 @@ function Marks(props){
     },[]);
 
   return (
-<<<<<<< HEAD
     <View style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}>
-=======
-          
-    <SafeAreaView style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}>
-       
->>>>>>> 55406c57c4af7f91c80019d1b87218839a50c07c
             <View style={markStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
@@ -68,19 +62,10 @@ function Marks(props){
 
             <View style={markStyles.subjectBar}>
                 <View style={markStyles.subject}>
-<<<<<<< HEAD
                    
                             <Text style={[{fontSize: 25}, {color:props.navigation.getParam("color")}]}>{props.navigation.getParam("icon")}</Text>
                         
                     <Text style={[{fontSize:25, marginLeft:20}]}>{props.navigation.getParam("classname")}</Text>
-=======
-                    <View style={{height:normalize(67), width:normalize(67)}}>
-                        <Text style={[markStyles.ADI,{color:props.navigation.getParam("color")}]}>{props.navigation.getParam("icon")}</Text>
-                    </View>
-                    <View style={{width:normalize(250)}}>
-                    <Text style={{fontSize:normalize(25), marginLeft:normalize(20), fontFamily:"SFProDisplay-Semibold"}}>{classname}</Text>
-                    </View>
->>>>>>> 55406c57c4af7f91c80019d1b87218839a50c07c
                 </View>
             </View>
 
