@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 
-function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey}){
+function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey, courseDeleteKey}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
@@ -40,7 +40,18 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey}
         var r = await axios.post('http://localhost:3001/post', obj);
         console.log("assignment", r.data);
     }
-   //ReadAssignments();
+
+    const DeleteAssignment = async()=> {
+        var obj = {
+            key: courseDeleteKey,
+            data:{
+                id:id
+            }
+        };
+        var r = await axios.post('http://localhost:3001/post', obj);
+        ReadAssignments();
+    }
+  
 
 
     var dd = JSON.stringify(duePickerDate);
@@ -48,20 +59,19 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey}
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"]
 
-    
     var taskItem = ( <View style={{flexDirection:"row", marginLeft:90}}> 
-                    <CheckBox 
-                        isChecked={check}
-                        checkedCheckBoxColor={"lightgreen"}
-                        onClick={()=>{
-                            SetCheck(true)
-                            if(check== true){
-                                SetCheck(false)
-                            }
-                        }}
-                    />
-                    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:10, marginBottom:20}}placeholder="Add a task"></TextInput>
-                </View>);
+    <CheckBox 
+        isChecked={check}
+        checkedCheckBoxColor={"lightgreen"}
+        onClick={()=>{
+            SetCheck(true)
+            if(check== true){
+                SetCheck(false)
+            }
+        }}
+    />
+    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:10, marginBottom:20}}placeholder="Add a task"></TextInput>
+</View>);
     
      return(
     <View>
@@ -72,8 +82,11 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey}
                     checkedCheckBoxColor={"lightgreen"}
                     onClick={()=>{
                         SetCheck(true)
-                        if(check== true){
+                        DeleteAssignment()
+                        console.log(courseDeleteKey)
+                        if(check == true){
                             SetCheck(false)
+                            
                         }
                     }}
                     

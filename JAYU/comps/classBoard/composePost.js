@@ -33,7 +33,7 @@ function CompostPost(props){
     hour = 12;
   }
   if(minutes < 10){
-    minutes = '0' + minutes.toString();
+    minutes = 0 + minutes.toString();
   }
   var time = hour+":"+minutes+" "+am_pm;
 

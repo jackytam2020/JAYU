@@ -16,6 +16,7 @@ function NewMark(props){
     var mark = props.navigation.getParam("mark");
     var courseKey = props.navigation.getParam("courseKey"); 
     var courseReadKey = props.navigation.getParam("courseReadKey"); 
+    var classname = props.navigation.getParam("classname"); 
 
     var mark_name = "";
     var weight = 8;
@@ -57,8 +58,7 @@ function NewMark(props){
     <View style={editMarkStyles.container}>
         <View style={editMarkStyles.titleBar}>
             <Text style={{fontSize:20}}>New Mark</Text>
-            <Text style={{color:"grey"}}>Assets Design and Integation</Text>
-            <Text onPress={()=>{console.log(courseReadKey)}}>hi</Text>
+            <Text style={{color:"grey"}}>{classname}</Text>
         </View>
 
         {/* Chose Mark Type */}
@@ -100,6 +100,7 @@ function NewMark(props){
                 <Text>Element Name</Text>
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
+                        clearTextOnFocus={true}
                         placeholder="Midterm Exam"
                         style={{fontSize:25, marginRight:15}}
                         onChangeText={(t) => {mark_name = t}}>
@@ -119,6 +120,7 @@ function NewMark(props){
                 <Text>How much is it Worth </Text>
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
+                        clearTextOnFocus={true}
                         defaultValue={"8"}
                         style={{fontSize:25, marginRight:15}}
                         onChangeText={(t) => {weight = t}}>
@@ -137,12 +139,14 @@ function NewMark(props){
                 <Text>What mark did you get? </Text>
                 <View style={{flexDirection:'row', width:'40%', alignItems:'center', justifyContent:'space-between'}}>
                     <TextInput
+                        clearTextOnFocus={true}
                         defaultValue={"93"}
                         style={{fontSize:25}}
                         onChangeText={(t) => {score = t}}>
                     </TextInput>
                     <Text> of </Text>
                     <TextInput
+                        clearTextOnFocus={true}
                         defaultValue={"100"}
                         style={{fontSize:25}}
                         onChangeText={(t) => {outof = t}}>

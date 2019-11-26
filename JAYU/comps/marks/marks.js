@@ -25,6 +25,10 @@ function Marks(props){
 
     var courseKey = props.navigation.getParam("courseKey"); 
     var courseReadKey = props.navigation.getParam("courseReadKey"); 
+    var courseDeleteKey = props.navigation.getParam("courseDeleteKey"); 
+    var courseUpdateKey = props.navigation.getParam("courseUpdateKey"); 
+
+    var classname = props.navigation.getParam("classname"); 
 
 
   const ReadMarks = async()=>{
@@ -64,7 +68,7 @@ function Marks(props){
                         <Text style={[markStyles.ADI,{color:props.navigation.getParam("color")}]}>{props.navigation.getParam("icon")}</Text>
                     </View>
                     <View style={{width:normalize(250)}}>
-                    <Text style={{fontSize:normalize(25), marginLeft:normalize(20), fontFamily:"SFProDisplay-Semibold"}}>{props.navigation.getParam("classname")}</Text>
+                    <Text style={{fontSize:normalize(25), marginLeft:normalize(20), fontFamily:"SFProDisplay-Semibold"}}>{classname}</Text>
                     </View>
                 </View>
             </View>
@@ -94,7 +98,7 @@ function Marks(props){
                             <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Semibold"}}
                             onPress={()=>{
                                 // setSlideNewMark(true)
-                                props.navigation.navigate("NewMark",{setMark:setMark, mark:mark, courseKey:courseKey, courseReadKey:courseReadKey})
+                                props.navigation.navigate("NewMark",{setMark:setMark, mark:mark, courseKey:courseKey, courseReadKey:courseReadKey, classname:classname})
                             }}>Add Mark</Text>
                         </TouchableOpacity>
                     </View>
@@ -133,6 +137,13 @@ function Marks(props){
                                 score={obj.score}
                                 outof={obj.outof}
                                 cancel={cancel}
+                                weight={obj.weight}
+                                courseDeleteKey={courseDeleteKey}
+                                courseReadKey={courseReadKey}
+                                ReadMarks={ReadMarks}
+                                setMark={setMark}
+                                courseUpdateKey={courseUpdateKey}
+                                classname={classname}
                             /> 
                             
                         

@@ -24,6 +24,7 @@ function Tophw(props){
    const [key, setKey] = useState("photoshop_create");
    const [readKey, setReadKey] = useState("photoshop_read");
    const [updateKey, setUpdateKey] = useState("photoshop_update");
+   const [courseDeleteKey, setCourseDeleteKey] = useState("photoshop_delete");
    
         var  assignmentsIcon = '􀆊 ';
         var AddDueDate =null;
@@ -182,6 +183,7 @@ function Tophw(props){
                 setGrowth8(false);
                 setKey("photoshop_create");
                 setUpdateKey("photoshop_update");
+                setCourseDeleteKey("photoshop_delete");
                 ReadAssignments("photoshop_read");
                 
             }}
@@ -197,6 +199,7 @@ function Tophw(props){
                 setGrowth8(false);
                 setKey("design2_create")
                 setUpdateKey("design2_update");
+                setCourseDeleteKey("design2_delete");
                 ReadAssignments("design2_read");
 
                 }} 
@@ -212,6 +215,7 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("business_create")                   
                     setUpdateKey("business_update");
+                    setCourseDeleteKey("business_delete");
                     ReadAssignments("business_read");
                 }}
                     style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
@@ -226,6 +230,7 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("sales_create")
                     setUpdateKey("sales_update");
+                    setCourseDeleteKey("sales_delete");
                     ReadAssignments("sales_read");
                     }}
                     style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
@@ -239,7 +244,8 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     setKey("accounting_create")
-                    setUpdateKey("accounting_update");           
+                    setUpdateKey("accounting_update");    
+                    setCourseDeleteKey("accounting_delete");       
                     ReadAssignments("accounting_read");
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
@@ -253,7 +259,8 @@ function Tophw(props){
                     setGrowth7(false)
                     setGrowth8(false)
                     setKey("assets_create");
-                    setUpdateKey("assets_update");              
+                    setUpdateKey("assets_update");    
+                    setCourseDeleteKey("assets_delete");             
                     ReadAssignments("assets_read");
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
@@ -267,7 +274,8 @@ function Tophw(props){
                     setGrowth6(false)
                     setGrowth8(false)
                     setKey("webdev_create")
-                    setUpdateKey("webdev_update");           
+                    setUpdateKey("webdev_update");   
+                    setCourseDeleteKey("webdev_delete");    
                     ReadAssignments("webdev_read");
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
@@ -282,6 +290,7 @@ function Tophw(props){
                     setGrowth7(false)
                     setKey("project2_create")
                     setUpdateKey("project2_update");
+                    setCourseDeleteKey("project2_delete");  
                     ReadAssignments("project2_read");
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤
@@ -306,6 +315,8 @@ function Tophw(props){
                                     complete={obj.completed}
                                     deleted={obj.deleted}
                                     updateKey={updateKey}
+                                    ReadAssignments={ReadAssignments}
+                                    courseDeleteKey={courseDeleteKey}
                                 />
                             })
                         }
