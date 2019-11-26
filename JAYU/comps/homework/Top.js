@@ -122,7 +122,6 @@ function Tophw(props){
 
     const CreateAssignments = async()=>{
         //fetch db to create users
-        console.log("email & password");
         var obj = {
             key :key,
             data:{
@@ -133,7 +132,7 @@ function Tophw(props){
         }
         var r = await axios.post('http://localhost:3001/post', obj);
         console.log("Create", r.data);
-        await ReadAssignments();
+        await ReadAssignments(readKey);
         
     }
     
@@ -184,6 +183,7 @@ function Tophw(props){
                 setKey("photoshop_create");
                 setUpdateKey("photoshop_update");
                 setCourseDeleteKey("photoshop_delete");
+                setReadKey("photoshop_read");
                 ReadAssignments("photoshop_read");
                 
             }}
@@ -200,6 +200,7 @@ function Tophw(props){
                 setKey("design2_create")
                 setUpdateKey("design2_update");
                 setCourseDeleteKey("design2_delete");
+                setReadKey("design2_read");
                 ReadAssignments("design2_read");
 
                 }} 
@@ -216,6 +217,7 @@ function Tophw(props){
                     setKey("business_create")                   
                     setUpdateKey("business_update");
                     setCourseDeleteKey("business_delete");
+                    setReadKey("business_read");
                     ReadAssignments("business_read");
                 }}
                     style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
@@ -231,6 +233,7 @@ function Tophw(props){
                     setKey("sales_create")
                     setUpdateKey("sales_update");
                     setCourseDeleteKey("sales_delete");
+                    setReadKey("sales_read");
                     ReadAssignments("sales_read");
                     }}
                     style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
@@ -245,7 +248,8 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("accounting_create")
                     setUpdateKey("accounting_update");    
-                    setCourseDeleteKey("accounting_delete");       
+                    setCourseDeleteKey("accounting_delete");     
+                    setReadKey("accounting_read");
                     ReadAssignments("accounting_read");
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
@@ -260,7 +264,8 @@ function Tophw(props){
                     setGrowth8(false)
                     setKey("assets_create");
                     setUpdateKey("assets_update");    
-                    setCourseDeleteKey("assets_delete");             
+                    setCourseDeleteKey("assets_delete");  
+                    setReadKey("assets_read");            
                     ReadAssignments("assets_read");
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
@@ -276,6 +281,7 @@ function Tophw(props){
                     setKey("webdev_create")
                     setUpdateKey("webdev_update");   
                     setCourseDeleteKey("webdev_delete");    
+                    setReadKey("webdev_read");  
                     ReadAssignments("webdev_read");
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
@@ -291,6 +297,7 @@ function Tophw(props){
                     setKey("project2_create")
                     setUpdateKey("project2_update");
                     setCourseDeleteKey("project2_delete");  
+                    setReadKey("project2_read");  
                     ReadAssignments("project2_read");
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤

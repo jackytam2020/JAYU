@@ -118,7 +118,7 @@ function EditMark(props){
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
                         clearTextOnFocus={true}
-                        defaultValue={""+editscore+""}
+                        defaultValue={""+editweight+""}
                         style={{fontSize:25, marginRight:15}}
                         onChangeText={(text) => {setNew_weight(text)}}>
                     </TextInput>
