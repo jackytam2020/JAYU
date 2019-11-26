@@ -1,39 +1,48 @@
 import {StyleSheet} from 'react-native'
+import normalize from 'react-native-normalize';
+
 
 const markStyles = StyleSheet.create({
+    safearea:{
+        width:"100%",
+        height:"100%"
+    },
     navBar:{
        width:'100%',
-       height:"10%",
+       height:"7%",
         flexDirection:"row",
         alignItems:'center',
-        marginTop:30,
     },
     subjectBar:{
-        flex:.1,
+        height:normalize(90),
+        marginTop:normalize(10),
         flexDirection:'row',
-        justifyContent:"center"
+        justifyContent:"center",
+        // backgroundColor:"#FAB"
     },
     subject:{
-        flex:0.8,
+        flex:0.85,
         flexDirection:'row',
         alignItems:'center'
     },
     progressBar:{
-        flex:0.15,
-        marginTop:35,
+        flex:0.20,
+        marginTop:normalize(25),
         flexDirection:'row',
         justifyContent:'center'
     },
     progressBG:{
         flex:0.8,
         backgroundColor:"rgba(255,255,255,0.4)",
-        borderRadius:20,
+        borderRadius:normalize(20),
         flexDirection:'row',
-        justifyContent:'center'
+        justifyContent:'center',
+
     },
     progress:{
         flex:0.8,
-        flexDirection:'row'
+        flexDirection:'row',
+
     },
     editBar:{
         flex:0.09,
@@ -44,29 +53,44 @@ const markStyles = StyleSheet.create({
     edit:{
         flex:0.8,
         flexDirection:'row',
+        height:normalize(55)
     },
     editboxes:{
         flex:0.95,
         backgroundColor:'white',
         borderRadius:10,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+
     },
     gradeBox:{
+<<<<<<< HEAD
         top:20,
         flex:0.51,
+=======
+        top:normalize(30),
+        flex:0.58,
+>>>>>>> 55406c57c4af7f91c80019d1b87218839a50c07c
         backgroundColor:"rgba(255,255,255,0.4)",
         flexDirection:'row',
         justifyContent:'center'
     },
     inputs:{
-        flex:0.85,
+        flex:0.90,
+    },
+    scrollview:{
+        // backgroundColor:"#FAB"
     },
     inputTitleRow:{
         flexDirection:'row',
         justifyContent:'space-between',
+<<<<<<< HEAD
         top:10,
         marginBottom: 30,
+=======
+        top:normalize(15),
+        marginBottom:normalize(30),
+>>>>>>> 55406c57c4af7f91c80019d1b87218839a50c07c
     },
     cancel:{
        
@@ -91,7 +115,52 @@ const markStyles = StyleSheet.create({
     },
     markName:{
         fontSize:25,
-    }
+    },
+    PS:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#00AEEF"
+    },
+    BC:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#4CD964"
+    },
+    DS:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#FF3B30"
+    },
+    AC:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#FF9500"
+    },
+    ADI:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#FFCF00"
+    },
+    PJ:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#007AFF"
+    },
+    WD:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#C69C6D"
+    },
+    SA:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(60),
+        color:"#5856D6"
+    },
+    A:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(40),
+        color:"#4CD964"
+    },
     
 })
 

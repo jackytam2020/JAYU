@@ -1,0 +1,118 @@
+[
+  {
+    "model":"users",
+    "cols":["id", "username"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT"],
+    "order":["id"],
+    "hash":["hash"]
+  },
+  {
+    "model":"comments",
+    "cols":["id", "user_id", "title", "comments"],
+    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES users(id) ON DELETE CASCADE", "TEXT", "TEXT"],
+    "order":["id"]
+  },
+  {
+    "model":"photoshop",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"design2",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"business",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"sales",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"accounting",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"assets",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"webdev",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"project2",
+    "cols":["id", "assignment_name", "completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "order":["id"]
+  },
+  {
+    "model":"classboard",
+    "cols":["id", "course_name", "description", "hour", "minutes","am_pm"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT"],
+    "order":["id"]
+  },
+  {
+    "model":"marksaccounting",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksphotoshop",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksassets",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksbusiness",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksdesign2",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"markssales",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"marksproject2",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  },
+  {
+    "model":"markswebdev",
+    "cols":["id", "mark_name", "weight", "score", "outof"],
+    "colstype":["SERIAL PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "INTEGER"],
+    "order":["id"]
+  }
+  
+]

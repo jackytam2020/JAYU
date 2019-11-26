@@ -1,15 +1,21 @@
 import React,{useState} from 'react';
-import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity} from 'react-native';
+import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import postStyle from '../../styles/classBoard/postStyle';
 import FooterBar from '../../comps/footerBar';
+import normalize from 'react-native-normalize'
 
 function Post(props){
     const [upvotes, setUpvotes] = useState(0);
     const [replieUpVotes, setReplieUpVotes] = useState(0);
-    const [value, setValue] = useState("Type your answer");
+    const [value, setValue] = useState("Write an answer...");
     const [RepliesValue, setRepliesValue] = useState("");
+    const [replies, setReplies] = useState([]);
+    const [likes,setLikes] = useState(0);
+
+
+
   return (
-      <View style={postStyle.container}>
+      <SafeAreaView style={postStyle.container}>
         
         <View style={postStyle.navBar}>
             <TouchableOpacity style={{position:'relative', width:"20%"}}
@@ -26,13 +32,13 @@ function Post(props){
                 <View style={postStyle.leftSubject}>
                     <View style={{height:20,width:20, backgroundColor:"red", borderRadius:40}}></View>
                     <View style={{paddingLeft:10}}>  
-                        <Text>Advanced Photoshop</Text>
-                        <Text style={{fontSize:10, color:'grey'}}>9:15pm by Doris</Text>
+                        <Text>{props.navigation.getParam("course")}</Text>
+                        <Text style={{fontSize:10, color:'grey'}}>{props.navigation.getParam("time")} by {props.navigation.getParam("user")}</Text>
                     </View>  
                 </View>
                 <View style={postStyle.rightSubject}>
                     <Text>{upvotes}</Text>
-                    <Text style={{fontSize:10, color:'grey'}}>upvotes</Text>
+                    <Text style={{fontSize:8, color:'grey'}}>upvotes</Text>
                 </View>
             </View>
         </View>
@@ -41,22 +47,24 @@ function Post(props){
 
         <View style={postStyle.questionBox}>
             <View style={postStyle.question}>
-                <Text>What does Primary Text Frame do in inDesign?</Text>
+                <Text>{props.navigation.getParam("question")}</Text>
             </View>
         </View>
 
         {/* Attachment area */}
         <View style={postStyle.attachmentBox}>
             {/* there should be no child elements here if user does not have an attachment */}
-            <ImageBackground
+            { /* <ImageBackground
             source={require('../../assets/BackgroundImages/original.png')} style={{width:'100%', height:200}}
             />
+            */}
         </View>
 
         {/* Response box */}
         <View style={postStyle.responseContainer}>
             <View style={postStyle.responseBox}>
                 <TextInput 
+                    clearTextOnFocus={true}
                     onChangeText={text => setValue(text)}
                     value={value}
                     multiline={true}
@@ -66,7 +74,13 @@ function Post(props){
                     title={'Send'}
                     onPress={()=>{
                         setRepliesValue(value)
-                        setValue("Type your answer")
+                        var arr = replies;
+                              arr.push(1);
+                              arr = arr.map((o)=>{
+                                  return o;
+                              })
+                              setValue('Type your answer')
+                    
                     }}
                 />
             </View>
@@ -75,52 +89,43 @@ function Post(props){
         {/* Replies section */}
         <View style={postStyle.repliesContainer}>
             <ScrollView>
-                <View style={postStyle.scrollBox}>
-                    <View style={postStyle.repliesBox}>
-                        <View style={postStyle.repliesTop}>
-                            <View style={postStyle.repliesName}>
-                                <Text>Mitch</Text>
-                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
-                            </View>
-                            <View style={[postStyle.repliesVotes]}>
-                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
-                            </View>
-                        </View>
-                        <View style={postStyle.repliesBot}>
-                            <Text>{RepliesValue}</Text>
-                        </View>
-                    </View>
+            {  
+                replies.map((obj,i)=>{
 
-                    <View style={postStyle.repliesBox}>
-                        <View style={postStyle.repliesTop}>
-                            <View style={postStyle.repliesName}>
-                                <Text>Mitch</Text>
-                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
+                return <View style={postStyle.scrollBox}>
+                        <View style={postStyle.repliesBox}>
+                            <View style={postStyle.repliesTop}>
+                                <View style={postStyle.repliesName}>
+                                    <Text>Mitch</Text>
+                                    <Text style={{fontSize:10, color:'grey'}}>{time}</Text>
+                                </View>
+                                <View style={[postStyle.repliesVotes]}>
+                                    <TouchableOpacity style={postStyle.down}
+                                        onPress={()=>{
+                                            setReplieUpVotes(replieUpVotes-1);
+                                        }}
+                                    >
+                                        <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
+                                    </TouchableOpacity>
+                                    <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                                    <TouchableOpacity style={postStyle.up}
+                                     onPress={()=>{
+                                        setReplieUpVotes(replieUpVotes+1);
+                                    }}
+                                    >
+                                        <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
-                            <View style={[postStyle.repliesVotes]}>
-                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
+                            <View style={postStyle.repliesBot}>
+                                <Text>{RepliesValue}</Text>
                             </View>
                         </View>
-                        <View style={postStyle.repliesBot}>
-                            <Text>{RepliesValue}</Text>
-                        </View>
-                    </View>
 
-                    <View style={postStyle.repliesBox}>
-                        <View style={postStyle.repliesTop}>
-                            <View style={postStyle.repliesName}>
-                                <Text>Mitch</Text>
-                                <Text style={{fontSize:10, color:'grey'}}>1:20 PM</Text>
-                            </View>
-                            <View style={[postStyle.repliesVotes]}>
-                                <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
-                            </View>
                         </View>
-                        <View style={postStyle.repliesBot}>
-                            <Text>{RepliesValue}</Text>
-                        </View>
-                    </View>
-                </View>
+                })
+                
+            }
             </ScrollView>
 
         </View>
@@ -129,7 +134,7 @@ function Post(props){
             <FooterBar/>
           </View>
        
-      </View>
+      </SafeAreaView>
     )
   }
 export default Post;
