@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {View, Text, Button,TouchableOpacity} from 'react-native';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import scheduleStyle from '../../styles/calendar/scheduleStyle'
@@ -8,6 +8,9 @@ import AdjustingClass from '../../comps/calendar/adjustingClass';
 import styles from '../../styles/calendar/agendaStyles'
 import FooterBar from '../../comps/footerBar'
 import Modal from "react-native-modal"
+import { ScrollView } from 'react-native-gesture-handler';
+import Card from './agenda';
+import axios from 'axios';
 
 function Schedule(props){
     const [link, setOpacity] = useState(0.1);
@@ -15,6 +18,31 @@ function Schedule(props){
     const [footerDim, setFooterDim]= useState('flex');
     const [mode ,setMode] = useState(1);
     const[items, setItems] = useState([{'2019-11-9': [{text: 'Professional'}]}]);
+    const [date,setDate] = useState(new Date());
+    const [agenda, setAgenda] = useState([]);
+    const [readKey, setReadKey] = useState("photoshop_read" || "design2_read");
+
+
+    const ReadAssignments = async(key)=>{
+        var k = key || readKey;
+        var obj = {
+            key:k,
+            data:{}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+       
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda(dbusers.data); 
+    }
+   
+    
+      // when comp loads, read users
+      useEffect(()=>{
+        ReadAssignments();
+
+    },[]);
 
     const loadItems = (day) => {
         setTimeout(() => {
@@ -52,6 +80,8 @@ function Schedule(props){
         )
     }
 
+   
+
     return(
         <View style={scheduleStyle.container}> 
             <View style={scheduleStyle.topNav}>
@@ -85,7 +115,7 @@ function Schedule(props){
                 // callback that gets called when day changes while scrolling agenda list
                 onDayChange={(day)=>{console.log('day changed')}}
                 // initially selected day
-                selected={new Date()}
+                selected={date}
                 // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
                 minDate={'2012-05-10'}
                 // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
@@ -127,6 +157,31 @@ function Schedule(props){
                     flex:1
                 }}
              />
+
+           
+             <ScrollView>
+                 <Button
+                 title="test"
+                 onPress={()=>{
+                    ReadAssignments();
+                    console.log(agenda)
+                 }}
+                 />
+                    {
+                        agenda.map((obj,i)=>{
+                            return <Card
+                                key = {i}
+                                id={obj.id}
+                                assignment_name={obj.assignment_name}
+                                complete={obj.completed}
+                                deleted={obj.deleted}
+                                ReadAssignments={ReadAssignments}
+                                
+                            />
+                        })
+                    }
+
+             </ScrollView>
            
            <Modal isVisible={editSlide} swipeDirection={'down'} onSwipeComplete={()=>{setEditSlide(false)}}>
                 <View style={{ flex:0.9 }}>
