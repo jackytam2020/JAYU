@@ -9,20 +9,22 @@ const TopStyles = StyleSheet.create({
         flex:0.1,
         flexDirection:"row",
         alignItems:'center',
-        marginTop:30
+        
     },
-
+    red:{
+        color:"red"
+    },
     headerText:{
-        fontFamily:'SFProDisplay-Regular',
+    
+        fontFamily:'SFProDisplay-Medium',
         fontSize:25,
         marginLeft: 30,
-        color: '#00AEEF',
-        marginBottom: 10
+        marginBottom: 10,
+   
     },
 
     asgContainer:{
-        flex:0.4,
-        justifyContent:"space-evenly"
+        flex:1,
 
     },
 
@@ -30,19 +32,56 @@ const TopStyles = StyleSheet.create({
         fontFamily:'SFProDisplay-Regular',
         marginTop: 10,
         fontSize:20,
-        marginLeft: 60
+        marginLeft:60
         
+    },
+    placeholder:{
+        fontFamily:'SFProDisplay-Regular',
+        fontSize:20,
+        marginTop: 10,
+        marginLeft:10
+    },
+
+    dueDate:{
+        fontFamily:'SFProDisplay-Regular',
+        marginTop: 5,
+        fontSize:12,
+        marginLeft: 90,
+        color:"#007AFF",
+        flexDirection: "row"
+    },
+    dueDate1:{
+        fontFamily:'SFProDisplay-Regular',
+        marginTop: 5,
+        fontSize:12,
+        marginLeft: 60,
+        color:"#007AFF",
+        flexDirection: "row",
+        display:"none"
     },
 
     iconCont:{
-        flex:0.050,
+        flex:0.7,
         flexDirection:'row',
         justifyContent: "space-evenly"
     },
 
     icon: {
-        fontFamily:'SFProDisplay-Regular',
-    }
+        fontFamily:'SFProDisplay-Medium',
+    },
+
+    icon2: {
+        fontFamily:'SFProDisplay-Medium',
+       
+        marginLeft:30,
+        fontSize:18
+    },
+    hideContainer:{
+        display:'none'
+    },
+    dateContainer:{
+        flex:0.3,
+    },
 
 
 

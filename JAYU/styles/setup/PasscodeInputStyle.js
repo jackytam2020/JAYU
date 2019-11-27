@@ -1,4 +1,6 @@
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import React from 'react';
 
 PasscodeInputStyle = StyleSheet.create({
@@ -20,12 +22,12 @@ PasscodeInputStyle = StyleSheet.create({
     },
     Cancel:{
         fontFamily:"SFProDisplay-Regular",
-        fontSize:20,
+        fontSize:normalize(20),
         marginLeft: 10,
         color:"#007AFF"
     },
     passcodeform:{
-        height: 400,
+        height: normalize(380),
         //backgroundColor:"#FAB",
         display:"flex",
         alignItems:"center",
@@ -33,10 +35,10 @@ PasscodeInputStyle = StyleSheet.create({
     },
     text:{
         fontFamily:"SFProDisplay-Regular",
-        fontSize:19
+        fontSize:normalize(19)
     },
     passcodeInput:{
-        height: 80,
+        height: normalize(80),
         width: "100%",
         display: "flex",
         flexDirection:"row",
@@ -46,8 +48,8 @@ PasscodeInputStyle = StyleSheet.create({
     },
     each:{
         fontFamily: "SFProDisplay-Light",
-        fontSize: 20,
-        margin: 10
+        fontSize: normalize(20),
+        margin: normalize(10)
     }
   });
 

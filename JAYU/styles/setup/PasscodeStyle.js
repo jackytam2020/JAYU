@@ -1,4 +1,6 @@
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import React from 'react';
 
 PasscodeStyle = StyleSheet.create({
@@ -6,7 +8,7 @@ PasscodeStyle = StyleSheet.create({
         backgroundColor:"#FFFFFF",
         display: "flex",
         //alignItems:"center",
-       // justifyContent:"center",
+        justifyContent:"center",
         width:"100%",
         height:"100%"
     },
@@ -20,23 +22,23 @@ PasscodeStyle = StyleSheet.create({
     },
     back:{
         fontFamily:"SFProDisplay-Regular",
-        fontSize:20,
+        fontSize: RFPercentage(3),
         color:"#007AFF"
     },
     backarrow:{
         fontFamily:"SFProDisplay-Medium",
-        fontSize:25,
+        fontSize: RFPercentage(3),
         color:"#007AFF"
     },
     navTitle:{
         fontFamily:"SFProDisplay-Regular",
-        fontSize: 25,
+        fontSize: RFPercentage(3.5),
         textAlign:"center",
-        marginLeft: 70
+        marginLeft: normalize (68),
     },
     question1:{
         display:"flex",
-        height: 140,
+        height: normalize(140),
         padding: 20,
         flexDirection:"column",
         borderBottomColor:"#F2F2F2"
@@ -44,17 +46,17 @@ PasscodeStyle = StyleSheet.create({
     question:{
         fontFamily:"SFProDisplay-Medium",
         color:"#404040",
-        fontSize: 20,
+        fontSize: normalize(20),
         marginRight: 20
     },
     questionDs:{
         fontFamily:"SFProText-Regular",
         color: "#7F7F7F",
-        fontSize:15,
+        fontSize:normalize(15),
         marginTop: 5
     },
     imageview:{
-        height: 420,
+        height: "50%",
         display:"flex",
         alignItems:"center",
         //backgroundColor:"#FAB"
@@ -62,19 +64,20 @@ PasscodeStyle = StyleSheet.create({
     image:{
         display:"flex",
         width: "100%",
-        height:"85%",
+        height:"100%",
         resizeMode: 'contain'
     },
     NextButtonView:{
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
-        height: 100
-    },
+        height: normalize(100),
+        marginTop: normalize (20)
+        },
     NextButton:{
         backgroundColor:"#007AFF",
-        height: 60,
-        width: 130,
+        height: normalize(60),
+        width: normalize(130),
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
