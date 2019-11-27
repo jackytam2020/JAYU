@@ -5,7 +5,7 @@ const DB = require(types.DB_PATH);
 
 module.exports = class commentsDB extends DB {
   constructor(data){
-    super("comments", ["id","user_id","title","comments"]);
+    super("comments", ["id","user_id","comment","hour","minutes","am_pm","upvotes"]);
     this.data = data;
     this.returns = ["*"];
     this.config = {};

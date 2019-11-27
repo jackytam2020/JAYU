@@ -4,6 +4,7 @@ import TopStyles from '../../styles/homework/TopStyles';
 import FooterBar from '../../comps/footerBar'
 import normalize from 'react-native-normalize';
 import CheckBox from 'react-native-check-box';
+import TaskItem from '../homework/taskItem';
 import axios from 'axios';
 
 
@@ -12,7 +13,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
-    const [date, setDueDate] = useState(TopStyles.dueDate1)
+    const [date, setDueDate] = useState(new Date())
     const [done, setDone] = useState("none");
     const [done1, setDone1] = useState("none");
     const [doneBut,setDoneBut] = useState(false);
@@ -52,10 +53,9 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
         ReadAssignments();
     }
   
-
-
-    var dd = JSON.stringify(duePickerDate);
+     
     var moment = require("moment");
+    var dd = JSON.stringify(moment(date).format("MM/DD/YYYY"));
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -95,7 +95,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             <Text onPress={() =>{
                 
                 setAssignmentsIcon('􀆈')
-                setDueDate(TopStyles.dueDate)
+                // setDueDate(TopStyles.dueDate)
                 var arr = addButton;
                 arr.push(1)
                 arr = arr.map((o)=>{
@@ -108,7 +108,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                 if(assignmentsIcon == '􀆈'){
                     setAssignmentsIcon('􀆊 ');
                     arr.pop()
-                    setDueDate(TopStyles.dueDate1)
+                    // setDueDate(TopStyles.dueDate1)
                     setDone("none")
                     setDone1("none");
                     //setDoneBut(!doneBut);
@@ -122,8 +122,9 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             style={TopStyles.placeholder} 
             placeholder="Assignment..."
             onChangeText = {(t)=>{
-               setDone("flex");
+               UpdateAssignmentName();
                setNewAssignment(t);
+               setDone1("flex");
             }}
             defaultValue={assignment_name}
             ></TextInput>
@@ -131,7 +132,6 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
 
             <TouchableOpacity style={{alignItems:"center",justifyContent:"center", flex: 0.5, display: done}}
             onPress={() =>{
-                UpdateAssignmentName();
                 setDueDate(TopStyles.dueDate)
                 setAssignmentsIcon('􀆊 ');
                 setDueDate(TopStyles.dueDate1)
@@ -139,13 +139,14 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                 
             } }
             >
-                <Text style={{color:"#00AEEF"}}>Done</Text>
+                <Text style={{display:done1,color:'#00AEEF'}}>Done</Text>
             </TouchableOpacity>
         </View>
        <ScrollView>
         <View style={{display:done}}>
+            {/*Task item rows */}
             <View style={{flexDirection:"row"}}>
-                <Text style={date} 
+                <Text style={TopStyles.dueDate} 
                     onPress={()=>{
                         setShowPicker(TopStyles.dateContainer)
                         setDone1("flex");
@@ -154,49 +155,45 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                 <TouchableOpacity style={{marginLeft:150, display:done1,marginTop:10}}><Text 
                 style={{color:'#00AEEF',}}
                 onPress={()=>{
-                    setDuePickerDate(dd)
+                    // setDuePickerDate(dd)
                     setShowPicker(TopStyles.hideContainer)
                     setDone1("none");
                 }}>Done</Text></TouchableOpacity>
             </View>
             <View style={showPicker}>
+                
+                {/* date picker for due date */}
                 <DatePickerIOS 
-                    date={new Date()}
+                    date={date}
                     mode = {'date'}
                
-                onDateChange = {(d)=>{
-                   setDuePickerDate(moment(d).format("MM/DD/YYYY"));
-                }}
+                    onDateChange = {async(d)=>{
+                        setDueDate(d);
+                        var date = await moment(d).format("MM/DD/YYYY");
+                       setDuePickerDate(date);
+                       console.log(dd)
+   
+                    }}
                 />
             </View>
             {
                 addTasks.map((obj,i)=>{
-                    return  taskItem
+                    return  <TaskItem />
                 })
             }
-             {
-             addButton.map((obj,i)=>{
-                return  <View style={{flexDirection:'row'}}>
-                                <Text style={{left:90, fontFamily:'SFProDisplay-Medium'}}
-                                    onPress={()=>{
-                                        var arr1 = addTasks;
-                                        arr1.push(1)
-                                        arr1 = arr1.map((e)=>{
-                                            return e;
-                                        })
-                                        setAddTasks(arr1)
-                                    }}
-                                >􀅼 Add a Task</Text>
-                                <TextInput 
-                                    style={{marginLeft:110}} 
-                                    onChangeText={(t)=>{
-                                        setTaskText(t);
-                                    }}
-                                    >
-                                </TextInput>
-                        </View>
-            })
-        }
+            <View style={{flexDirection:'row'}}>
+                <Text style={{left:90, fontFamily:'SFProDisplay-Medium'}}
+                  //Adds a new task item under each assignment
+                  onPress={()=>{
+                        var arr1 = addTasks;
+                        arr1.push(1)
+                        arr1 = arr1.map((e)=>{
+                                return e;
+                        })
+                        setAddTasks(arr1)
+                    }}
+                >􀅼 Add a Task</Text>                  
+            </View>
        </View>
        </ScrollView>
       

@@ -1,6 +1,7 @@
 const users_handler = require('./users_handler');
 const comments_handler = require('./comments_handler');
 const photoshop_handler = require('./photoshop_handler');
+const photoshop_tasks_handler = require('./photoshop_tasks_handler');
 const design2_handler = require('./design2_handler');
 const business_handler = require('./business_handler');
 const sales_handler = require('./sales_handler');
@@ -37,6 +38,7 @@ module.exports.post = async (event, context, callback)=>{
 		...users_handler,
 		...comments_handler,
 		...photoshop_handler,
+		...photoshop_tasks_handler,
 		...design2_handler,
 		...business_handler,
 		...sales_handler,

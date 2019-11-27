@@ -3,9 +3,9 @@ const config = require(approot+"/config");
 const types = config.types;
 const DB = require(types.DB_PATH);
 
-module.exports = class classboardDB extends DB {
+module.exports = class photoshop_tasksDB extends DB {
   constructor(data){
-    super("classboard", ["id","user_id","course_name","description","hour","minutes","am_pm"]);
+    super("photoshop_tasks", ["id","task_name","completed"]);
     this.data = data;
     this.returns = ["*"];
     this.config = {};

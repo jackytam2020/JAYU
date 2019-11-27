@@ -3,16 +3,16 @@ import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpac
 import postStyle from '../../styles/classBoard/postStyle';
 import FooterBar from '../../comps/footerBar';
 import normalize from 'react-native-normalize'
+import CommentBox from '../classBoard/commentsBox'
 
 function Post(props){
     const [upvotes, setUpvotes] = useState(0);
     const [replieUpVotes, setReplieUpVotes] = useState(0);
-    const [value, setValue] = useState("Write an answer...");
     const [RepliesValue, setRepliesValue] = useState("");
-    const [replies, setReplies] = useState([]);
+    const [replies, setReplies] = useState([1,1,1]);
     const [likes,setLikes] = useState(0);
 
-
+    var answer = "";
 
   return (
       <SafeAreaView style={postStyle.container}>
@@ -65,21 +65,23 @@ function Post(props){
             <View style={postStyle.responseBox}>
                 <TextInput 
                     clearTextOnFocus={true}
-                    onChangeText={text => setValue(text)}
-                    value={value}
+                    onChangeText={(text) => {answer = text}}
+                    defaultValue={"Type your answer"}
                     multiline={true}
                     style={{width:'80%',left:10, color:'grey'}}
+            
                 />
                 <Button 
                     title={'Send'}
                     onPress={()=>{
-                        setRepliesValue(value)
+                        
                         var arr = replies;
                               arr.push(1);
                               arr = arr.map((o)=>{
                                   return o;
                               })
-                              setValue('Type your answer')
+
+                              console.log(answer)
                     
                     }}
                 />
@@ -91,38 +93,9 @@ function Post(props){
             <ScrollView>
             {  
                 replies.map((obj,i)=>{
-
-                return <View style={postStyle.scrollBox}>
-                        <View style={postStyle.repliesBox}>
-                            <View style={postStyle.repliesTop}>
-                                <View style={postStyle.repliesName}>
-                                    <Text>Mitch</Text>
-                                    <Text style={{fontSize:10, color:'grey'}}>{time}</Text>
-                                </View>
-                                <View style={[postStyle.repliesVotes]}>
-                                    <TouchableOpacity style={postStyle.down}
-                                        onPress={()=>{
-                                            setReplieUpVotes(replieUpVotes-1);
-                                        }}
-                                    >
-                                        <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#FF9500"}}>􀄥</Text>
-                                    </TouchableOpacity>
-                                    <Text style={{paddingRight:5}}>{replieUpVotes}</Text>
-                                    <TouchableOpacity style={postStyle.up}
-                                     onPress={()=>{
-                                        setReplieUpVotes(replieUpVotes+1);
-                                    }}
-                                    >
-                                        <Text style={{fontFamily:"SFCompactRounded-Regular", color:"#4CD964"}}>􀄤</Text>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View style={postStyle.repliesBot}>
-                                <Text>{RepliesValue}</Text>
-                            </View>
-                        </View>
-
-                        </View>
+                    return <CommentBox 
+                    answer={obj.answer}
+                    />
                 })
                 
             }
