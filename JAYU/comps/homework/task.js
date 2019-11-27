@@ -12,9 +12,9 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
-    const [date, setDueDate] = useState(TopStyles.dueDate1)
+    const [date, setDueDate] = useState(new Date())
     const [done, setDone] = useState("none");
-    const [done1, setDone1] = useState("none");
+   
     const [doneBut,setDoneBut] = useState(false);
     const [check, SetCheck] = useState(false)
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
@@ -33,7 +33,8 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             key:updateKey,
             data: {
                 id:id,
-                assignment_name:new_assignment
+                assignment_name:new_assignment,
+                due_date:due_date
             }
         };
 
@@ -95,7 +96,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             <Text onPress={() =>{
                 
                 setAssignmentsIcon('􀆈')
-                setDueDate(TopStyles.dueDate)
+               
                 var arr = addButton;
                 arr.push(1)
                 arr = arr.map((o)=>{
@@ -108,9 +109,9 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                 if(assignmentsIcon == '􀆈'){
                     setAssignmentsIcon('􀆊 ');
                     arr.pop()
-                    setDueDate(TopStyles.dueDate1)
+                   
                     setDone("none")
-                    setDone1("none");
+                    
                     //setDoneBut(!doneBut);
                 }
                 console.log(updateKey)
@@ -122,8 +123,9 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             style={TopStyles.placeholder} 
             placeholder="Assignment..."
             onChangeText = {(t)=>{
-               setDone("flex");
+                setDone("flex");
                setNewAssignment(t);
+               UpdateAssignmentName();
             }}
             defaultValue={assignment_name}
             ></TextInput>
@@ -131,10 +133,10 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
 
             <TouchableOpacity style={{alignItems:"center",justifyContent:"center", flex: 0.5, display: done}}
             onPress={() =>{
-                UpdateAssignmentName();
+                
                 setDueDate(TopStyles.dueDate)
                 setAssignmentsIcon('􀆊 ');
-                setDueDate(TopStyles.dueDate1)
+                
                 setDone("none")
                 
             } }
@@ -145,27 +147,29 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
        <ScrollView>
         <View style={{display:done}}>
             <View style={{flexDirection:"row"}}>
-                <Text style={date} 
+                <Text style={TopStyles.dueDate} 
                     onPress={()=>{
                         setShowPicker(TopStyles.dateContainer)
-                        setDone1("flex");
+                        
                     }}
                 >{duePickerDate}</Text>
-                <TouchableOpacity style={{marginLeft:150, display:done1,marginTop:10}}><Text 
+                <TouchableOpacity style={{marginLeft:150, display:done,marginTop:10}}><Text 
                 style={{color:'#00AEEF',}}
                 onPress={()=>{
-                    setDuePickerDate(dd)
+                   
                     setShowPicker(TopStyles.hideContainer)
-                    setDone1("none");
+                   
                 }}>Done</Text></TouchableOpacity>
             </View>
             <View style={showPicker}>
                 <DatePickerIOS 
-                    date={new Date()}
+                    date={date}
                     mode = {'date'}
                
-                onDateChange = {(d)=>{
-                   setDuePickerDate(moment(d).format("MM/DD/YYYY"));
+                onDateChange = {async(d)=>{
+                    setDueDate(d);
+                    var date = await moment(d).format("MM/DD/YYYY");
+                    setDuePickerDate(date);
                 }}
                 />
             </View>

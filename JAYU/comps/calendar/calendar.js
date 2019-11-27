@@ -1,6 +1,6 @@
-import React,{useState, useEffect} from 'react';
-import {View, Text, Button,TouchableOpacity} from 'react-native';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
 import scheduleStyle from '../../styles/calendar/scheduleStyle'
 import NewClass from '../../comps/calendar/newClass'
 import EditClass from '../../comps/calendar/editClass'
@@ -12,188 +12,394 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Card from './agenda';
 import axios from 'axios';
 
-function Schedule(props){
+function Schedule(props) {
     const [link, setOpacity] = useState(0.1);
     const [editSlide, setEditSlide] = useState(false);
-    const [footerDim, setFooterDim]= useState('flex');
-    const [mode ,setMode] = useState(1);
-    const[items, setItems] = useState([{'2019-11-9': [{text: 'Professional'}]}]);
-    const [date,setDate] = useState(new Date());
+    const [footerDim, setFooterDim] = useState('flex');
+    const [mode, setMode] = useState(1);
+    const [items, setItems] = useState([{ '2019-11-9': [{ text: 'Professional' }] }]);
+    const [date, setDate] = useState(new Date());
     const [agenda, setAgenda] = useState([]);
-    const [readKey, setReadKey] = useState("photoshop_read" || "design2_read");
+    const [agenda1, setAgenda1] = useState([]);
+    const [agenda2, setAgenda2] = useState([]);
+    const [agenda3, setAgenda3] = useState([]);
+    const [agenda4, setAgenda4] = useState([]);
+    const [agenda5, setAgenda5] = useState([]);
+    const [agenda6, setAgenda6] = useState([]);
+    const [agenda7, setAgenda7] = useState([]);
+
+    const [readKey, setReadKey] = useState("design2_read");
 
 
-    const ReadAssignments = async(key)=>{
-        var k = key || readKey;
+    const ReadAssignments = async (key) => {
+        var k = key;
         var obj = {
-            key:k,
-            data:{}
+            key: k,
+            data: {}
         }
 
         var r = await axios.post('http://localhost:3001/post', obj);
-       
+
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
-        setAgenda(dbusers.data); 
-    }
-   
-    
-      // when comp loads, read users
-      useEffect(()=>{
-        ReadAssignments();
-
-    },[]);
-
-    const loadItems = (day) => {
-        setTimeout(() => {
-            for (let i = -15; i < 85; i++) {
-              const time = day.timestamp + i * 24 * 60 * 60 * 1000;
-              const strTime = timeToString(time);
-              if (!items[strTime]) {
-                items[strTime] = [];
-                const numItems = Math.floor(Math.random() * 5);
-                for (let j = 0; j < numItems; j++) {
-                    items[strTime].push({
-                    name: 'Item for ' + strTime,
-                    height: Math.max(50, Math.floor(Math.random() * 150))
-                  });
-                }
-              }
-            }
-            //console.log(this.state.items);
-            const newItems = {};
-            Object.keys(items).forEach(key => {newItems[key] = items[key];});
-            setItems({items: newItems})
-          }, 1000);
-          // console.log(`Load Items for ${day.year}-${day.month}`);
+        setAgenda(dbusers.data);
     }
 
-    const renderItem = (item) => {
-        return (
-            <View style={[styles.item, {height: item.height}]}><Text>{item.name}</Text></View>
-        )
+    const ReadAssignments1 = async (key) => {
+        var k = key;
+        var obj = {
+            key: k,
+            data: {}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda1(dbusers.data);
     }
 
-    const emptyDate = () => {
-        return (
-            <View style={[styles.item, {height: item.height}]}><Text></Text></View>
-        )
+    const ReadAssignments2 = async (key) => {
+        var k = key;
+        var obj = {
+            key: k,
+            data: {}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda2(dbusers.data);
+    }
+    const ReadAssignments3 = async (key) => {
+        var k = key;
+        var obj = {
+            key: k,
+            data: {}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda3(dbusers.data);
     }
 
-   
+    const ReadAssignments4 = async (key) => {
+        var k = key;
+        var obj = {
+            key: k,
+            data: {}
+        }
 
-    return(
-        <View style={scheduleStyle.container}> 
+        var r = await axios.post('http://localhost:3001/post', obj);
+
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda4(dbusers.data);
+    }
+
+    const ReadAssignments5 = async (key) => {
+        var k = key;
+        var obj = {
+            key: k,
+            data: {}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda5(dbusers.data);
+    }
+
+    const ReadAssignments6 = async (key) => {
+        var k = key;
+        var obj = {
+            key: k,
+            data: {}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda6(dbusers.data);
+    }
+
+    const ReadAssignments7 = async (key) => {
+        var k = key;
+        var obj = {
+            key: k,
+            data: {}
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read", dbusers);
+        setAgenda7(dbusers.data);
+    }
+
+
+    // when comp loads, read users
+    useEffect(() => {
+        ReadAssignments("photoshop_read");
+        ReadAssignments1("design2_read");
+        ReadAssignments2("business_read");
+        ReadAssignments3("sales_read");
+        ReadAssignments4("accounting_read");
+        ReadAssignments5("assets_read");
+        ReadAssignments6("webdev_read");
+        ReadAssignments7("project2_read");
+    }, []);
+
+    agenda = agenda.filter((obj,i)=>{
+        var calendarDate = new Date(string_for_calendate);
+        var due_date = new Date(obj.duedate);
+
+        //if year/month/day matches
+        if(calendarDate.getMonth() === due_date){
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    return (
+        <View style={scheduleStyle.container}>
             <View style={scheduleStyle.topNav}>
                 <TouchableOpacity
-                        onPress={()=>{
-                                props.navigation.navigate("HomeScreen")
-                        }}
-                    >
-                            <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                    onPress={() => {
+                        props.navigation.navigate("HomeScreen")
+                    }}
+                >
+                    <Text style={{ fontSize: 20, marginLeft: 20, color: '#007AFF' }}>back</Text>
                 </TouchableOpacity>
-                 <TouchableOpacity
-                    onPress={()=>{
+                <TouchableOpacity
+                    onPress={() => {
                         setEditSlide(true)
                         setFooterDim('none')
                     }}>
-                         <Text style={{fontSize:20, marginRight:20, color:'#007AFF'}}>Add</Text>
-                 </TouchableOpacity>
+                    <Text style={{ fontSize: 20, marginRight: 20, color: '#007AFF' }}>Add</Text>
+                </TouchableOpacity>
             </View>
-            
-            <Agenda
-                // the list of items that have to be displayed in agenda. If you want to render item as empty date
-                // the value of date key kas to be an empty array []. If there exists no value for date key it is
-                // considered that the date in question is not yet loaded
-                items={items}
-                // callback that gets called when items for a certain month should be loaded (month became visible)
-                loadItemsForMonth={(month) => {loadItems}}
-                // callback that fires when the calendar is opened or closed
-                onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
-                // callback that gets called on day press
-                onDayPress={(day)=>{console.log('day pressed')}}
-                // callback that gets called when day changes while scrolling agenda list
-                onDayChange={(day)=>{console.log('day changed')}}
-                // initially selected day
-                selected={date}
-                // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
-                minDate={'2012-05-10'}
-                // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-                maxDate={'2012-05-30'}
-                // Max amount of months allowed to scroll to the past. Default = 50
-                pastScrollRange={50}
-                // Max amount of months allowed to scroll to the future. Default = 50
-                futureScrollRange={50}
-                // specify how each item should be rendered in agenda
-                renderItem={(item, firstItemInDay) => {renderItem}}
-                // specify how each date should be rendered. day can be undefined if the item is not first in that day.
-                renderDay={(day, item) => {return (<View />);}}
-                // specify how empty date content with no items should be rendered
-                renderEmptyDate={() => {emptyDate}}
-                // specify how agenda knob should look like
-                renderKnob={() => {return (<View />);}}
-                // specify what should be rendered instead of ActivityIndicator
-                renderEmptyData = {() => {return (<View />);}}
-                // specify your item comparison function for increased performance
-                rowHasChanged={(r1, r2) => {return r1.text !== r2.text}}
-                // Hide knob button. Default = false
-                hideKnob={true}
-                // By default, agenda dates are marked if they have at least one item, but you can override this if needed
-                markedDates={{
-                    '2019-11-9': {selected: true, marked: true},
-                    '2012-05-17': {marked: true},
-                    '2012-05-18': {disabled: true}
-                }}
-                // If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the refreshing prop correctly.
-                onRefresh={() => console.log('refreshing...')}
-                // Set this true while waiting for new data from a refresh
-                refreshing={false}
-                // Add a custom RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView.
-                refreshControl={null}
-                // agenda theme
-                
-                // agenda container style
-                style={{
-                    flex:1
-                }}
-             />
+            <View style={{ flex: 1 }}>
+                <Calendar
+                    // Initially visible month. Default = Date()
+                    current={'2012-03-01'}
+                    // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
+                    minDate={'2012-05-10'}
+                    // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
+                    maxDate={'2012-05-30'}
+                    // Handler which gets executed on day press. Default = undefined
+                    onDayPress={(day) => { console.log('selected day', day) }}
+                    // Handler which gets executed on day long press. Default = undefined
+                    onDayLongPress={(day) => { console.log('selected day', day) }}
+                    // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
+                    monthFormat={'yyyy MM'}
+                    // Handler which gets executed when visible month changes in calendar. Default = undefined
+                    onMonthChange={(month) => { console.log('month changed', month) }}
+                    // Hide month navigation arrows. Default = false
+                    hideArrows={true}
+                    // Replace default arrows with custom ones (direction can be 'left' or 'right')
+                    renderArrow={(direction) => (<Arrow />)}
+                    // Do not show days of other months in month page. Default = false
+                    hideExtraDays={true}
+                    // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
+                    // day from another month that is visible in calendar page. Default = false
+                    disableMonthChange={true}
+                    // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
+                    firstDay={1}
+                    // Hide day names. Default = false
+                    hideDayNames={true}
+                    // Show week numbers to the left. Default = false
+                    showWeekNumbers={true}
+                    // Handler which gets executed when press arrow icon left. It receive a callback can go back month
+                    onPressArrowLeft={substractMonth => substractMonth()}
+                    // Handler which gets executed when press arrow icon left. It receive a callback can go next month
+                    onPressArrowRight={addMonth => addMonth()}
+                />
+            </View>
 
-           
-             <ScrollView>
-                 <Button
-                 title="test"
-                 onPress={()=>{
-                    ReadAssignments();
-                    console.log(agenda)
-                 }}
-                 />
-                    {
-                        agenda.map((obj,i)=>{
-                            return <Card
-                                key = {i}
-                                id={obj.id}
-                                assignment_name={obj.assignment_name}
-                                complete={obj.completed}
-                                deleted={obj.deleted}
-                                ReadAssignments={ReadAssignments}
-                                
-                            />
-                        })
-                    }
+            <ScrollView style={{ flex: 10 }}>
+                <Button
+                    title="test"
+                    onPress={() => {
+                        ReadAssignments("photoshop_read");
+                        ReadAssignments1("design2_read");
+                        ReadAssignments2("business_read");
+                        ReadAssignments3("sales_read");
+                        ReadAssignments4("accounting_read");
+                        ReadAssignments5("assets_read");
+                        ReadAssignments6("webdev_read");
+                        ReadAssignments7("project2_read");
+                        console.log(agenda)
+                    }}
+                />
+                {
+                    agenda.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀀣"}
+                            bg_color={"#D6F0FC"}
+                            color={"#00AEEF"}
+                            course_name={"Advanced Photoshop"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
 
-             </ScrollView>
-           
-           <Modal isVisible={editSlide} swipeDirection={'down'} onSwipeComplete={()=>{setEditSlide(false)}}>
-                <View style={{ flex:0.9 }}>
-                    {mode===1?<NewClass setEditSlide={setEditSlide} setMode={setMode} />:null}
-                    {mode===2?<AdjustingClass setEditSlide={setEditSlide} setMode={setMode}/>:null}
+                        />
+                    })
+                }
+
+                {
+                    agenda1.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀈌"}
+                            bg_color={"#FFDBD8"}
+                            color={"#FF3B30"}
+                            course_name={"Design 2"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
+
+                        />
+                    })
+                }
+
+                {
+                    agenda2.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀒡"}
+                            bg_color={"#DEF7E1"}
+                            color={"#4CD964"}
+                            course_name={"Business  Communication"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
+
+                        />
+                    })
+                }
+
+
+                {
+                    agenda3.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀋤"}
+                            bg_color={"#DEDEF7"}
+                            color={"#5856D6"}
+                            course_name={"Professional Sales"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
+
+                        />
+                    })
+                }
+
+
+                {
+                    agenda4.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀘝"}
+                            bg_color={"#FFEBD4"}
+                            color={"#FF9500"}
+                            course_name={"Accounting for the Manager"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
+
+                        />
+                    })
+                }
+
+
+                {
+                    agenda5.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀏀"}
+                            bg_color={"#FFF5D7"}
+                            color={"#FFCF00"}
+                            course_name={"Asset Design and Integration"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
+
+                        />
+                    })
+                }
+
+
+                {
+                    agenda6.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀁛"}
+                            bg_color={"#F5EBE2"}
+                            color={"#C69C6D"}
+                            course_name={"Web Development 3"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
+
+                        />
+                    })
+                }
+
+                {
+                    agenda7.map((obj, i) => {
+                        return <Card
+                            key={i}
+                            id={obj.id}
+                            icon={"􀉮"}
+                            bg_color={"#D0E1FF"}
+                            color={"#007AFF"}
+                            course_name={"Project 2"}
+                            assignment_name={obj.assignment_name}
+                            complete={obj.completed}
+                            deleted={obj.deleted}
+                            ReadAssignments={ReadAssignments}
+
+                        />
+                    })
+                }
+
+
+            </ScrollView>
+
+            <Modal isVisible={editSlide} swipeDirection={'down'} onSwipeComplete={() => { setEditSlide(false) }}>
+                <View style={{ flex: 0.9 }}>
+                    {mode === 1 ? <NewClass setEditSlide={setEditSlide} setMode={setMode} /> : null}
+                    {mode === 2 ? <AdjustingClass setEditSlide={setEditSlide} setMode={setMode} /> : null}
                 </View>
             </Modal>
 
-            <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
+            <View style={{ width: '100%', height: '10%', position: 'absolute', bottom: 0 }}>
                 <FooterBar />
-            </View>    
-            
+            </View>
+
 
         </View>
     )

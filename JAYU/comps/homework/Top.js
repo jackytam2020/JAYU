@@ -81,7 +81,7 @@ function Tophw(props){
     }else
    if(Growth3 === true){
         Iconfont3 = 30;
-        header2="Buisness  Communication"
+        header2="Business  Communication"
         color="#4CD964"
         op3 = 1
     }else
@@ -93,7 +93,7 @@ function Tophw(props){
     }else
     if(Growth5 === true){
         Iconfont5 = 30;
-        header2="Accounting for the manager"
+        header2="Accounting for the Manager"
         color="#FF9500"
         op5 = 1
     }else
