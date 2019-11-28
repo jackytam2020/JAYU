@@ -12,6 +12,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Card from './agenda';
 import axios from 'axios';
 import CalendarPicker from 'react-native-calendar-picker';
+import { useFocusEffect } from '@react-navigation/core';
 
 function Schedule(props) {
     const [link, setOpacity] = useState(0.1);
@@ -168,9 +169,121 @@ function Schedule(props) {
         } else {
             return false;
         }
+        
        
-    }); 
+        }); 
+    
 
+
+                var dagenda = agenda1.filter((obj,i)=>{
+                    var calendarDate = new Date(viewDay);
+                    var due_date = new Date(obj.due_date);
+            
+                    //if year/month/day matches
+                    if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    
+                   
+                    }); 
+
+            
+                    var bcagenda = agenda2.filter((obj,i)=>{
+                        var calendarDate = new Date(viewDay);
+                        var due_date = new Date(obj.due_date);
+                
+                        //if year/month/day matches
+                        if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
+                            return true;
+                        } else {
+                            return false;
+                        }
+                        
+                       
+                        }); 
+
+                
+            
+                        var psagenda = agenda3.filter((obj,i)=>{
+                            var calendarDate = new Date(viewDay);
+                            var due_date = new Date(obj.due_date);
+                    
+                            //if year/month/day matches
+                            if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
+                                return true;
+                            } else {
+                                return false;
+                            }
+                            
+                           
+                            }); 
+
+
+            
+                    var amagenda = agenda4.filter((obj,i)=>{
+                        var calendarDate = new Date(viewDay);
+                        var due_date = new Date(obj.due_date);
+                
+                        //if year/month/day matches
+                        if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
+                            return true;
+                        } else {
+                            return false;
+                        }
+                        
+                       
+                        }); 
+
+
+            
+                    var aiagenda = agenda5.filter((obj,i)=>{
+                        var calendarDate = new Date(viewDay);
+                        var due_date = new Date(obj.due_date);
+                
+                        //if year/month/day matches
+                        if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
+                            return true;
+                        } else {
+                            return false;
+                        }
+                        
+                       
+                        }); 
+
+
+            
+                    var wagenda = agenda6.filter((obj,i)=>{
+                        var calendarDate = new Date(viewDay);
+                        var due_date = new Date(obj.due_date);
+                
+                        //if year/month/day matches
+                        if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
+                            return true;
+                        } else {
+                            return false;
+                        }
+                        
+                       
+                        }); 
+
+
+
+            
+                    var ppagenda = agenda7.filter((obj,i)=>{
+                        var calendarDate = new Date(viewDay);
+                        var due_date = new Date(obj.due_date);
+                
+                        //if year/month/day matches
+                        if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
+                            return true;
+                        } else {
+                            return false;
+                        }
+                        
+                       
+                        }); 
     return (
         <View style={scheduleStyle.container}>
             <View style={scheduleStyle.topNav}>
@@ -189,7 +302,7 @@ function Schedule(props) {
                     <Text style={{ fontSize: 20, marginRight: 20, color: '#007AFF' }}>Add</Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ flex: 0.80,borderBottomColor:"grey", borderBottomWidth: 0.5 }}>
+            <View style={{ flex: 0.9,borderBottomColor:"grey", borderBottomWidth: 0.5 }}>
                 <CalendarPicker
                 selectedDayColor="lightgrey"
                 todayBackgroundColor= "green"
@@ -200,7 +313,14 @@ function Schedule(props) {
                 ></CalendarPicker>
             </View>
 
-            <ScrollView style={{ flex: 10 }}>
+            <ScrollView contentContainerStyle={{ 
+              
+                alignItems:"center",
+                backgroundColor: "#f2f2f2",
+                flex: 1
+            
+            }}>
+                <View style={{width: "100%", alignItems:"center", justifyContent: "center"}}>
                 <Button
                     title="test"
                     onPress={() => {
@@ -235,7 +355,7 @@ function Schedule(props) {
                 }
 
                 {
-                    agenda1.map((obj, i) => {
+                    dagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
@@ -254,7 +374,7 @@ function Schedule(props) {
                 }
 
                 {
-                    agenda2.map((obj, i) => {
+                    bcagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
@@ -274,7 +394,7 @@ function Schedule(props) {
 
 
                 {
-                    agenda3.map((obj, i) => {
+                    psagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
@@ -294,7 +414,7 @@ function Schedule(props) {
 
 
                 {
-                    agenda4.map((obj, i) => {
+                    amagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
@@ -314,7 +434,7 @@ function Schedule(props) {
 
 
                 {
-                    agenda5.map((obj, i) => {
+                    aiagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
@@ -334,7 +454,7 @@ function Schedule(props) {
 
 
                 {
-                    agenda6.map((obj, i) => {
+                    wagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
@@ -353,7 +473,7 @@ function Schedule(props) {
                 }
 
                 {
-                    agenda7.map((obj, i) => {
+                    ppagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
@@ -371,7 +491,7 @@ function Schedule(props) {
                     })
                 }
 
-
+                </View>
             </ScrollView>
 
             <Modal isVisible={editSlide} swipeDirection={'down'} onSwipeComplete={() => { setEditSlide(false) }}>

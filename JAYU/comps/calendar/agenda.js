@@ -9,25 +9,29 @@ function Card({id,course_name, color, bg_color, icon,assignment_name, due_date, 
     var dd = JSON.stringify(moment(due_date).format("MM/DD/YYYY"));
 
     return(
-        <View style ={{flex:1, 
+        <View style ={{ 
         flexDirection:"row", 
         backgroundColor: bg_color, 
-        borderRadius:22, 
+        borderBottomWidth: 1,
+        borderBottomColor: color,
         alignText: "center",
-        padding: "2%",
-        margin: "1.5%"
+        justifyContent:"center",
+        padding: "3%",
+        margin: "1%",
+        
         }}>
 
-            <View style={{ alignItems:"center", 
-            justifyContent: "center",
-            flex:0.5,
-            height: "100%"
+            <View style={{ 
+            alignItems:"center", 
+            flex:0.65,
+            
+         
             }}>
-                 <Text style ={{color:color, fontSize: 30}}>{icon}</Text>
+                 <Text style ={{color:color, fontSize: 50}}>{icon}</Text>
             </View>
-            <View style={{flex: 1}}>
+            <View style={{flex: 1.5}}>
                 <Text style = {{color: color}}>{course_name}</Text>
-                <Text style = {{color: color, fontSize: 20}}> {assignment_name}</Text>
+                <Text style = {{color: color, fontSize: 20}}>{assignment_name}</Text>
                 <Text style = {{color: color, padding: "3%"}}>{due_date}</Text>
             </View>
         </View>
