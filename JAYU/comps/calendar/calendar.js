@@ -11,6 +11,7 @@ import Modal from "react-native-modal"
 import { ScrollView } from 'react-native-gesture-handler';
 import Card from './agenda';
 import axios from 'axios';
+import CalendarPicker from 'react-native-calendar-picker';
 
 function Schedule(props) {
     const [link, setOpacity] = useState(0.1);
@@ -27,10 +28,10 @@ function Schedule(props) {
     const [agenda5, setAgenda5] = useState([]);
     const [agenda6, setAgenda6] = useState([]);
     const [agenda7, setAgenda7] = useState([]);
-
+    const [viewDay,setViewDay] = useState();
     const [readKey, setReadKey] = useState("design2_read");
 
-
+    var moment = require("moment");
     const ReadAssignments = async (key) => {
         var k = key;
         var obj = {
@@ -142,9 +143,10 @@ function Schedule(props) {
         setAgenda7(dbusers.data);
     }
 
+    
 
     // when comp loads, read users
-    useEffect(() => {
+    useEffect(() => {console.log("sherman");
         ReadAssignments("photoshop_read");
         ReadAssignments1("design2_read");
         ReadAssignments2("business_read");
@@ -155,17 +157,19 @@ function Schedule(props) {
         ReadAssignments7("project2_read");
     }, []);
 
-    agenda = agenda.filter((obj,i)=>{
-        var calendarDate = new Date(string_for_calendate);
-        var due_date = new Date(obj.duedate);
+
+        var fagenda = agenda.filter((obj,i)=>{
+        var calendarDate = new Date(viewDay);
+        var due_date = new Date(obj.due_date);
 
         //if year/month/day matches
-        if(calendarDate.getMonth() === due_date){
+        if(calendarDate.getDate() === due_date.getDate() && calendarDate.getMonth() === due_date.getMonth()){
             return true;
         } else {
             return false;
         }
-    });
+       
+    }); 
 
     return (
         <View style={scheduleStyle.container}>
@@ -185,42 +189,15 @@ function Schedule(props) {
                     <Text style={{ fontSize: 20, marginRight: 20, color: '#007AFF' }}>Add</Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ flex: 1 }}>
-                <Calendar
-                    // Initially visible month. Default = Date()
-                    current={'2012-03-01'}
-                    // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
-                    minDate={'2012-05-10'}
-                    // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-                    maxDate={'2012-05-30'}
-                    // Handler which gets executed on day press. Default = undefined
-                    onDayPress={(day) => { console.log('selected day', day) }}
-                    // Handler which gets executed on day long press. Default = undefined
-                    onDayLongPress={(day) => { console.log('selected day', day) }}
-                    // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-                    monthFormat={'yyyy MM'}
-                    // Handler which gets executed when visible month changes in calendar. Default = undefined
-                    onMonthChange={(month) => { console.log('month changed', month) }}
-                    // Hide month navigation arrows. Default = false
-                    hideArrows={true}
-                    // Replace default arrows with custom ones (direction can be 'left' or 'right')
-                    renderArrow={(direction) => (<Arrow />)}
-                    // Do not show days of other months in month page. Default = false
-                    hideExtraDays={true}
-                    // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
-                    // day from another month that is visible in calendar page. Default = false
-                    disableMonthChange={true}
-                    // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
-                    firstDay={1}
-                    // Hide day names. Default = false
-                    hideDayNames={true}
-                    // Show week numbers to the left. Default = false
-                    showWeekNumbers={true}
-                    // Handler which gets executed when press arrow icon left. It receive a callback can go back month
-                    onPressArrowLeft={substractMonth => substractMonth()}
-                    // Handler which gets executed when press arrow icon left. It receive a callback can go next month
-                    onPressArrowRight={addMonth => addMonth()}
-                />
+            <View style={{ flex: 0.80,borderBottomColor:"grey", borderBottomWidth: 0.5 }}>
+                <CalendarPicker
+                selectedDayColor="lightgrey"
+                todayBackgroundColor= "green"
+                onDateChange = {(v)=>{
+                    setViewDay(moment(v).format("MM/DD/YYYY"))
+                    console.log(viewDay);
+                }}
+                ></CalendarPicker>
             </View>
 
             <ScrollView style={{ flex: 10 }}>
@@ -235,17 +212,18 @@ function Schedule(props) {
                         ReadAssignments5("assets_read");
                         ReadAssignments6("webdev_read");
                         ReadAssignments7("project2_read");
-                        console.log(agenda)
+                        console.log(fagenda)
                     }}
                 />
                 {
-                    agenda.map((obj, i) => {
+                    fagenda.map((obj, i) => {
                         return <Card
                             key={i}
                             id={obj.id}
                             icon={"􀀣"}
                             bg_color={"#D6F0FC"}
                             color={"#00AEEF"}
+                            due_date={obj.due_date}
                             course_name={"Advanced Photoshop"}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
@@ -265,6 +243,7 @@ function Schedule(props) {
                             bg_color={"#FFDBD8"}
                             color={"#FF3B30"}
                             course_name={"Design 2"}
+                            due_date={obj.due_date}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
                             deleted={obj.deleted}
@@ -283,6 +262,7 @@ function Schedule(props) {
                             bg_color={"#DEF7E1"}
                             color={"#4CD964"}
                             course_name={"Business  Communication"}
+                            due_date={obj.due_date}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
                             deleted={obj.deleted}
@@ -302,6 +282,7 @@ function Schedule(props) {
                             bg_color={"#DEDEF7"}
                             color={"#5856D6"}
                             course_name={"Professional Sales"}
+                            due_date={obj.due_date}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
                             deleted={obj.deleted}
@@ -321,6 +302,7 @@ function Schedule(props) {
                             bg_color={"#FFEBD4"}
                             color={"#FF9500"}
                             course_name={"Accounting for the Manager"}
+                            due_date={obj.due_date}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
                             deleted={obj.deleted}
@@ -340,6 +322,7 @@ function Schedule(props) {
                             bg_color={"#FFF5D7"}
                             color={"#FFCF00"}
                             course_name={"Asset Design and Integration"}
+                            due_date={obj.due_date}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
                             deleted={obj.deleted}
@@ -359,6 +342,7 @@ function Schedule(props) {
                             bg_color={"#F5EBE2"}
                             color={"#C69C6D"}
                             course_name={"Web Development 3"}
+                            due_date={obj.due_date}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
                             deleted={obj.deleted}
@@ -377,6 +361,7 @@ function Schedule(props) {
                             bg_color={"#D0E1FF"}
                             color={"#007AFF"}
                             course_name={"Project 2"}
+                            due_date={obj.due_date}
                             assignment_name={obj.assignment_name}
                             complete={obj.completed}
                             deleted={obj.deleted}
@@ -396,7 +381,7 @@ function Schedule(props) {
                 </View>
             </Modal>
 
-            <View style={{ width: '100%', height: '10%', position: 'absolute', bottom: 0 }}>
+            <View style={{ width: '100%', height: '10%', bottom: 0 }}>
                 <FooterBar />
             </View>
 

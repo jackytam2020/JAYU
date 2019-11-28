@@ -5,7 +5,7 @@ const DB = require(types.DB_PATH);
 
 module.exports = class accountingDB extends DB {
   constructor(data){
-    super("accounting", ["id","assignment_name","completed","deleted"]);
+    super("accounting", ["id","assignment_name","due_date","completed","deleted"]);
     this.data = data;
     this.returns = ["*"];
     this.config = {};

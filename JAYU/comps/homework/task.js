@@ -8,20 +8,18 @@ import axios from 'axios';
 
 
 
-function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey, courseDeleteKey}){
+function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, updateKey, courseDeleteKey}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
     const [date, setDueDate] = useState(new Date())
     const [done, setDone] = useState("none");
-   
     const [doneBut,setDoneBut] = useState(false);
     const [check, SetCheck] = useState(false)
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
     const [duePickerDate, setDuePickerDate] = useState('Add due date');
     const [taskText, setTaskText] = useState();
     const [itemText, setItemText] = useState();
-
     const [new_assignment, setNewAssignment] = useState("");
 
     useEffect(()=>{
@@ -34,7 +32,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             data: {
                 id:id,
                 assignment_name:new_assignment,
-                due_date:due_date
+                due_date:duePickerDate
             }
         };
 
@@ -55,8 +53,9 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
   
 
 
-    var dd = JSON.stringify(duePickerDate);
+   
     var moment = require("moment");
+    var dd = JSON.stringify(moment(date).format("MM/DD/YYYY"));
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -123,7 +122,6 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             style={TopStyles.placeholder} 
             placeholder="Assignment..."
             onChangeText = {(t)=>{
-                setDone("flex");
                setNewAssignment(t);
                UpdateAssignmentName();
             }}
@@ -133,21 +131,24 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
 
             <TouchableOpacity style={{alignItems:"center",justifyContent:"center", flex: 0.5, display: done}}
             onPress={() =>{
-                
-                setDueDate(TopStyles.dueDate)
+               
+                setDueDate(date)
                 setAssignmentsIcon('􀆊 ');
-                
                 setDone("none")
-                
+                UpdateAssignmentName();
+                console.log(date);
             } }
             >
                 <Text style={{color:"#00AEEF"}}>Done</Text>
             </TouchableOpacity>
         </View>
+
+
        <ScrollView>
         <View style={{display:done}}>
             <View style={{flexDirection:"row"}}>
                 <Text style={TopStyles.dueDate} 
+                    placeholder="Set Due Date"
                     onPress={()=>{
                         setShowPicker(TopStyles.dateContainer)
                         
@@ -167,9 +168,8 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                     mode = {'date'}
                
                 onDateChange = {async(d)=>{
-                    setDueDate(d);
-                    var date = await moment(d).format("MM/DD/YYYY");
-                    setDuePickerDate(date);
+                    setDuePickerDate(moment(d).format("MM/DD/YYYY"));
+                   
                 }}
                 />
             </View>

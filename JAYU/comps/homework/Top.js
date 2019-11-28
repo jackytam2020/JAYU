@@ -119,6 +119,7 @@ function Tophw(props){
     var assignment_name = ""
     var completed = false;
     var deleted = false;
+    var due_date = "";
 
     const CreateAssignments = async()=>{
         //fetch db to create users
@@ -127,7 +128,8 @@ function Tophw(props){
             data:{
                 assignment_name:assignment_name,
                 completed:completed,
-                deleted:deleted
+                deleted:deleted,
+                due_date:due_date
             }
         }
         var r = await axios.post('http://localhost:3001/post', obj);
@@ -158,7 +160,7 @@ function Tophw(props){
 
     return(
 
-        <SafeAreaView style={TopStyles.container}>
+        <View style={TopStyles.container}>
              <View style={TopStyles.navBar}>
                 <TouchableOpacity
                        onPress={()=>{
@@ -319,6 +321,7 @@ function Tophw(props){
                                     key={i}
                                     id={obj.id}
                                     assignment_name={obj.assignment_name}
+                                    due_date={obj.due_date}
                                     complete={obj.completed}
                                     deleted={obj.deleted}
                                     updateKey={updateKey}
@@ -336,10 +339,10 @@ function Tophw(props){
             
             </ScrollView>
             
-            <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
+            <View style={{width:'100%', height:'10%',  bottom:0}}>
             <FooterBar />
             </View>  
-        </SafeAreaView>
+        </View>
     )
 }
 
