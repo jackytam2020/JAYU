@@ -14,14 +14,14 @@
   },
   {
     "model":"photoshop",
-    "cols":["id","photoshop_tasks_id", "assignment_name", "due_date","completed", "deleted"],
-    "colstype":["SERIAL PRIMARY KEY", "INTEGER", "TEXT", "TEXT", "BOOLEAN", "BOOLEAN"],
+    "cols":["id", "assignment_name", "due_date","completed", "deleted"],
+    "colstype":["SERIAL PRIMARY KEY","TEXT", "TEXT", "BOOLEAN", "BOOLEAN"],
     "order":["id"]
   },
   {
-    "model":"photoshop_tasks",
-    "cols":["id", "task_name","completed"],
-    "colstype":["SERIAL PRIMARY KEY","TEXT","BOOLEAN"],
+    "model":"tasks",
+    "cols":["id", "task_name", "table_name", "ass_id", "completed"],
+    "colstype":["SERIAL PRIMARY KEY","TEXT","TEXT","INTEGER", "BOOLEAN"],
     "order":["id"]
   },
   {
@@ -68,8 +68,8 @@
   },
   {
     "model":"classboard",
-    "cols":["id", "user_id","course_name", "description", "hour", "minutes","am_pm"],
-    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES users(id) ON DELETE CASCADE", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT"],
+    "cols":["id", "user_id","comment_id","course_name", "description", "hour", "minutes","am_pm"],
+    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES users(id) ON DELETE CASCADE","INTEGER", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT"],
     "order":["id"]
   },
   {

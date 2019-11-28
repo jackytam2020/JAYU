@@ -25,6 +25,7 @@ function Tophw(props){
    const [readKey, setReadKey] = useState("photoshop_read");
    const [updateKey, setUpdateKey] = useState("photoshop_update");
    const [courseDeleteKey, setCourseDeleteKey] = useState("photoshop_delete");
+   const [table, setTable] = useState("photoshop");
    
         var  assignmentsIcon = '􀆊 ';
         var AddDueDate =null;
@@ -155,6 +156,8 @@ function Tophw(props){
         ReadAssignments();
     },[]);
 
+    
+    var ass_id;
 
     return(
 
@@ -172,6 +175,7 @@ function Tophw(props){
             
             <View style={TopStyles.iconCont}>
                 <Text onPress={ async() =>{
+                setTable("photoshop");
                 setGrowth(true) 
                 setGrowth2(false);
                 setGrowth3(false);
@@ -202,7 +206,8 @@ function Tophw(props){
                 setCourseDeleteKey("design2_delete");
                 setReadKey("design2_read");
                 ReadAssignments("design2_read");
-
+                setTable("design2");
+        
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
                 <Text onPress={async() =>{
@@ -219,6 +224,7 @@ function Tophw(props){
                     setCourseDeleteKey("business_delete");
                     setReadKey("business_read");
                     ReadAssignments("business_read");
+                    setTable("business");
                 }}
                     style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
                 <Text onPress={async() =>{
@@ -235,6 +241,7 @@ function Tophw(props){
                     setCourseDeleteKey("sales_delete");
                     setReadKey("sales_read");
                     ReadAssignments("sales_read");
+                    setTable("sales");
                     }}
                     style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
                 <Text onPress={async() =>{
@@ -251,6 +258,7 @@ function Tophw(props){
                     setCourseDeleteKey("accounting_delete");     
                     setReadKey("accounting_read");
                     ReadAssignments("accounting_read");
+                    setTable("accounting");
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
                 <Text onPress={async() =>{
@@ -267,6 +275,7 @@ function Tophw(props){
                     setCourseDeleteKey("assets_delete");  
                     setReadKey("assets_read");            
                     ReadAssignments("assets_read");
+                    setTable("assets");
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
                 <Text onPress={async() =>{
@@ -283,6 +292,7 @@ function Tophw(props){
                     setCourseDeleteKey("webdev_delete");    
                     setReadKey("webdev_read");  
                     ReadAssignments("webdev_read");
+                    setTable("webdev");
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
                 <Text onPress={async() =>{
@@ -299,6 +309,7 @@ function Tophw(props){
                     setCourseDeleteKey("project2_delete");  
                     setReadKey("project2_read");  
                     ReadAssignments("project2_read");
+                    setTable("project2");
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤
                     </Text>
@@ -324,6 +335,7 @@ function Tophw(props){
                                     updateKey={updateKey}
                                     ReadAssignments={ReadAssignments}
                                     courseDeleteKey={courseDeleteKey}
+                                    table={table}
                                 />
                             })
                         }

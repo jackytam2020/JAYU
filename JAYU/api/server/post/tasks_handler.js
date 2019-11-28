@@ -6,24 +6,24 @@ const myjwt = require(types.JWT_PATH);
 
 //using objects so that I can combine objects from different files together
 module.exports = {
-	photoshop_create:async (posts)=>{
+	tasks_create:async (posts)=>{
 		//write your logic here for your crud
 		//you can do var result = await crud(...); and return it if needed
-		return await crud.create({model:'photoshop', data:posts, returns:['*'], config:null});
+		return await crud.create({model:'tasks', data:posts, returns:['*'], config:null});
 	},
-	photoshop_read:async (posts)=>{
+	tasks_read:async (posts)=>{
 		//write your logic here for your crud
 		//you can do var result = await crud(...); and return it if needed
-		return await crud.read({model:'photoshop', data:posts, returns:['*'], config:null});
+		return await crud.read({model:'tasks', data:posts, returns:['*'], config:null});
 	},
-	photoshop_update:async (posts)=>{
+	tasks_update:async (posts)=>{
 		//write your logic here for your crud
 		//you can do var result = await crud(...); and return it if needed
-		return await crud.update({model:'photoshop', data:posts, returns:['*'], config:null});
+		return await crud.update({model:'tasks', data:posts, returns:['*'], config:null});
 	},
-	photoshop_delete:async (posts)=>{
+	tasks_delete:async (posts)=>{
 		//write your logic here for your crud
 		//you can do var result = await crud(...); and return it if needed
-		return await crud.delete({model:'photoshop', data:posts, returns:['*'], config:null});
+		return await crud.delete({model:'tasks', data:posts, returns:['*'], config:null});
 	}
 };

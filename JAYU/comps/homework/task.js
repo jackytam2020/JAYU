@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 
-function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey, courseDeleteKey}){
+function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey, courseDeleteKey, table}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
@@ -27,6 +27,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
 
     useEffect(()=>{
         setNewAssignment(assignment_name);
+        ReadTasks();
     }, []);
 
     const UpdateAssignmentName = async()=>{
@@ -59,24 +60,49 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"]
 
-    var taskItem = ( <View style={{flexDirection:"row", marginLeft:90}}> 
-    <CheckBox 
-        isChecked={check}
-        checkedCheckBoxColor={"lightgreen"}
-        onClick={()=>{
-            SetCheck(true)
-            if(check== true){
-                SetCheck(false)
+    var task_name = "";
+    var ass_id = id;
+
+    // create new task items
+    const CreateTasks = async()=>{
+        //fetch db to create users
+        console.log("task created")
+        var obj = {
+            key :"tasks_create",
+            data:{
+                task_name:task_name,
+                table_name:table,
+                ass_id:ass_id,
+                completed:completed
             }
-        }}
-    />
-    <TextInput style={{fontFamily:'SFProDisplay-Medium', marginLeft:10, marginBottom:20}}placeholder="Add a task"></TextInput>
-</View>);
+        }
+        var r = await axios.post('http://localhost:3001/post', obj);
+        console.log("Create", r.data);
+        await ReadTasks();
+        
+    }
+    const ReadTasks = async(table, id)=>{
+        // var k = key || readKey;
+        var obj = {
+            key:"tasks_read",
+            data:{
+                task_name:task_name,
+                completed:completed
+            }
+        }
+
+        var r = await axios.post('http://localhost:3001/post', obj);
+       
+        var dbusers = JSON.parse(r.data.body);
+        console.log("Read Task", dbusers);
+        setAddTasks(dbusers.data); 
+    }
     
      return(
     <View>
         <View style={{flexDirection:"row"}}>
             <View style={{top:10}}>
+                <Text onPress={()=>{console.log(addTasks)}}> hi</Text>
                 <CheckBox 
                     isChecked={check}
                     checkedCheckBoxColor={"lightgreen"}
@@ -93,9 +119,9 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                 />
             </View>
             <Text onPress={() =>{
-                
+                // activates drop down for tasks
+
                 setAssignmentsIcon('􀆈')
-                // setDueDate(TopStyles.dueDate)
                 var arr = addButton;
                 arr.push(1)
                 arr = arr.map((o)=>{
@@ -108,12 +134,10 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                 if(assignmentsIcon == '􀆈'){
                     setAssignmentsIcon('􀆊 ');
                     arr.pop()
-                    // setDueDate(TopStyles.dueDate1)
                     setDone("none")
                     setDone1("none");
-                    //setDoneBut(!doneBut);
                 }
-                console.log(updateKey)
+                ReadTasks();
             
              } } style={TopStyles.body}>{assignmentsIcon}</Text>
            
@@ -158,6 +182,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                     // setDuePickerDate(dd)
                     setShowPicker(TopStyles.hideContainer)
                     setDone1("none");
+                   
                 }}>Done</Text></TouchableOpacity>
             </View>
             <View style={showPicker}>
@@ -178,19 +203,19 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
             </View>
             {
                 addTasks.map((obj,i)=>{
-                    return  <TaskItem />
+                    return  <TaskItem 
+                    key={i}
+                    id={obj.id}
+                    task_name={obj.task_name}
+                    
+                    />
                 })
             }
             <View style={{flexDirection:'row'}}>
                 <Text style={{left:90, fontFamily:'SFProDisplay-Medium'}}
                   //Adds a new task item under each assignment
                   onPress={()=>{
-                        var arr1 = addTasks;
-                        arr1.push(1)
-                        arr1 = arr1.map((e)=>{
-                                return e;
-                        })
-                        setAddTasks(arr1)
+                        CreateTasks();
                     }}
                 >􀅼 Add a Task</Text>                  
             </View>
