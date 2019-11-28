@@ -81,13 +81,13 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
         await ReadTasks();
         
     }
-    const ReadTasks = async(table, id)=>{
+    const ReadTasks = async()=>{
         // var k = key || readKey;
         var obj = {
             key:"tasks_read",
             data:{
-                task_name:task_name,
-                completed:completed
+                table_name:table,
+                ass_id:id,
             }
         }
 
@@ -95,6 +95,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
        
         var dbusers = JSON.parse(r.data.body);
         console.log("Read Task", dbusers);
+        console.log(table)
         setAddTasks(dbusers.data); 
     }
     
@@ -102,7 +103,6 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
     <View>
         <View style={{flexDirection:"row"}}>
             <View style={{top:10}}>
-                <Text onPress={()=>{console.log(addTasks)}}> hi</Text>
                 <CheckBox 
                     isChecked={check}
                     checkedCheckBoxColor={"lightgreen"}
@@ -138,6 +138,7 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                     setDone1("none");
                 }
                 ReadTasks();
+                console.log(id)
             
              } } style={TopStyles.body}>{assignmentsIcon}</Text>
            
@@ -207,7 +208,6 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
                     key={i}
                     id={obj.id}
                     task_name={obj.task_name}
-                    
                     />
                 })
             }

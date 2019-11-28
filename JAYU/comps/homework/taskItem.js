@@ -3,7 +3,7 @@ import {View, Text, Button,SafeAreaView,KeyboardAvoidingView, ScrollView, Toucha
 import axios from 'axios';
 import CheckBox from 'react-native-check-box';
 
-function TaskItem({id, task_name}){
+function TaskItem({id, task_name,completed}){
     const [check, SetCheck] = useState(false);
     const [taskText, setTaskText] = useState();
 
@@ -22,6 +22,7 @@ function TaskItem({id, task_name}){
             data: {
                 id:id,
                 task_name:new_tasks,
+                completed:check
             }
         };
 
@@ -36,6 +37,7 @@ function TaskItem({id, task_name}){
                     checkedCheckBoxColor={"lightgreen"}
                     onClick={()=>{
                         SetCheck(true)
+                        UpdateTaskName();
                         if(check== true){
                             SetCheck(false)
                         }
