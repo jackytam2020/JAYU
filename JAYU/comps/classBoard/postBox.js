@@ -13,6 +13,7 @@ function PostBox(props){
 
   var course = props.course_name;
   var question = props.description;
+  var id = props.id;
 
   const ReadUsers = async()=>{
     var u = await AsyncStorage.getItem("user");
@@ -30,7 +31,7 @@ function PostBox(props){
       <View style={classBoardStyles.posts}>
       <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
         onPress={()=>{
-          props.navigation.navigate('Post', {question:question, course:course, time:time, user:user.username})
+          props.navigation.navigate('Post', {question:question, course:course, time:time, user:user.username, id:id})
         }}>
           <View style={{height:20,width:20, backgroundColor:"blue", borderRadius:40}}></View>
           <View style={{paddingLeft:10}}>  

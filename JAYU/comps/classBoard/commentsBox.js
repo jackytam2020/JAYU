@@ -6,7 +6,7 @@ import FooterBar from '../../comps/footerBar'
 import axios from 'axios';
 
 
-function CommentBox({answer1}){
+function CommentBox({comment,hour,minutes,am_pm}){
 
     const [upvotes, setUpvotes] = useState(0);
     const [replieUpVotes, setReplieUpVotes] = useState(0);
@@ -15,30 +15,7 @@ function CommentBox({answer1}){
     const [replies, setReplies] = useState([]);
     const [likes,setLikes] = useState(0);
 
-    var date, am_pm, hour, minutes, seconds, fullTime;
-
-    hour = new Date().getHours();
-    minutes = new Date().getMinutes(); //Current Minutes
-    
-    if(hour<= 11){
-        am_pm= 'AM';
-    }
-    else {
-        am_pm= 'PM'
-    }
-
-    //convert to 12 hour formate
-    if(hour > 12){
-        hour = hour -12;
-    }
-    if(hour == 0){
-        hour = 12;
-    }
-    if(minutes < 10){
-        minutes = 0 + minutes.toString();
-    }
     var time = hour+":"+minutes+" "+am_pm;
-
   
     return (
         <View style={postStyle.scrollBox}>
@@ -50,7 +27,6 @@ function CommentBox({answer1}){
                                     </View>
                                     
                                     <View style={[postStyle.repliesVotes]}>
-                                        <Text>{answer1}</Text>
                                         <TouchableOpacity style={postStyle.down}
                                             onPress={()=>{
                                                 setReplieUpVotes(replieUpVotes-1);
@@ -69,7 +45,7 @@ function CommentBox({answer1}){
                                     </View>
                                 </View>
                                 <View style={postStyle.repliesBot}>
-                                    <Text>{RepliesValue}</Text>
+                                    <Text>{comment}</Text>
                                 </View>
                             </View>
 

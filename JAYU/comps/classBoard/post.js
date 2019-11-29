@@ -1,18 +1,91 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {View,Text, Button, TextInput, ImageBackground, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import postStyle from '../../styles/classBoard/postStyle';
 import FooterBar from '../../comps/footerBar';
 import normalize from 'react-native-normalize'
-import CommentBox from '../classBoard/commentsBox'
+import CommentBox from '../classBoard/commentsBox';
+import axios from 'axios';
 
 function Post(props){
     const [upvotes, setUpvotes] = useState(0);
     const [replieUpVotes, setReplieUpVotes] = useState(0);
     const [RepliesValue, setRepliesValue] = useState("");
-    const [replies, setReplies] = useState([1,1,1]);
+    const [replies, setReplies] = useState([]);
     const [likes,setLikes] = useState(0);
 
-    var answer = "";
+
+    // when comp loads, read comments
+    useEffect(()=>{
+        ReadComments();
+    },[]);
+
+
+
+    var id = props.navigation.getParam("id");
+    var comment = "";
+
+    var date, am_pm, hour, minutes;
+
+    hour = new Date().getHours();
+    minutes = new Date().getMinutes(); //Current Minutes
+    
+    if(hour<= 11){
+        am_pm= 'AM';
+    }
+    else {
+        am_pm= 'PM'
+    }
+
+    //convert to 12 hour formate
+    if(hour > 12){
+        hour = hour -12;
+    }
+    if(hour == 0){
+        hour = 12;
+    }
+    if(minutes < 10){
+        minutes = 0 + minutes.toString();
+    }
+    var time = hour+":"+minutes+" "+am_pm;
+
+    
+
+// create new comments 
+const CreateComments = async()=>{
+    //fetch db to create users
+    console.log("comment created")
+    var obj = {
+        key :"comments_create",
+        data:{
+            comment:comment,
+            post_id:id,
+            hour:hour,
+            minutes:minutes,
+            am_pm:am_pm,
+        }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj);
+    console.log("Create", r.data);
+    ReadComments();
+    
+}
+
+const ReadComments = async()=>{
+
+    var obj = {
+        key:"comments_read",
+        data:{
+            post_id:id
+        }
+    }
+
+    var r = await axios.post('http://localhost:3001/post', obj);
+   
+    var dbusers = JSON.parse(r.data.body);
+    console.log("Read", dbusers);
+    setReplies(dbusers.data); 
+}
+
 
   return (
       <SafeAreaView style={postStyle.container}>
@@ -65,7 +138,7 @@ function Post(props){
             <View style={postStyle.responseBox}>
                 <TextInput 
                     clearTextOnFocus={true}
-                    onChangeText={(text) => {answer = text}}
+                    onChangeText={(text) => {comment = text}}
                     defaultValue={"Type your answer"}
                     multiline={true}
                     style={{width:'80%',left:10, color:'grey'}}
@@ -74,15 +147,7 @@ function Post(props){
                 <Button 
                     title={'Send'}
                     onPress={()=>{
-                        
-                        var arr = replies;
-                              arr.push(1);
-                              arr = arr.map((o)=>{
-                                  return o;
-                              })
-
-                              console.log(answer)
-                    
+                        CreateComments();
                     }}
                 />
             </View>
@@ -93,8 +158,13 @@ function Post(props){
             <ScrollView>
             {  
                 replies.map((obj,i)=>{
-                    return <CommentBox 
-                    answer={obj.answer}
+                    return <CommentBox
+                    key={i}
+                    id={obj.id}
+                    comment={obj.comment}
+                    hour={obj.hour}
+                    minutes={obj.minutes}
+                    am_pm={obj.am_pm}
                     />
                 })
                 

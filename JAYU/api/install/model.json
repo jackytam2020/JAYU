@@ -8,8 +8,8 @@
   },
   {
     "model":"comments",
-    "cols":["id", "user_id", "comment", "hour", "minutes","am_pm", "upvotes"],
-    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES users(id) ON DELETE CASCADE","TEXT", "INTEGER", "INTEGER", "TEXT", "TEXT"],
+    "cols":["id","user_id","comment", "post_id", "hour", "minutes","am_pm", "upvotes"],
+    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES users(id) ON DELETE CASCADE","TEXT","INTEGER", "INTEGER", "INTEGER", "TEXT", "INTEGER"],
     "order":["id"]
   },
   {
