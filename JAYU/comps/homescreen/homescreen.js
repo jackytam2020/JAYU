@@ -11,7 +11,7 @@ function HomeScreen(props){
     const [showItems, setShowItems] = useState(styles.hideItems)
     const [user, setUser] = useState({});
 
-    const ReadUsers = async()=>{
+   {/* const ReadUsers = async()=>{
         var u = await AsyncStorage.getItem("user");
         console.log(u);
         u = JSON.parse(u);
@@ -21,7 +21,7 @@ function HomeScreen(props){
      // when comp loads, read users
      useEffect(()=>{
         ReadUsers();
-    },[]);
+    },[]);*/}
 
   return (
         <ImageBackground source={require('../../assets/BackgroundImages/Homescreen_Purple.png')} style={{flex:1, justifyContent:'flex-end', width:"100.5%", marginLeft:"-0.25%"}}>
