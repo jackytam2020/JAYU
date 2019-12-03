@@ -49,7 +49,7 @@ function Marks(props){
     },[]);
 
   return (
-          
+   
     <SafeAreaView style={{flex:1,backgroundColor:props.navigation.getParam("bg")}}>
        
             <View style={markStyles.navBar}>
@@ -73,7 +73,7 @@ function Marks(props){
                 </View>
             </View>
 
-            <View style={markStyles.progressBar}>
+            <View style={markStyles.progressBar}>   
                 <View style={markStyles.progressBG}>
                     <View style={markStyles.progress}>
                         <View style={{flex:0.8, justifyContent:"center", marginTop:normalize(10), marginBottom:normalize(10)}}>

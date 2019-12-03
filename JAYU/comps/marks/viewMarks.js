@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     View, 
     SafeAreaView,
@@ -13,6 +13,8 @@ import normalize from 'react-native-normalize';
 
 
 function ViewMark(props){
+
+
 
     return(
         <SafeAreaView style={{flex: 1}}>
@@ -59,11 +61,13 @@ function ViewMark(props){
                     courseUpdateKey: "marksphotoshop_update"
                 }) 
                 }}>
+
                     <Text style={[{color:"#00AEEF"},viewMarkStyles.circle]}>􀀣</Text>
                     <Text style = {viewMarkStyles.classText}>Advanced Photoshop</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style= {[{backgroundColor:"#FFF5D7"},viewMarkStyles.classes]}
+
                  onPress={ () =>{
                     props.navigation.navigate('Marks', 
                     {classname: "Assets Design and Integration", 
@@ -98,6 +102,7 @@ function ViewMark(props){
                 </TouchableOpacity>
 
                 <TouchableOpacity style= {[{backgroundColor:"#FFDBD8"},viewMarkStyles.classes]}
+
                 onPress={ () =>{
                     props.navigation.navigate('Marks', 
                     {classname: "Design 2", 
