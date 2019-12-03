@@ -14,7 +14,6 @@
   },
   {
     "model":"photoshop",
-<<<<<<< HEAD
     "cols":["id", "assignment_name", "due_date","completed", "deleted"],
     "colstype":["SERIAL PRIMARY KEY","TEXT", "TEXT", "BOOLEAN", "BOOLEAN"],
     "order":["id"]
@@ -23,10 +22,6 @@
     "model":"tasks",
     "cols":["id", "task_name", "table_name", "ass_id", "completed"],
     "colstype":["SERIAL PRIMARY KEY","TEXT","TEXT","INTEGER", "BOOLEAN"],
-=======
-    "cols":["id", "assignment_name", "due_date", "completed", "deleted"],
-    "colstype":["SERIAL PRIMARY KEY", "TEXT", "TEXT", "BOOLEAN", "BOOLEAN"],
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
     "order":["id"]
   },
   {

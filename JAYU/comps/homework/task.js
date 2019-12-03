@@ -9,16 +9,13 @@ import axios from 'axios';
 
 
 
-<<<<<<< HEAD
-function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey, courseDeleteKey, table}){
-=======
-function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, updateKey, courseDeleteKey}){
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
+function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, updateKey, courseDeleteKey, table}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
     const [date, setDueDate] = useState(new Date())
     const [done, setDone] = useState("none");
+    
     const [doneBut,setDoneBut] = useState(false);
     const [check, SetCheck] = useState(false)
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
@@ -65,13 +62,9 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
         ReadAssignments();
     }
   
-<<<<<<< HEAD
-     
-=======
 
 
    
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
     var moment = require("moment");
     var dd = JSON.stringify(moment(date).format("MM/DD/YYYY"));
 
@@ -139,10 +132,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 // activates drop down for tasks
 
                 setAssignmentsIcon('􀆈')
-<<<<<<< HEAD
-=======
                
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
                 var arr = addButton;
                 arr.push(1)
                 arr = arr.map((o)=>{
@@ -155,15 +145,9 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 if(assignmentsIcon == '􀆈'){
                     setAssignmentsIcon('􀆊 ');
                     arr.pop()
-<<<<<<< HEAD
                     setDone("none")
-                    setDone1("none");
-=======
-                   
-                    setDone("none")
-                    
+                    //setDone1("none");
                     //setDoneBut(!doneBut);
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
                 }
                 ReadTasks();
                 console.log(id)
@@ -175,14 +159,9 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             style={TopStyles.placeholder} 
             placeholder="Assignment..."
             onChangeText = {(t)=>{
-<<<<<<< HEAD
-               UpdateAssignmentName();
-               setNewAssignment(t);
-               setDone1("flex");
-=======
                setNewAssignment(t);
                UpdateAssignmentName();
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
+               //setDone1("flex");
             }}
             defaultValue={assignment_name}
             ></TextInput>
@@ -190,19 +169,15 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
 
             <TouchableOpacity style={{alignItems:"center",justifyContent:"center", flex: 0.5, display: done}}
             onPress={() =>{
-<<<<<<< HEAD
-                setDueDate(TopStyles.dueDate)
-=======
                
                 setDueDate(date)
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
                 setAssignmentsIcon('􀆊 ');
                 setDone("none")
                 UpdateAssignmentName();
                 console.log(date);
             } }
             >
-                <Text style={{display:done1,color:'#00AEEF'}}>Done</Text>
+                <Text style={{color:'#00AEEF'}}>Done</Text>
             </TouchableOpacity>
         </View>
 
@@ -212,10 +187,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             {/*Task item rows */}
             <View style={{flexDirection:"row"}}>
                 <Text style={TopStyles.dueDate} 
-<<<<<<< HEAD
-=======
                     placeholder="Set Due Date"
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
                     onPress={()=>{
                         setShowPicker(TopStyles.dateContainer)
                         
@@ -224,14 +196,9 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 <TouchableOpacity style={{marginLeft:150, display:done,marginTop:10}}><Text 
                 style={{color:'#00AEEF',}}
                 onPress={()=>{
-<<<<<<< HEAD
-                    // setDuePickerDate(dd)
+                   //setDone1("none");
+                   // setDuePickerDate(dd)
                     setShowPicker(TopStyles.hideContainer)
-                    setDone1("none");
-=======
-                   
-                    setShowPicker(TopStyles.hideContainer)
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
                    
                 }}>Done</Text></TouchableOpacity>
             </View>
@@ -242,20 +209,13 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                     date={date}
                     mode = {'date'}
                
-<<<<<<< HEAD
-                    onDateChange = {async(d)=>{
-                        setDueDate(d);
-                        var date = await moment(d).format("MM/DD/YYYY");
-                       setDuePickerDate(date);
-                       console.log(dd)
-   
-                    }}
-=======
                 onDateChange = {async(d)=>{
                     setDuePickerDate(moment(d).format("MM/DD/YYYY"));
+                    /* var date = await moment(d).format("MM/DD/YYYY");
+                       setDuePickerDate(date);
+                       console.log(dd) */
                    
                 }}
->>>>>>> 7eecbf86766ffe2afce175c2f415dde644398eb2
                 />
             </View>
             {
