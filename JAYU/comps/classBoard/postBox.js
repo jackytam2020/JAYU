@@ -10,9 +10,12 @@ function PostBox(props){
   var time = props.hour+":"+props.minutes+" "+props.am_pm;
 
   const [user, setUser] = useState({});
+  const [color, setColor] = useState("");
 
   var course = props.course_name;
   var question = props.description;
+  var c = props.course_color;
+  var s = props.course_symbol;
   var id = props.id;
 
   const ReadUsers = async()=>{
@@ -33,7 +36,7 @@ function PostBox(props){
         onPress={()=>{
           props.navigation.navigate('Post', {question:question, course:course, time:time, user:user.username, id:id})
         }}>
-          <View style={{height:20,width:20, backgroundColor:"blue", borderRadius:40}}></View>
+          <Text style={{height:20,width:20, color: props.c}}>{props.s}</Text>
           <View style={{paddingLeft:10}}>  
             <Text>{props.course_name}</Text>
             <Text style={{fontSize:10}}>{time} by {user.username || ""}</Text>

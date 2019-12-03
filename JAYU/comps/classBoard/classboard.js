@@ -18,6 +18,7 @@ function Classboard(props){
   var am_pm =  props.navigation.getParam("am_pm");
   var hour =  props.navigation.getParam("hour");
   var minutes =  props.navigation.getParam("minutes");
+  
 
 
 
@@ -75,6 +76,8 @@ function Classboard(props){
                         hour={obj.hour}
                         minutes={obj.minutes}
                         am_pm={obj.am_pm}
+                        colorPass = {obj.course_color}
+                        classSymbol = {obj.course_symbol}
                       />
                     })
                             

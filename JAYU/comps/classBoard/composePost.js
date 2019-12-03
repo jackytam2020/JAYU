@@ -49,6 +49,8 @@ function CompostPost(props){
         key: "classboard_create",
         data:{
             course_name:course_name,
+            course_color: props.navigation.getParam("colorPass"),
+            course_symbol: props.navigation.getParam("classSymbol"),
             description:description,
             hour:hour,
             minutes:minutes,
@@ -89,8 +91,8 @@ const ReadPosts = async()=>{
           <View style={composeStyle.detailContainer}>
               <View style={composeStyle.leftDetail}>
                   <View style={{flexDirection:'row',alignItems:'center'}}>
-                        <View style={{height:25,width:25, marginRight:20, marginLeft:25, backgroundColor:"grey", borderRadius:40}}></View>
-                        <Text style={{fontSize:15}}>{props.navigation.getParam("course")}</Text>
+                        <Text style={{fontSize:25, marginRight:20, marginLeft:25, color:props.navigation.getParam("colorPass")}}>{props.navigation.getParam("classSymbol")}</Text>
+                        <Text style={{fontSize:20,color:props.navigation.getParam("colorPass")}}>{props.navigation.getParam("course")}</Text>
                   </View>
                   <View style={{flexDirection:'row', marginLeft:20}}>
                         <Button title={'Camera'}
@@ -112,7 +114,9 @@ const ReadPosts = async()=>{
                               comments:description,
                               hour:hour,
                               minutes:minutes,
-                              am_pm:am_pm
+                              am_pm:am_pm,
+                              colorPass: props.navigation.getParam('colorPass'), 
+                              classSymbol: props.navigation.getParam('classSymbol')
                             });
                          }}>
                     </TouchableOpacity>

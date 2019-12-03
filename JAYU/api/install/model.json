@@ -68,8 +68,8 @@
   },
   {
     "model":"classboard",
-    "cols":["id", "user_id","comment_id","course_name", "description", "hour", "minutes","am_pm"],
-    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES users(id) ON DELETE CASCADE","INTEGER", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT"],
+    "cols":["id", "user_id","comment_id","course_name", "course_color","course_symbol","description", "hour", "minutes","am_pm"],
+    "colstype":["SERIAL PRIMARY KEY", "INTEGER REFERENCES users(id) ON DELETE CASCADE","INTEGER", "TEXT", "TEXT","TEXT","TEXT", "INTEGER", "INTEGER", "TEXT"],
     "order":["id"]
   },
   {
