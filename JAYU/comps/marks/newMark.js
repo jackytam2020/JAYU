@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { View,Text,Button, TextInput, TouchableOpacity} from 'react-native';
+import { View,Text,Button, TextInput, TouchableOpacity, Form    } from 'react-native';
 import editMarkStyles from '../../styles/marks/editMarkStyles';
 import markStyles from '../../styles/marks/markStyles';
 import Marks from '../marks/marks';
@@ -18,10 +18,14 @@ function NewMark(props){
     var courseReadKey = props.navigation.getParam("courseReadKey"); 
     var classname = props.navigation.getParam("classname"); 
 
+    const[markName, setmarkName] = useState("");
+    const[Worth, setWorth]  = useState("")
+    const[Score1, setScore1] = useState("")
+    const[Total, setTotal]  = useState("")
     var mark_name = "";
-    var weight = 8;
-    var score = 93;
-    var outof = 100;
+    var weight = "";
+    var score = "";
+    var outof = "";
 
     const CreateMarks = async()=>{
         //fetch db to create marks
@@ -29,10 +33,10 @@ function NewMark(props){
         var obj = {
             key: courseKey,
             data:{
-                mark_name:mark_name,
-                weight:weight,
-                score:score,
-                outof:outof,
+                mark_name:markName,
+                weight:Worth,
+                score:Score1,
+                outof:Total,
             }
         }
         var r = await axios.post('http://localhost:3001/post', obj);
@@ -94,7 +98,7 @@ function NewMark(props){
         </View>
 
         {/* Type Element Name */}
-       
+        
         <View style={editMarkStyles.markNameContainer}>
             <View style={editMarkStyles.markNameBox}>
                 <Text>Element Name</Text>
@@ -103,7 +107,7 @@ function NewMark(props){
                         clearTextOnFocus={true}
                         placeholder="Midterm Exam"
                         style={{fontSize:25, marginRight:15}}
-                        onChangeText={(t) => {mark_name = t}}>
+                        onChangeText={(t) => {setmarkName(t)}}>
                     </TextInput>
                     <Text style={{color:'grey', top:3}}>Tap to Edit</Text>
                 </View>
@@ -123,7 +127,7 @@ function NewMark(props){
                         clearTextOnFocus={true}
                         defaultValue={"8"}
                         style={{fontSize:25, marginRight:15}}
-                        onChangeText={(t) => {weight = t}}>
+                        onChangeText={(t) => {setWorth(t)}}>
                     </TextInput>
                 </View>
                 <View style={{flex:0.2, flexDirection:'row', top:5}}>
@@ -142,14 +146,14 @@ function NewMark(props){
                         clearTextOnFocus={true}
                         defaultValue={"93"}
                         style={{fontSize:25}}
-                        onChangeText={(t) => {score = t}}>
+                        onChangeText={(t) => {setScore1(t)}}>
                     </TextInput>
                     <Text> of </Text>
                     <TextInput
                         clearTextOnFocus={true}
                         defaultValue={"100"}
                         style={{fontSize:25}}
-                        onChangeText={(t) => {outof = t}}>
+                        onChangeText={(t) => {setTotal(t)}}>
                     </TextInput>
                 </View>
                 <View style={{flex:0.2, flexDirection:'row', top:5}}>
@@ -162,8 +166,31 @@ function NewMark(props){
             <View style={editMarkStyles.actionButtons}>
                 <Text style={{fontSize:15}}
                     onPress={()=>{
-                        CreateMarks();
-                        props.navigation.navigate("Marks", {mark_name:mark_name, score:score, outof:outof, weight:weight})
+
+                if (markName.length <=  0 ){
+                    alert("missing name");
+                    return false;
+                } 
+
+                if(Worth.length <= 0){
+                    alert("missing assigment worth")
+                    return false
+                }
+
+                if(Score1.length <=0) {
+                    alert("missing first mark")
+                    return false
+                }
+
+                if(Total.length <=0) {
+                    alert("missing Last mark")
+                    return false
+                }
+
+
+
+                CreateMarks()
+                props.navigation.navigate("Marks", {mark_name:mark_name, score:score, outof:outof, weight:weight})
                     }}
                 >Add</Text>
                 <Text style={{fontSize:15}}
