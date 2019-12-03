@@ -32,12 +32,12 @@ import {createStackNavigator} from 'react-navigation-stack';
 const AppNavigator = createStackNavigator({
   
   SignIn: { screen: SignIn },
-  Schedule: {screen: Schedule},
+  Schedule: { screen: Schedule },
   ViewMark: {screen: ViewMark},
   Term: { screen: Term },
   SetUp: { screen: SetUp },
   Subject: { screen: Subject },
-  Homework: {screen: Tophw},
+  
   HomeScreen: { screen: HomeScreen },
   Homework: {screen: Tophw},
   Classboard: {screen: Classboard},
