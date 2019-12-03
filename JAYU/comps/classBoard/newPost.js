@@ -18,6 +18,7 @@ function Newpost(props){
     const [color7, setColor7] = useState("black");
     const [colorPass, setColorPass] = useState("");
     const [classSymbol, setClassSymbol] = useState("");
+    const [classBg, setClassBg] = useState("");
 
     //when comp loads, course needs to be empty
     useEffect(()=>{
@@ -77,6 +78,7 @@ function Newpost(props){
                             setColor6("black")
                             setColorPass("#FF9500")
                             setClassSymbol("􀘝")
+                            setClassBg("#FFEBD4")
                         }
                     }}
                 >
@@ -108,6 +110,7 @@ function Newpost(props){
                             setColor6("black")
                             setColorPass("#00AEEF")
                             setClassSymbol("􀀣")
+                            setClassBg("#D6F0FC")
                         }
                     }}
                 >
@@ -139,6 +142,7 @@ function Newpost(props){
                             setColor6("black")
                             setColorPass("#FFCF00")
                             setClassSymbol("􀏀")
+                            setClassBg("#FFF5D7")
                         }
                     }}
                 >
@@ -170,6 +174,7 @@ function Newpost(props){
                             setColor6("black")
                             setColorPass("#4CD964")
                             setClassSymbol("􀒡")
+                            setClassBg("#DEF7E1")
                         }
                     }}
                 >
@@ -201,6 +206,7 @@ function Newpost(props){
                             setColor6("black")
                             setColorPass("#FF3B30")
                             setClassSymbol("􀈌")
+                            setClassBg("#FFDBD8")
                         }
                         
                     }}
@@ -233,6 +239,7 @@ function Newpost(props){
                             setColor6("black")
                             setColorPass("#5856D6")
                             setClassSymbol("􀋤")
+                            setClassBg("#DEDEF7")
                         }
                     }}
                 >
@@ -264,6 +271,7 @@ function Newpost(props){
                             setColor("black")
                             setColorPass("#007AFF")
                             setClassSymbol("􀉮")
+                            setClassBg("#D0E1FF")
                         }
                     }}
                 >
@@ -295,6 +303,7 @@ function Newpost(props){
                             setColor6("black")
                             setColorPass("#C69C6D")
                             setClassSymbol("􀁛")
+                            setClassBg("#F5EBE2")
                         }
                     }}
                 >
@@ -326,7 +335,9 @@ function Newpost(props){
                             postBox:postBox, 
                             setEmptyPost:setEmptyPost,
                             colorPass:colorPass, 
-                            classSymbol:classSymbol});
+                            classSymbol:classSymbol,
+                            classBg:classBg
+                        });
             
                     }}
                     >

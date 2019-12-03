@@ -51,6 +51,7 @@ function CompostPost(props){
             course_name:course_name,
             course_color: props.navigation.getParam("colorPass"),
             course_symbol: props.navigation.getParam("classSymbol"),
+            course_bg: props.navigation.getParam("classBg"),
             description:description,
             hour:hour,
             minutes:minutes,

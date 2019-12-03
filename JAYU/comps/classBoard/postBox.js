@@ -31,14 +31,23 @@ function PostBox(props){
 },[]);
 
     return (
-      <View style={classBoardStyles.posts}>
+      <View style={[classBoardStyles.posts, {backgroundColor:props.course_bg}]}>
       <TouchableOpacity style={{flexDirection:"row", paddingLeft:10}}
         onPress={()=>{
-          props.navigation.navigate('Post', {question:question, course:course, time:time, user:user.username, id:id})
+          props.navigation.navigate('Post',{
+            question:question, 
+            course:course, 
+            time:time, 
+            user:user.username, 
+            id:id, 
+            course_color:props.course_color,
+            course_symbol:props.course_symbol,
+            course_bg: props.course_bg
+          })
         }}>
-          <Text style={{height:20,width:20, color: props.c}}>{props.s}</Text>
+          <Text style={{fontSize:25, color:props.course_color}}>{props.course_symbol}</Text>
           <View style={{paddingLeft:10}}>  
-            <Text>{props.course_name}</Text>
+            <Text style={{color:props.course_color}}>{props.course_name}</Text>
             <Text style={{fontSize:10}}>{time} by {user.username || ""}</Text>
           </View>  
       </TouchableOpacity>

@@ -5,7 +5,7 @@ const DB = require(types.DB_PATH);
 
 module.exports = class classboardDB extends DB {
   constructor(data){
-    super("classboard", ["id","user_id","comment_id","course_name","course_color","course_symbol","description","hour","minutes","am_pm"]);
+    super("classboard", ["id","user_id","comment_id","course_name","course_color","course_bg","course_symbol","description","hour","minutes","am_pm"]);
     this.data = data;
     this.returns = ["*"];
     this.config = {};

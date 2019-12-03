@@ -19,14 +19,19 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
     const [doneBut,setDoneBut] = useState(false);
     const [check, SetCheck] = useState(false)
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
-    const [duePickerDate, setDuePickerDate] = useState('Add due date');
+    const [duePickerDate, setDuePickerDate] = useState(due_date);
     const [taskText, setTaskText] = useState();
     const [itemText, setItemText] = useState();
     const [new_assignment, setNewAssignment] = useState("");
 
+   
+
     useEffect(()=>{
         setNewAssignment(assignment_name);
         ReadTasks();
+        if(duePickerDate === ''){
+            setDuePickerDate("Add Due Date");
+        } else {setDuePickerDate(due_date);}
     }, []);
 
     //observe change in variable of table
@@ -187,7 +192,6 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             {/*Task item rows */}
             <View style={{flexDirection:"row"}}>
                 <Text style={TopStyles.dueDate} 
-                    placeholder="Set Due Date"
                     onPress={()=>{
                         setShowPicker(TopStyles.dateContainer)
                         
@@ -213,8 +217,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                     setDuePickerDate(moment(d).format("MM/DD/YYYY"));
                     /* var date = await moment(d).format("MM/DD/YYYY");
                        setDuePickerDate(date);
-                       console.log(dd) */
-                   
+                       console.log(dd) */ 
                 }}
                 />
             </View>

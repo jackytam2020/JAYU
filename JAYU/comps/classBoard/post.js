@@ -90,14 +90,14 @@ const ReadComments = async()=>{
 
 
   return (
-      <SafeAreaView style={postStyle.container}>
+      <SafeAreaView style={[{backgroundColor:props.navigation.getParam("course_bg")},postStyle.container]}>
         
         <View style={postStyle.navBar}>
             <TouchableOpacity style={{position:'relative', width:"20%"}}
                 onPress={()=>{
                     props.navigation.goBack()
              }}>
-                <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>Back</Text>
             </TouchableOpacity>
         </View>
 
@@ -105,9 +105,9 @@ const ReadComments = async()=>{
         <View style={postStyle.post}>
             <View style={postStyle.subject}>
                 <View style={postStyle.leftSubject}>
-                    <View style={{height:20,width:20, backgroundColor:"red", borderRadius:40}}></View>
+                    <Text style={{fontSize: 25, color:props.navigation.getParam("course_color")}}>{props.navigation.getParam("course_symbol")}</Text>
                     <View style={{paddingLeft:10}}>  
-                        <Text>{props.navigation.getParam("course")}</Text>
+                        <Text style={{color:props.navigation.getParam("course_color")}}>{props.navigation.getParam("course")}</Text>
                         <Text style={{fontSize:10, color:'grey'}}>{props.navigation.getParam("time")} by {user}</Text>
                     </View>  
                 </View>

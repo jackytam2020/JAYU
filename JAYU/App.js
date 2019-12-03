@@ -30,17 +30,15 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 // App default Navigation stack
 const AppNavigator = createStackNavigator({
-  Classboard: {screen: Classboard},
   SignIn: { screen: SignIn },
+  Classboard: {screen: Classboard},
+  Homework: {screen: Tophw},
   Schedule: { screen: Schedule },
   ViewMark: {screen: ViewMark},
   Term: { screen: Term },
   SetUp: { screen: SetUp },
   Subject: { screen: Subject },
-  
   HomeScreen: { screen: HomeScreen },
-  Homework: {screen: Tophw},
-  
   ViewMark: {screen: ViewMark},
   Marks: { screen: Marks },
   NewMark:{ screen: NewMark},

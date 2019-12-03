@@ -76,8 +76,9 @@ function Classboard(props){
                         hour={obj.hour}
                         minutes={obj.minutes}
                         am_pm={obj.am_pm}
-                        colorPass = {obj.course_color}
-                        classSymbol = {obj.course_symbol}
+                        course_color = {obj.course_color}
+                        course_symbol = {obj.course_symbol}
+                        course_bg = {obj.course_bg}
                       />
                     })
                             
