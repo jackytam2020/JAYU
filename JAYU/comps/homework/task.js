@@ -30,6 +30,14 @@ function Task({id,assignment_name,completed,deleted, ReadAssignments, updateKey,
         ReadTasks();
     }, []);
 
+    //observe change in variable of table
+    useEffect(()=>{
+       console.log("Something changed")
+       console.log(table)
+       setDone("none");
+       setAssignmentsIcon('􀆊 ');
+    }, [table]);
+
     const UpdateAssignmentName = async()=>{
         var obj = {
             key:updateKey,

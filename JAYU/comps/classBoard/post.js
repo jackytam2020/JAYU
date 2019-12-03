@@ -48,6 +48,8 @@ function Post(props){
     }
     var time = hour+":"+minutes+" "+am_pm;
 
+    var user = props.navigation.getParam("user");
+
     
 
 // create new comments 
@@ -106,7 +108,7 @@ const ReadComments = async()=>{
                     <View style={{height:20,width:20, backgroundColor:"red", borderRadius:40}}></View>
                     <View style={{paddingLeft:10}}>  
                         <Text>{props.navigation.getParam("course")}</Text>
-                        <Text style={{fontSize:10, color:'grey'}}>{props.navigation.getParam("time")} by {props.navigation.getParam("user")}</Text>
+                        <Text style={{fontSize:10, color:'grey'}}>{props.navigation.getParam("time")} by {user}</Text>
                     </View>  
                 </View>
                 <View style={postStyle.rightSubject}>
