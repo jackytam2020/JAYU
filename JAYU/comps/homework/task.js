@@ -52,7 +52,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             }
         };
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
         console.log("assignment", r.data);
     }
 
@@ -63,7 +63,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 id:id
             }
         };
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
         ReadAssignments();
     }
   
@@ -91,7 +91,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 completed:completed
             }
         }
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
         console.log("Create", r.data);
         await ReadTasks();
         
@@ -106,7 +106,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             }
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
        
         var dbusers = JSON.parse(r.data.body);
         console.log("Read Task", dbusers);

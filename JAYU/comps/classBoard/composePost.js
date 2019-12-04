@@ -58,7 +58,7 @@ function CompostPost(props){
             am_pm:am_pm
         }
     }
-    var r = await axios.post('http://localhost:3001/post', obj);
+    var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
     console.log("Create", r.data);    
     ReadPosts();
 }
@@ -69,7 +69,7 @@ const ReadPosts = async()=>{
       data:{}
   }
 
-  var r = await axios.post('http://localhost:3001/post', obj);
+  var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
   var dbusers = JSON.parse(r.data.body);
   console.log("Read", dbusers);
