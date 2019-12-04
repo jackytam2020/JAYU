@@ -170,10 +170,10 @@ function Tophw(props){
                        onPress={()=>{
                             props.navigation.navigate("HomeScreen")
                        }}>
-                        <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>Back</Text>
+                         <Text style={{fontSize:20, fontFamily:"SFProDisplay-Medium" , marginLeft:20, color:'#007AFF'}}>􀆉 Back</Text>
                         
                 </TouchableOpacity>
-                <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(80)}}>Homework</Text>
+                <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(63)}}>Homework</Text>
             </View>
 
         <View style={{flex:0.2}}>

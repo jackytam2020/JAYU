@@ -81,7 +81,7 @@ const ReadPosts = async()=>{
             <TouchableOpacity
                   onPress={()=>{
                       props.navigation.goBack() }}>
-                    <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                    <Text style={{fontSize:20, fontFamily:"SFProDisplay-Medium" , marginLeft:20, color:'#007AFF'}}>􀆉 Back</Text>
               </TouchableOpacity>
                   <View style={{position:'absolute', left:'35%'}}>
                     <Text style={{fontSize:25}}>New Post</Text>
@@ -92,7 +92,7 @@ const ReadPosts = async()=>{
           <View style={composeStyle.detailContainer}>
               <View style={composeStyle.leftDetail}>
                   <View style={{flexDirection:'row',alignItems:'center'}}>
-                        <Text style={{fontSize:25, marginRight:20, marginLeft:25, color:props.navigation.getParam("colorPass")}}>{props.navigation.getParam("classSymbol")}</Text>
+                        <Text style={{fontSize:25,   fontFamily:"SFProDisplay-Medium", marginRight:20, marginLeft:25, color:props.navigation.getParam("colorPass")}}>{props.navigation.getParam("classSymbol")}</Text>
                         <Text style={{fontSize:20,color:props.navigation.getParam("colorPass")}}>{props.navigation.getParam("course")}</Text>
                   </View>
                   <View style={{flexDirection:'row', marginLeft:20}}>

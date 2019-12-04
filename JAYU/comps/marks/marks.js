@@ -16,7 +16,9 @@ function Marks(props){
     const [slideup, setSlideup] = useState(false)
     const [slideNewMark, setSlideNewMark] = useState(false);
     const [mark, setMark] = useState([]);
-    const [grade, setGrade] = useState("")
+    const [grade, setGrade] = useState(0);
+    const [iconColour, setIconColour] = useState("");
+    const [icon, setIcon] = useState();
 
     var mark_name = props.navigation.getParam("mark_name"); 
     var score = props.navigation.getParam("score"); 
@@ -30,6 +32,8 @@ function Marks(props){
 
     var classname = props.navigation.getParam("classname"); 
 
+   
+
 
   const ReadMarks = async()=>{
     var obj = {
@@ -41,7 +45,48 @@ function Marks(props){
   
     var dbusers = JSON.parse(r.data.body);
     console.log("Read", dbusers);
+    
+
+    var totalScore = 0;
+    var totalWeight = 0;
+    for (var i = 0; i<dbusers.data.length; i++){
+        var row = dbusers.data[i];
+        var score = row.score*row.weight;
+        totalWeight += row.weight;
+        
+        totalScore+=score
+    }
+    var overallGrade = totalScore / totalWeight;
+    setGrade(overallGrade.toFixed(2))
     setMark(dbusers.data); 
+    console.log(overallGrade)
+
+    if(totalWeight == 0){
+        setGrade(0)
+    }
+    if(overallGrade >= 86){
+        setIconColour("#4CD964");
+        setIcon("􀀅");
+    }
+    if(overallGrade < 86 && overallGrade >= 73){
+        setIconColour("#FFCF00");
+        setIcon("􀀇");
+    }
+    if(overallGrade < 73 && overallGrade >= 50){
+        setIconColour("#FF9500");
+        setIcon("􀀉");
+    }
+    if(overallGrade < 50){
+        setIconColour("#FF3B30");
+        setIcon("􀀏");
+    }
+
+    if(overallGrade == 0){
+        setIconColour("");
+        setIcon("");
+    }
+
+
   }
 
   useEffect(()=>{
@@ -77,12 +122,13 @@ function Marks(props){
                 <View style={markStyles.progressBG}>
                     <View style={markStyles.progress}>
                         <View style={{flex:0.8, justifyContent:"center", marginTop:normalize(10), marginBottom:normalize(10)}}>
-                            <Text style={{fontSize:normalize(45)}}>94.73%</Text>
+                            <Text style={{fontSize:normalize(45)}}>{grade}%</Text>
                             <Text style={{fontSize:normalize(15)}}>overall score</Text>
                         </View>
                         <View style={{flex:0.3,justifyContent:"center", position:'relative',left:'20%'}}>
-                            <View style={{height:normalize(45), width:normalize(45),}}>
-                                <Text style={markStyles.A}>􀀅</Text>
+                            <View style={{height:normalize(45), width:normalize(45),}} >
+                                <Text style={{  fontFamily:"SFProDisplay-Medium", fontSize:normalize(40), 
+                                color:iconColour}}>{icon}</Text>
                             </View>
                         </View>
                     </View>
@@ -98,7 +144,7 @@ function Marks(props){
                             <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Semibold"}}
                             onPress={()=>{
                                 // setSlideNewMark(true)
-                                props.navigation.navigate("NewMark",{setMark:setMark, mark:mark, courseKey:courseKey, courseReadKey:courseReadKey, classname:classname})
+                                props.navigation.navigate("NewMark",{setMark:setMark, mark:mark, courseKey:courseKey, courseReadKey:courseReadKey, classname:classname, ReadMarks:ReadMarks})
                             }}>Add Mark</Text>
                         </TouchableOpacity>
                     </View>

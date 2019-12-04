@@ -45,7 +45,7 @@ function PostBox(props){
             course_bg: props.course_bg
           })
         }}>
-          <Text style={{fontSize:25, color:props.course_color}}>{props.course_symbol}</Text>
+          <Text style={{fontSize:25,   fontFamily:"SFProDisplay-Medium",color:props.course_color}}>{props.course_symbol}</Text>
           <View style={{paddingLeft:10}}>  
             <Text style={{color:props.course_color}}>{props.course_name}</Text>
             <Text style={{fontSize:10}}>{time} by {user.username || ""}</Text>

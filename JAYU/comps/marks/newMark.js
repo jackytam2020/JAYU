@@ -27,6 +27,10 @@ function NewMark(props){
     var score = "";
     var outof = "";
 
+    var ReadMarks = props.navigation.getParam("ReadMarks");
+
+    
+
     const CreateMarks = async()=>{
         //fetch db to create marks
         console.log("Created Post");
@@ -44,19 +48,7 @@ function NewMark(props){
         ReadMarks();
     }
 
-    const ReadMarks = async()=>{
-        var obj = {
-            key:courseReadKey,
-            data:{}
-        }
-    
-        var r = await axios.post('http://localhost:3001/post', obj);
-      
-        var dbusers = JSON.parse(r.data.body);
-        console.log("Read", dbusers);
-        setMark(dbusers.data); 
-      }
-    
+   
 
   return (
     <View style={editMarkStyles.container}>
@@ -125,7 +117,7 @@ function NewMark(props){
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <TextInput
                         clearTextOnFocus={true}
-                        defaultValue={"8"}
+                        placeholder="8"
                         style={{fontSize:25, marginRight:15}}
                         onChangeText={(t) => {setWorth(t)}}>
                     </TextInput>
@@ -144,14 +136,14 @@ function NewMark(props){
                 <View style={{flexDirection:'row', width:'40%', alignItems:'center', justifyContent:'space-between'}}>
                     <TextInput
                         clearTextOnFocus={true}
-                        defaultValue={"93"}
+                        placeholder="93"
                         style={{fontSize:25}}
                         onChangeText={(t) => {setScore1(t)}}>
                     </TextInput>
                     <Text> of </Text>
                     <TextInput
                         clearTextOnFocus={true}
-                        defaultValue={"100"}
+                        placeholder="100"
                         style={{fontSize:25}}
                         onChangeText={(t) => {setTotal(t)}}>
                     </TextInput>
@@ -186,6 +178,8 @@ function NewMark(props){
                     alert("missing Last mark")
                     return false
                 }
+               
+
 
 
 

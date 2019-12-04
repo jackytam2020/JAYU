@@ -37,6 +37,7 @@ function MarksRow(props){
                   {id:props.id, markName:props.mark_name, score:props.score, outof:props.outof, weight:props.weight, courseUpdateKey:courseUpdateKey, ReadMarks:ReadMarks, classname:classname})
               }}
               >{props.mark_name}</Text>
+              <Text style={{fontSize:20, marginTop:3}}>({props.weight}%)</Text>
           </View>
           <Text style={markStyles.markName}>{props.score}/{props.outof}</Text>
       </View> 

@@ -295,7 +295,7 @@ function Schedule(props) {
                         props.navigation.navigate("HomeScreen")
                     }}
                 >
-                    <Text style={{ fontSize: 20, marginLeft: 20, color: '#007AFF' }}>Back</Text>
+                     <Text style={{fontSize:20, fontFamily:"SFProDisplay-Medium" , marginLeft:20, color:'#007AFF'}}>􀆉 Back</Text>
                 </TouchableOpacity>
                 <Text style={{fontSize:normalize(20),marginRight:normalize(145), fontFamily:"SFProDisplay-Medium", }}>Calendar</Text>
                 

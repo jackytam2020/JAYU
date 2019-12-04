@@ -41,7 +41,7 @@ const classBoardStyles = StyleSheet.create({
     },
     postBox:{
         flex:0.95,   
-        flexDirection:'row',
+        flexDirection:'column',
         // backgroundColor:"#DAD",
         height:"94%"
     },
@@ -55,7 +55,7 @@ const classBoardStyles = StyleSheet.create({
         // shadowRadius:10,
         paddingTop:normalize(10),
         paddingBottom:normalize(10),
-        marginBottom:normalize(10),
+        marginBottom:normalize(10)
     },
     line:{
         borderWidth:0.5,

@@ -31,13 +31,19 @@ function Classboard(props){
     var r = await axios.post('http://localhost:3001/post', obj);
   
     var dbusers = JSON.parse(r.data.body);
-    console.log("Read", dbusers);
+    //console.log("Read", dbusers);
+    if(dbusers.data.length > 0){
+      setEmptyPost("none")
+    }
     setPostBox(dbusers.data); 
   }
 
   useEffect(()=>{
+    //console.log("first run", props.navigation);
     ReadPosts();
     },[]);
+
+    console.log("postbox", postBox);
 
   return (
       <View style={classBoardStyles.container}>

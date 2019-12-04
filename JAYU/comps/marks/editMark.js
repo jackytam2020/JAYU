@@ -49,6 +49,10 @@ function EditMark(props){
         ReadMarks();
     }
 
+    useEffect(()=>{
+        ReadMarks();
+        },[]);
+
 
 
   return (
