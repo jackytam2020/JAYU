@@ -17,20 +17,16 @@ function SignIn(props){
             <ImageBackground source={require('../../assets/BackgroundImages/SignInBackground.png')}style={SignInStyle.BackGround}>
             <SafeAreaView>
                 {/* Heading */}
-                <Text style={SignInStyle.header}>Welcome to JAYU</Text>
+                <Text style={SignInStyle.header}>Welcome Back 
+                {"\n"}to JAYU</Text>
                 {/* descriptions */}
-                <Text style={SignInStyle.ds}>Design for D3 students.{"\n"}Track your Calendar, Schedules and Marks; all in one place</Text>
+                <Text style={SignInStyle.ds}>Designed for D3 students.{"\n"}
+                {"\n"}
+                Track your Calendar, Schedules and Marks
+                {"\n"}all in one place.</Text>
 
                 <View style={SignInStyle.buttonview}>
-                {/* Facebook Button */}
-                <TouchableOpacity style={SignInStyle.Facebookbutton}>
-                <Image source={require('../../assets/Images/f_logo.png')} style={SignInStyle.facebooklogo}></Image>
-                    <Text style={SignInStyle.facebookbuttontext}
-                        onPress={()=>{
-                            props.navigation.navigate('SetUp')
-                        }}
-                    >Sign in with Facebook</Text>
-                </TouchableOpacity>
+            
                 {/* Google Button */}
                 <TouchableOpacity style={SignInStyle.Googlebutton}>
                 <Image source={require('../../assets/Images/g-logo.png')} style={SignInStyle.googlelogo}></Image>
@@ -38,26 +34,20 @@ function SignIn(props){
                         onPress={()=>{
                             props.navigation.navigate('SetUp')
                         }}
-                    >Sign in with Google</Text>
+                    >Sign into JAYU</Text>
                 </TouchableOpacity>
-                {/*Apple button */}
-                <TouchableOpacity style={SignInStyle.Applebutton}>
-                    <Image source={require('../../assets/Images/Apple_Logo.png')} style={SignInStyle.applelogo}></Image>
-                    <Text style={SignInStyle.applebuttontext}
-                        onPress={()=>{
-                            props.navigation.navigate('SetUp')
-                        }}
-                    >Sign in with Apple</Text>
-                </TouchableOpacity>
+               
                 
                 {/* Terms and conditions */}
-                <Text style={SignInStyle.Terms}>By signing in, you are agreed to the</Text>
-                 <TouchableOpacity style={SignInStyle.TermOpacity}>
-                     <Text style={SignInStyle.Termblue}
-                     onPress={()=>{
-                        props.navigation.navigate('Term')
-                    }}>JAYU's Terms and Conditions 􀆊</Text>
-                </TouchableOpacity>
+                <View style={{flex:0.25}}>
+                    <Text style={SignInStyle.Terms}>By signing in, you are agreed to the</Text>
+                    <TouchableOpacity style={SignInStyle.TermOpacity}>
+                        <Text style={SignInStyle.Termblue}
+                        onPress={()=>{
+                            props.navigation.navigate('Term')
+                        }}>JAYU's Terms and Conditions 􀆊</Text>
+                    </TouchableOpacity>
+                </View>
                 </View>
             </SafeAreaView>
             </ImageBackground>

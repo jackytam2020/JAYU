@@ -26,6 +26,7 @@ function Tophw(props){
    const [updateKey, setUpdateKey] = useState("photoshop_update");
    const [courseDeleteKey, setCourseDeleteKey] = useState("photoshop_delete");
    const [table, setTable] = useState("photoshop");
+   const [bgColor, setBgColor] = useState("#D6F0FC");
    
         var  assignmentsIcon = '􀆊 ';
         var AddDueDate =null;
@@ -163,14 +164,16 @@ function Tophw(props){
 
     return(
 
-        <View style={TopStyles.container}>
-             <View style={TopStyles.navBar}>
+        <View style={[TopStyles.container]}>
+             <View style={[TopStyles.navBar]}>
                 <TouchableOpacity
                        onPress={()=>{
                             props.navigation.navigate("HomeScreen")
                        }}>
-                        <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>back</Text>
+                        <Text style={{fontSize:20, marginLeft:20, color:'#007AFF'}}>Back</Text>
+                        
                 </TouchableOpacity>
+                <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(80)}}>Homework</Text>
             </View>
 
         <View style={{flex:0.2}}>
@@ -191,6 +194,7 @@ function Tophw(props){
                 setCourseDeleteKey("photoshop_delete");
                 setReadKey("photoshop_read");
                 ReadAssignments("photoshop_read");
+                setBgColor("#D6F0FC");
                 
             }}
                  style={[{color:'#00AEEF', fontSize:Iconfont, opacity: op}, TopStyles.icon,]}>􀀣</Text>
@@ -209,7 +213,8 @@ function Tophw(props){
                 setReadKey("design2_read");
                 ReadAssignments("design2_read");
                 setTable("design2");
-        
+                setBgColor("#FFDBD8");
+                    
                 }} 
                     style={[{color:'#FF3B30', fontSize:Iconfont2, opacity: op2},        TopStyles.icon]}>􀈌</Text>
                 <Text onPress={async() =>{
@@ -227,6 +232,7 @@ function Tophw(props){
                     setReadKey("business_read");
                     ReadAssignments("business_read");
                     setTable("business");
+                    setBgColor("#DEF7E1");
                 }}
                     style={[{color:"#4CD964",fontSize:Iconfont3, opacity: op3},       TopStyles.icon]}>􀒡</Text>
                 <Text onPress={async() =>{
@@ -244,6 +250,7 @@ function Tophw(props){
                     setReadKey("sales_read");
                     ReadAssignments("sales_read");
                     setTable("sales");
+                    setBgColor("#DEDEF7");
                     }}
                     style={[{color:"#5856D6", fontSize:Iconfont4, opacity: op4},       TopStyles.icon]}>􀖘</Text>
                 <Text onPress={async() =>{
@@ -261,6 +268,7 @@ function Tophw(props){
                     setReadKey("accounting_read");
                     ReadAssignments("accounting_read");
                     setTable("accounting");
+                    setBgColor("#FFEBD4");
                     }
                     }style={[{color:"#FF9500", fontSize:Iconfont5, opacity: op5},       TopStyles.icon]}>􀘝</Text>
                 <Text onPress={async() =>{
@@ -278,6 +286,7 @@ function Tophw(props){
                     setReadKey("assets_read");            
                     ReadAssignments("assets_read");
                     setTable("assets");
+                    setBgColor("#FFF5D7");
                     }}
                     style={[{color:"#FFCF00", fontSize:Iconfont6, opacity: op6},       TopStyles.icon]}>􀏀</Text>
                 <Text onPress={async() =>{
@@ -295,6 +304,7 @@ function Tophw(props){
                     setReadKey("webdev_read");  
                     ReadAssignments("webdev_read");
                     setTable("webdev");
+                    setBgColor("#F5EBE2");
                     }}
                     style={[{color:"#C69C6D",fontSize:Iconfont7, opacity: op7},        TopStyles.icon]}>􀁛</Text>
                 <Text onPress={async() =>{
@@ -312,20 +322,21 @@ function Tophw(props){
                     setReadKey("project2_read");  
                     ReadAssignments("project2_read");
                     setTable("project2");
+                    setBgColor("#D0E1FF");
                     }}
                     style={[{color:"#007AFF", fontSize:Iconfont8, opacity: op8},       TopStyles.icon]}>􀓤
                     </Text>
             </View>
 
                 <Text style={[TopStyles.headerText,{color:color}]}>{header2}</Text>
-                <View style={{borderBottomColor: '#BFBFBF', borderBottomWidth: 1, marginBottom:10 }}></View>
+              
             </View>
 
 
       
-                <ScrollView style={{flex:2}}>
+                <ScrollView style={{flex:2,borderTopColor: '#BFBFBF', borderTopWidth: 1,backgroundColor:bgColor}}>
                     <View onPress={()=>setHead(!header)} style={TopStyles.icon2}>
-                    <ScrollView>
+                    <ScrollView style={{marginTop:50}}>
                         {
                             Tasklist.map((obj,i)=>{
                                 return <Task 
@@ -351,7 +362,7 @@ function Tophw(props){
             
             </ScrollView>
             
-            <View style={{width:'100%', height:'10%',  bottom:0}}>
+            <View style={{width:'100%', height:'9%',  bottom:0}}>
             <FooterBar />
             </View>  
         </View>

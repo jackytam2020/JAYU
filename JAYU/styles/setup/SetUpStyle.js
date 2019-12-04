@@ -10,7 +10,8 @@ SetUpStyle = StyleSheet.create({
         //alignItems:"center",
        // justifyContent:"center",
         width:"100%",
-        height:"100%"
+        height:"100%",
+        flex: 1
     },
     navi:{
         display:"flex",
@@ -22,17 +23,17 @@ SetUpStyle = StyleSheet.create({
     },
     back:{
         fontFamily:"SFProDisplay-Regular",
-        fontSize: RFPercentage(3),
+        fontSize: normalize(20),
         color:"#007AFF"
     },
     backarrow:{
         fontFamily:"SFProDisplay-Medium",
-        fontSize: RFPercentage(3),
+        fontSize: normalize(20),
         color:"#007AFF"
     },
     navTitle:{
-        fontFamily:"SFProDisplay-Regular",
-        fontSize: RFPercentage(3.5),
+        fontFamily:"SFProDisplay-Medium",
+        fontSize: normalize(20),
         textAlign:"center",
         marginLeft: normalize (85),
     },
@@ -48,17 +49,18 @@ SetUpStyle = StyleSheet.create({
         padding: 20,
         flexDirection:"column",
         borderBottomColor:"#F2F2F2",
-        borderBottomWidth: 0.5
+        borderBottomWidth: 0.5,
+        flex: 1
     },
     question:{
         fontFamily:"SFProDisplay-Medium",
         color:"#404040",
-        fontSize: RFPercentage(3)
+        fontSize: normalize(20)
     },
     questionDs:{
         fontFamily:"SFProText-Regular",
         color: "#7F7F7F",
-        fontSize: RFPercentage(2.2),
+        fontSize: normalize(13),
         marginTop: 5
     },
     NameForm:{
@@ -75,7 +77,7 @@ SetUpStyle = StyleSheet.create({
         paddingRight: 20,
         flexDirection:"column",
         borderBottomColor:"#F2F2F2",
-        borderBottomWidth: 0.5
+        borderBottomWidth: 0.5,
     },
     question3:{
         display:"flex",

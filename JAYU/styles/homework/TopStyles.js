@@ -3,12 +3,15 @@ import {StyleSheet} from 'react-native';
 const TopStyles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"#F2F2F2",
+        backgroundColor:"#FFFFFF",
+        
+        
     },
     navBar:{
         flex:0.2,
         flexDirection:"row",
         alignItems:'center',
+        paddingTop: 20
         
     },
     red:{

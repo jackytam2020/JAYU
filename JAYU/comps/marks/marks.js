@@ -57,7 +57,7 @@ function Marks(props){
                        onPress={()=>{
                             props.navigation.navigate("ViewMark")
                        }}>
-                        <Text style={{fontSize:normalize(22), marginLeft:normalize(5), color:'#007AFF', fontFamily:"SFProDisplay-Medium"}}>􀆉 Back</Text>
+                        <Text style={{fontSize:normalize(20), marginLeft:normalize(5), color:'#007AFF', fontFamily:"SFProDisplay-Medium"}}>􀆉 Back</Text>
                 </TouchableOpacity>
                 
             </View>

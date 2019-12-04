@@ -42,6 +42,18 @@ function SetUp(props){
 
 const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
 
+    useEffect(()=>{
+      if (GreenLight == 'on' && BlueLight == 'on'){
+        setNextColor(SetUpStyle.NextButtonOn)
+      }
+      else if (GreenLight == 'off' && BlueLight == 'off'){
+        setNextColor(SetUpStyle.NextButtonOff)
+      }
+      },[]);
+
+
+
+
     const CreateUser = async()=>{
       //fetch db to create users
       console.log("username", username);
@@ -242,12 +254,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
 
                   await CreateUser();
                   props.navigation.navigate('Subject');
-                  if (GreenLight == 'on' && BlueLight == 'on'){
-                    setNextColor(SetUpStyle.NextButtonOn)
-                  }
-                  if (GreenLight == 'off' && BlueLight == 'off'){
-                    setNextColor(SetUpStyle.NextButtonOff)
-                  }
+                  
                 }}
             >
               <Text style={SetUpStyle.NextButtonText}>Next 􀆊</Text>

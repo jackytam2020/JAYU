@@ -5,24 +5,25 @@ import React from 'react';
 
 SignInStyle = StyleSheet.create({
     app:{
-        backgroundColor:"#FAB",
+       
         display: "flex",
         alignItems:"center",
         justifyContent:"center",
         width:"100%",
-        height:"100%"
+        height:"100%",
+       
     },
     header:{
-        fontSize: RFPercentage(7),
+        fontSize: normalize(40),
         color: "#000000",
         opacity: 0.6,
         marginLeft: 30,
-        marginTop: "10%",
+        marginTop: normalize(75),
         fontWeight:"bold",
        fontFamily:"SFProDisplay-Semibold"
     },
     ds:{
-        fontSize: RFPercentage(3),
+        fontSize: normalize(20),
         marginLeft: 30,
         marginRight: 30,
         marginTop:30,
@@ -66,7 +67,7 @@ SignInStyle = StyleSheet.create({
          flexDirection:"row"
      },
      Googlebutton:{
-        marginTop:"3%",
+        
          width:"80%",
          height:50,
          borderRadius:10,
@@ -109,16 +110,16 @@ SignInStyle = StyleSheet.create({
      
      Terms:{
         fontFamily:"SFCompactRounded-Regular",
-        fontSize: RFPercentage(2.8),
+        fontSize: normalize(15),
         paddingLeft:30,
         paddingRight:30,
-        marginTop:50,
+        marginTop: normalize(25),
         textAlign:"center",
      },
      Termblue:{
          color:"#007AFF",
          fontFamily:"SFCompactRounded-Regular",
-         fontSize: RFPercentage(2.8),
+         fontSize: normalize(15),
         paddingLeft:30,
         paddingRight:30,
         textAlign:"center"

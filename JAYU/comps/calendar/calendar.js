@@ -13,6 +13,8 @@ import Card from './agenda';
 import axios from 'axios';
 import CalendarPicker from 'react-native-calendar-picker';
 import { useFocusEffect } from '@react-navigation/core';
+import normalize from 'react-native-normalize';
+
 
 function Schedule(props) {
     const [link, setOpacity] = useState(0.1);
@@ -32,6 +34,7 @@ function Schedule(props) {
     const [viewDay,setViewDay] = useState();
     const [readKey, setReadKey] = useState("design2_read");
 
+  
     var moment = require("moment");
     const ReadAssignments = async (key) => {
         var k = key;
@@ -292,17 +295,12 @@ function Schedule(props) {
                         props.navigation.navigate("HomeScreen")
                     }}
                 >
-                    <Text style={{ fontSize: 20, marginLeft: 20, color: '#007AFF' }}>back</Text>
+                    <Text style={{ fontSize: 20, marginLeft: 20, color: '#007AFF' }}>Back</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => {
-                        setEditSlide(true)
-                        setFooterDim('none')
-                    }}>
-                    <Text style={{ fontSize: 20, marginRight: 20, color: '#007AFF' }}>Add</Text>
-                </TouchableOpacity>
+                <Text style={{fontSize:normalize(20),marginRight:normalize(145), fontFamily:"SFProDisplay-Medium", }}>Calendar</Text>
+                
             </View>
-            <View style={{ flex: 0.9,borderBottomColor:"grey", borderBottomWidth: 0.5 }}>
+            <View style={{ flex: 1.1,borderBottomColor:"grey", borderBottomWidth: 0.5, borderBottomColor:"grey", borderBottomWidth: 0.5, marginTop: 10}}>
                 <CalendarPicker
                 selectedDayColor="lightgrey"
                 todayBackgroundColor= "green"
@@ -501,7 +499,7 @@ function Schedule(props) {
                 </View>
             </Modal>
 
-            <View style={{ width: '100%', height: '10%', bottom: 0 }}>
+            <View style={{ width: '100%', height: '11%', bottom: 0 }}>
                 <FooterBar />
             </View>
 

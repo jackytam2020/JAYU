@@ -20,8 +20,8 @@ const viewMarkStyles = StyleSheet.create({
     },
 
     title: {
-        fontSize: normalize(25),
-        fontFamily: "SFProDisplay-Regular",
+        fontSize: normalize(20),
+        fontFamily: "SFProDisplay-Medium",
         marginLeft:normalize(90)
     },
 
