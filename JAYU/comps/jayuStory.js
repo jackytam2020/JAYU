@@ -21,6 +21,7 @@ import ComposePost from './classBoard/composePost'
 import NewMark from './marks/newMark'
 import EditMark from './marks/editMark'
 import ViewMark from  './marks/viewMarks'
+import DatePick from './homework/datePicker'
 
 
 storiesOf("JayU", module)
@@ -112,4 +113,10 @@ storiesOf("JayU", module)
 storiesOf("JayU", module)
     .add("ComposePost", ()=>{
         return <ComposePost/>
+    })  
+
+    
+storiesOf("JayU", module)
+    .add("ComposePost", ()=>{
+        return <DatePick/>
     })  

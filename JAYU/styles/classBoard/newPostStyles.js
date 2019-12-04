@@ -1,4 +1,6 @@
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
+
 
 const newPostStyle = StyleSheet.create({
     container:{
@@ -53,7 +55,7 @@ const newPostStyle = StyleSheet.create({
     cancel: {
         height:'70%',
         width:'45%',
-        backgroundColor:'#e2cdb6',
+        backgroundColor:'#FFE9CC',
         borderRadius:10,
         justifyContent:"center",
         alignItems:'center'
@@ -61,10 +63,77 @@ const newPostStyle = StyleSheet.create({
     next: {
         height:'70%',
         width:'45%',
-        backgroundColor:'#d6f0fc',
+        backgroundColor:'#DBF7DF',
         borderRadius:10,
         justifyContent:"center",
         alignItems:'center'
-    }
+    },
+    iconview:{
+        width:normalize(30),
+        height:normalize(30),
+        marginRight:normalize(20),
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        // backgroundColor:"#FAB"
+    },
+    lineview:{
+        width:normalize(200), 
+        paddingTop:normalize(10), 
+        left:normalize(45)
+    },
+    each:{
+        flexDirection:'row',
+         alignItems:"center"
+    },
+    subjectname:{
+        fontSize:normalize(15),
+        fontFamily:"SFProDisplay-Regular"
+    },
+    EP:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#7f7f7f"
+    },
+    PS:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#00AEEF"
+    },
+    BC:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#4CD964"
+    },
+    DS:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#FF3B30"
+    },
+    AC:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#FF9500"
+    },
+    ADI:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#FFCF00"
+    },
+    PJ:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#007AFF"
+    },
+    WD:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#C69C6D"
+    },
+    SA:{
+        fontFamily:"SFProDisplay-Medium",
+        fontSize:normalize(25),
+        color:"#5856D6"
+    },
 })
 export default newPostStyle;

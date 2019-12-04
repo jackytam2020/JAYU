@@ -7,7 +7,7 @@ const editMarkStyles = StyleSheet.create({
         borderRadius:20,
     },
     titleBar:{
-        flex:0.1, 
+        flex:0.15, 
         justifyContent:'center', 
         alignItems:"center",
     },

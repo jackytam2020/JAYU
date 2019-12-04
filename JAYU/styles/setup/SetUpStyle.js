@@ -1,4 +1,6 @@
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import React from 'react';
 
 SetUpStyle = StyleSheet.create({
@@ -8,7 +10,8 @@ SetUpStyle = StyleSheet.create({
         //alignItems:"center",
        // justifyContent:"center",
         width:"100%",
-        height:"100%"
+        height:"100%",
+        flex: 1
     },
     navi:{
         display:"flex",
@@ -20,60 +23,66 @@ SetUpStyle = StyleSheet.create({
     },
     back:{
         fontFamily:"SFProDisplay-Regular",
-        fontSize:20,
+        fontSize: normalize(20),
         color:"#007AFF"
     },
     backarrow:{
         fontFamily:"SFProDisplay-Medium",
-        fontSize:25,
+        fontSize: normalize(20),
         color:"#007AFF"
     },
     navTitle:{
-        fontFamily:"SFProDisplay-Regular",
-        fontSize: 25,
+        fontFamily:"SFProDisplay-Medium",
+        fontSize: normalize(20),
         textAlign:"center",
-        marginLeft:80
+        marginLeft: normalize (85),
+    },
+    scrollview:{
+        width:"100%",
+        height:"95%",
+        display:"flex",
+        //sbackgroundColor:"#FAB"
     },
     question1:{
         display:"flex",
-        height: 130,
+        height: normalize (140),
         padding: 20,
         flexDirection:"column",
         borderBottomColor:"#F2F2F2",
-        borderBottomWidth: 0.5
+        borderBottomWidth: 0.5,
+        flex: 1
     },
     question:{
         fontFamily:"SFProDisplay-Medium",
         color:"#404040",
-        fontSize: 20,
-        marginRight: 20
+        fontSize: normalize(20)
     },
     questionDs:{
         fontFamily:"SFProText-Regular",
         color: "#7F7F7F",
-        fontSize:15,
+        fontSize: normalize(13),
         marginTop: 5
     },
     NameForm:{
         fontFamily:"SFProDisplay-Semibold",
-        fontSize: 20,
-        color:"#BFBFBF",
+        fontSize: RFPercentage(3),
+        color:"#007AFF",
         marginTop: 20
     },
     question2:{
         display:"flex",
-        height: 230,
-        paddingTop: 10,
+        height: normalize (240),
+        paddingTop: normalize (20),
         paddingLeft: 20,
         paddingRight: 20,
         flexDirection:"column",
         borderBottomColor:"#F2F2F2",
-        borderBottomWidth: 0.5
+        borderBottomWidth: 0.5,
     },
     question3:{
         display:"flex",
-        height: 240,
-        paddingTop: 10,
+        height: normalize (260),
+        paddingTop: normalize (20),
         paddingLeft: 20,
         paddingRight: 20,
         flexDirection:"column",
@@ -81,10 +90,10 @@ SetUpStyle = StyleSheet.create({
         borderBottomWidth: 0.5
     },
     FirstHalf:{
-        //backgroundColor:"#FAB",
+        //backgroundColor:"#BAB",
         display:"flex",
         flexDirection:"row",
-        height: 70,
+        height: normalize (70),
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
@@ -94,15 +103,41 @@ SetUpStyle = StyleSheet.create({
         //backgroundColor:"#DAD",
         display:"flex",
         flexDirection:"row",
-        height: 70,
+        height: normalize (70),
         display:"flex",
         alignItems:"center",
         justifyContent:"center"
     },
-    optionbutton:{
-        width: 140,
-        height: 55,
+    optionbuttonOff :{
+        width: normalize (140),
+        height: normalize (55),
         backgroundColor:"#F2F2F2",
+        borderRadius:10,
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 10,
+        marginRight: 10,
+    },
+    optionbuttonOnTerm:{
+        width: normalize (140),
+        height: normalize (55),
+        backgroundColor:"#FFE9CC",
+        borderRadius:10,
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 10,
+        marginRight: 10,
+    },
+    optionbuttonOnSet:{
+        width: normalize (140),
+        height: normalize (55),
+        backgroundColor:"#DBF7DF",
         borderRadius:10,
         display:"flex",
         alignItems:"center",
@@ -114,16 +149,26 @@ SetUpStyle = StyleSheet.create({
     },
     option:{
         fontFamily:"SFProDisplay-Semibold",
-        fontSize: 20,
+        fontSize: RFPercentage(2.8),
         color: "#191919"
     },
     NextButtonView:{
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
-        height: 100
+        height: normalize (100),
+        marginBottom:normalize (55)
     },
-    NextButton:{
+    NextButtonOff:{
+        backgroundColor:"#F2F2F2",
+        height: 60,
+        width: 130,
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        borderRadius: 10
+    },
+    NextButtonOn:{
         backgroundColor:"#007AFF",
         height: 60,
         width: 130,

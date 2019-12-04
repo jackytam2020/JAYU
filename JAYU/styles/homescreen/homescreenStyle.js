@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
 
 
 
 const styles = StyleSheet.create({ 
     home:{
-        flex:0.83,
+        flex:0.90,
     },
     greetingBox:{
         flex:0.13,
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
         borderRadius:25
     },
     deadlineTitle:{
-        left:20,
+        left:normalize(20),
         marginTop:15,
         width:"90%",
         flexDirection:'row',
@@ -29,8 +30,8 @@ const styles = StyleSheet.create({
     },
     itemContainer:{
         flex:0.8,
-        left:20,
-        marginTop:15,
+        left:normalize(20),
+        marginTop:normalize(15),
         width:'90%',
     },
     hideItems:{
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
         flex:0.5,
         justifyContent:'center',
         flexDirection:'row',
-        top:30
+        top:normalize(55)
     },
     bottom:{
         flex:0.93,
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     boxItems:{
         flex:0.85,
         backgroundColor:'white',
-        borderRadius:25,
+        borderRadius:normalize(20),
     },
     boxRow:{
         flexDirection:"row", 
