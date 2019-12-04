@@ -37,21 +37,22 @@ function SetUp(props){
   const [colorSetC, setColorSetC] = useState(SetUpStyle.optionbuttonOff);
   const [colorSetD, setColorSetD] = useState(SetUpStyle.optionbuttonOff);
   const [users, setUsers] = useState([]);
-
-
-
-const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
+  const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
 
     useEffect(()=>{
-      if (GreenLight == 'on' && BlueLight == 'on'){
-        setNextColor(SetUpStyle.NextButtonOn)
-      }
-      else if (GreenLight == 'off' && BlueLight == 'off'){
-        setNextColor(SetUpStyle.NextButtonOff)
-      }
-      },[]);
-
-
+     nextBut();
+  
+      },[GreenLight]);
+      
+      function nextBut() {
+        if (GreenLight == 'on' && BlueLight == 'on'){
+          setNextColor(SetUpStyle.NextButtonOn)
+        }
+        else if (GreenLight == 'off' && BlueLight == 'off'){
+          setNextColor(SetUpStyle.NextButtonOff)
+        }
+      };
+   
 
 
     const CreateUser = async()=>{
@@ -115,6 +116,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorTerm2(SetUpStyle.optionbuttonOff)
                     setColorTerm3(SetUpStyle.optionbuttonOff)
                     setColorTerm4(SetUpStyle.optionbuttonOff)
+                    
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 1</Text>
@@ -131,6 +133,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorTerm1(SetUpStyle.optionbuttonOff)
                     setColorTerm3(SetUpStyle.optionbuttonOff)
                     setColorTerm4(SetUpStyle.optionbuttonOff)
+                    
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 2</Text>
@@ -149,6 +152,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorTerm1(SetUpStyle.optionbuttonOff)
                     setColorTerm2(SetUpStyle.optionbuttonOff)
                     setColorTerm4(SetUpStyle.optionbuttonOff)
+                    
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 3</Text>
@@ -165,6 +169,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorTerm1(SetUpStyle.optionbuttonOff)
                     setColorTerm2(SetUpStyle.optionbuttonOff)
                     setColorTerm3(SetUpStyle.optionbuttonOff)
+                    
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Term 4</Text>
@@ -180,8 +185,11 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.FirstHalf}>
               <TouchableOpacity style={colorSetA}
                 onPress={()=>{
-                  if(GreenLightA == 'off'){
+
                     setGreenLight('on')
+                    nextBut()
+                  if(GreenLightA == 'off'){
+                    
                     setGreenLightA('on')
                     setGreenLightB('off')
                     setGreenLightC('off')
@@ -190,14 +198,19 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorSetB(SetUpStyle.optionbuttonOff)
                     setColorSetC(SetUpStyle.optionbuttonOff)
                     setColorSetD(SetUpStyle.optionbuttonOff)
-                  }
+                    
+                  } 
+                  
                 }}>
                   <Text style={SetUpStyle.option}>Set A</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={colorSetB}
                 onPress={()=>{
-                  if(GreenLightB == 'off'){
+
                     setGreenLight('on')
+                    nextBut()
+                  if(GreenLightB == 'off'){
+                    
                     setGreenLightB('on')
                     setGreenLightA('off')
                     setGreenLightC('off')
@@ -206,7 +219,8 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorSetA(SetUpStyle.optionbuttonOff)
                     setColorSetC(SetUpStyle.optionbuttonOff)
                     setColorSetD(SetUpStyle.optionbuttonOff)
-                  }
+                  
+                  } 
                 }}>
                   <Text style={SetUpStyle.option}>Set B</Text>
                 </TouchableOpacity>
@@ -214,8 +228,10 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.SecondHalf}>
               <TouchableOpacity style={colorSetC}
                 onPress={()=>{
+                  setGreenLight('on')
+                  nextBut()
                   if(GreenLightC == 'off'){
-                    setGreenLight('on')
+                    
                     setGreenLightC('on')
                     setGreenLightA('off')
                     setGreenLightB('off')
@@ -224,14 +240,17 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorSetB(SetUpStyle.optionbuttonOff)
                     setColorSetA(SetUpStyle.optionbuttonOff)
                     setColorSetD(SetUpStyle.optionbuttonOff)
-                  }
+                    
+                  } 
                 }}>
                   <Text style={SetUpStyle.option}>Set C</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={colorSetD}
                 onPress={()=>{
+                  setGreenLight('on')
+                  nextBut()
                   if(GreenLightD == 'off'){
-                    setGreenLight('on')
+                    
                     setGreenLightD('on')
                     setGreenLightA('off')
                     setGreenLightB('off')
@@ -240,6 +259,7 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                     setColorSetB(SetUpStyle.optionbuttonOff)
                     setColorSetC(SetUpStyle.optionbuttonOff)
                     setColorSetA(SetUpStyle.optionbuttonOff)
+                    
                   }
                 }}>
                   <Text style={SetUpStyle.option}>Set D</Text>
