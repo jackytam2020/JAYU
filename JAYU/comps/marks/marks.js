@@ -170,7 +170,7 @@ function Marks(props){
                 <View style={markStyles.inputs}>
                         <View style={markStyles.inputTitleRow}>
                             <Text style={markStyles.inputTitle}>Elements</Text>
-                            <Text style={markStyles.inputTitle}>Mark</Text>
+                            <Text style={markStyles.inputTitle}>{props.navigation.getParam("Marks")}</Text>
                         </View>
                     <ScrollView>
                     {

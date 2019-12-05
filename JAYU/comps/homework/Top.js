@@ -174,7 +174,7 @@ function Tophw(props){
                          <Text style={{fontSize:20, fontFamily:"SFProDisplay-Medium" , marginLeft:20, color:'#007AFF'}}>􀆉 Back</Text>
                         
                 </TouchableOpacity>
-                <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(63)}}>Homework</Text>
+                <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(63)}}>{props.navigation.getParam("title")}</Text>
             </View>
 
         <View style={{flex:0.2}}>

@@ -105,7 +105,7 @@ const ReadComments = async()=>{
         <View style={postStyle.post}>
             <View style={postStyle.subject}>
                 <View style={postStyle.leftSubject}>
-                    <Text style={{fontSize: 25, color:props.navigation.getParam("course_color")}}>{props.navigation.getParam("course_symbol")}</Text>
+                    <Text style={{fontSize: 25, fontFamily:"SFProDisplay-Medium",color:props.navigation.getParam("course_color")}}>{props.navigation.getParam("course_symbol")}</Text>
                     <View style={{paddingLeft:10}}>  
                         <Text style={{color:props.navigation.getParam("course_color")}}>{props.navigation.getParam("course")}</Text>
                         <Text style={{fontSize:10, color:'grey'}}>{props.navigation.getParam("time")} by {user}</Text>

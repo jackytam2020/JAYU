@@ -55,7 +55,7 @@ function Classboard(props){
                  }}>
                     <Text style={{fontSize:normalize(20), color:'#007AFF', fontFamily:"SFProDisplay-Medium"}}>􀆉Back</Text>
                </TouchableOpacity>
-            <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(70)}}>ClassBoard</Text>
+            <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", marginLeft:normalize(70)}}>{props.navigation.getParam("title")}</Text>
             <TouchableOpacity
                 onPress={()=>{
                     props.navigation.navigate('NewPost', {setPostBox:setPostBox, postBox:postBox, setEmptyPost:setEmptyPost})

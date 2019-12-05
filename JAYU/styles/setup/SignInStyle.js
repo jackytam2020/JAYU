@@ -73,7 +73,7 @@ SignInStyle = StyleSheet.create({
          borderRadius:10,
          alignItems:"center",
          justifyContent:"center",
-         backgroundColor:"#FFFFFF",
+         backgroundColor:"#007AFF",
          display:"flex",
          flexDirection:"row"
      },
@@ -98,8 +98,8 @@ SignInStyle = StyleSheet.create({
      googlelogo:{
         marginRight:10,
         resizeMode:"contain",
-        width:20,
-        height:20
+        width:40,
+        height:40
     },
     facebooklogo:{
         marginRight:10,

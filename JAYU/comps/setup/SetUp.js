@@ -42,14 +42,19 @@ function SetUp(props){
 
 const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
 
-    useEffect(()=>{
-      if (GreenLight == 'on' && BlueLight == 'on'){
-        setNextColor(SetUpStyle.NextButtonOn)
-      }
-      else if (GreenLight == 'off' && BlueLight == 'off'){
-        setNextColor(SetUpStyle.NextButtonOff)
-      }
-      },[]);
+useEffect(()=>{
+  nextBut();
+
+   },[GreenLight]);
+   
+   function nextBut() {
+     if (GreenLight == 'on' && BlueLight == 'on'){
+       setNextColor(SetUpStyle.NextButtonOn)
+     }
+     else if (GreenLight == 'off' && BlueLight == 'off'){
+       setNextColor(SetUpStyle.NextButtonOff)
+     }
+   };
 
 
 
@@ -180,6 +185,8 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.FirstHalf}>
               <TouchableOpacity style={colorSetA}
                 onPress={()=>{
+                  setGreenLight('on')
+                  nextBut()
                   if(GreenLightA == 'off'){
                     setGreenLight('on')
                     setGreenLightA('on')
@@ -196,6 +203,8 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                 </TouchableOpacity>
                 <TouchableOpacity style={colorSetB}
                 onPress={()=>{
+                  setGreenLight('on')
+                  nextBut()
                   if(GreenLightB == 'off'){
                     setGreenLight('on')
                     setGreenLightB('on')
@@ -214,6 +223,8 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
               <View style={SetUpStyle.SecondHalf}>
               <TouchableOpacity style={colorSetC}
                 onPress={()=>{
+                  setGreenLight('on')
+                  nextBut()
                   if(GreenLightC == 'off'){
                     setGreenLight('on')
                     setGreenLightC('on')
@@ -230,6 +241,8 @@ const [nextColor, setNextColor] = useState(SetUpStyle.NextButtonOff);
                 </TouchableOpacity>
                 <TouchableOpacity style={colorSetD}
                 onPress={()=>{
+                  setGreenLight('on')
+                  nextBut()
                   if(GreenLightD == 'off'){
                     setGreenLight('on')
                     setGreenLightD('on')

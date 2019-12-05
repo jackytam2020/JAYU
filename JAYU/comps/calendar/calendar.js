@@ -33,7 +33,11 @@ function Schedule(props) {
     const [agenda7, setAgenda7] = useState([]);
     const [viewDay,setViewDay] = useState();
     const [readKey, setReadKey] = useState("design2_read");
+    const [color, setColor] = useState("blue");
 
+    useEffect(()=>{
+       setColor("blue")
+        },[]);
   
     var moment = require("moment");
     const ReadAssignments = async (key) => {
@@ -297,7 +301,7 @@ function Schedule(props) {
                 >
                      <Text style={{fontSize:20, fontFamily:"SFProDisplay-Medium" , marginLeft:20, color:'#007AFF'}}>􀆉 Back</Text>
                 </TouchableOpacity>
-                <Text style={{fontSize:normalize(20),marginRight:normalize(145), fontFamily:"SFProDisplay-Medium", }}>Calendar</Text>
+                <Text style={{fontSize:normalize(20),marginRight:normalize(145), fontFamily:"SFProDisplay-Medium", }}>{props.navigation.getParam("title")}</Text>
                 
             </View>
             <View style={{ flex: 1.1,borderBottomColor:"grey", borderBottomWidth: 0.5, borderBottomColor:"grey", borderBottomWidth: 0.5, marginTop: 10}}>
@@ -486,7 +490,7 @@ function Schedule(props) {
             </Modal>
 
             <View style={{ width: '100%', height: '11%', bottom: 0 }}>
-                <FooterBar />
+                <FooterBar title={props.navigation.getParam("title")}/>
             </View>
 
 

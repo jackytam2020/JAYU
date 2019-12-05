@@ -1,7 +1,8 @@
-import React , {useState} from 'react';
+import React , {useState, useEffect} from 'react';
 import { View,Text,Button, TouchableOpacity} from 'react-native';
 import footerStyles from '../styles/footerStyles'
-import { withNavigation } from 'react-navigation'
+import { withNavigation } from 'react-navigation';
+import { withNavigationFocus } from 'react-navigation';
 
 function FooterBar(props){
 
@@ -17,25 +18,72 @@ function FooterBar(props){
     const [ClassBoardText, setClassBoardText] = useState(footerStyles.text);
     const [MarkText, setMarkText] = useState(footerStyles.text);
 
+    useEffect(()=>{
+        if(props.navigation.getParam("title") == "Calendar"){
+                    setCalendarIcon(footerStyles.iconOn)
+                    setHomeworkIcon(footerStyles.icon)
+                    setClassBoardIcon(footerStyles.icon)
+                    setMarkIcon(footerStyles.icon)
+                    
+                    setCalendarText(footerStyles.textOn)
+                    setHomeworkText(footerStyles.text)
+                    setClassBoardText(footerStyles.text)
+                    setMarkText(footerStyles.text)
+        } else if(props.navigation.getParam("title") == "Homework"){
+                    setHomeworkIcon(footerStyles.iconOn)
+                    setCalendarIcon(footerStyles.icon)
+                    setClassBoardIcon(footerStyles.icon)
+                    setMarkIcon(footerStyles.icon)
+                
+                    setHomeworkText(footerStyles.textOn)
+                    setCalendarText(footerStyles.text)
+                    setClassBoardText(footerStyles.text)
+                    setMarkText(footerStyles.text)
+}       else if(props.navigation.getParam("title") == "Classboard"){
+                    setHomeworkIcon(footerStyles.icon)
+                    setCalendarIcon(footerStyles.icon)
+                    setClassBoardIcon(footerStyles.iconOn)
+                    setMarkIcon(footerStyles.icon)
+
+                    setHomeworkText(footerStyles.text)
+                    setCalendarText(footerStyles.text)
+                    setClassBoardText(footerStyles.textOn)
+                    setMarkText(footerStyles.text)
+}       else if(props.navigation.getParam("title") == "Marks"){
+                    setHomeworkIcon(footerStyles.icon)
+                    setCalendarIcon(footerStyles.icon)
+                    setClassBoardIcon(footerStyles.icon)
+                    setMarkIcon(footerStyles.iconOn)
+
+                    setHomeworkText(footerStyles.text)
+                    setCalendarText(footerStyles.text)
+                    setClassBoardText(footerStyles.text)
+                    setMarkText(footerStyles.textOn)
+}
+
+    },[]);
+
   return (
     <View style={footerStyles.container}>
        <TouchableOpacity style={footerStyles.each}
             onPress={()=>{
                 if (BlueIcon == 'off'){
                     setBlueIcon('on')
-                    setCalendarIcon(footerStyles.iconOn)
-                    setHomeworkIcon(footerStyles.icon)
+                    setHomeworkIcon(footerStyles.iconOn)
+                    setCalendarIcon(footerStyles.icon)
                     setClassBoardIcon(footerStyles.icon)
                     setMarkIcon(footerStyles.icon)
                 }
                 if (BlueText == 'off'){
                     setBlueText('on')
-                    setCalendarText(footerStyles.textOn)
-                    setHomeworkText(footerStyles.text)
+                    setHomeworkText(footerStyles.textOn)
+                    setCalendarText(footerStyles.text)
                     setClassBoardText(footerStyles.text)
                     setMarkText(footerStyles.text)
                 }
-                props.navigation.navigate('Schedule')
+                props.navigation.navigate('Schedule',{
+                    title: "Calendar"
+                })
         }}>
             <Text style={CalendarIcon}>􀉉</Text>
             <Text style={CalendarText}>Calendar</Text>
@@ -56,7 +104,9 @@ function FooterBar(props){
                     setClassBoardText(footerStyles.text)
                     setMarkText(footerStyles.text)
                 }
-                props.navigation.navigate('Homework')
+                props.navigation.navigate('Homework',{
+                    title: "Homework"
+                })
         }}>
             <Text style={HomeworkIcon}>􀉆</Text>
             <Text style={HomeworkText}>Homework</Text>
@@ -77,7 +127,10 @@ function FooterBar(props){
                     setClassBoardText(footerStyles.textOn)
                     setMarkText(footerStyles.text)
                 }
-                props.navigation.navigate('Classboard')
+                props.navigation.navigate('Classboard',{
+                    title:"Classboard"
+                }
+                )
         }}>
             <Text style={ClassBoardIcon}>􀉬</Text>
             <Text style={ClassBoardText}>Classboard</Text>
@@ -98,7 +151,9 @@ function FooterBar(props){
                     setClassBoardText(footerStyles.text)
                     setMarkText(footerStyles.textOn)
                 }
-                props.navigation.navigate('ViewMark')
+                props.navigation.navigate('ViewMark', {
+                    title: "Marks"
+                })
         }}>
             <Text style={MarkIcon}>􀉟</Text>
             <Text style={MarkText}>Marks</Text>

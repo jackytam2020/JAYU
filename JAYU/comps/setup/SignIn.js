@@ -29,7 +29,7 @@ function SignIn(props){
             
                 {/* Google Button */}
                 <TouchableOpacity style={SignInStyle.Googlebutton}>
-                <Image source={require('../../assets/Images/g-logo.png')} style={SignInStyle.googlelogo}></Image>
+                <Image source={require('../../assets/iOS/AppIcon.appiconset/JAYU.png')} style={SignInStyle.googlelogo}></Image>
                     <Text style={SignInStyle.googlebuttontext}
                         onPress={()=>{
                             props.navigation.navigate('SetUp')

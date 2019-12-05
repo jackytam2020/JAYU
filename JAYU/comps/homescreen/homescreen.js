@@ -40,8 +40,8 @@ function HomeScreen(props){
                <View style={{ flex:barHeight ,flexDirection:'row',justifyContent:'center', top:normalize(40)}}>
                    <View style={styles.deadlineRow}>
                        <View style={styles.deadlineTitle}>
-                           <Text style={{fontSize:normalize(17), fontFamily:"SFProText-Medium", color:"white"}}>Coming up next</Text>
-                           <Text style={{fontSize:normalize(15), color:'white'}}
+                           <Text style={{fontSize:normalize(14), fontFamily:"SFProText-Medium", color:"#F2F2F2"}}>Coming up next</Text>
+                           <Text style={{fontSize:normalize(14), color:'#F2F2F2'}}
                            onPress={()=>{
                                if(expand == 'expand'){
                                 setExpand('collapse')
