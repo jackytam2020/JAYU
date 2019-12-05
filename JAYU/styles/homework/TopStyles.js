@@ -35,7 +35,7 @@ const TopStyles = StyleSheet.create({
         fontFamily:'SFProDisplay-Regular',
         marginTop: 10,
         fontSize:20,
-        marginLeft:60
+        marginLeft:20
         
     },
     placeholder:{
@@ -75,9 +75,14 @@ const TopStyles = StyleSheet.create({
 
     icon2: {
         fontFamily:'SFProDisplay-Medium',
-       
         marginLeft:30,
         fontSize:18
+    },
+    icon3: {
+        fontFamily:'SFProDisplay-Medium',
+        marginLeft:30,
+        marginTop:25,
+        fontSize:18,
     },
     hideContainer:{
         display:'none'

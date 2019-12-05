@@ -44,7 +44,7 @@ function EditMark(props){
             }
         };
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
         console.log("assignment", r.data);
         ReadMarks();
     }

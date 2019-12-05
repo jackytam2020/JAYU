@@ -43,7 +43,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -57,7 +57,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -71,7 +71,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -84,7 +84,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -98,7 +98,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -112,7 +112,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -126,7 +126,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -140,7 +140,7 @@ function Schedule(props) {
             data: {}
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
 
         var dbusers = JSON.parse(r.data.body);
         console.log("Read", dbusers);
@@ -319,20 +319,6 @@ function Schedule(props) {
             
             }}>
                 <View style={{width: "100%", alignItems:"center", justifyContent: "center"}}>
-                <Button
-                    title="test"
-                    onPress={() => {
-                        ReadAssignments("photoshop_read");
-                        ReadAssignments1("design2_read");
-                        ReadAssignments2("business_read");
-                        ReadAssignments3("sales_read");
-                        ReadAssignments4("accounting_read");
-                        ReadAssignments5("assets_read");
-                        ReadAssignments6("webdev_read");
-                        ReadAssignments7("project2_read");
-                        console.log(fagenda)
-                    }}
-                />
                 {
                     fagenda.map((obj, i) => {
                         return <Card

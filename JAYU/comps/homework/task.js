@@ -9,13 +9,13 @@ import axios from 'axios';
 
 
 
-function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, updateKey, courseDeleteKey, table}){
+function Task({id,assignment_name,completed,deleted, due_date, updateKey, courseDeleteKey, table}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
-    const [date, setDueDate] = useState(new Date())
+    const [date, setDueDate] = useState(new Date());
     const [done, setDone] = useState("none");
-    
+    const [done2,setDone2] = useState("none");
     const [doneBut,setDoneBut] = useState(false);
     const [check, SetCheck] = useState(false)
     const [showPicker, setShowPicker] = useState(TopStyles.hideContainer);
@@ -29,10 +29,10 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
     useEffect(()=>{
         setNewAssignment(assignment_name);
         ReadTasks();
-        if(duePickerDate === ''){
-            setDuePickerDate("Add Due Date");
-        } else {setDuePickerDate(due_date);}
+       
     }, []);
+
+  
 
     //observe change in variable of table
     useEffect(()=>{
@@ -52,7 +52,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             }
         };
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
         console.log("assignment", r.data);
     }
 
@@ -63,7 +63,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 id:id
             }
         };
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
         ReadAssignments();
     }
   
@@ -91,7 +91,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 completed:completed
             }
         }
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
         console.log("Create", r.data);
         await ReadTasks();
         
@@ -106,7 +106,7 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             }
         }
 
-        var r = await axios.post('http://localhost:3001/post', obj);
+        var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
        
         var dbusers = JSON.parse(r.data.body);
         console.log("Read Task", dbusers);
@@ -135,9 +135,11 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
             </View>
             <Text onPress={() =>{
                 // activates drop down for tasks
-
+                if(duePickerDate === ''){
+                    setDuePickerDate("Add Due Date");
+                } else {setDuePickerDate(due_date);}
                 setAssignmentsIcon('􀆈')
-               
+                
                 var arr = addButton;
                 arr.push(1)
                 arr = arr.map((o)=>{
@@ -194,16 +196,17 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                 <Text style={TopStyles.dueDate} 
                     onPress={()=>{
                         setShowPicker(TopStyles.dateContainer)
-                        
+                        setDone2("flex")
                     }}
                 >{duePickerDate}</Text>
-                <TouchableOpacity style={{marginLeft:150, display:done,marginTop:10}}><Text 
-                style={{color:'#00AEEF',}}
+                <TouchableOpacity style={{marginLeft:150, display:done2,marginTop:10}}><Text 
+                style={{color:'#00AEEF'}}
                 onPress={()=>{
                    //setDone1("none");
                    // setDuePickerDate(dd)
                     setShowPicker(TopStyles.hideContainer)
-                   
+                    setDone2("none")
+                    UpdateAssignmentName();
                 }}>Done</Text></TouchableOpacity>
             </View>
             <View style={showPicker}>
@@ -214,10 +217,9 @@ function Task({id,assignment_name,completed,deleted, due_date,ReadAssignments, u
                     mode = {'date'}
                
                 onDateChange = {async(d)=>{
-                    setDuePickerDate(moment(d).format("MM/DD/YYYY"));
-                    /* var date = await moment(d).format("MM/DD/YYYY");
-                       setDuePickerDate(date);
-                       console.log(dd) */ 
+                    setDueDate(d)
+                    var date = await moment(d).format("MM/DD/YYYY");
+                    setDuePickerDate(date)
                 }}
                 />
             </View>
