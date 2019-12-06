@@ -490,7 +490,7 @@ function Schedule(props) {
                 </View>
             </Modal>
 
-            <View style={{ width: '100%', flex:0.12, bottom: 0, }}>
+            <View style={{ width: '100%', flex:0.21, bottom: 0, }}>
                 <FooterBar title={props.navigation.getParam("title")}/>
             </View>
 
