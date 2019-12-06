@@ -38,7 +38,8 @@ function ViewMark(props){
                         courseKey: "marksaccounting_create",
                         courseReadKey: "marksaccounting_read",
                         courseDeleteKey: "marksaccounting_delete",
-                        courseUpdateKey: "marksaccounting_update"
+                        courseUpdateKey: "marksaccounting_update",
+                        title: "Marks"
                     }) 
                     }}>
                     <Text style={[{color:"#FF9500"},viewMarkStyles.circle]}>􀘝</Text>
@@ -57,7 +58,8 @@ function ViewMark(props){
                     courseKey: "marksphotoshop_create",
                     courseReadKey: "marksphotoshop_read",
                     courseDeleteKey: "marksphotoshop_delete",
-                    courseUpdateKey: "marksphotoshop_update"
+                    courseUpdateKey: "marksphotoshop_update",
+                    title: "Marks"
                 }) 
                 }}>
 
@@ -76,7 +78,8 @@ function ViewMark(props){
                     courseKey: "marksassets_create",
                     courseReadKey: "marksassets_read",
                     courseDeleteKey: "marksassets_delete",
-                    courseUpdateKey: "marksassets_update"
+                    courseUpdateKey: "marksassets_update",
+                    title: "Marks"
                 }) 
                 }}>
                     <Text style={[{color:"#FFCF00"},viewMarkStyles.circle]}>􀏀</Text>
@@ -93,7 +96,8 @@ function ViewMark(props){
                     courseKey: "marksbusiness_create",
                     courseReadKey: "marksbusiness_read",
                     courseDeleteKey: "marksbusiness_delete",
-                    courseUpdateKey: "marksbusiness_update"    
+                    courseUpdateKey: "marksbusiness_update",
+                    title: "Marks"    
                 }) 
                 }}>
                     <Text style={[{color:"#4CD964"},viewMarkStyles.circle]}>􀒡</Text>
@@ -111,7 +115,8 @@ function ViewMark(props){
                     courseKey: "marksdesign2_create",
                     courseReadKey: "marksdesign2_read",
                     courseDeleteKey: "marksdesign2_delete",
-                    courseUpdateKey: "marksdesign2_update"      
+                    courseUpdateKey: "marksdesign2_update",
+                    title: "Marks"      
                 }) 
                 }}>
                     <Text style={[{color:"#FF3B30"},viewMarkStyles.circle]}>􀈌
@@ -129,7 +134,8 @@ function ViewMark(props){
                     courseKey: "markssales_create",
                     courseReadKey: "markssales_read",
                     courseDeleteKey: "markssales_delete",
-                    courseUpdateKey: "markssales_update"     
+                    courseUpdateKey: "markssales_update",
+                    title: "Marks"     
                 }) 
                 }}>
                     <Text style={[{color:"#5856D6"},viewMarkStyles.circle]}>􀋤</Text>
@@ -146,7 +152,8 @@ function ViewMark(props){
                     courseKey: "marksproject2_create",
                     courseReadKey: "marksproject2_read",
                     courseDeleteKey: "marksproject2_delete",
-                    courseUpdateKey: "marksproject2_update" 
+                    courseUpdateKey: "marksproject2_update",
+                    title: "Marks" 
                 }) 
                 }}>
                     <Text style={[{color:"#007AFF"},viewMarkStyles.circle]}>􀉮</Text>
@@ -163,7 +170,8 @@ function ViewMark(props){
                     courseKey: "markswebdev_create",
                     courseReadKey: "markswebdev_read",
                     courseDeleteKey: "markswebdev_delete",
-                    courseUpdateKey: "markswebdev_update"      
+                    courseUpdateKey: "markswebdev_update",
+                    title: "Marks"
                 }) 
                 }}>
                     <Text style={[{color:"#C69C6D"},viewMarkStyles.circle]}>􀁛</Text>
