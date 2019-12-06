@@ -6,7 +6,8 @@ const scheduleStyle = StyleSheet.create({
         height:'100%',
         width:'100%',
         justifyContent: "center",
-        marginTop:10
+        marginTop:10,
+        flex: 0.95
     },
     calendar: {
         position:'relative',

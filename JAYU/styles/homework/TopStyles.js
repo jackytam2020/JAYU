@@ -47,9 +47,8 @@ const TopStyles = StyleSheet.create({
 
     dueDate:{
         fontFamily:'SFProDisplay-Regular',
-        marginTop: 5,
-        fontSize:12,
-        marginLeft: 90,
+        margin: 8,
+        fontSize:14,
         color:"#007AFF",
         flexDirection: "row"
     },

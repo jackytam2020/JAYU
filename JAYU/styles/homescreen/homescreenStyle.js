@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         flex:0.90,
     },
     greetingBox:{
-        flex:0.14,
+        flex:0.15,
         justifyContent:'center',
         flexDirection:'row'
     },
