@@ -1,37 +1,52 @@
 
-import React, {useState} from 'react';
-import {View, Text, Image, ImageBackground, TouchableOpacity} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, Image, ImageBackground, TouchableOpacity, ScrollView, AsyncStorage} from 'react-native';
+import normalize from 'react-native-normalize';
 import styles from '../../styles/homescreen/homescreenStyle';
-
+import axios from 'axios';
 
 function HomeScreen(props){
     const [expand, setExpand] = useState("expand")
     const [barHeight, setBarHeight] = useState(0.08)
     const [showItems, setShowItems] = useState(styles.hideItems)
+    const [user, setUser] = useState({});
+
+    const ReadUsers = async()=>{
+        var u = await AsyncStorage.getItem("user");
+        console.log(u);
+        u = JSON.parse(u);
+        setUser(u)
+    }
+    
+     // when comp loads, read users
+     useEffect(()=>{
+        ReadUsers();
+    },[]);
+
   return (
-        <ImageBackground source={require('../../assets/BackgroundImages/original.png')} style={{flex:1, justifyContent:'flex-end'}}>
+        <ImageBackground source={require('../../assets/BackgroundImages/Homescreen_Purple.png')} style={{flex:1, justifyContent:'flex-end', width:"100.5%", marginLeft:"-0.25%"}}>
             <View style={styles.home}>
                
                <View style={styles.greetingBox}>
                    <View style={styles.greetingRow}>
-                       <Text style={{fontSize:25, color:'white'}}>Good morning Irvin</Text>
-                       <Text style={{fontSize:15, color:'white'}}>so far, you're doing great!</Text>
-                       <Text style={{fontSize:15, color:'white'}}>46% of today's progress</Text>
-                       <Text style={{fontSize:15, color:'white'}}>20 tasks left</Text>
+                       <Text style={{fontSize:normalize(30), color:'white', fontFamily:"SFProDisplay-Semibold"}}>Good morning {user.username || ""}</Text>
+                       <Text style={{fontSize:normalize(20), color:'white', fontFamily:"SFProDisplay-Semibold", opacity: 0.7}}>so far, you're doing great!</Text>
+                       <Text style={{fontSize:normalize(20), color:'white', fontFamily:"SFProDisplay-Semibold", opacity: 0.7}}>46% of today's progress</Text>
+                       <Text style={{fontSize:normalize(20), color:'white', fontFamily:"SFProDisplay-Semibold", opacity: 0.7}}>20 tasks left</Text>
                    </View>
                </View>
 
                {/* Deadline bar */}
-               <View style={{ flex:barHeight,flexDirection:'row',justifyContent:'center', top:20}}>
+               <View style={{ flex:barHeight ,flexDirection:'row',justifyContent:'center', top:normalize(40)}}>
                    <View style={styles.deadlineRow}>
                        <View style={styles.deadlineTitle}>
-                           <Text style={{fontSize:15}}>coming up next</Text>
-                           <Text style={{fontSize:10, color:'grey'}}
+                           <Text style={{fontSize:normalize(14), fontFamily:"SFProText-Medium", color:"#F2F2F2"}}>Coming up next</Text>
+                           <Text style={{fontSize:normalize(14), color:'#F2F2F2'}}
                            onPress={()=>{
                                if(expand == 'expand'){
                                 setExpand('collapse')
                                 setShowItems(styles.itemContainer);
-                                setBarHeight(0.23)
+                                setBarHeight(0.27)
                                }
                                if(expand == 'collapse'){
                                 setExpand('expand')
@@ -42,18 +57,24 @@ function HomeScreen(props){
                            >{expand}</Text>
                        </View>
                        <View style={showItems}>
+                           <ScrollView style={{height:"25%"}}>
                             <View style={{flexDirection:"row", marginBottom:5}}>
-                                <Text style={{color:'grey'}}>Design 2 exam in 1 week</Text>
+                            <Text style={{color:'white' ,fontSize: normalize(10), fontFamily:"SFCompactRounded-Regular", marginTop:normalize(5)}}>􀀀     </Text>
+                                <Text style={{color:'white' ,fontSize: normalize(20), fontFamily:"SFCompactRounded-Regular"}}>Design 2 exam in 1 week</Text>
                             </View>
                             <View style={{flexDirection:"row", marginBottom:5}}>
-                                <Text style={{color:'grey'}}>Business Communication exam in 2 weeks</Text>
+                            <Text style={{color:'white' ,fontSize: normalize(10), fontFamily:"SFCompactRounded-Regular", marginTop:normalize(5)}}>􀀀     </Text>
+                                <Text style={{color:'white' ,fontSize: normalize(20), fontFamily:"SFCompactRounded-Regular"}}>Business Communication exam in 2 weeks</Text>
                             </View>
                             <View style={{flexDirection:"row", marginBottom:5}}>
-                                <Text style={{color:'grey'}}>Project 2 weekly report due tomorrow</Text>
+                            <Text style={{color:'white' ,fontSize: normalize(10), fontFamily:"SFCompactRounded-Regular", marginTop:normalize(5)}}>􀀀     </Text>
+                                <Text style={{color:'white' ,fontSize: normalize(20), fontFamily:"SFCompactRounded-Regular"}}>Project 2 weekly report due tomorrow</Text>
                             </View>
                             <View style={{flexDirection:"row", marginBottom:5}}>
-                                <Text style={{color:'grey'}}>Sales Presentation due in 2 days</Text>
+                            <Text style={{color:'white' ,fontSize: normalize(10), fontFamily:"SFCompactRounded-Regular", marginTop:normalize(5)}}>􀀀     </Text>
+                                <Text style={{color:'white' ,fontSize: normalize(20), fontFamily:"SFCompactRounded-Regular"}}>Sales Presentation due in 2 days</Text>
                             </View>
+                            </ScrollView>
                        </View>
                    </View>
                </View>
@@ -69,9 +90,11 @@ function HomeScreen(props){
                                     props.navigation.navigate('Schedule')
                                 }}>
                                 <View style={styles.boxRow}>
-                                    <View style={{flex:0.25}}></View>
-                                    <View style={{flex:0.75}}>
-                                        <Text style={{fontSize:15}}>Calendar</Text>
+                                    <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
+                                        <Text style={{fontFamily:"SFCompactRounded-Light", fontSize: normalize(45), color:"#404040"}}>􀉉</Text>
+                                    </View>
+                                    <View style={{flex:0.7}}>
+                                        <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", color:"#404040"}}>Calendar</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -83,10 +106,12 @@ function HomeScreen(props){
                                 props.navigation.navigate('Homework')
                             }}>
                             <View style={styles.boxRow}>
-                                <View style={{flex:0.25}}></View>
-                                <View style={{flex:0.75}}>
-                                    <Text style={{fontSize:15}}>Homework</Text>
-                                </View>
+                                    <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
+                                        <Text style={{fontFamily:"SFCompactRounded-Light", fontSize: normalize(40), color:"#404040"}}>􀉆</Text>
+                                    </View>
+                                    <View style={{flex:0.7}}>
+                                        <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", color:"#404040"}}>Homework</Text>
+                                    </View>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -97,9 +122,11 @@ function HomeScreen(props){
                                     props.navigation.navigate('Classboard')
                                 }}>
                                 <View style={styles.boxRow}>
-                                    <View style={{flex:0.25}}></View>
-                                    <View style={{flex:0.75}}>
-                                        <Text style={{fontSize:15}}>Classboard</Text>
+                                    <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
+                                        <Text style={{fontFamily:"SFCompactRounded-Light", fontSize: normalize(45), color:"#404040"}}>􀉫</Text>
+                                    </View>
+                                    <View style={{flex:0.7}}>
+                                        <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", color:"#404040"}}>ClassBoard</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -111,10 +138,12 @@ function HomeScreen(props){
                                 props.navigation.navigate('ViewMark')
                             }}>
                             <View style={styles.boxRow}>
-                                <View style={{flex:0.25}}></View>
-                                <View style={{flex:0.75}}>
-                                    <Text style={{fontSize:15}}>View Marks</Text>
-                                </View>
+                                    <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
+                                        <Text style={{fontFamily:"SFCompactRounded-Light", fontSize: normalize(40), color:"#404040"}}>􀉞</Text>
+                                    </View>
+                                    <View style={{flex:0.7}}>
+                                        <Text style={{fontSize:normalize(20), fontFamily:"SFProDisplay-Medium", color:"#404040"}}>View Mark</Text>
+                                    </View>
                             </View>
                         </TouchableOpacity>
                     </View>  

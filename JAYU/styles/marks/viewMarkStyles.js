@@ -1,5 +1,7 @@
 import React from 'react-native';
 import {StyleSheet} from 'react-native';
+import normalize from 'react-native-normalize';
+
 
 const viewMarkStyles = StyleSheet.create({
 
@@ -7,53 +9,69 @@ const viewMarkStyles = StyleSheet.create({
         display: "flex",
         fontSize: 20,
         alignItems: "center",
-        justifyContent: "center",
-        flex: 0.4,
+        // justifyContent: "center",
+        height:normalize(40) ,
         flexDirection: "row",
-        fontFamily: "SFProDisplay-Regular"
+        fontFamily: "SFProDisplay-Regular",
+        // backgroundColor:"#DAD"
 
     
 
     },
 
     title: {
-        fontSize: 25,
-        fontFamily: "SFProDisplay-Medium"
+        fontSize: normalize(20),
+        fontFamily: "SFProDisplay-Medium",
+        marginLeft:normalize(90)
+    },
 
+    back: {
+        fontSize: normalize(20),
+        fontFamily: "SFProDisplay-Medium",
+        color:"#007AFF"
     },
 
     classesCont:{
+        display:"flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        flex: 6
+        // // alignItems: "center",
+        // justifyContent: "center",
+        // backgroundColor:"#DAD",
+        paddingTop:normalize(4),
+        paddingBottom:normalize(4),
+        marginBottom:"12%",
 
     },
 
     classes:{
-        borderRadius: 10,
+        flex:1,
+        borderRadius: normalize(15),
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
-        padding: 11,
-        margin: 7,
+        padding: normalize(15),
+        marginTop: normalize(4),
+        marginBottom: normalize(4),
+        marginRight: normalize(8),
+        marginLeft: normalize(8),
        
         
     },
 
     classText:{
-        flex: 3,
-        textAlign: "center",
+        flex: 1,
+        textAlign: "left",
         fontFamily: "SFProDisplay-Regular",
-        fontSize: 18
+        fontSize: normalize(19),
+        marginLeft: normalize(20)
     },
 
     circle: {
         textAlignVertical: "center",
         textAlign: "center",
-        marginLeft: 15,
+        marginLeft: normalize(15),
         fontFamily: "SFProDisplay-Medium",
-        fontSize: 38
+        fontSize: normalize(38)
     },
 
 

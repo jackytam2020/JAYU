@@ -21,7 +21,11 @@ const StorybookUIRoot = getStorybookUI({});
 //AppRegistry.registerComponent('%APP_NAME%', () => StorybookUIRoot);
 const AppNavigator = createStackNavigator({ 
     HomeScreen: { screen: StorybookUIRoot },
-    }
+    },
+    {
+      headerMode: 'none'
+  },
+
 );
   
   const AppContainer = createAppContainer(AppNavigator);

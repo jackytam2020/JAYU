@@ -17,26 +17,38 @@ function SignIn(props){
             <ImageBackground source={require('../../assets/BackgroundImages/SignInBackground.png')}style={SignInStyle.BackGround}>
             <SafeAreaView>
                 {/* Heading */}
-                <Text style={SignInStyle.header}>Welcome to JAYU</Text>
+                <Text style={SignInStyle.header}>Welcome Back 
+                {"\n"}to JAYU</Text>
                 {/* descriptions */}
-                <Text style={SignInStyle.ds}>Design for D3 students. Track your Calendar, Schedules and Marks; all in one place</Text>
-                {/* button */}
-                <TouchableOpacity style={SignInStyle.button}>
-                    <Image source={require('../../assets/Images/Apple_Logo.png')} style={SignInStyle.applelogo}></Image>
-                    <Text style={SignInStyle.buttontext}
+                <Text style={SignInStyle.ds}>Designed for D3 students.{"\n"}
+                {"\n"}
+                Track your Calendar, Schedules and Marks
+                {"\n"}all in one place.</Text>
+
+                <View style={SignInStyle.buttonview}>
+            
+                {/* Google Button */}
+                <TouchableOpacity style={SignInStyle.Googlebutton}>
+                <Image source={require('../../assets/iOS/AppIcon.appiconset/JAYU.png')} style={SignInStyle.googlelogo}></Image>
+                    <Text style={SignInStyle.googlebuttontext}
+                        onPress={()=>{
+                            props.navigation.navigate('SetUp')
+                        }}
+                    >Sign into JAYU</Text>
+                </TouchableOpacity>
+               
+                
+                {/* Terms and conditions */}
+                <View style={{flex:0.25}}>
+                    <Text style={SignInStyle.Terms}>By signing in, you are agreed to the</Text>
+                    <TouchableOpacity style={SignInStyle.TermOpacity}>
+                        <Text style={SignInStyle.Termblue}
                         onPress={()=>{
                             props.navigation.navigate('Term')
-                        }}
-                    >Sign in with Apple</Text>
-                </TouchableOpacity>
-                {/* sign in descriptions */}
-                <Text style={SignInStyle.Signinds}>Sign in with Apple helps keep your data consistent across all your devices</Text>
-                {/* Terms and conditions */}
-                <Text style={SignInStyle.Terms}>By signing in, you are agreed to the</Text>
-                 <TouchableOpacity style={SignInStyle.TermOpacity}>
-                     <Text style={SignInStyle.Termblue}>JAYU's Terms and Conditions 􀆊</Text>
-                </TouchableOpacity>
-                
+                        }}>JAYU's Terms and Conditions 􀆊</Text>
+                    </TouchableOpacity>
+                </View>
+                </View>
             </SafeAreaView>
             </ImageBackground>
         </View>
