@@ -87,7 +87,9 @@ function HomeScreen(props){
                     <View style={{flex:0.30}}>
                             <TouchableOpacity style={styles.boxItems}  
                                 onPress={()=>{
-                                    props.navigation.navigate('Schedule')
+                                    props.navigation.navigate('Schedule',{
+                                        title: "Calendar"
+                                    })
                                 }}>
                                 <View style={styles.boxRow}>
                                     <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
@@ -103,7 +105,9 @@ function HomeScreen(props){
                     <View style={{flex:0.30}}>
                     <TouchableOpacity style={styles.boxItems}  
                             onPress={()=>{
-                                props.navigation.navigate('Homework')
+                                props.navigation.navigate('Homework',{
+                                    title: "Homework"
+                                })
                             }}>
                             <View style={styles.boxRow}>
                                     <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
@@ -119,7 +123,9 @@ function HomeScreen(props){
                      <View style={{flex:0.30}}>
                         <TouchableOpacity style={styles.boxItems}  
                                 onPress={()=>{
-                                    props.navigation.navigate('Classboard')
+                                    props.navigation.navigate('Classboard',{
+                                        title: "Classboard"
+                                    })
                                 }}>
                                 <View style={styles.boxRow}>
                                     <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
@@ -135,7 +141,9 @@ function HomeScreen(props){
                     <View style={{flex:0.30}}>
                     <TouchableOpacity style={styles.boxItems}  
                             onPress={()=>{
-                                props.navigation.navigate('ViewMark')
+                                props.navigation.navigate('ViewMark',{
+                                    title: "Marks"
+                                })
                             }}>
                             <View style={styles.boxRow}>
                                     <View style={{flex:0.3, alignItems:"center", justifyContent:"center"}}>
