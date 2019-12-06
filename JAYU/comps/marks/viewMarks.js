@@ -24,7 +24,7 @@ function ViewMark(props){
                         props.navigation.navigate("HomeScreen")
                 }}
                 > 􀆉 Back</Text>
-                <Text style= {viewMarkStyles.title}>Marks</Text>
+                <Text style= {viewMarkStyles.title}>{props.navigation.getParam("title")}</Text>
             </View> 
         
             <ScrollView style ={viewMarkStyles.classesCont}>
@@ -181,7 +181,7 @@ function ViewMark(props){
             </View>
 
             <View style={{width:'100%', height:'10%', position:'absolute', bottom:0}}>
-                <FooterBar />
+                <FooterBar title={props.navigation.getParam("title")}/>
             </View>    
          </SafeAreaView>
 

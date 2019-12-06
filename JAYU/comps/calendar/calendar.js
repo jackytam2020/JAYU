@@ -304,10 +304,11 @@ function Schedule(props) {
                 <Text style={{fontSize:normalize(20),marginRight:normalize(145), fontFamily:"SFProDisplay-Medium", }}>{props.navigation.getParam("title")}</Text>
                 
             </View>
-            <View style={{ flex: 1.1,borderBottomColor:"grey", borderBottomWidth: 0.5, borderBottomColor:"grey", borderBottomWidth: 0.5, marginTop: 10}}>
+            <View style={{ flex: 0.9,borderBottomColor:"grey", borderBottomWidth: 0.5, borderBottomColor:"grey", borderBottomWidth: 0.5, marginTop: 10}}>
                 <CalendarPicker
-                selectedDayColor="lightgrey"
-                todayBackgroundColor= "green"
+                
+                selectedDayColor="#7FD6F7"
+                todayBackgroundColor= "#F2F2F2"
                 onDateChange = {(v)=>{
                     setViewDay(moment(v).format("MM/DD/YYYY"))
                     console.log(viewDay);
@@ -319,7 +320,7 @@ function Schedule(props) {
               
                 alignItems:"center",
                 backgroundColor: "#f2f2f2",
-                flex: 1
+                flex: 2
             
             }}>
                 <View style={{width: "100%", alignItems:"center", justifyContent: "center"}}>
@@ -489,7 +490,7 @@ function Schedule(props) {
                 </View>
             </Modal>
 
-            <View style={{ width: '100%', height: '11%', bottom: 0 }}>
+            <View style={{ width: '100%', flex:0.21, bottom: 0, }}>
                 <FooterBar title={props.navigation.getParam("title")}/>
             </View>
 

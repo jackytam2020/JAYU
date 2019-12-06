@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 
-function Task({id,assignment_name,completed,deleted, due_date, updateKey, courseDeleteKey, table}){
+function Task({id,assignment_name,completed,deleted,due_date, updateKey, courseDeleteKey, table}){
     const[addButton, setAddButton] = useState([]);
     const[addTasks, setAddTasks] = useState([]);
     const [assignmentsIcon, setAssignmentsIcon] = useState('􀆊 ');
@@ -64,7 +64,7 @@ function Task({id,assignment_name,completed,deleted, due_date, updateKey, course
             }
         };
         var r = await axios.post('https://jayu-d3.herokuapp.com/post', obj);
-        ReadAssignments();
+       
     }
   
 
@@ -172,6 +172,12 @@ function Task({id,assignment_name,completed,deleted, due_date, updateKey, course
             }}
             defaultValue={assignment_name}
             ></TextInput>
+             <Text style={TopStyles.dueDate} 
+                    onPress={()=>{
+                        setShowPicker(TopStyles.dateContainer)
+                        setDone2("flex")
+                    }}
+                >{duePickerDate}</Text>
             </ScrollView>
 
             <TouchableOpacity style={{alignItems:"center",justifyContent:"center", flex: 0.5, display: done}}
@@ -193,13 +199,7 @@ function Task({id,assignment_name,completed,deleted, due_date, updateKey, course
         <View style={{display:done}}>
             {/*Task item rows */}
             <View style={{flexDirection:"row"}}>
-                <Text style={TopStyles.dueDate} 
-                    onPress={()=>{
-                        setShowPicker(TopStyles.dateContainer)
-                        setDone2("flex")
-                    }}
-                >{duePickerDate}</Text>
-                <TouchableOpacity style={{marginLeft:150, display:done2,marginTop:10}}><Text 
+                <TouchableOpacity style={{marginLeft:300, display:done2,marginTop:10}}><Text 
                 style={{color:'#00AEEF'}}
                 onPress={()=>{
                    //setDone1("none");
